@@ -4,12 +4,12 @@ tasks:
     build:
         desc: Build the app
         cmds:
-        - GOFLAGS=-mod=mod go build -o bin/go-rest-api internal/main.go
+        - GOFLAGS=-mod=mod go build -o bin cmd/addi-server/main.go
 
     run:
         desc: Run the app
         cmds:
-        - GOFLAGS=-mod=mod go run internal/main.go
+        - GOFLAGS=-mod=mod go run cmd/addi-server/main.go
 
     swagger.gen:
         desc: Generate Go code
@@ -19,9 +19,9 @@ tasks:
     swagger.validate:
         desc: Validate swagger
         cmds:
-        - swagger validate ./swagger.json
+        - swagger validate swagger.json
 
     swagger.doc:
         desc: Doc for swagger
         cmds:
-        - docker run -i yousan/swagger-yaml-to-html < swagger.json > doc/index.html
+        - docker run -p 80:8080 -e SWAGGER_JSON=swagger.json swaggerapi/swagger-ui

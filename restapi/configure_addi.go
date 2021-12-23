@@ -13,7 +13,7 @@ import (
 	"addi/restapi/operations"
 )
 
-//go:generate swagger generate server --target ../../src --name Addi --spec ../pkg/swagger/swagger.yml --principal interface{}
+//go:generate swagger generate server --target ../../src --name Addi --spec ../swagger.json --principal interface{}
 
 func configureFlags(api *operations.AddiAPI) {
 	// api.CommandLineOptionsGroups = []swag.CommandLineOptionsGroup{ ... }
