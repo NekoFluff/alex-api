@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "Name": "Direct Damange",
+    "Type": "Spell Effect",
+    "Description": "Allows the spell to deal additional direct damage to an opponent",
+    "Requirements": [],
+    "Unlocks": [],
+    "Effects": [],
+    "Cost": 0
+  },
+  {
+    "id": 1,
+    "Name": "Buffs and Debuffs",
+    "Type": "Spell Effect",
+    "Description": "Applies additional effects of some sort. Maybe there should be a different spell effect object for each buff/debuff",
+    "Requirements": [],
+    "Unlocks": [],
+    "Effects": [],
+    "Cost": 0
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 0,
+    "Name": "Duration",
+    "Type": "Specialization",
+    "Description": "Modifies the duration of the spell",
+    "Requirements": [],
+    "Unlocks": [],
+    "Effects": [],
+    "Cost": 0
+  },
+  {
+    "id": 1,
+    "Name": "Area Manipulation",
+    "Type": "Specialization",
+    "Description": "Modified the area of effect for the spell",
+    "Requirements": [],
+    "Unlocks": [],
+    "Effects": [],
+    "Cost": 0
+  },
+  {
+    "id": 2,
+    "Name": "Mana Cost",
+    "Type": "Specialization",
+    "Description": "Modifies how much mana it costs to cast the spell",
+    "Requirements": [],
+    "Unlocks": [],
+    "Effects": [],
+    "Cost": 0
+  },
+  {
+    "id": 3,
+    "Name": "Effect Intensity",
+    "Type": "Specialization",
+    "Description": "Modifies the effectiveness of the spell",
+    "Requirements": [],
+    "Unlocks": [],
+    "Effects": [],
+    "Cost": 0
+  }
+]

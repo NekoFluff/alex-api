@@ -1,0 +1,34 @@
+[
+  {
+    "id": 0,
+    "Name": "Sight",
+    "Type": "Magic Branch",
+    "Description": "Grants the ability to see father",
+    "ApplicableSpecializations": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "Requirements": [],
+    "Unlocks": [],
+    "Effects": [],
+    "Cost": 0
+  },
+  {
+    "id": 1,
+    "Name": "Manipulation",
+    "Type": "Magic Branch",
+    "Description": "Grants the ability to change space",
+    "ApplicableSpecializations": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "Requirements": [],
+    "Unlocks": [],
+    "Effects": [],
+    "Cost": 0
+  }
+]

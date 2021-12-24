@@ -1,0 +1,65 @@
+{
+  "Name": "Pain Sight", // Custom name set by the playere
+  "Description": "Deals damage to a distant target by causing the target's eyes to become dry and irritated.",
+  "Creator": 0, // Corresponds to the user id which created this spell
+  "Enhancements": [
+    {
+      "Spell": 0,
+      "Specialization": {
+        "id": 0, // Duration specialization
+        "Math": "*", // Multiplicative effect
+        "Value": 2, // Double the duration
+      },
+      "Spell Effect": {
+        "id": 0, // Additional direct damage spell effect
+        "Math": "+",
+        "Value": 1
+      },
+      "Cost": {
+        "id": 2, // Mana cost specialization
+        "Math": "*", // Multiplicative effect
+        "Value": 2 // Double the cost
+      }
+    },
+    {
+      "Spell": 0,
+      "Specialization": {
+        "id": 0, // Duration specialization
+        "Math": "*", // Multiplicative effect
+        "Value": 2, // Double the duration
+      },
+      "Spell Effect": {
+        "id": 0, // Additional direct damage spell effect
+        "Math": "+",
+        "Value": 1
+      },
+      "Cost": {
+        "id": 3, // Effect intensity specialization
+        "Math": "/", // Multiplicative effect
+        "Value": 2 // Halves the distance the user can see
+      }
+    },
+  ],
+  "Level": 3, // The level of the spell corresponds to the number of enhancements - 1
+  "Base Multipliers": {
+    "Duration": 1,
+    "Area of Effect": 1,
+    "Mana Cost": 1,
+    "Effect Intensity": 1,
+  },
+  "Final Multipliers": { // After all specializations are applied
+    "Duration": 4,
+    "Area of Effect": 1,
+    "Mana Cost": 2,
+    "Effect Intensity": 0.5, // Does effect intensity affect add on spell effects such as damage?
+  },
+  "Base Effects": {
+    "Duration": 60, // 60 minutes
+    "Distance": 100, // 100 meters
+  },
+  "Final Effects": {
+    "Duration": 240, // 60 * 4 = 240 minutes
+    "Distance": 50, // 100 * 0.5 = 50 meters
+    "Damage": 1 // (1 + 1) * 0.5 damage
+  }
+}
