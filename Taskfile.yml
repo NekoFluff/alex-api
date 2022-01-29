@@ -4,7 +4,7 @@ tasks:
     build:
         desc: Build the app
         cmds:
-        - GOFLAGS=-mod=mod go build -o bin/go-rest-api cmd/addi-server/main.go
+        - GOFLAGS=-mod=mod go build -o bin cmd/addi-server/main.go
 
     run:
         desc: Run the app
