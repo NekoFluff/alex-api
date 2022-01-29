@@ -34,6 +34,34 @@ func init() {
     "version": "0.1.0"
   },
   "paths": {
+    "/dsp": {
+      "get": {
+        "description": "Get the optimal recipe",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ItemRequest"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Recipe"
+              }
+            }
+          }
+        }
+      }
+    },
     "/gopher/{name}": {
       "get": {
         "description": "Return the Gopher Image.",
@@ -100,6 +128,101 @@ func init() {
           "400": {
             "description": "Invalid characters in \"user\" were provided."
           }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "summary": "Creates a new user.",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "get": {
+        "summary": "Returns a user by ID.",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "userId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ItemRequest": {
+      "required": [
+        "name",
+        "count"
+      ],
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Recipe": {
+      "properties": {
+        "consumesPerSec": {
+          "type": "object"
+        },
+        "craftingPerSecond": {
+          "type": "number"
+        },
+        "for": {
+          "type": "string"
+        },
+        "madeIn": {
+          "type": "string"
+        },
+        "numberOfFacilitiesNeeded": {
+          "type": "number"
+        },
+        "produce": {
+          "type": "string"
+        },
+        "secondsSpendPerCrafting": {
+          "type": "number"
+        }
+      }
+    },
+    "User": {
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
         }
       }
     }
@@ -122,6 +245,34 @@ func init() {
     "version": "0.1.0"
   },
   "paths": {
+    "/dsp": {
+      "get": {
+        "description": "Get the optimal recipe",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ItemRequest"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Recipe"
+              }
+            }
+          }
+        }
+      }
+    },
     "/gopher/{name}": {
       "get": {
         "description": "Return the Gopher Image.",
@@ -188,6 +339,101 @@ func init() {
           "400": {
             "description": "Invalid characters in \"user\" were provided."
           }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "summary": "Creates a new user.",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "get": {
+        "summary": "Returns a user by ID.",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "userId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ItemRequest": {
+      "required": [
+        "name",
+        "count"
+      ],
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Recipe": {
+      "properties": {
+        "consumesPerSec": {
+          "type": "object"
+        },
+        "craftingPerSecond": {
+          "type": "number"
+        },
+        "for": {
+          "type": "string"
+        },
+        "madeIn": {
+          "type": "string"
+        },
+        "numberOfFacilitiesNeeded": {
+          "type": "number"
+        },
+        "produce": {
+          "type": "string"
+        },
+        "secondsSpendPerCrafting": {
+          "type": "number"
+        }
+      }
+    },
+    "User": {
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
         }
       }
     }

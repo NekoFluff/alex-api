@@ -1,12 +1,67 @@
 {
-  "consumes": [
-    "application/json"
-  ],
+  "definitions": {
+    "User": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "ItemRequest": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "name",
+        "count"
+      ]
+    },
+    "Recipe": {
+      "properties": {
+        "produce": {
+          "type": "string"
+        },
+        "madeIn": {
+          "type": "string"
+        },
+        "numberOfFacilitiesNeeded": {
+          "type": "number"
+        },
+        "consumesPerSec": {
+          "type": "object"
+        },
+        "secondsSpendPerCrafting": {
+          "type": "number"
+        },
+        "craftingPerSecond": {
+          "type": "number"
+        },
+        "for": {
+          "type": "string"
+        }
+      }
+    }
+  },
   "info": {
     "description": "HTTP server in Go with Swagger endpoints definition.",
     "title": "go-rest-api",
     "version": "0.1.0"
   },
+  "consumes": [
+    "application/json"
+  ],
   "produces": [
     "application/json"
   ],
@@ -15,6 +70,34 @@
   ],
   "swagger": "2.0",
   "paths": {
+    "/dsp": {
+      "get": {
+        "description": "Get the optimal recipe",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ItemRequest"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Recipe"
+              }
+            }
+          }
+        }
+      }
+    },
     "/healthz": {
       "get": {
         "operationId": "checkHealth",
@@ -80,6 +163,46 @@
             "schema": {
               "type": "file"
             }
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "get": {
+        "summary": "Returns a user by ID.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "summary": "Creates a new user.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }

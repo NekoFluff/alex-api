@@ -1,0 +1,225 @@
+{
+  "Iron ingot": {
+    "Produce": 1,
+    "MadeIn": "Smelting facility",
+    "Time": 1,
+    "Materials": {
+      "Iron ore": 1
+    }
+  },
+  "Glass": {
+    "Produce": 1,
+    "MadeIn": "Smelting facility",
+    "Time": 2,
+    "Materials": {
+      "Stone": 2
+    }
+  },
+  "Prism": {
+    "Produce": 2,
+    "MadeIn": "Smelting facility",
+    "Time": 2,
+    "Materials": {
+      "Glass": 3
+    }
+  },
+  "Copper ingot": {
+    "Produce": 1,
+    "MadeIn": "Smelting facility",
+    "Time": 1,
+    "Materials": {
+      "Copper ore": 1
+    }
+  },
+  "Stone brick": {
+    "Produce": 1,
+    "MadeIn": "Smelting facility",
+    "Time": 1,
+    "Materials": {
+      "Stone": 1
+    }
+  },
+  "Energetic graphite": {
+    "Produce": 1,
+    "MadeIn": "Smelting facility",
+    "Time": 2,
+    "Materials": {
+      "Coal": 2
+    }
+  },
+  "Hydrogen": {
+    "Produce": 1,
+    "MadeIn": "Oil refinery",
+    "Time": 4,
+    "Materials": {
+      "Oil": 2
+    }
+  },
+  "Refined oil": {
+    "Produce": 2,
+    "MadeIn": "Oil refinery",
+    "Time": 4,
+    "Materials": {
+      "Crude oil": 2
+    }
+  },
+  "Plastic": {
+    "Produce": 1,
+    "MadeIn": "Chemical facility",
+    "Time": 3,
+    "Materials": {
+      "Hydrogen": 2,
+      "Energetic graphite": 1
+    }
+  },
+  "Graphene": {
+    "Produce": 2,
+    "MadeIn": "Chemical facility",
+    "Time": 3,
+    "Materials": {
+      "Energetic graphite": 3,
+      "Sulfur": 1
+    }
+  },
+  "High-purity silicon": {
+    "Produce": 1,
+    "MadeIn": "Smelting facility",
+    "Time": 2,
+    "Materials": {
+      "Silicon ore": 2
+    }
+  },
+  "Magnetic coil": {
+    "Produce": 2,
+    "MadeIn": "Assembler",
+    "Time": 1,
+    "Materials": {
+      "Magnet": 2,
+      "Copper ingot": 1
+    }
+  },
+  "Electric motor": {
+    "Produce": 1,
+    "MadeIn": "Assembler",
+    "Time": 2,
+    "Materials": {
+      "Iron ingot": 2,
+      "Gear": 2,
+      "Magnetic coil": 2
+    }
+  },
+  "Electromagnetic turbine": {
+    "Produce": 1,
+    "MadeIn": "Assembler",
+    "Time": 2,
+    "Materials": {
+      "Electric motor": 2,
+      "Magnetic coil": 2
+    }
+  },
+  "Circuit board": {
+    "Produce": 2,
+    "MadeIn": "Assembler",
+    "Time": 1,
+    "Materials": {
+      "Iron ingot": 2,
+      "Copper ingot": 1
+    }
+  },
+  "Processor": {
+    "Produce": 1,
+    "MadeIn": "Assembler",
+    "Time": 3,
+    "Materials": {
+      "Circuit board": 2,
+      "Microcrystalline component": 2
+    }
+  },
+  "Microcrystalline component": {
+    "Produce": 1,
+    "MadeIn": "Assembler",
+    "Time": 2,
+    "Materials": {
+      "High-purity silicon": 2,
+      "Copper ingot": 1
+    }
+  },
+  "Sulfur": {
+    "Produce": 4,
+    "MadeIn": "Chemical facility",
+    "Time": 6,
+    "Materials": {
+      "Refined oil": 6,
+      "Stone": 8,
+      "Water": 4
+    }
+  },
+  "Silicon ore": {
+    "Produce": 1,
+    "MadeIn": "Smelting facility",
+    "Time": 10,
+    "Materials": {
+      "Stone": 10
+    }
+  },
+  "Magnet": {
+    "Produce": 1,
+    "MadeIn": "Smelting facility",
+    "Time": 1.5,
+    "Materials": {
+      "Iron ore": 1
+    }
+  },
+  "Steel": {
+    "Produce": 1,
+    "MadeIn": "Smelting facility",
+    "Time": 3,
+    "Materials": {
+      "Iron ingot": 3
+    }
+  },
+  "Gear": {
+    "Produce": 1,
+    "MadeIn": "Assembler",
+    "Time": 1,
+    "Materials": {
+      "Iron ingot": 1
+    }
+  },
+  "Plasma Exciter": {
+    "Produce": 1,
+    "MadeIn": "Assembler",
+    "Time": 2,
+    "Materials": {
+      "Magnetic coil": 4,
+      "Prism": 2
+    }
+  },
+  "Electromagnetic matrix": {
+    "Produce": 1,
+    "MadeIn": "Research facility",
+    "Time": 3,
+    "Materials": {
+      "Magnetic coil": 1,
+      "Circuit board": 1
+    }
+  },
+  "Energy matrix": {
+    "Produce": 1,
+    "MadeIn": "Research facility",
+    "Time": 6,
+    "Materials": {
+      "Energetic graphite": 2,
+      "Hydrogen": 2
+    }
+  },
+  "Foundation": {
+    "Produce": 1,
+    "MadeIn": "Assembler",
+    "Time": 1,
+    "Materials": {
+      "Stone brick": 3,
+      "Steel": 1
+    }
+  }
+}
