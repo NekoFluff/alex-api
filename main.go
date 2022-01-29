@@ -4,9 +4,11 @@ import (
 	"addi/models"
 	"addi/restapi"
 	"addi/restapi/operations"
+	"addi/utils"
 	"encoding/json"
 	"io/ioutil"
 	"os"
+	"strconv"
 	"sync"
 
 	"fmt"
@@ -35,7 +37,15 @@ func main() {
 		}
 	}()
 
-	server.Port = 8080
+	port := utils.GetEnvVar("PORT")
+
+	// Translate port string into int
+	portInt, err := strconv.Atoi(port)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	server.Port = portInt
 
 	api.CheckHealthHandler = operations.CheckHealthHandlerFunc(Health)
 
