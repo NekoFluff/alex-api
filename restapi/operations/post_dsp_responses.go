@@ -13,14 +13,14 @@ import (
 	"addi/models"
 )
 
-// GetDspOKCode is the HTTP code returned for type GetDspOK
-const GetDspOKCode int = 200
+// PostDspOKCode is the HTTP code returned for type PostDspOK
+const PostDspOKCode int = 200
 
-/*GetDspOK OK
+/*PostDspOK OK
 
-swagger:response getDspOK
+swagger:response postDspOK
 */
-type GetDspOK struct {
+type PostDspOK struct {
 
 	/*
 	  In: Body
@@ -28,25 +28,25 @@ type GetDspOK struct {
 	Payload []*models.Recipe `json:"body,omitempty"`
 }
 
-// NewGetDspOK creates GetDspOK with default headers values
-func NewGetDspOK() *GetDspOK {
+// NewPostDspOK creates PostDspOK with default headers values
+func NewPostDspOK() *PostDspOK {
 
-	return &GetDspOK{}
+	return &PostDspOK{}
 }
 
-// WithPayload adds the payload to the get dsp o k response
-func (o *GetDspOK) WithPayload(payload []*models.Recipe) *GetDspOK {
+// WithPayload adds the payload to the post dsp o k response
+func (o *PostDspOK) WithPayload(payload []*models.Recipe) *PostDspOK {
 	o.Payload = payload
 	return o
 }
 
-// SetPayload sets the payload to the get dsp o k response
-func (o *GetDspOK) SetPayload(payload []*models.Recipe) {
+// SetPayload sets the payload to the post dsp o k response
+func (o *PostDspOK) SetPayload(payload []*models.Recipe) {
 	o.Payload = payload
 }
 
 // WriteResponse to the client
-func (o *GetDspOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
+func (o *PostDspOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
 
 	rw.WriteHeader(200)
 	payload := o.Payload

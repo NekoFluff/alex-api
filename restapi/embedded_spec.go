@@ -35,7 +35,7 @@ func init() {
   },
   "paths": {
     "/dsp": {
-      "get": {
+      "post": {
         "description": "Get the optimal recipe",
         "parameters": [
           {
@@ -294,7 +294,7 @@ func init() {
   },
   "paths": {
     "/dsp": {
-      "get": {
+      "post": {
         "description": "Get the optimal recipe",
         "parameters": [
           {

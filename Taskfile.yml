@@ -9,7 +9,7 @@ tasks:
     run:
         desc: Run the app
         cmds:
-        - GOFLAGS=-mod=mod go run cmd/addi-server/main.go
+        - GOFLAGS=-mod=mod go run main.go
 
     swagger.gen:
         desc: Generate Go code

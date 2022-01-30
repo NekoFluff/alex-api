@@ -73,7 +73,7 @@ func main() {
 
 	api.GetGopherNameHandler = operations.GetGopherNameHandlerFunc(GetGopherByName)
 
-	api.GetDspHandler = operations.GetDspHandlerFunc(DSP)
+	api.PostDspHandler = operations.PostDspHandlerFunc(DSP)
 
 	api.GetDspItemsHandler = operations.GetDspItemsHandlerFunc(GetDSPItems)
 
@@ -165,7 +165,7 @@ func GetDSPItems(params operations.GetDspItemsParams) middleware.Responder {
 	return operations.NewGetDspItemsOK().WithPayload(GetItems())
 }
 
-func DSP(params operations.GetDspParams) middleware.Responder {
+func DSP(params operations.PostDspParams) middleware.Responder {
 
 	// log.Println("Starting DSP Optimizer Program")
 
@@ -178,7 +178,7 @@ func DSP(params operations.GetDspParams) middleware.Responder {
 	// jsonStr, _ := json.MarshalIndent(recipe, "", "\t")
 	// fmt.Println(string(jsonStr))
 
-	return operations.NewGetDspOK().WithPayload(recipe)
+	return operations.NewPostDspOK().WithPayload(recipe)
 }
 
 //Health route returns OK

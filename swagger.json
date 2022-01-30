@@ -16,7 +16,7 @@
   ],
   "paths": {
     "/dsp": {
-      "get": {
+      "post": {
         "description": "Get the optimal recipe",
         "parameters": [
           {

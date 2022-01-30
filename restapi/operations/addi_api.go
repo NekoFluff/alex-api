@@ -44,9 +44,6 @@ func NewAddiAPI(spec *loads.Document) *AddiAPI {
 		JSONProducer: runtime.JSONProducer(),
 		TxtProducer:  runtime.TextProducer(),
 
-		GetDspHandler: GetDspHandlerFunc(func(params GetDspParams) middleware.Responder {
-			return middleware.NotImplemented("operation GetDsp has not yet been implemented")
-		}),
 		GetDspItemsHandler: GetDspItemsHandlerFunc(func(params GetDspItemsParams) middleware.Responder {
 			return middleware.NotImplemented("operation GetDspItems has not yet been implemented")
 		}),
@@ -58,6 +55,9 @@ func NewAddiAPI(spec *loads.Document) *AddiAPI {
 		}),
 		GetUsersUserIDHandler: GetUsersUserIDHandlerFunc(func(params GetUsersUserIDParams) middleware.Responder {
 			return middleware.NotImplemented("operation GetUsersUserID has not yet been implemented")
+		}),
+		PostDspHandler: PostDspHandlerFunc(func(params PostDspParams) middleware.Responder {
+			return middleware.NotImplemented("operation PostDsp has not yet been implemented")
 		}),
 		PostUsersHandler: PostUsersHandlerFunc(func(params PostUsersParams) middleware.Responder {
 			return middleware.NotImplemented("operation PostUsers has not yet been implemented")
@@ -107,8 +107,6 @@ type AddiAPI struct {
 	//   - text/plain
 	TxtProducer runtime.Producer
 
-	// GetDspHandler sets the operation handler for the get dsp operation
-	GetDspHandler GetDspHandler
 	// GetDspItemsHandler sets the operation handler for the get dsp items operation
 	GetDspItemsHandler GetDspItemsHandler
 	// GetGopherNameHandler sets the operation handler for the get gopher name operation
@@ -117,6 +115,8 @@ type AddiAPI struct {
 	GetHelloUserHandler GetHelloUserHandler
 	// GetUsersUserIDHandler sets the operation handler for the get users user ID operation
 	GetUsersUserIDHandler GetUsersUserIDHandler
+	// PostDspHandler sets the operation handler for the post dsp operation
+	PostDspHandler PostDspHandler
 	// PostUsersHandler sets the operation handler for the post users operation
 	PostUsersHandler PostUsersHandler
 	// CheckHealthHandler sets the operation handler for the check health operation
@@ -204,9 +204,6 @@ func (o *AddiAPI) Validate() error {
 		unregistered = append(unregistered, "TxtProducer")
 	}
 
-	if o.GetDspHandler == nil {
-		unregistered = append(unregistered, "GetDspHandler")
-	}
 	if o.GetDspItemsHandler == nil {
 		unregistered = append(unregistered, "GetDspItemsHandler")
 	}
@@ -218,6 +215,9 @@ func (o *AddiAPI) Validate() error {
 	}
 	if o.GetUsersUserIDHandler == nil {
 		unregistered = append(unregistered, "GetUsersUserIDHandler")
+	}
+	if o.PostDspHandler == nil {
+		unregistered = append(unregistered, "PostDspHandler")
 	}
 	if o.PostUsersHandler == nil {
 		unregistered = append(unregistered, "PostUsersHandler")
@@ -320,10 +320,6 @@ func (o *AddiAPI) initHandlerCache() {
 	if o.handlers["GET"] == nil {
 		o.handlers["GET"] = make(map[string]http.Handler)
 	}
-	o.handlers["GET"]["/dsp"] = NewGetDsp(o.context, o.GetDspHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
 	o.handlers["GET"]["/dsp/items"] = NewGetDspItems(o.context, o.GetDspItemsHandler)
 	if o.handlers["GET"] == nil {
 		o.handlers["GET"] = make(map[string]http.Handler)
@@ -337,6 +333,10 @@ func (o *AddiAPI) initHandlerCache() {
 		o.handlers["GET"] = make(map[string]http.Handler)
 	}
 	o.handlers["GET"]["/users/{userId}"] = NewGetUsersUserID(o.context, o.GetUsersUserIDHandler)
+	if o.handlers["POST"] == nil {
+		o.handlers["POST"] = make(map[string]http.Handler)
+	}
+	o.handlers["POST"]["/dsp"] = NewPostDsp(o.context, o.PostDspHandler)
 	if o.handlers["POST"] == nil {
 		o.handlers["POST"] = make(map[string]http.Handler)
 	}

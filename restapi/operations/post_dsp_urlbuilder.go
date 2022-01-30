@@ -11,15 +11,15 @@ import (
 	golangswaggerpaths "path"
 )
 
-// GetDspURL generates an URL for the get dsp operation
-type GetDspURL struct {
+// PostDspURL generates an URL for the post dsp operation
+type PostDspURL struct {
 	_basePath string
 }
 
 // WithBasePath sets the base path for this url builder, only required when it's different from the
 // base path specified in the swagger spec.
 // When the value of the base path is an empty string
-func (o *GetDspURL) WithBasePath(bp string) *GetDspURL {
+func (o *PostDspURL) WithBasePath(bp string) *PostDspURL {
 	o.SetBasePath(bp)
 	return o
 }
@@ -27,12 +27,12 @@ func (o *GetDspURL) WithBasePath(bp string) *GetDspURL {
 // SetBasePath sets the base path for this url builder, only required when it's different from the
 // base path specified in the swagger spec.
 // When the value of the base path is an empty string
-func (o *GetDspURL) SetBasePath(bp string) {
+func (o *PostDspURL) SetBasePath(bp string) {
 	o._basePath = bp
 }
 
 // Build a url path and query string
-func (o *GetDspURL) Build() (*url.URL, error) {
+func (o *PostDspURL) Build() (*url.URL, error) {
 	var _result url.URL
 
 	var _path = "/dsp"
@@ -44,7 +44,7 @@ func (o *GetDspURL) Build() (*url.URL, error) {
 }
 
 // Must is a helper function to panic when the url builder returns an error
-func (o *GetDspURL) Must(u *url.URL, err error) *url.URL {
+func (o *PostDspURL) Must(u *url.URL, err error) *url.URL {
 	if err != nil {
 		panic(err)
 	}
@@ -55,17 +55,17 @@ func (o *GetDspURL) Must(u *url.URL, err error) *url.URL {
 }
 
 // String returns the string representation of the path with query string
-func (o *GetDspURL) String() string {
+func (o *PostDspURL) String() string {
 	return o.Must(o.Build()).String()
 }
 
 // BuildFull builds a full url with scheme, host, path and query string
-func (o *GetDspURL) BuildFull(scheme, host string) (*url.URL, error) {
+func (o *PostDspURL) BuildFull(scheme, host string) (*url.URL, error) {
 	if scheme == "" {
-		return nil, errors.New("scheme is required for a full url on GetDspURL")
+		return nil, errors.New("scheme is required for a full url on PostDspURL")
 	}
 	if host == "" {
-		return nil, errors.New("host is required for a full url on GetDspURL")
+		return nil, errors.New("host is required for a full url on PostDspURL")
 	}
 
 	base, err := o.Build()
@@ -79,6 +79,6 @@ func (o *GetDspURL) BuildFull(scheme, host string) (*url.URL, error) {
 }
 
 // StringFull returns the string representation of a complete url
-func (o *GetDspURL) StringFull(scheme, host string) string {
+func (o *PostDspURL) StringFull(scheme, host string) string {
 	return o.Must(o.BuildFull(scheme, host)).String()
 }
