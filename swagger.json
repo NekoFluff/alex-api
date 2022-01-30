@@ -21,11 +21,11 @@
         "parameters": [
           {
             "in": "body",
-            "name": "user",
+            "name": "recipeRequest",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ItemRequest"
+                "$ref": "#/definitions/RecipeRequest"
               }
             }
           }
@@ -216,7 +216,7 @@
         }
       }
     },
-    "ItemRequest": {
+    "RecipeRequest": {
       "properties": {
         "name": {
           "type": "string"

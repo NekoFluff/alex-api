@@ -35,7 +35,7 @@ type GetDspParams struct {
 	/*
 	  In: body
 	*/
-	User []*models.ItemRequest
+	RecipeRequest []*models.RecipeRequest
 }
 
 // BindRequest both binds and validates a request, it assumes that complex things implement a Validatable(strfmt.Registry) error interface
@@ -49,9 +49,9 @@ func (o *GetDspParams) BindRequest(r *http.Request, route *middleware.MatchedRou
 
 	if runtime.HasBody(r) {
 		defer r.Body.Close()
-		var body []*models.ItemRequest
+		var body []*models.RecipeRequest
 		if err := route.Consumer.Consume(r.Body, &body); err != nil {
-			res = append(res, errors.NewParseError("user", "body", "", err))
+			res = append(res, errors.NewParseError("recipeRequest", "body", "", err))
 		} else {
 
 			// validate array of body objects
@@ -66,7 +66,7 @@ func (o *GetDspParams) BindRequest(r *http.Request, route *middleware.MatchedRou
 			}
 
 			if len(res) == 0 {
-				o.User = body
+				o.RecipeRequest = body
 			}
 		}
 	}

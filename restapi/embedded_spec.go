@@ -39,12 +39,12 @@ func init() {
         "description": "Get the optimal recipe",
         "parameters": [
           {
-            "name": "user",
+            "name": "recipeRequest",
             "in": "body",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ItemRequest"
+                "$ref": "#/definitions/RecipeRequest"
               }
             }
           }
@@ -221,20 +221,6 @@ func init() {
         }
       }
     },
-    "ItemRequest": {
-      "required": [
-        "name",
-        "count"
-      ],
-      "properties": {
-        "count": {
-          "type": "number"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
-    },
     "Recipe": {
       "properties": {
         "consumesPerSec": {
@@ -257,6 +243,20 @@ func init() {
         },
         "secondsSpendPerCrafting": {
           "type": "number"
+        }
+      }
+    },
+    "RecipeRequest": {
+      "required": [
+        "name",
+        "count"
+      ],
+      "properties": {
+        "count": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
         }
       }
     },
@@ -298,12 +298,12 @@ func init() {
         "description": "Get the optimal recipe",
         "parameters": [
           {
-            "name": "user",
+            "name": "recipeRequest",
             "in": "body",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ItemRequest"
+                "$ref": "#/definitions/RecipeRequest"
               }
             }
           }
@@ -480,20 +480,6 @@ func init() {
         }
       }
     },
-    "ItemRequest": {
-      "required": [
-        "name",
-        "count"
-      ],
-      "properties": {
-        "count": {
-          "type": "number"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
-    },
     "Recipe": {
       "properties": {
         "consumesPerSec": {
@@ -516,6 +502,20 @@ func init() {
         },
         "secondsSpendPerCrafting": {
           "type": "number"
+        }
+      }
+    },
+    "RecipeRequest": {
+      "required": [
+        "name",
+        "count"
+      ],
+      "properties": {
+        "count": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
         }
       }
     },

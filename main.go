@@ -12,6 +12,7 @@ import (
 
 	"github.com/go-openapi/loads"
 	"github.com/go-openapi/runtime/middleware"
+	"github.com/jessevdk/go-flags"
 
 	"addi/models"
 	"addi/restapi"
@@ -21,15 +22,13 @@ import (
 
 func main() {
 
-	// Initialize Swagger
-	swaggerSpec, err := loads.Analyzed(restapi.SwaggerJSON, "")
+	swaggerSpec, err := loads.Embedded(restapi.SwaggerJSON, restapi.FlatSwaggerJSON)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
 	api := operations.NewAddiAPI(swaggerSpec)
 	server := restapi.NewServer(api)
-
 	defer func() {
 		if err := server.Shutdown(); err != nil {
 			// error handle
@@ -47,6 +46,27 @@ func main() {
 
 	server.Port = portInt
 
+	parser := flags.NewParser(server, flags.Default)
+	parser.ShortDescription = "go-rest-api"
+	parser.LongDescription = "HTTP server in Go with Swagger endpoints definition."
+	server.ConfigureFlags()
+	for _, optsGroup := range api.CommandLineOptionsGroups {
+		_, err := parser.AddGroup(optsGroup.ShortDescription, optsGroup.LongDescription, optsGroup.Options)
+		if err != nil {
+			log.Fatalln(err)
+		}
+	}
+
+	if _, err := parser.Parse(); err != nil {
+		code := 1
+		if fe, ok := err.(*flags.Error); ok {
+			if fe.Type == flags.ErrHelp {
+				code = 0
+			}
+		}
+		os.Exit(code)
+	}
+
 	api.CheckHealthHandler = operations.CheckHealthHandlerFunc(Health)
 
 	api.GetHelloUserHandler = operations.GetHelloUserHandlerFunc(GetHelloUser)
@@ -57,7 +77,9 @@ func main() {
 
 	api.GetDspItemsHandler = operations.GetDspItemsHandlerFunc(GetDSPItems)
 
-	// Start server which listening
+	server.ConfigureAPI()
+
+	// Start server
 	if err := server.Serve(); err != nil {
 		log.Fatalln(err)
 	}
@@ -149,7 +171,7 @@ func DSP(params operations.GetDspParams) middleware.Responder {
 
 	recipe := []*models.Recipe{}
 
-	for _, v := range params.User {
+	for _, v := range params.RecipeRequest {
 		recipe = append(recipe, GetRecipeForItem(*v.Name, float64(*v.Count), "")...)
 	}
 

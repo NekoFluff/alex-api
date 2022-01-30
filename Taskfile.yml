@@ -14,7 +14,7 @@ tasks:
     swagger.gen:
         desc: Generate Go code
         cmds:
-        - swagger generate server -f swagger.json -A addi
+        - swagger generate server swagger.json -A addi
 
     swagger.validate:
         desc: Validate swagger
