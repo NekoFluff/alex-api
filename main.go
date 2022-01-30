@@ -36,16 +36,6 @@ func main() {
 		}
 	}()
 
-	port := utils.GetEnvVar("PORT")
-
-	// Translate port string into int
-	portInt, err := strconv.Atoi(port)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	server.Port = portInt
-
 	parser := flags.NewParser(server, flags.Default)
 	parser.ShortDescription = "go-rest-api"
 	parser.LongDescription = "HTTP server in Go with Swagger endpoints definition."
@@ -78,6 +68,16 @@ func main() {
 	api.GetDspItemsHandler = operations.GetDspItemsHandlerFunc(GetDSPItems)
 
 	server.ConfigureAPI()
+
+	port := utils.GetEnvVar("PORT")
+
+	// Translate port string into int
+	portInt, err := strconv.Atoi(port)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	server.Port = portInt
 
 	// Start server
 	if err := server.Serve(); err != nil {
