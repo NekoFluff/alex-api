@@ -1,59 +1,5 @@
 {
-  "definitions": {
-    "User": {
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name"
-      ]
-    },
-    "ItemRequest": {
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "count": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "name",
-        "count"
-      ]
-    },
-    "Recipe": {
-      "properties": {
-        "produce": {
-          "type": "string"
-        },
-        "madeIn": {
-          "type": "string"
-        },
-        "numberOfFacilitiesNeeded": {
-          "type": "number"
-        },
-        "consumesPerSec": {
-          "type": "object"
-        },
-        "secondsSpendPerCrafting": {
-          "type": "number"
-        },
-        "craftingPerSecond": {
-          "type": "number"
-        },
-        "for": {
-          "type": "string"
-        }
-      }
-    }
-  },
+  "swagger": "2.0",
   "info": {
     "description": "HTTP server in Go with Swagger endpoints definition.",
     "title": "go-rest-api",
@@ -68,7 +14,6 @@
   "schemes": [
     "http"
   ],
-  "swagger": "2.0",
   "paths": {
     "/dsp": {
       "get": {
@@ -98,6 +43,22 @@
         }
       }
     },
+    "/dsp/items": {
+      "get": {
+        "description": "Get all items",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DSPItem"
+              }
+            }
+          }
+        }
+      }
+    },
     "/healthz": {
       "get": {
         "operationId": "checkHealth",
@@ -106,7 +67,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK message.",
+            "description": "OK.",
             "schema": {
               "type": "string",
               "enum": [
@@ -204,6 +165,93 @@
           "200": {
             "description": "OK"
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "DSPItem": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "produce": {
+          "type": "number"
+        },
+        "madeIn": {
+          "type": "string"
+        },
+        "time": {
+          "type": "number"
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DSPMaterial"
+          }
+        }
+      }
+    },
+    "DSPMaterial": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        }
+      }
+    },
+    "ItemRequest": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "count"
+      ]
+    },
+    "Recipe": {
+      "properties": {
+        "produce": {
+          "type": "string"
+        },
+        "madeIn": {
+          "type": "string"
+        },
+        "numberOfFacilitiesNeeded": {
+          "type": "number"
+        },
+        "consumesPerSec": {
+          "type": "object"
+        },
+        "secondsSpendPerCrafting": {
+          "type": "number"
+        },
+        "craftingPerSecond": {
+          "type": "number"
+        },
+        "for": {
+          "type": "string"
         }
       }
     }

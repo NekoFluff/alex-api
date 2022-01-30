@@ -62,6 +62,22 @@ func init() {
         }
       }
     },
+    "/dsp/items": {
+      "get": {
+        "description": "Get all items",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DSPItem"
+              }
+            }
+          }
+        }
+      }
+    },
     "/gopher/{name}": {
       "get": {
         "description": "Return the Gopher Image.",
@@ -95,7 +111,7 @@ func init() {
         "operationId": "checkHealth",
         "responses": {
           "200": {
-            "description": "OK message.",
+            "description": "OK.",
             "schema": {
               "type": "string",
               "enum": [
@@ -173,6 +189,38 @@ func init() {
     }
   },
   "definitions": {
+    "DSPItem": {
+      "properties": {
+        "madeIn": {
+          "type": "string"
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DSPMaterial"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "produce": {
+          "type": "number"
+        },
+        "time": {
+          "type": "number"
+        }
+      }
+    },
+    "DSPMaterial": {
+      "properties": {
+        "count": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
     "ItemRequest": {
       "required": [
         "name",
@@ -180,7 +228,7 @@ func init() {
       ],
       "properties": {
         "count": {
-          "type": "integer"
+          "type": "number"
         },
         "name": {
           "type": "string"
@@ -273,6 +321,22 @@ func init() {
         }
       }
     },
+    "/dsp/items": {
+      "get": {
+        "description": "Get all items",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DSPItem"
+              }
+            }
+          }
+        }
+      }
+    },
     "/gopher/{name}": {
       "get": {
         "description": "Return the Gopher Image.",
@@ -306,7 +370,7 @@ func init() {
         "operationId": "checkHealth",
         "responses": {
           "200": {
-            "description": "OK message.",
+            "description": "OK.",
             "schema": {
               "type": "string",
               "enum": [
@@ -384,6 +448,38 @@ func init() {
     }
   },
   "definitions": {
+    "DSPItem": {
+      "properties": {
+        "madeIn": {
+          "type": "string"
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DSPMaterial"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "produce": {
+          "type": "number"
+        },
+        "time": {
+          "type": "number"
+        }
+      }
+    },
+    "DSPMaterial": {
+      "properties": {
+        "count": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
     "ItemRequest": {
       "required": [
         "name",
@@ -391,7 +487,7 @@ func init() {
       ],
       "properties": {
         "count": {
-          "type": "integer"
+          "type": "number"
         },
         "name": {
           "type": "string"

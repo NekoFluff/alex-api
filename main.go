@@ -1,22 +1,22 @@
 package main
 
 import (
-	"addi/models"
-	"addi/restapi"
-	"addi/restapi/operations"
-	"addi/utils"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
+	"log"
+	"net/http"
 	"os"
 	"strconv"
 	"sync"
 
-	"fmt"
-	"log"
-	"net/http"
-
 	"github.com/go-openapi/loads"
 	"github.com/go-openapi/runtime/middleware"
+
+	"addi/models"
+	"addi/restapi"
+	"addi/restapi/operations"
+	"addi/utils"
 )
 
 func main() {
@@ -55,30 +55,19 @@ func main() {
 
 	api.GetDspHandler = operations.GetDspHandlerFunc(DSP)
 
+	api.GetDspItemsHandler = operations.GetDspItemsHandlerFunc(GetDSPItems)
+
 	// Start server which listening
 	if err := server.Serve(); err != nil {
 		log.Fatalln(err)
 	}
 }
 
-type Item struct {
-	Name      string     `json:"Name"`
-	Produce   float64    `json:"Produce"`
-	MadeIn    string     `json:"MadeIn"`
-	Time      float64    `json:"Time"`
-	Materials []Material `json:"Materials"`
-}
-
-type Material struct {
-	Name  string  `json:"Name"`
-	Count float64 `json:"Count"`
-}
-
 // variavel Global
 var once sync.Once
-var itemMap = make(map[string]Item)
+var itemMap = make(map[string]*models.DSPItem)
 
-func GetItem(itemName string) (Item, bool) {
+func GetItem(itemName string) (*models.DSPItem, bool) {
 
 	once.Do(func() {
 
@@ -91,7 +80,7 @@ func GetItem(itemName string) (Item, bool) {
 
 		// Read and unmarshal the file
 		byteValue, _ := ioutil.ReadAll(jsonFile)
-		var items []Item
+		var items []*models.DSPItem
 		json.Unmarshal(byteValue, &items)
 
 		// Map the items
@@ -105,7 +94,16 @@ func GetItem(itemName string) (Item, bool) {
 }
 
 func init() {
-	fmt.Println(GetItem("asdf"))
+	GetItem("asdf")
+	log.Println("Initialized data")
+}
+
+func GetItems() []*models.DSPItem {
+	m := make([]*models.DSPItem, 0, len(itemMap))
+	for _, val := range itemMap {
+		m = append(m, val)
+	}
+	return m
 }
 
 func GetRecipeForItem(itemName string, craftingSpeed float64, parentItemName string) []*models.Recipe {
@@ -141,9 +139,13 @@ func GetRecipeForItem(itemName string, craftingSpeed float64, parentItemName str
 	return recipes
 }
 
+func GetDSPItems(params operations.GetDspItemsParams) middleware.Responder {
+	return operations.NewGetDspItemsOK().WithPayload(GetItems())
+}
+
 func DSP(params operations.GetDspParams) middleware.Responder {
 
-	log.Println("Starting DSP Optimizer Program")
+	// log.Println("Starting DSP Optimizer Program")
 
 	recipe := []*models.Recipe{}
 
@@ -151,8 +153,8 @@ func DSP(params operations.GetDspParams) middleware.Responder {
 		recipe = append(recipe, GetRecipeForItem(*v.Name, float64(*v.Count), "")...)
 	}
 
-	jsonStr, _ := json.MarshalIndent(recipe, "", "\t")
-	fmt.Println(string(jsonStr))
+	// jsonStr, _ := json.MarshalIndent(recipe, "", "\t")
+	// fmt.Println(string(jsonStr))
 
 	return operations.NewGetDspOK().WithPayload(recipe)
 }

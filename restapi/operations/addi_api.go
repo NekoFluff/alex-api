@@ -47,6 +47,9 @@ func NewAddiAPI(spec *loads.Document) *AddiAPI {
 		GetDspHandler: GetDspHandlerFunc(func(params GetDspParams) middleware.Responder {
 			return middleware.NotImplemented("operation GetDsp has not yet been implemented")
 		}),
+		GetDspItemsHandler: GetDspItemsHandlerFunc(func(params GetDspItemsParams) middleware.Responder {
+			return middleware.NotImplemented("operation GetDspItems has not yet been implemented")
+		}),
 		GetGopherNameHandler: GetGopherNameHandlerFunc(func(params GetGopherNameParams) middleware.Responder {
 			return middleware.NotImplemented("operation GetGopherName has not yet been implemented")
 		}),
@@ -106,6 +109,8 @@ type AddiAPI struct {
 
 	// GetDspHandler sets the operation handler for the get dsp operation
 	GetDspHandler GetDspHandler
+	// GetDspItemsHandler sets the operation handler for the get dsp items operation
+	GetDspItemsHandler GetDspItemsHandler
 	// GetGopherNameHandler sets the operation handler for the get gopher name operation
 	GetGopherNameHandler GetGopherNameHandler
 	// GetHelloUserHandler sets the operation handler for the get hello user operation
@@ -201,6 +206,9 @@ func (o *AddiAPI) Validate() error {
 
 	if o.GetDspHandler == nil {
 		unregistered = append(unregistered, "GetDspHandler")
+	}
+	if o.GetDspItemsHandler == nil {
+		unregistered = append(unregistered, "GetDspItemsHandler")
 	}
 	if o.GetGopherNameHandler == nil {
 		unregistered = append(unregistered, "GetGopherNameHandler")
@@ -313,6 +321,10 @@ func (o *AddiAPI) initHandlerCache() {
 		o.handlers["GET"] = make(map[string]http.Handler)
 	}
 	o.handlers["GET"]["/dsp"] = NewGetDsp(o.context, o.GetDspHandler)
+	if o.handlers["GET"] == nil {
+		o.handlers["GET"] = make(map[string]http.Handler)
+	}
+	o.handlers["GET"]["/dsp/items"] = NewGetDspItems(o.context, o.GetDspItemsHandler)
 	if o.handlers["GET"] == nil {
 		o.handlers["GET"] = make(map[string]http.Handler)
 	}

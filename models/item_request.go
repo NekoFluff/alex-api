@@ -21,7 +21,7 @@ type ItemRequest struct {
 
 	// count
 	// Required: true
-	Count *int64 `json:"count"`
+	Count *float64 `json:"count"`
 
 	// name
 	// Required: true
