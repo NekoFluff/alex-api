@@ -12,7 +12,6 @@ import (
 
 	"github.com/go-openapi/loads"
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/jessevdk/go-flags"
 
 	"addi/models"
 	"addi/restapi"
@@ -36,26 +35,26 @@ func main() {
 		}
 	}()
 
-	parser := flags.NewParser(server, flags.Default)
-	parser.ShortDescription = "go-rest-api"
-	parser.LongDescription = "HTTP server in Go with Swagger endpoints definition."
-	server.ConfigureFlags()
-	for _, optsGroup := range api.CommandLineOptionsGroups {
-		_, err := parser.AddGroup(optsGroup.ShortDescription, optsGroup.LongDescription, optsGroup.Options)
-		if err != nil {
-			log.Fatalln(err)
-		}
-	}
+	// parser := flags.NewParser(server, flags.Default)
+	// parser.ShortDescription = "go-rest-api"
+	// parser.LongDescription = "HTTP server in Go with Swagger endpoints definition."
+	// server.ConfigureFlags()
+	// for _, optsGroup := range api.CommandLineOptionsGroups {
+	// 	_, err := parser.AddGroup(optsGroup.ShortDescription, optsGroup.LongDescription, optsGroup.Options)
+	// 	if err != nil {
+	// 		log.Fatalln(err)
+	// 	}
+	// }
 
-	if _, err := parser.Parse(); err != nil {
-		code := 1
-		if fe, ok := err.(*flags.Error); ok {
-			if fe.Type == flags.ErrHelp {
-				code = 0
-			}
-		}
-		os.Exit(code)
-	}
+	// if _, err := parser.Parse(); err != nil {
+	// 	code := 1
+	// 	if fe, ok := err.(*flags.Error); ok {
+	// 		if fe.Type == flags.ErrHelp {
+	// 			code = 0
+	// 		}
+	// 	}
+	// 	os.Exit(code)
+	// }
 
 	api.CheckHealthHandler = operations.CheckHealthHandlerFunc(Health)
 
