@@ -93,7 +93,7 @@ func GetItem(itemName string) (*models.DSPItem, bool) {
 	once.Do(func() {
 
 		// Open up the file
-		jsonFile, err := os.Open("data/items_arr.json")
+		jsonFile, err := os.Open("data/items.json")
 		if err != nil {
 			log.Fatal(err)
 		}
