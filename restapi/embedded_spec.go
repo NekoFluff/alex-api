@@ -37,6 +37,7 @@ func init() {
     "/dsp": {
       "post": {
         "description": "Get the optimal recipe",
+        "summary": "Get the optimal recipe",
         "parameters": [
           {
             "name": "recipeRequest",
@@ -65,6 +66,7 @@ func init() {
     "/dsp/items": {
       "get": {
         "description": "Get all items",
+        "summary": "Get all items",
         "responses": {
           "200": {
             "description": "OK",
@@ -78,40 +80,13 @@ func init() {
         }
       }
     },
-    "/gopher/{name}": {
-      "get": {
-        "description": "Return the Gopher Image.",
-        "produces": [
-          "image/png"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "description": "The name of the Gopher to display.",
-            "name": "name",
-            "in": "path",
-            "required": true
-          }
-        ],
+    "/dsp/items/reload": {
+      "post": {
+        "description": "Re-scrapes the DSP items",
+        "summary": "Re-scrapes the DSP items",
         "responses": {
           "200": {
-            "description": "Returns the Gopher.",
-            "schema": {
-              "type": "file"
-            }
-          }
-        }
-      }
-    },
-    "/healthz": {
-      "get": {
-        "produces": [
-          "text/plain"
-        ],
-        "operationId": "checkHealth",
-        "responses": {
-          "200": {
-            "description": "OK.",
+            "description": "OK",
             "schema": {
               "type": "string",
               "enum": [
@@ -122,66 +97,21 @@ func init() {
         }
       }
     },
-    "/hello/{user}": {
+    "/health": {
       "get": {
-        "description": "Returns a greeting to the user!",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "The name of the user to greet.",
-            "name": "user",
-            "in": "path",
-            "required": true
-          }
+        "produces": [
+          "text/plain"
         ],
+        "summary": "Check on the health of the server",
+        "operationId": "checkHealth",
         "responses": {
           "200": {
-            "description": "Returns the greeting.",
+            "description": "OK.",
             "schema": {
-              "type": "string"
-            }
-          },
-          "400": {
-            "description": "Invalid characters in \"user\" were provided."
-          }
-        }
-      }
-    },
-    "/users": {
-      "post": {
-        "summary": "Creates a new user.",
-        "parameters": [
-          {
-            "name": "user",
-            "in": "body",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/users/{userId}": {
-      "get": {
-        "summary": "Returns a user by ID.",
-        "parameters": [
-          {
-            "type": "integer",
-            "name": "userId",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/User"
+              "type": "string",
+              "enum": [
+                "OK"
+              ]
             }
           }
         }
@@ -254,20 +184,6 @@ func init() {
       "properties": {
         "count": {
           "type": "number"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
-    },
-    "User": {
-      "required": [
-        "id",
-        "name"
-      ],
-      "properties": {
-        "id": {
-          "type": "integer"
         },
         "name": {
           "type": "string"
@@ -296,6 +212,7 @@ func init() {
     "/dsp": {
       "post": {
         "description": "Get the optimal recipe",
+        "summary": "Get the optimal recipe",
         "parameters": [
           {
             "name": "recipeRequest",
@@ -324,6 +241,7 @@ func init() {
     "/dsp/items": {
       "get": {
         "description": "Get all items",
+        "summary": "Get all items",
         "responses": {
           "200": {
             "description": "OK",
@@ -337,40 +255,13 @@ func init() {
         }
       }
     },
-    "/gopher/{name}": {
-      "get": {
-        "description": "Return the Gopher Image.",
-        "produces": [
-          "image/png"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "description": "The name of the Gopher to display.",
-            "name": "name",
-            "in": "path",
-            "required": true
-          }
-        ],
+    "/dsp/items/reload": {
+      "post": {
+        "description": "Re-scrapes the DSP items",
+        "summary": "Re-scrapes the DSP items",
         "responses": {
           "200": {
-            "description": "Returns the Gopher.",
-            "schema": {
-              "type": "file"
-            }
-          }
-        }
-      }
-    },
-    "/healthz": {
-      "get": {
-        "produces": [
-          "text/plain"
-        ],
-        "operationId": "checkHealth",
-        "responses": {
-          "200": {
-            "description": "OK.",
+            "description": "OK",
             "schema": {
               "type": "string",
               "enum": [
@@ -381,66 +272,21 @@ func init() {
         }
       }
     },
-    "/hello/{user}": {
+    "/health": {
       "get": {
-        "description": "Returns a greeting to the user!",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "The name of the user to greet.",
-            "name": "user",
-            "in": "path",
-            "required": true
-          }
+        "produces": [
+          "text/plain"
         ],
+        "summary": "Check on the health of the server",
+        "operationId": "checkHealth",
         "responses": {
           "200": {
-            "description": "Returns the greeting.",
+            "description": "OK.",
             "schema": {
-              "type": "string"
-            }
-          },
-          "400": {
-            "description": "Invalid characters in \"user\" were provided."
-          }
-        }
-      }
-    },
-    "/users": {
-      "post": {
-        "summary": "Creates a new user.",
-        "parameters": [
-          {
-            "name": "user",
-            "in": "body",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/users/{userId}": {
-      "get": {
-        "summary": "Returns a user by ID.",
-        "parameters": [
-          {
-            "type": "integer",
-            "name": "userId",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/User"
+              "type": "string",
+              "enum": [
+                "OK"
+              ]
             }
           }
         }
@@ -513,20 +359,6 @@ func init() {
       "properties": {
         "count": {
           "type": "number"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
-    },
-    "User": {
-      "required": [
-        "id",
-        "name"
-      ],
-      "properties": {
-        "id": {
-          "type": "integer"
         },
         "name": {
           "type": "string"

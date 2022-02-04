@@ -4,18 +4,11 @@ package restapi
 
 import (
 	"crypto/tls"
-	"log"
 	"net/http"
-	"time"
 
-	"github.com/carbocation/interpose/adaptors"
-	"github.com/didip/tollbooth"
-	"github.com/didip/tollbooth/limiter"
-	"github.com/dre1080/recovr"
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
-	negronilogrus "github.com/meatballhat/negroni-logrus"
 
 	"addi/restapi/operations"
 )
@@ -42,18 +35,22 @@ func configureAPI(api *operations.AddiAPI) http.Handler {
 
 	api.JSONConsumer = runtime.JSONConsumer()
 
-	api.BinProducer = runtime.ByteStreamProducer()
 	api.JSONProducer = runtime.JSONProducer()
 	api.TxtProducer = runtime.TextProducer()
 
-	if api.GetGopherNameHandler == nil {
-		api.GetGopherNameHandler = operations.GetGopherNameHandlerFunc(func(params operations.GetGopherNameParams) middleware.Responder {
-			return middleware.NotImplemented("operation operations.GetGopherName has not yet been implemented")
+	if api.GetDspItemsHandler == nil {
+		api.GetDspItemsHandler = operations.GetDspItemsHandlerFunc(func(params operations.GetDspItemsParams) middleware.Responder {
+			return middleware.NotImplemented("operation operations.GetDspItems has not yet been implemented")
 		})
 	}
-	if api.GetHelloUserHandler == nil {
-		api.GetHelloUserHandler = operations.GetHelloUserHandlerFunc(func(params operations.GetHelloUserParams) middleware.Responder {
-			return middleware.NotImplemented("operation operations.GetHelloUser has not yet been implemented")
+	if api.PostDspHandler == nil {
+		api.PostDspHandler = operations.PostDspHandlerFunc(func(params operations.PostDspParams) middleware.Responder {
+			return middleware.NotImplemented("operation operations.PostDsp has not yet been implemented")
+		})
+	}
+	if api.PostDspItemsReloadHandler == nil {
+		api.PostDspItemsReloadHandler = operations.PostDspItemsReloadHandlerFunc(func(params operations.PostDspItemsReloadParams) middleware.Responder {
+			return middleware.NotImplemented("operation operations.PostDspItemsReload has not yet been implemented")
 		})
 	}
 	if api.CheckHealthHandler == nil {
@@ -84,20 +81,11 @@ func configureServer(s *http.Server, scheme, addr string) {
 // The middleware configuration is for the handler executors. These do not apply to the swagger.json document.
 // The middleware executes after routing but before authentication, binding and validation.
 func setupMiddlewares(handler http.Handler) http.Handler {
-	lmt := tollbooth.NewLimiter(1, &limiter.ExpirableOptions{DefaultExpirationTTL: time.Hour})
-	lmt.SetIPLookups([]string{"RemoteAddr", "X-Forwarded-For", "X-Real-IP"})
-	lmt.SetOnLimitReached(func(w http.ResponseWriter, r *http.Request) {
-		log.Printf("A request was rejected: %v", r.URL)
-	})
-	return tollbooth.LimitFuncHandler(lmt, handler.ServeHTTP)
+	return handler
 }
 
 // The middleware configuration happens before anything, this middleware also applies to serving the swagger.json document.
 // So this is a good place to plug in a panic handling middleware, logging and metrics.
 func setupGlobalMiddleware(handler http.Handler) http.Handler {
-
-	recovery := recovr.New()
-	negroniMiddleware := negronilogrus.NewMiddleware()
-	logViaLogrus := adaptors.FromNegroni(negroniMiddleware)
-	return recovery(logViaLogrus(handler))
+	return handler
 }

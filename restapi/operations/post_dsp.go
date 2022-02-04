@@ -33,6 +33,8 @@ func NewPostDsp(ctx *middleware.Context, handler PostDspHandler) *PostDsp {
 
 Get the optimal recipe
 
+Get the optimal recipe
+
 */
 type PostDsp struct {
 	Context *middleware.Context

@@ -33,6 +33,8 @@ func NewGetDspItems(ctx *middleware.Context, handler GetDspItemsHandler) *GetDsp
 
 Get all items
 
+Get all items
+
 */
 type GetDspItems struct {
 	Context *middleware.Context

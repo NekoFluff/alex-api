@@ -40,27 +40,17 @@ func NewAddiAPI(spec *loads.Document) *AddiAPI {
 
 		JSONConsumer: runtime.JSONConsumer(),
 
-		BinProducer:  runtime.ByteStreamProducer(),
 		JSONProducer: runtime.JSONProducer(),
 		TxtProducer:  runtime.TextProducer(),
 
 		GetDspItemsHandler: GetDspItemsHandlerFunc(func(params GetDspItemsParams) middleware.Responder {
 			return middleware.NotImplemented("operation GetDspItems has not yet been implemented")
 		}),
-		GetGopherNameHandler: GetGopherNameHandlerFunc(func(params GetGopherNameParams) middleware.Responder {
-			return middleware.NotImplemented("operation GetGopherName has not yet been implemented")
-		}),
-		GetHelloUserHandler: GetHelloUserHandlerFunc(func(params GetHelloUserParams) middleware.Responder {
-			return middleware.NotImplemented("operation GetHelloUser has not yet been implemented")
-		}),
-		GetUsersUserIDHandler: GetUsersUserIDHandlerFunc(func(params GetUsersUserIDParams) middleware.Responder {
-			return middleware.NotImplemented("operation GetUsersUserID has not yet been implemented")
-		}),
 		PostDspHandler: PostDspHandlerFunc(func(params PostDspParams) middleware.Responder {
 			return middleware.NotImplemented("operation PostDsp has not yet been implemented")
 		}),
-		PostUsersHandler: PostUsersHandlerFunc(func(params PostUsersParams) middleware.Responder {
-			return middleware.NotImplemented("operation PostUsers has not yet been implemented")
+		PostDspItemsReloadHandler: PostDspItemsReloadHandlerFunc(func(params PostDspItemsReloadParams) middleware.Responder {
+			return middleware.NotImplemented("operation PostDspItemsReload has not yet been implemented")
 		}),
 		CheckHealthHandler: CheckHealthHandlerFunc(func(params CheckHealthParams) middleware.Responder {
 			return middleware.NotImplemented("operation CheckHealth has not yet been implemented")
@@ -97,9 +87,6 @@ type AddiAPI struct {
 	//   - application/json
 	JSONConsumer runtime.Consumer
 
-	// BinProducer registers a producer for the following mime types:
-	//   - image/png
-	BinProducer runtime.Producer
 	// JSONProducer registers a producer for the following mime types:
 	//   - application/json
 	JSONProducer runtime.Producer
@@ -109,16 +96,10 @@ type AddiAPI struct {
 
 	// GetDspItemsHandler sets the operation handler for the get dsp items operation
 	GetDspItemsHandler GetDspItemsHandler
-	// GetGopherNameHandler sets the operation handler for the get gopher name operation
-	GetGopherNameHandler GetGopherNameHandler
-	// GetHelloUserHandler sets the operation handler for the get hello user operation
-	GetHelloUserHandler GetHelloUserHandler
-	// GetUsersUserIDHandler sets the operation handler for the get users user ID operation
-	GetUsersUserIDHandler GetUsersUserIDHandler
 	// PostDspHandler sets the operation handler for the post dsp operation
 	PostDspHandler PostDspHandler
-	// PostUsersHandler sets the operation handler for the post users operation
-	PostUsersHandler PostUsersHandler
+	// PostDspItemsReloadHandler sets the operation handler for the post dsp items reload operation
+	PostDspItemsReloadHandler PostDspItemsReloadHandler
 	// CheckHealthHandler sets the operation handler for the check health operation
 	CheckHealthHandler CheckHealthHandler
 
@@ -194,9 +175,6 @@ func (o *AddiAPI) Validate() error {
 		unregistered = append(unregistered, "JSONConsumer")
 	}
 
-	if o.BinProducer == nil {
-		unregistered = append(unregistered, "BinProducer")
-	}
 	if o.JSONProducer == nil {
 		unregistered = append(unregistered, "JSONProducer")
 	}
@@ -207,20 +185,11 @@ func (o *AddiAPI) Validate() error {
 	if o.GetDspItemsHandler == nil {
 		unregistered = append(unregistered, "GetDspItemsHandler")
 	}
-	if o.GetGopherNameHandler == nil {
-		unregistered = append(unregistered, "GetGopherNameHandler")
-	}
-	if o.GetHelloUserHandler == nil {
-		unregistered = append(unregistered, "GetHelloUserHandler")
-	}
-	if o.GetUsersUserIDHandler == nil {
-		unregistered = append(unregistered, "GetUsersUserIDHandler")
-	}
 	if o.PostDspHandler == nil {
 		unregistered = append(unregistered, "PostDspHandler")
 	}
-	if o.PostUsersHandler == nil {
-		unregistered = append(unregistered, "PostUsersHandler")
+	if o.PostDspItemsReloadHandler == nil {
+		unregistered = append(unregistered, "PostDspItemsReloadHandler")
 	}
 	if o.CheckHealthHandler == nil {
 		unregistered = append(unregistered, "CheckHealthHandler")
@@ -271,8 +240,6 @@ func (o *AddiAPI) ProducersFor(mediaTypes []string) map[string]runtime.Producer 
 	result := make(map[string]runtime.Producer, len(mediaTypes))
 	for _, mt := range mediaTypes {
 		switch mt {
-		case "image/png":
-			result["image/png"] = o.BinProducer
 		case "application/json":
 			result["application/json"] = o.JSONProducer
 		case "text/plain":
@@ -321,18 +288,6 @@ func (o *AddiAPI) initHandlerCache() {
 		o.handlers["GET"] = make(map[string]http.Handler)
 	}
 	o.handlers["GET"]["/dsp/items"] = NewGetDspItems(o.context, o.GetDspItemsHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/gopher/{name}"] = NewGetGopherName(o.context, o.GetGopherNameHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/hello/{user}"] = NewGetHelloUser(o.context, o.GetHelloUserHandler)
-	if o.handlers["GET"] == nil {
-		o.handlers["GET"] = make(map[string]http.Handler)
-	}
-	o.handlers["GET"]["/users/{userId}"] = NewGetUsersUserID(o.context, o.GetUsersUserIDHandler)
 	if o.handlers["POST"] == nil {
 		o.handlers["POST"] = make(map[string]http.Handler)
 	}
@@ -340,11 +295,11 @@ func (o *AddiAPI) initHandlerCache() {
 	if o.handlers["POST"] == nil {
 		o.handlers["POST"] = make(map[string]http.Handler)
 	}
-	o.handlers["POST"]["/users"] = NewPostUsers(o.context, o.PostUsersHandler)
+	o.handlers["POST"]["/dsp/items/reload"] = NewPostDspItemsReload(o.context, o.PostDspItemsReloadHandler)
 	if o.handlers["GET"] == nil {
 		o.handlers["GET"] = make(map[string]http.Handler)
 	}
-	o.handlers["GET"]["/healthz"] = NewCheckHealth(o.context, o.CheckHealthHandler)
+	o.handlers["GET"]["/health"] = NewCheckHealth(o.context, o.CheckHealthHandler)
 }
 
 // Serve creates a http handler to serve the API over HTTP

@@ -17,6 +17,7 @@
   "paths": {
     "/dsp": {
       "post": {
+        "summary": "Get the optimal recipe",
         "description": "Get the optimal recipe",
         "parameters": [
           {
@@ -45,6 +46,7 @@
     },
     "/dsp/items": {
       "get": {
+        "summary": "Get all items",
         "description": "Get all items",
         "responses": {
           "200": {
@@ -59,8 +61,26 @@
         }
       }
     },
-    "/healthz": {
+    "/dsp/items/reload": {
+      "post": {
+        "summary": "Re-scrapes the DSP items",
+        "description": "Re-scrapes the DSP items",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "OK"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/health": {
       "get": {
+        "summary": "Check on the health of the server",
         "operationId": "checkHealth",
         "produces": [
           "text/plain"
@@ -77,113 +97,9 @@
           }
         }
       }
-    },
-    "/hello/{user}": {
-      "get": {
-        "description": "Returns a greeting to the user!",
-        "parameters": [
-          {
-            "name": "user",
-            "in": "path",
-            "type": "string",
-            "required": true,
-            "description": "The name of the user to greet."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns the greeting.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          "400": {
-            "description": "Invalid characters in \"user\" were provided."
-          }
-        }
-      }
-    },
-    "/gopher/{name}": {
-      "get": {
-        "description": "Return the Gopher Image.",
-        "produces": [
-          "image/png"
-        ],
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "type": "string",
-            "required": true,
-            "description": "The name of the Gopher to display."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns the Gopher.",
-            "schema": {
-              "type": "file"
-            }
-          }
-        }
-      }
-    },
-    "/users/{userId}": {
-      "get": {
-        "summary": "Returns a user by ID.",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        }
-      }
-    },
-    "/users": {
-      "post": {
-        "summary": "Creates a new user.",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "user",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
     }
   },
   "definitions": {
-    "User": {
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name"
-      ]
-    },
     "DSPItem": {
       "properties": {
         "name": {
