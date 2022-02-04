@@ -10,7 +10,8 @@ import (
 )
 
 var once sync.Once
-var itemMap = make(map[string]*models.DSPItem)
+var items []*models.DSPItem
+var itemMap = make(map[string][]*models.DSPItem)
 
 func init() {
 	GetItem("")
@@ -23,11 +24,13 @@ func GetItem(itemName string) (*models.DSPItem, bool) {
 	})
 
 	result, ok := itemMap[itemName]
-	return result, ok
+	item := result[0]
+
+	return item, ok
 }
 
 func ReloadItems() {
-	itemMap = make(map[string]*models.DSPItem)
+	itemMap = make(map[string][]*models.DSPItem)
 	loadItemsFromFile()
 }
 
@@ -41,11 +44,10 @@ func loadItemsFromFile() {
 
 	// Read and unmarshal the file
 	byteValue, _ := ioutil.ReadAll(jsonFile)
-	var items []*models.DSPItem
 	json.Unmarshal(byteValue, &items)
 
 	// Map the items
 	for _, v := range items {
-		itemMap[v.Name] = v
+		itemMap[v.Name] = append(itemMap[v.Name], v)
 	}
 }
