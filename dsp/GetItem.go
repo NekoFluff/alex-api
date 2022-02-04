@@ -24,9 +24,11 @@ func GetItem(itemName string) (*models.DSPItem, bool) {
 	})
 
 	result, ok := itemMap[itemName]
-	item := result[0]
+	if ok {
+		return result[0], ok
+	}
 
-	return item, ok
+	return nil, false
 }
 
 func ReloadItems() {
