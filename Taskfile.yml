@@ -14,6 +14,8 @@ tasks:
     swagger.gen:
         desc: Generate Go code
         cmds:
+        - rm -rf restapi/operations
+        - rm restapi/configure_addi.go
         - swagger generate server swagger.json -A addi
 
     swagger.validate:
