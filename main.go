@@ -174,8 +174,9 @@ func DSP(params operations.PostDspParams) middleware.Responder {
 		recipe = append(recipe, GetRecipeForItem(*v.Name, float64(*v.Count), "")...)
 	}
 
-	// jsonStr, _ := json.MarshalIndent(recipe, "", "\t")
-	// fmt.Println(string(jsonStr))
+	jsonStr, _ := json.MarshalIndent(recipe, "", "\t")
+	fmt.Println("RECIPE")
+	fmt.Println(string(jsonStr))
 
 	return operations.NewPostDspOK().WithPayload(recipe)
 }
