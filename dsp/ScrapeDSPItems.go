@@ -23,7 +23,8 @@ func ScrapeDSPItems() {
 
 	file, _ := json.MarshalIndent(dspItems, "", "\t")
 
-	_ = ioutil.WriteFile("test.json", file, 0644)
+	_ = ioutil.WriteFile("data/items.json", file, 0644)
+	ReloadItems()
 }
 
 func getDSPItemUrls() map[string]string {

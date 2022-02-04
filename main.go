@@ -34,6 +34,8 @@ func main() {
 
 	api.GetDspItemsHandler = operations.GetDspItemsHandlerFunc(handlers.GetDSPItemsHandler)
 
+	api.PostDspItemsReloadHandler = operations.PostDspItemsReloadHandlerFunc(handlers.PostDSPItemsReloadHandler)
+
 	server.ConfigureAPI()
 
 	port := utils.GetEnvVar("PORT")
