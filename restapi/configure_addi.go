@@ -4,11 +4,18 @@ package restapi
 
 import (
 	"crypto/tls"
+	"log"
 	"net/http"
+	"time"
 
+	"github.com/carbocation/interpose/adaptors"
+	"github.com/didip/tollbooth"
+	"github.com/didip/tollbooth/limiter"
+	"github.com/dre1080/recovr"
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
+	negronilogrus "github.com/meatballhat/negroni-logrus"
 
 	"addi/restapi/operations"
 )
@@ -81,11 +88,19 @@ func configureServer(s *http.Server, scheme, addr string) {
 // The middleware configuration is for the handler executors. These do not apply to the swagger.json document.
 // The middleware executes after routing but before authentication, binding and validation.
 func setupMiddlewares(handler http.Handler) http.Handler {
-	return handler
+	lmt := tollbooth.NewLimiter(1, &limiter.ExpirableOptions{DefaultExpirationTTL: time.Hour})
+	lmt.SetIPLookups([]string{"RemoteAddr", "X-Forwarded-For", "X-Real-IP"})
+	lmt.SetOnLimitReached(func(w http.ResponseWriter, r *http.Request) {
+		log.Printf("A request was rejected: %v", r.URL)
+	})
+	return tollbooth.LimitFuncHandler(lmt, handler.ServeHTTP)
 }
 
 // The middleware configuration happens before anything, this middleware also applies to serving the swagger.json document.
 // So this is a good place to plug in a panic handling middleware, logging and metrics.
 func setupGlobalMiddleware(handler http.Handler) http.Handler {
-	return handler
+	recovery := recovr.New()
+	negroniMiddleware := negronilogrus.NewMiddleware()
+	logViaLogrus := adaptors.FromNegroni(negroniMiddleware)
+	return recovery(logViaLogrus(handler))
 }
