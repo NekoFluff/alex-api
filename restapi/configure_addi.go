@@ -105,7 +105,9 @@ func setupGlobalMiddleware(handler http.Handler) http.Handler {
 	// methods := handlers.AllowedMethods([]string{"POST"})
 	// // ttl := handlers.MaxAge(3600)
 	// origins := handlers.AllowedOrigins([]string{"www.local.com"})
-	handleCORS := handlers.CORS()
+	methods := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "OPTIONS", "FETCH"})
+	origins := handlers.AllowedOrigins([]string{"*"})
+	handleCORS := handlers.CORS(methods, origins)
 
 	recovery := recovr.New()
 	negroniMiddleware := negronilogrus.NewMiddleware()
