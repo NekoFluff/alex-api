@@ -101,13 +101,13 @@ func setupMiddlewares(handler http.Handler) http.Handler {
 // So this is a good place to plug in a panic handling middleware, logging and metrics.
 func setupGlobalMiddleware(handler http.Handler) http.Handler {
 	// handleCORS := cors.Default().Handler
-	// credentials := handlers.AllowCredentials()
+	credentials := handlers.AllowCredentials()
 	// methods := handlers.AllowedMethods([]string{"POST"})
 	// // ttl := handlers.MaxAge(3600)
 	// origins := handlers.AllowedOrigins([]string{"www.local.com"})
 	methods := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "OPTIONS", "FETCH"})
 	origins := handlers.AllowedOrigins([]string{"*"})
-	handleCORS := handlers.CORS(methods, origins)
+	handleCORS := handlers.CORS(credentials, methods, origins)
 
 	recovery := recovr.New()
 	negroniMiddleware := negronilogrus.NewMiddleware()
