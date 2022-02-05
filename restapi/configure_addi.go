@@ -102,12 +102,13 @@ func setupMiddlewares(handler http.Handler) http.Handler {
 func setupGlobalMiddleware(handler http.Handler) http.Handler {
 	// handleCORS := cors.Default().Handler
 	credentials := handlers.AllowCredentials()
+	ignoreOptions := handlers.IgnoreOptions()
 	// methods := handlers.AllowedMethods([]string{"POST"})
 	// // ttl := handlers.MaxAge(3600)
 	// origins := handlers.AllowedOrigins([]string{"www.local.com"})
 	methods := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "OPTIONS", "FETCH"})
 	origins := handlers.AllowedOrigins([]string{"*"})
-	handleCORS := handlers.CORS(credentials, methods, origins)
+	handleCORS := handlers.CORS(credentials, methods, origins, ignoreOptions)
 
 	recovery := recovr.New()
 	negroniMiddleware := negronilogrus.NewMiddleware()
