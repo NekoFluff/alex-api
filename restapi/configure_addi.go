@@ -101,14 +101,15 @@ func setupMiddlewares(handler http.Handler) http.Handler {
 // So this is a good place to plug in a panic handling middleware, logging and metrics.
 func setupGlobalMiddleware(handler http.Handler) http.Handler {
 	// handleCORS := cors.Default().Handler
-	credentials := handlers.AllowCredentials()
+	allowCredentials := handlers.AllowCredentials()
 	// methods := handlers.AllowedMethods([]string{"POST"})
 	// // ttl := handlers.MaxAge(3600)
 	// origins := handlers.AllowedOrigins([]string{"www.local.com"})
-	methods := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "OPTIONS", "FETCH"})
-	origins := handlers.AllowedOrigins([]string{"*"})
-	headers := handlers.AllowedHeaders([]string{"Accept", "Accept-Language", "Content-Language", "Origin", "Access-Control-Allow-Origin"})
-	handleCORS := handlers.CORS(credentials, methods, origins, headers)
+	allowedMethods := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "OPTIONS", "FETCH", "PUT", "DELETE"})
+	allowedOrigins := handlers.AllowedOrigins([]string{"*"})
+	allowedHeaders := handlers.AllowedHeaders([]string{"Accept", "Accept-Language", "Content-Language", "Origin", "Access-Control-Allow-Origin", "Content-Type", "Authorization", "Origin-Accept", "X-Requested-With", "Access-Control-Request-Method", "Access-Control-Request-Header"})
+	exposedHeaders := handlers.ExposedHeaders([]string{"Origin", "Content-Type", "Accept", "Authorization", "Access-Control-Request-Allow-Origin", "Access-Control-Allow-Credentials"})
+	handleCORS := handlers.CORS(allowCredentials, allowedMethods, allowedOrigins, allowedHeaders, exposedHeaders)
 
 	recovery := recovr.New()
 	negroniMiddleware := negronilogrus.NewMiddleware()
