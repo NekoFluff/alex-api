@@ -18,6 +18,7 @@ import (
 	"github.com/gorilla/handlers"
 	negronilogrus "github.com/meatballhat/negroni-logrus"
 
+	"addi/restapi/customMiddleware"
 	"addi/restapi/operations"
 )
 
@@ -66,6 +67,8 @@ func configureAPI(api *operations.AddiAPI) http.Handler {
 			return middleware.NotImplemented("operation operations.CheckHealth has not yet been implemented")
 		})
 	}
+
+	api.AddMiddlewareFor("GET", "/health", customMiddleware.GoogleAuthMiddleware)
 
 	api.PreServerShutdown = func() {}
 
