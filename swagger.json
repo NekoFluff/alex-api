@@ -17,7 +17,6 @@
     "application/json"
   ],
   "schemes": [
-    "https",
     "http"
   ],
   "paths": {

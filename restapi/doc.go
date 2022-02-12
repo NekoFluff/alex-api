@@ -5,7 +5,6 @@
 //  HTTP server in Go with Swagger endpoints definition.
 //  Schemes:
 //    http
-//    https
 //  Host: protected-sea-18092.herokuapp.com
 //  BasePath: /
 //  Version: 0.1.0
