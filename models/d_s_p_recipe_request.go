@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DSPMaterial d s p material
+// DSPRecipeRequest d s p recipe request
 //
-// swagger:model DSPMaterial
-type DSPMaterial struct {
+// swagger:model DSPRecipeRequest
+type DSPRecipeRequest struct {
 
 	// count
 	// Required: true
@@ -28,8 +28,8 @@ type DSPMaterial struct {
 	Name *string `json:"name"`
 }
 
-// Validate validates this d s p material
-func (m *DSPMaterial) Validate(formats strfmt.Registry) error {
+// Validate validates this d s p recipe request
+func (m *DSPRecipeRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCount(formats); err != nil {
@@ -46,7 +46,7 @@ func (m *DSPMaterial) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DSPMaterial) validateCount(formats strfmt.Registry) error {
+func (m *DSPRecipeRequest) validateCount(formats strfmt.Registry) error {
 
 	if err := validate.Required("count", "body", m.Count); err != nil {
 		return err
@@ -55,7 +55,7 @@ func (m *DSPMaterial) validateCount(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DSPMaterial) validateName(formats strfmt.Registry) error {
+func (m *DSPRecipeRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
@@ -64,13 +64,13 @@ func (m *DSPMaterial) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this d s p material based on context it is used
-func (m *DSPMaterial) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this d s p recipe request based on context it is used
+func (m *DSPRecipeRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *DSPMaterial) MarshalBinary() ([]byte, error) {
+func (m *DSPRecipeRequest) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -78,8 +78,8 @@ func (m *DSPMaterial) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *DSPMaterial) UnmarshalBinary(b []byte) error {
-	var res DSPMaterial
+func (m *DSPRecipeRequest) UnmarshalBinary(b []byte) error {
+	var res DSPRecipeRequest
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

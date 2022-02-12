@@ -47,24 +47,24 @@ func configureAPI(api *operations.AddiAPI) http.Handler {
 	api.JSONProducer = runtime.JSONProducer()
 	api.TxtProducer = runtime.TextProducer()
 
-	if api.GetDspItemsHandler == nil {
-		api.GetDspItemsHandler = operations.GetDspItemsHandlerFunc(func(params operations.GetDspItemsParams) middleware.Responder {
-			return middleware.NotImplemented("operation operations.GetDspItems has not yet been implemented")
-		})
-	}
-	if api.PostDspHandler == nil {
-		api.PostDspHandler = operations.PostDspHandlerFunc(func(params operations.PostDspParams) middleware.Responder {
-			return middleware.NotImplemented("operation operations.PostDsp has not yet been implemented")
-		})
-	}
-	if api.PostDspItemsReloadHandler == nil {
-		api.PostDspItemsReloadHandler = operations.PostDspItemsReloadHandlerFunc(func(params operations.PostDspItemsReloadParams) middleware.Responder {
-			return middleware.NotImplemented("operation operations.PostDspItemsReload has not yet been implemented")
-		})
-	}
 	if api.CheckHealthHandler == nil {
 		api.CheckHealthHandler = operations.CheckHealthHandlerFunc(func(params operations.CheckHealthParams) middleware.Responder {
 			return middleware.NotImplemented("operation operations.CheckHealth has not yet been implemented")
+		})
+	}
+	if api.GetDSPRecipeHandler == nil {
+		api.GetDSPRecipeHandler = operations.GetDSPRecipeHandlerFunc(func(params operations.GetDSPRecipeParams) middleware.Responder {
+			return middleware.NotImplemented("operation operations.GetDSPRecipe has not yet been implemented")
+		})
+	}
+	if api.GetDSPRecipesHandler == nil {
+		api.GetDSPRecipesHandler = operations.GetDSPRecipesHandlerFunc(func(params operations.GetDSPRecipesParams) middleware.Responder {
+			return middleware.NotImplemented("operation operations.GetDSPRecipes has not yet been implemented")
+		})
+	}
+	if api.ReloadDSPRecipesHandler == nil {
+		api.ReloadDSPRecipesHandler = operations.ReloadDSPRecipesHandlerFunc(func(params operations.ReloadDSPRecipesParams) middleware.Responder {
+			return middleware.NotImplemented("operation operations.ReloadDSPRecipes has not yet been implemented")
 		})
 	}
 

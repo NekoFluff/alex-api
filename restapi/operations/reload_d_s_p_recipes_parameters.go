@@ -12,19 +12,19 @@ import (
 	"github.com/go-openapi/runtime/middleware"
 )
 
-// NewPostDspItemsReloadParams creates a new PostDspItemsReloadParams object
+// NewReloadDSPRecipesParams creates a new ReloadDSPRecipesParams object
 //
 // There are no default values defined in the spec.
-func NewPostDspItemsReloadParams() PostDspItemsReloadParams {
+func NewReloadDSPRecipesParams() ReloadDSPRecipesParams {
 
-	return PostDspItemsReloadParams{}
+	return ReloadDSPRecipesParams{}
 }
 
-// PostDspItemsReloadParams contains all the bound params for the post dsp items reload operation
+// ReloadDSPRecipesParams contains all the bound params for the reload d s p recipes operation
 // typically these are obtained from a http.Request
 //
-// swagger:parameters PostDspItemsReload
-type PostDspItemsReloadParams struct {
+// swagger:parameters reloadDSPRecipes
+type ReloadDSPRecipesParams struct {
 
 	// HTTP Request Object
 	HTTPRequest *http.Request `json:"-"`
@@ -33,8 +33,8 @@ type PostDspItemsReloadParams struct {
 // BindRequest both binds and validates a request, it assumes that complex things implement a Validatable(strfmt.Registry) error interface
 // for simple values it will use straight method calls.
 //
-// To ensure default values, the struct must have been initialized with NewPostDspItemsReloadParams() beforehand.
-func (o *PostDspItemsReloadParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
+// To ensure default values, the struct must have been initialized with NewReloadDSPRecipesParams() beforehand.
+func (o *ReloadDSPRecipesParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
 	var res []error
 
 	o.HTTPRequest = r

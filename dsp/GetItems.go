@@ -2,6 +2,6 @@ package dsp
 
 import "addi/models"
 
-func GetItems() []*models.DSPItem {
+func GetItems() []*models.DSPRecipe {
 	return items
 }

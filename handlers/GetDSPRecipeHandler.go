@@ -10,11 +10,11 @@ import (
 	"github.com/go-openapi/runtime/middleware"
 )
 
-func PostDSPHandler(params operations.PostDspParams) middleware.Responder {
+func GetDSPRecipeHandler(params operations.GetDSPRecipeParams) middleware.Responder {
 
 	// log.Println("Starting DSP Optimizer Program")
 
-	recipe := []*models.Recipe{}
+	recipe := []*models.DSPRecipeResponse{}
 
 	for _, v := range params.RecipeRequest {
 		recipe = append(recipe, dsp.GetRecipeForItem(*v.Name, float64(*v.Count), "")...)
@@ -24,5 +24,5 @@ func PostDSPHandler(params operations.PostDspParams) middleware.Responder {
 	fmt.Println("RECIPE")
 	fmt.Println(string(jsonStr))
 
-	return operations.NewPostDspOK().WithPayload(recipe)
+	return operations.NewGetDSPRecipeOK().WithPayload(recipe)
 }

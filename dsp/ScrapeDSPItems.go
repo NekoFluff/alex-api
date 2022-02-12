@@ -86,8 +86,10 @@ func handleDSPItemUrl(itemName string, url string) []*models.DSPItem {
 			// Materials
 			e2.ForEach("div.tt_recipe_item", func(_ int, e3 *colly.HTMLElement) {
 				m := models.DSPMaterial{}
-				m.Count, _ = strconv.ParseFloat(e3.ChildText("div"), 64)
-				m.Name = e3.ChildAttr("a", "title")
+				count, _ := strconv.ParseFloat(e3.ChildText("div"), 64)
+				m.Count = &count
+				name := e3.ChildAttr("a", "title")
+				i.Name = &name
 				i.Materials = append(i.Materials, &m)
 				fmt.Printf("%+v\n", m)
 			})
@@ -96,25 +98,28 @@ func handleDSPItemUrl(itemName string, url string) []*models.DSPItem {
 			secondsStr := e2.ChildText("div.tt_rec_arrow")
 			r, _ := regexp.Compile(`(\d)+`)
 			secondsStr = r.FindString(secondsStr)
-			i.Time, _ = strconv.ParseFloat(secondsStr, 64)
+			time, _ := strconv.ParseFloat(secondsStr, 64)
+			i.Time = &time
 
 			// Output
 			e2.ForEach("div.tt_output_item", func(_ int, e3 *colly.HTMLElement) {
 				outputItemName := e3.ChildAttr("a", "title")
 				if itemName == outputItemName {
-					i.Name = outputItemName
-					i.Produce, _ = strconv.ParseFloat(e3.ChildText("div"), 64)
+					i.Name = &outputItemName
+					produce, _ := strconv.ParseFloat(e3.ChildText("div"), 64)
+					i.Produce = &produce
 				}
 			})
 
 			// Made In
 			e2.ForEach("td:nth-of-type(2)", func(_ int, e3 *colly.HTMLElement) {
-				i.MadeIn = e3.ChildAttr("a:nth-of-type(1)", "title")
+				madeIn := e3.ChildAttr("a:nth-of-type(1)", "title")
+				i.MadeIn = &madeIn
 			})
 
 			fmt.Printf("%+v\n", i)
 
-			if i.Name != "" {
+			if *i.Name != "" {
 				dspItems = append(dspItems, &i)
 			}
 		})

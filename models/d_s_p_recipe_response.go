@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// Recipe recipe
+// DSPRecipeResponse d s p recipe response
 //
-// swagger:model Recipe
-type Recipe struct {
+// swagger:model DSPRecipeResponse
+type DSPRecipeResponse struct {
 
 	// consumes per sec
 	// Required: true
@@ -48,8 +48,8 @@ type Recipe struct {
 	SecondsSpendPerCrafting *float64 `json:"secondsSpendPerCrafting"`
 }
 
-// Validate validates this recipe
-func (m *Recipe) Validate(formats strfmt.Registry) error {
+// Validate validates this d s p recipe response
+func (m *DSPRecipeResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateConsumesPerSec(formats); err != nil {
@@ -86,7 +86,7 @@ func (m *Recipe) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Recipe) validateConsumesPerSec(formats strfmt.Registry) error {
+func (m *DSPRecipeResponse) validateConsumesPerSec(formats strfmt.Registry) error {
 
 	if m.ConsumesPerSec == nil {
 		return errors.Required("consumesPerSec", "body", nil)
@@ -95,7 +95,7 @@ func (m *Recipe) validateConsumesPerSec(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Recipe) validateCraftingPerSecond(formats strfmt.Registry) error {
+func (m *DSPRecipeResponse) validateCraftingPerSecond(formats strfmt.Registry) error {
 
 	if err := validate.Required("craftingPerSecond", "body", m.CraftingPerSecond); err != nil {
 		return err
@@ -104,7 +104,7 @@ func (m *Recipe) validateCraftingPerSecond(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Recipe) validateFor(formats strfmt.Registry) error {
+func (m *DSPRecipeResponse) validateFor(formats strfmt.Registry) error {
 
 	if err := validate.Required("for", "body", m.For); err != nil {
 		return err
@@ -113,7 +113,7 @@ func (m *Recipe) validateFor(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Recipe) validateMadeIn(formats strfmt.Registry) error {
+func (m *DSPRecipeResponse) validateMadeIn(formats strfmt.Registry) error {
 
 	if err := validate.Required("madeIn", "body", m.MadeIn); err != nil {
 		return err
@@ -122,7 +122,7 @@ func (m *Recipe) validateMadeIn(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Recipe) validateNumberOfFacilitiesNeeded(formats strfmt.Registry) error {
+func (m *DSPRecipeResponse) validateNumberOfFacilitiesNeeded(formats strfmt.Registry) error {
 
 	if err := validate.Required("numberOfFacilitiesNeeded", "body", m.NumberOfFacilitiesNeeded); err != nil {
 		return err
@@ -131,7 +131,7 @@ func (m *Recipe) validateNumberOfFacilitiesNeeded(formats strfmt.Registry) error
 	return nil
 }
 
-func (m *Recipe) validateProduce(formats strfmt.Registry) error {
+func (m *DSPRecipeResponse) validateProduce(formats strfmt.Registry) error {
 
 	if err := validate.Required("produce", "body", m.Produce); err != nil {
 		return err
@@ -140,7 +140,7 @@ func (m *Recipe) validateProduce(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Recipe) validateSecondsSpendPerCrafting(formats strfmt.Registry) error {
+func (m *DSPRecipeResponse) validateSecondsSpendPerCrafting(formats strfmt.Registry) error {
 
 	if err := validate.Required("secondsSpendPerCrafting", "body", m.SecondsSpendPerCrafting); err != nil {
 		return err
@@ -149,13 +149,13 @@ func (m *Recipe) validateSecondsSpendPerCrafting(formats strfmt.Registry) error 
 	return nil
 }
 
-// ContextValidate validates this recipe based on context it is used
-func (m *Recipe) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this d s p recipe response based on context it is used
+func (m *DSPRecipeResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *Recipe) MarshalBinary() ([]byte, error) {
+func (m *DSPRecipeResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -163,8 +163,8 @@ func (m *Recipe) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *Recipe) UnmarshalBinary(b []byte) error {
-	var res Recipe
+func (m *DSPRecipeResponse) UnmarshalBinary(b []byte) error {
+	var res DSPRecipeResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

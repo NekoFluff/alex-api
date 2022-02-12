@@ -3,8 +3,13 @@
   "info": {
     "description": "HTTP server in Go with Swagger endpoints definition.",
     "title": "go-rest-api",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "contact": {
+      "name": "API Support",
+      "email": "alexnou@gmail.com"
+    }
   },
+  "host": "protected-sea-18092.herokuapp.com",
   "consumes": [
     "application/json"
   ],
@@ -12,6 +17,7 @@
     "application/json"
   ],
   "schemes": [
+    "https",
     "http"
   ],
   "paths": {
@@ -19,6 +25,7 @@
       "post": {
         "summary": "Get the optimal recipe",
         "description": "Get the optimal recipe",
+        "operationId": "getDSPRecipe",
         "parameters": [
           {
             "in": "body",
@@ -26,7 +33,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/RecipeRequest"
+                "$ref": "#/definitions/DSPRecipeRequest"
               }
             }
           }
@@ -37,34 +44,39 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Recipe"
+                "$ref": "#/definitions/DSPRecipeResponse"
               }
             }
+          },
+          "405": {
+            "description": "Invalid input"
           }
         }
       }
     },
-    "/dsp/items": {
+    "/dsp/recipes": {
       "get": {
-        "summary": "Get all items",
-        "description": "Get all items",
+        "summary": "Get all DSP recipes",
+        "description": "Get all DSP recipes",
+        "operationId": "getDSPRecipes",
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/DSPItem"
+                "$ref": "#/definitions/DSPRecipe"
               }
             }
           }
         }
       }
     },
-    "/dsp/items/reload": {
+    "/dsp/recipes/reload": {
       "post": {
-        "summary": "Re-scrapes the DSP items",
-        "description": "Re-scrapes the DSP items",
+        "summary": "Re-scrapes the DSP recipes",
+        "description": "Re-scrapes the DSP recipes",
+        "operationId": "reloadDSPRecipes",
         "responses": {
           "200": {
             "description": "OK",
@@ -100,7 +112,8 @@
     }
   },
   "definitions": {
-    "DSPItem": {
+    "DSPRecipe": {
+      "type": "object",
       "properties": {
         "name": {
           "type": "string"
@@ -120,19 +133,17 @@
             "$ref": "#/definitions/DSPMaterial"
           }
         }
-      }
+      },
+      "required": [
+        "name",
+        "produce",
+        "madeIn",
+        "time",
+        "materials"
+      ]
     },
     "DSPMaterial": {
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "count": {
-          "type": "number"
-        }
-      }
-    },
-    "RecipeRequest": {
+      "type": "object",
       "properties": {
         "name": {
           "type": "string"
@@ -146,7 +157,23 @@
         "count"
       ]
     },
-    "Recipe": {
+    "DSPRecipeRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "count"
+      ]
+    },
+    "DSPRecipeResponse": {
+      "type": "object",
       "properties": {
         "produce": {
           "type": "string"
@@ -169,7 +196,16 @@
         "for": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "produce",
+        "madeIn",
+        "numberOfFacilitiesNeeded",
+        "consumesPerSec",
+        "secondsSpendPerCrafting",
+        "craftingPerSecond",
+        "for"
+      ]
     }
   }
 }

@@ -1,6 +1,11 @@
 version: "3"
 
 tasks:
+    dev:
+        desc: Run and autoreload the app
+        cmds:
+        - nodemon --exec 'go run main.go' --watch './**/*.go' --signal SIGTERM
+
     build:
         desc: Build the app
         cmds:
@@ -14,7 +19,6 @@ tasks:
     swagger.gen:
         desc: Generate Go code
         cmds:
-        - rm -rf restapi/operations
         - swagger generate server swagger.json -A addi
 
     swagger.validate:

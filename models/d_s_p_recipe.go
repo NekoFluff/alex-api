@@ -15,10 +15,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// DSPItem d s p item
+// DSPRecipe d s p recipe
 //
-// swagger:model DSPItem
-type DSPItem struct {
+// swagger:model DSPRecipe
+type DSPRecipe struct {
 
 	// made in
 	// Required: true
@@ -41,8 +41,8 @@ type DSPItem struct {
 	Time *float64 `json:"time"`
 }
 
-// Validate validates this d s p item
-func (m *DSPItem) Validate(formats strfmt.Registry) error {
+// Validate validates this d s p recipe
+func (m *DSPRecipe) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateMadeIn(formats); err != nil {
@@ -71,7 +71,7 @@ func (m *DSPItem) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DSPItem) validateMadeIn(formats strfmt.Registry) error {
+func (m *DSPRecipe) validateMadeIn(formats strfmt.Registry) error {
 
 	if err := validate.Required("madeIn", "body", m.MadeIn); err != nil {
 		return err
@@ -80,7 +80,7 @@ func (m *DSPItem) validateMadeIn(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DSPItem) validateMaterials(formats strfmt.Registry) error {
+func (m *DSPRecipe) validateMaterials(formats strfmt.Registry) error {
 
 	if err := validate.Required("materials", "body", m.Materials); err != nil {
 		return err
@@ -107,7 +107,7 @@ func (m *DSPItem) validateMaterials(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DSPItem) validateName(formats strfmt.Registry) error {
+func (m *DSPRecipe) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
@@ -116,7 +116,7 @@ func (m *DSPItem) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DSPItem) validateProduce(formats strfmt.Registry) error {
+func (m *DSPRecipe) validateProduce(formats strfmt.Registry) error {
 
 	if err := validate.Required("produce", "body", m.Produce); err != nil {
 		return err
@@ -125,7 +125,7 @@ func (m *DSPItem) validateProduce(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DSPItem) validateTime(formats strfmt.Registry) error {
+func (m *DSPRecipe) validateTime(formats strfmt.Registry) error {
 
 	if err := validate.Required("time", "body", m.Time); err != nil {
 		return err
@@ -134,8 +134,8 @@ func (m *DSPItem) validateTime(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validate this d s p item based on the context it is used
-func (m *DSPItem) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this d s p recipe based on the context it is used
+func (m *DSPRecipe) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateMaterials(ctx, formats); err != nil {
@@ -148,7 +148,7 @@ func (m *DSPItem) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 	return nil
 }
 
-func (m *DSPItem) contextValidateMaterials(ctx context.Context, formats strfmt.Registry) error {
+func (m *DSPRecipe) contextValidateMaterials(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Materials); i++ {
 
@@ -169,7 +169,7 @@ func (m *DSPItem) contextValidateMaterials(ctx context.Context, formats strfmt.R
 }
 
 // MarshalBinary interface implementation
-func (m *DSPItem) MarshalBinary() ([]byte, error) {
+func (m *DSPRecipe) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -177,8 +177,8 @@ func (m *DSPItem) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *DSPItem) UnmarshalBinary(b []byte) error {
-	var res DSPItem
+func (m *DSPRecipe) UnmarshalBinary(b []byte) error {
+	var res DSPRecipe
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

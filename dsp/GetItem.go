@@ -3,6 +3,7 @@ package dsp
 import (
 	"addi/models"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -10,15 +11,15 @@ import (
 )
 
 var once sync.Once
-var items []*models.DSPItem
-var itemMap = make(map[string][]*models.DSPItem)
+var items []*models.DSPRecipe
+var itemMap = make(map[string][]*models.DSPRecipe)
 
 func init() {
 	GetItem("")
 	log.Println("Initialized data")
 }
 
-func GetItem(itemName string) (*models.DSPItem, bool) {
+func GetItem(itemName string) (*models.DSPRecipe, bool) {
 	once.Do(func() {
 		loadItemsFromFile()
 	})
@@ -32,7 +33,7 @@ func GetItem(itemName string) (*models.DSPItem, bool) {
 }
 
 func ReloadItems() {
-	itemMap = make(map[string][]*models.DSPItem)
+	itemMap = make(map[string][]*models.DSPRecipe)
 	loadItemsFromFile()
 }
 
@@ -47,9 +48,19 @@ func loadItemsFromFile() {
 	// Read and unmarshal the file
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	json.Unmarshal(byteValue, &items)
-
 	// Map the items
-	for _, v := range items {
-		itemMap[v.Name] = append(itemMap[v.Name], v)
+	for _, recipe := range items {
+		// fmt.Println(recipe)
+
+		if recipe.Name != nil {
+			itemName := *recipe.Name
+			itemMap[itemName] = append(itemMap[itemName], recipe)
+		} else {
+			fmt.Println(recipe)
+			fmt.Println("Invalid Recipe Found")
+			fmt.Println(*recipe.MadeIn)
+			fmt.Println(*recipe.Materials[0].Name)
+			fmt.Println(*recipe.Materials[0].Count)
+		}
 	}
 }

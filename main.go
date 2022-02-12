@@ -30,11 +30,11 @@ func main() {
 
 	api.CheckHealthHandler = operations.CheckHealthHandlerFunc(handlers.CheckHealthHandler)
 
-	api.PostDspHandler = operations.PostDspHandlerFunc(handlers.PostDSPHandler)
+	api.GetDSPRecipeHandler = operations.GetDSPRecipeHandlerFunc(handlers.GetDSPRecipeHandler)
 
-	api.GetDspItemsHandler = operations.GetDspItemsHandlerFunc(handlers.GetDSPItemsHandler)
+	api.GetDSPRecipesHandler = operations.GetDSPRecipesHandlerFunc(handlers.GetDSPRecipesHandler)
 
-	api.PostDspItemsReloadHandler = operations.PostDspItemsReloadHandlerFunc(handlers.PostDSPItemsReloadHandler)
+	api.ReloadDSPRecipesHandler = operations.ReloadDSPRecipesHandlerFunc(handlers.ReloadDSPRecipesHandler)
 
 	server.ConfigureAPI()
 

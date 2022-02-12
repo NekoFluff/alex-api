@@ -43,17 +43,17 @@ func NewAddiAPI(spec *loads.Document) *AddiAPI {
 		JSONProducer: runtime.JSONProducer(),
 		TxtProducer:  runtime.TextProducer(),
 
-		GetDspItemsHandler: GetDspItemsHandlerFunc(func(params GetDspItemsParams) middleware.Responder {
-			return middleware.NotImplemented("operation GetDspItems has not yet been implemented")
-		}),
-		PostDspHandler: PostDspHandlerFunc(func(params PostDspParams) middleware.Responder {
-			return middleware.NotImplemented("operation PostDsp has not yet been implemented")
-		}),
-		PostDspItemsReloadHandler: PostDspItemsReloadHandlerFunc(func(params PostDspItemsReloadParams) middleware.Responder {
-			return middleware.NotImplemented("operation PostDspItemsReload has not yet been implemented")
-		}),
 		CheckHealthHandler: CheckHealthHandlerFunc(func(params CheckHealthParams) middleware.Responder {
 			return middleware.NotImplemented("operation CheckHealth has not yet been implemented")
+		}),
+		GetDSPRecipeHandler: GetDSPRecipeHandlerFunc(func(params GetDSPRecipeParams) middleware.Responder {
+			return middleware.NotImplemented("operation GetDSPRecipe has not yet been implemented")
+		}),
+		GetDSPRecipesHandler: GetDSPRecipesHandlerFunc(func(params GetDSPRecipesParams) middleware.Responder {
+			return middleware.NotImplemented("operation GetDSPRecipes has not yet been implemented")
+		}),
+		ReloadDSPRecipesHandler: ReloadDSPRecipesHandlerFunc(func(params ReloadDSPRecipesParams) middleware.Responder {
+			return middleware.NotImplemented("operation ReloadDSPRecipes has not yet been implemented")
 		}),
 	}
 }
@@ -94,14 +94,14 @@ type AddiAPI struct {
 	//   - text/plain
 	TxtProducer runtime.Producer
 
-	// GetDspItemsHandler sets the operation handler for the get dsp items operation
-	GetDspItemsHandler GetDspItemsHandler
-	// PostDspHandler sets the operation handler for the post dsp operation
-	PostDspHandler PostDspHandler
-	// PostDspItemsReloadHandler sets the operation handler for the post dsp items reload operation
-	PostDspItemsReloadHandler PostDspItemsReloadHandler
 	// CheckHealthHandler sets the operation handler for the check health operation
 	CheckHealthHandler CheckHealthHandler
+	// GetDSPRecipeHandler sets the operation handler for the get d s p recipe operation
+	GetDSPRecipeHandler GetDSPRecipeHandler
+	// GetDSPRecipesHandler sets the operation handler for the get d s p recipes operation
+	GetDSPRecipesHandler GetDSPRecipesHandler
+	// ReloadDSPRecipesHandler sets the operation handler for the reload d s p recipes operation
+	ReloadDSPRecipesHandler ReloadDSPRecipesHandler
 
 	// ServeError is called when an error is received, there is a default handler
 	// but you can set your own with this
@@ -182,17 +182,17 @@ func (o *AddiAPI) Validate() error {
 		unregistered = append(unregistered, "TxtProducer")
 	}
 
-	if o.GetDspItemsHandler == nil {
-		unregistered = append(unregistered, "GetDspItemsHandler")
-	}
-	if o.PostDspHandler == nil {
-		unregistered = append(unregistered, "PostDspHandler")
-	}
-	if o.PostDspItemsReloadHandler == nil {
-		unregistered = append(unregistered, "PostDspItemsReloadHandler")
-	}
 	if o.CheckHealthHandler == nil {
 		unregistered = append(unregistered, "CheckHealthHandler")
+	}
+	if o.GetDSPRecipeHandler == nil {
+		unregistered = append(unregistered, "GetDSPRecipeHandler")
+	}
+	if o.GetDSPRecipesHandler == nil {
+		unregistered = append(unregistered, "GetDSPRecipesHandler")
+	}
+	if o.ReloadDSPRecipesHandler == nil {
+		unregistered = append(unregistered, "ReloadDSPRecipesHandler")
 	}
 
 	if len(unregistered) > 0 {
@@ -287,19 +287,19 @@ func (o *AddiAPI) initHandlerCache() {
 	if o.handlers["GET"] == nil {
 		o.handlers["GET"] = make(map[string]http.Handler)
 	}
-	o.handlers["GET"]["/dsp/items"] = NewGetDspItems(o.context, o.GetDspItemsHandler)
+	o.handlers["GET"]["/health"] = NewCheckHealth(o.context, o.CheckHealthHandler)
 	if o.handlers["POST"] == nil {
 		o.handlers["POST"] = make(map[string]http.Handler)
 	}
-	o.handlers["POST"]["/dsp"] = NewPostDsp(o.context, o.PostDspHandler)
-	if o.handlers["POST"] == nil {
-		o.handlers["POST"] = make(map[string]http.Handler)
-	}
-	o.handlers["POST"]["/dsp/items/reload"] = NewPostDspItemsReload(o.context, o.PostDspItemsReloadHandler)
+	o.handlers["POST"]["/dsp"] = NewGetDSPRecipe(o.context, o.GetDSPRecipeHandler)
 	if o.handlers["GET"] == nil {
 		o.handlers["GET"] = make(map[string]http.Handler)
 	}
-	o.handlers["GET"]["/health"] = NewCheckHealth(o.context, o.CheckHealthHandler)
+	o.handlers["GET"]["/dsp/recipes"] = NewGetDSPRecipes(o.context, o.GetDSPRecipesHandler)
+	if o.handlers["POST"] == nil {
+		o.handlers["POST"] = make(map[string]http.Handler)
+	}
+	o.handlers["POST"]["/dsp/recipes/reload"] = NewReloadDSPRecipes(o.context, o.ReloadDSPRecipesHandler)
 }
 
 // Serve creates a http handler to serve the API over HTTP

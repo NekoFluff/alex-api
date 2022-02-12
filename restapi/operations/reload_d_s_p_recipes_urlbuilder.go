@@ -11,15 +11,15 @@ import (
 	golangswaggerpaths "path"
 )
 
-// GetDspItemsURL generates an URL for the get dsp items operation
-type GetDspItemsURL struct {
+// ReloadDSPRecipesURL generates an URL for the reload d s p recipes operation
+type ReloadDSPRecipesURL struct {
 	_basePath string
 }
 
 // WithBasePath sets the base path for this url builder, only required when it's different from the
 // base path specified in the swagger spec.
 // When the value of the base path is an empty string
-func (o *GetDspItemsURL) WithBasePath(bp string) *GetDspItemsURL {
+func (o *ReloadDSPRecipesURL) WithBasePath(bp string) *ReloadDSPRecipesURL {
 	o.SetBasePath(bp)
 	return o
 }
@@ -27,15 +27,15 @@ func (o *GetDspItemsURL) WithBasePath(bp string) *GetDspItemsURL {
 // SetBasePath sets the base path for this url builder, only required when it's different from the
 // base path specified in the swagger spec.
 // When the value of the base path is an empty string
-func (o *GetDspItemsURL) SetBasePath(bp string) {
+func (o *ReloadDSPRecipesURL) SetBasePath(bp string) {
 	o._basePath = bp
 }
 
 // Build a url path and query string
-func (o *GetDspItemsURL) Build() (*url.URL, error) {
+func (o *ReloadDSPRecipesURL) Build() (*url.URL, error) {
 	var _result url.URL
 
-	var _path = "/dsp/items"
+	var _path = "/dsp/recipes/reload"
 
 	_basePath := o._basePath
 	_result.Path = golangswaggerpaths.Join(_basePath, _path)
@@ -44,7 +44,7 @@ func (o *GetDspItemsURL) Build() (*url.URL, error) {
 }
 
 // Must is a helper function to panic when the url builder returns an error
-func (o *GetDspItemsURL) Must(u *url.URL, err error) *url.URL {
+func (o *ReloadDSPRecipesURL) Must(u *url.URL, err error) *url.URL {
 	if err != nil {
 		panic(err)
 	}
@@ -55,17 +55,17 @@ func (o *GetDspItemsURL) Must(u *url.URL, err error) *url.URL {
 }
 
 // String returns the string representation of the path with query string
-func (o *GetDspItemsURL) String() string {
+func (o *ReloadDSPRecipesURL) String() string {
 	return o.Must(o.Build()).String()
 }
 
 // BuildFull builds a full url with scheme, host, path and query string
-func (o *GetDspItemsURL) BuildFull(scheme, host string) (*url.URL, error) {
+func (o *ReloadDSPRecipesURL) BuildFull(scheme, host string) (*url.URL, error) {
 	if scheme == "" {
-		return nil, errors.New("scheme is required for a full url on GetDspItemsURL")
+		return nil, errors.New("scheme is required for a full url on ReloadDSPRecipesURL")
 	}
 	if host == "" {
-		return nil, errors.New("host is required for a full url on GetDspItemsURL")
+		return nil, errors.New("host is required for a full url on ReloadDSPRecipesURL")
 	}
 
 	base, err := o.Build()
@@ -79,6 +79,6 @@ func (o *GetDspItemsURL) BuildFull(scheme, host string) (*url.URL, error) {
 }
 
 // StringFull returns the string representation of a complete url
-func (o *GetDspItemsURL) StringFull(scheme, host string) string {
+func (o *ReloadDSPRecipesURL) StringFull(scheme, host string) string {
 	return o.Must(o.BuildFull(scheme, host)).String()
 }
