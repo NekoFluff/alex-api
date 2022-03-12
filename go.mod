@@ -7,6 +7,7 @@ require (
 	github.com/carbocation/interpose v0.0.0-20161206215253-723534742ba3
 	github.com/didip/tollbooth v4.0.2+incompatible
 	github.com/dre1080/recovr v1.0.3
+	github.com/g8rswimmer/go-twitter/v2 v2.0.0-beta14
 	github.com/go-openapi/errors v0.20.2
 	github.com/go-openapi/loads v0.21.0
 	github.com/go-openapi/runtime v0.21.1
@@ -19,6 +20,8 @@ require (
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.4.0
 	github.com/meatballhat/negroni-logrus v1.1.1
+	github.com/robfig/cron v1.2.0
+	go.mongodb.org/mongo-driver v1.8.2
 	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd
 	google.golang.org/api v0.68.0
 )
@@ -47,9 +50,11 @@ require (
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/golang/snappy v0.0.3 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/karrick/godirwalk v1.15.3 // indirect
 	github.com/kennygrant/sanitize v1.2.4 // indirect
+	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/logrusorgru/aurora v0.0.0-20181002194514-a7b3b318ed4e // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/markbates/errx v1.1.0 // indirect
@@ -58,15 +63,20 @@ require (
 	github.com/mitchellh/mapstructure v1.4.3 // indirect
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
+	github.com/pkg/errors v0.9.1 // indirect
 	github.com/saintfish/chardet v0.0.0-20120816061221-3af4cd4741ca // indirect
 	github.com/sirupsen/logrus v1.7.0 // indirect
 	github.com/temoto/robotstxt v1.1.2 // indirect
 	github.com/urfave/negroni v1.0.0 // indirect
+	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
+	github.com/xdg-go/scram v1.0.2 // indirect
+	github.com/xdg-go/stringprep v1.0.2 // indirect
+	github.com/youmark/pkcs8 v0.0.0-20181117223130-1be2e3e5546d // indirect
 	github.com/ztrue/tracerr v0.3.0 // indirect
-	go.mongodb.org/mongo-driver v1.8.2 // indirect
 	go.opencensus.io v0.23.0 // indirect
 	golang.org/x/crypto v0.0.0-20201216223049-8b5274cf687f // indirect
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8 // indirect
+	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
 	golang.org/x/sys v0.0.0-20220204135822-1c1b9b1eba6a // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	golang.org/x/text v0.3.7 // indirect

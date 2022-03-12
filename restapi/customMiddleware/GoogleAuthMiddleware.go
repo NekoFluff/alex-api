@@ -3,6 +3,7 @@ package customMiddleware
 import (
 	"addi/utils"
 	"context"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -18,19 +19,24 @@ func GoogleAuthMiddleware(next http.Handler) http.Handler {
 			token := authTokens[0]
 			googleClientId := utils.GetEnvVar("GOOGLE_CLIENT_ID")
 
-			_, err := idtoken.Validate(context.Background(), token, googleClientId)
+			payload, err := idtoken.Validate(context.Background(), token, googleClientId)
 			if err != nil {
 				w.Write([]byte(err.Error()))
 				return
 			}
+
+			fmt.Println(payload)
+			ctx := context.WithValue(r.Context(), "google-idToken", payload)
+
+			// email := payload.Claims["email"]
+			// name := payload.Claims["name"]
+
+			next.ServeHTTP(w, r.WithContext(ctx))
+
 		} else {
 			w.Write([]byte("Missing google-idToken header. Unauthorized request."))
 			return
 		}
 
-		// email := payload.Claims["email"]
-		// name := payload.Claims["name"]
-
-		next.ServeHTTP(w, r)
 	})
 }
