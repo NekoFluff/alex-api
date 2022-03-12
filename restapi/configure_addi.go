@@ -67,8 +67,13 @@ func configureAPI(api *operations.AddiAPI) http.Handler {
 			return middleware.NotImplemented("operation operations.ReloadDSPRecipes has not yet been implemented")
 		})
 	}
+	if api.GetInArtHandler == nil {
+		api.GetInArtHandler = operations.GetInArtHandlerFunc(func(params operations.GetInArtParams) middleware.Responder {
+			return middleware.NotImplemented("operation operations.GetInArt has not yet been implemented")
+		})
+	}
 
-	api.AddMiddlewareFor("GET", "/health", customMiddleware.GoogleAuthMiddleware)
+	api.AddMiddlewareFor("GET", "/healthz", customMiddleware.GoogleAuthMiddleware)
 
 	api.PreServerShutdown = func() {}
 
