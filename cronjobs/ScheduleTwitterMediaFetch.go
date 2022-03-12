@@ -25,7 +25,7 @@ func ScheduleTwitterMediaFetch() *cron.Cron {
 }
 
 func getInArtTwitterMedia() {
-	query := `"#inART" has:media -is:retweet`
+	query := `(#inART OR #いなート) has:media -is:retweet`
 
 	opts := twitter.TweetRecentSearchOpts{
 		MediaFields: []twitter.MediaField{twitter.MediaFieldURL, twitter.MediaFieldType, twitter.MediaFieldPublicMetrics, twitter.MediaFieldMediaKey, twitter.MediaFieldHeight, twitter.MediaFieldWidth},
