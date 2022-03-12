@@ -29,7 +29,7 @@ func NewCheckHealth(ctx *middleware.Context, handler CheckHealthHandler) *CheckH
 	return &CheckHealth{Context: ctx, Handler: handler}
 }
 
-/* CheckHealth swagger:route GET /health checkHealth
+/* CheckHealth swagger:route GET /healthz checkHealth
 
 Check on the health of the server
 

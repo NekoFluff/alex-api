@@ -108,7 +108,7 @@ func init() {
         }
       }
     },
-    "/health": {
+    "/healthz": {
       "get": {
         "produces": [
           "text/plain"
@@ -123,6 +123,33 @@ func init() {
               "enum": [
                 "OK"
               ]
+            }
+          }
+        }
+      }
+    },
+    "/inArt": {
+      "get": {
+        "description": "Get inART",
+        "summary": "Get inART",
+        "operationId": "getInArt",
+        "parameters": [
+          {
+            "type": "integer",
+            "description": "Numeric ID of the page to get",
+            "name": "page",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/InArt"
+              }
             }
           }
         }
@@ -222,6 +249,37 @@ func init() {
         },
         "secondsSpendPerCrafting": {
           "type": "number"
+        }
+      }
+    },
+    "InArt": {
+      "type": "object",
+      "required": [
+        "author",
+        "tweetId",
+        "url",
+        "width",
+        "height",
+        "possiblySensitive"
+      ],
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "possiblySensitive": {
+          "type": "boolean"
+        },
+        "tweetId": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer"
         }
       }
     }
@@ -318,7 +376,7 @@ func init() {
         }
       }
     },
-    "/health": {
+    "/healthz": {
       "get": {
         "produces": [
           "text/plain"
@@ -333,6 +391,33 @@ func init() {
               "enum": [
                 "OK"
               ]
+            }
+          }
+        }
+      }
+    },
+    "/inArt": {
+      "get": {
+        "description": "Get inART",
+        "summary": "Get inART",
+        "operationId": "getInArt",
+        "parameters": [
+          {
+            "type": "integer",
+            "description": "Numeric ID of the page to get",
+            "name": "page",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/InArt"
+              }
             }
           }
         }
@@ -432,6 +517,37 @@ func init() {
         },
         "secondsSpendPerCrafting": {
           "type": "number"
+        }
+      }
+    },
+    "InArt": {
+      "type": "object",
+      "required": [
+        "author",
+        "tweetId",
+        "url",
+        "width",
+        "height",
+        "possiblySensitive"
+      ],
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "possiblySensitive": {
+          "type": "boolean"
+        },
+        "tweetId": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer"
         }
       }
     }

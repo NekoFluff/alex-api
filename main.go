@@ -6,6 +6,7 @@ import (
 
 	"github.com/go-openapi/loads"
 
+	"addi/cronjobs"
 	"addi/handlers"
 	"addi/restapi"
 	"addi/restapi/operations"
@@ -13,6 +14,8 @@ import (
 )
 
 func main() {
+
+	cronjobs.ScheduleTwitterMediaFetch()
 
 	swaggerSpec, err := loads.Embedded(restapi.SwaggerJSON, restapi.FlatSwaggerJSON)
 	if err != nil {
@@ -35,6 +38,8 @@ func main() {
 	api.GetDSPRecipesHandler = operations.GetDSPRecipesHandlerFunc(handlers.GetDSPRecipesHandler)
 
 	api.ReloadDSPRecipesHandler = operations.ReloadDSPRecipesHandlerFunc(handlers.ReloadDSPRecipesHandler)
+
+	api.GetInArtHandler = operations.GetInArtHandlerFunc(handlers.GetInArtHandler)
 
 	server.ConfigureAPI()
 

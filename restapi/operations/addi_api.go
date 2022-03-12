@@ -52,6 +52,9 @@ func NewAddiAPI(spec *loads.Document) *AddiAPI {
 		GetDSPRecipesHandler: GetDSPRecipesHandlerFunc(func(params GetDSPRecipesParams) middleware.Responder {
 			return middleware.NotImplemented("operation GetDSPRecipes has not yet been implemented")
 		}),
+		GetInArtHandler: GetInArtHandlerFunc(func(params GetInArtParams) middleware.Responder {
+			return middleware.NotImplemented("operation GetInArt has not yet been implemented")
+		}),
 		ReloadDSPRecipesHandler: ReloadDSPRecipesHandlerFunc(func(params ReloadDSPRecipesParams) middleware.Responder {
 			return middleware.NotImplemented("operation ReloadDSPRecipes has not yet been implemented")
 		}),
@@ -100,6 +103,8 @@ type AddiAPI struct {
 	GetDSPRecipeHandler GetDSPRecipeHandler
 	// GetDSPRecipesHandler sets the operation handler for the get d s p recipes operation
 	GetDSPRecipesHandler GetDSPRecipesHandler
+	// GetInArtHandler sets the operation handler for the get in art operation
+	GetInArtHandler GetInArtHandler
 	// ReloadDSPRecipesHandler sets the operation handler for the reload d s p recipes operation
 	ReloadDSPRecipesHandler ReloadDSPRecipesHandler
 
@@ -190,6 +195,9 @@ func (o *AddiAPI) Validate() error {
 	}
 	if o.GetDSPRecipesHandler == nil {
 		unregistered = append(unregistered, "GetDSPRecipesHandler")
+	}
+	if o.GetInArtHandler == nil {
+		unregistered = append(unregistered, "GetInArtHandler")
 	}
 	if o.ReloadDSPRecipesHandler == nil {
 		unregistered = append(unregistered, "ReloadDSPRecipesHandler")
@@ -287,7 +295,7 @@ func (o *AddiAPI) initHandlerCache() {
 	if o.handlers["GET"] == nil {
 		o.handlers["GET"] = make(map[string]http.Handler)
 	}
-	o.handlers["GET"]["/health"] = NewCheckHealth(o.context, o.CheckHealthHandler)
+	o.handlers["GET"]["/healthz"] = NewCheckHealth(o.context, o.CheckHealthHandler)
 	if o.handlers["POST"] == nil {
 		o.handlers["POST"] = make(map[string]http.Handler)
 	}
@@ -296,6 +304,10 @@ func (o *AddiAPI) initHandlerCache() {
 		o.handlers["GET"] = make(map[string]http.Handler)
 	}
 	o.handlers["GET"]["/dsp/recipes"] = NewGetDSPRecipes(o.context, o.GetDSPRecipesHandler)
+	if o.handlers["GET"] == nil {
+		o.handlers["GET"] = make(map[string]http.Handler)
+	}
+	o.handlers["GET"]["/inArt"] = NewGetInArt(o.context, o.GetInArtHandler)
 	if o.handlers["POST"] == nil {
 		o.handlers["POST"] = make(map[string]http.Handler)
 	}

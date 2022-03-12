@@ -57,7 +57,7 @@ func loadItemsFromFile() {
 			itemMap[itemName] = append(itemMap[itemName], recipe)
 		} else {
 			fmt.Println(recipe)
-			fmt.Println("Invalid Recipe Found")
+			fmt.Println("Invalid Recipe Found (recipe.Name is null)")
 			fmt.Println(*recipe.MadeIn)
 			fmt.Println(*recipe.Materials[0].Name)
 			fmt.Println(*recipe.Materials[0].Count)
