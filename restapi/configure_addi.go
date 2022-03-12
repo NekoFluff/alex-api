@@ -97,7 +97,9 @@ func configureServer(s *http.Server, scheme, addr string) {
 // The middleware configuration is for the handler executors. These do not apply to the swagger.json document.
 // The middleware executes after routing but before authentication, binding and validation.
 func setupMiddlewares(handler http.Handler) http.Handler {
-	lmt := tollbooth.NewLimiter(1, &limiter.ExpirableOptions{DefaultExpirationTTL: time.Hour})
+	lmt := tollbooth.NewLimiter(3, &limiter.ExpirableOptions{DefaultExpirationTTL: time.Hour})
+	lmt.SetMessage("You have reached maximum request limit.")
+	lmt.SetMessageContentType("text/plain; charset=utf-8")
 	lmt.SetIPLookups([]string{"RemoteAddr", "X-Forwarded-For", "X-Real-IP"})
 	lmt.SetOnLimitReached(func(w http.ResponseWriter, r *http.Request) {
 		log.Printf("A request was rejected: %v", r.URL)
