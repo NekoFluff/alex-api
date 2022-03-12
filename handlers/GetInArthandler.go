@@ -5,6 +5,7 @@ import (
 	"addi/models"
 	"addi/restapi/operations"
 	"fmt"
+	"strconv"
 
 	"github.com/go-openapi/runtime/middleware"
 )
@@ -29,6 +30,7 @@ func GetInArtHandler(params operations.GetInArtParams) middleware.Responder {
 			sensitive := bool(twitterMedia.PossiblySensitive)
 			tweetId := string(twitterMedia.TweetId)
 			url := string(twitterMedia.Url)
+			created_at := strconv.FormatInt(twitterMedia.CreatedAt.Unix(), 10)
 			m := models.InArt{
 				Author:            &author,
 				Height:            &height,
@@ -36,6 +38,7 @@ func GetInArtHandler(params operations.GetInArtParams) middleware.Responder {
 				TweetID:           &tweetId,
 				URL:               &url,
 				Width:             &width,
+				CreatedAt:         &created_at,
 			}
 			inArt = append(inArt, &m)
 		}

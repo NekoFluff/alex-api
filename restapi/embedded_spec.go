@@ -260,10 +260,14 @@ func init() {
         "url",
         "width",
         "height",
-        "possiblySensitive"
+        "possiblySensitive",
+        "created_at"
       ],
       "properties": {
         "author": {
+          "type": "string"
+        },
+        "created_at": {
           "type": "string"
         },
         "height": {
@@ -528,10 +532,14 @@ func init() {
         "url",
         "width",
         "height",
-        "possiblySensitive"
+        "possiblySensitive",
+        "created_at"
       ],
       "properties": {
         "author": {
+          "type": "string"
+        },
+        "created_at": {
           "type": "string"
         },
         "height": {

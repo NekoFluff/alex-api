@@ -158,6 +158,9 @@
         },
         "possiblySensitive": {
           "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
         }
       },
       "required": [
@@ -166,7 +169,8 @@
         "url",
         "width",
         "height",
-        "possiblySensitive"
+        "possiblySensitive",
+        "created_at"
       ]
     },
     "DSPRecipe": {

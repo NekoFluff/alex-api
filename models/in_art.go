@@ -23,6 +23,10 @@ type InArt struct {
 	// Required: true
 	Author *string `json:"author"`
 
+	// created at
+	// Required: true
+	CreatedAt *string `json:"created_at"`
+
 	// height
 	// Required: true
 	Height *int64 `json:"height"`
@@ -49,6 +53,10 @@ func (m *InArt) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAuthor(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCreatedAt(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -81,6 +89,15 @@ func (m *InArt) Validate(formats strfmt.Registry) error {
 func (m *InArt) validateAuthor(formats strfmt.Registry) error {
 
 	if err := validate.Required("author", "body", m.Author); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InArt) validateCreatedAt(formats strfmt.Registry) error {
+
+	if err := validate.Required("created_at", "body", m.CreatedAt); err != nil {
 		return err
 	}
 
