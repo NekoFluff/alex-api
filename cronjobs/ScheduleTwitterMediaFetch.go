@@ -11,7 +11,7 @@ import (
 )
 
 func ScheduleTwitterMediaFetch() *cron.Cron {
-	getInArtTwitterMedia()
+	go getInArtTwitterMedia()
 
 	c := cron.New()
 	spec := "0 */5 * * * *"
