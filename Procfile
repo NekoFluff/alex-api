@@ -1,1 +1,1 @@
-web: bin/addi
+web: bin/alex-api

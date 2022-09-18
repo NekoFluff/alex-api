@@ -4,22 +4,22 @@ tasks:
     dev:
         desc: Run and autoreload the app
         cmds:
-        - nodemon --exec 'go run main.go' --watch './**/*.go' --signal SIGTERM
+        - nodemon --exec 'go run cmd/alex-server/main.go' --watch './**/*.go' --signal SIGTERM
 
     build:
         desc: Build the app
         cmds:
-        - GOFLAGS=-mod=mod go build -o bin main.go
+        - GOFLAGS=-mod=mod go build -o bin cmd/alex-server/main.go
 
     run:
         desc: Run the app
         cmds:
-        - GOFLAGS=-mod=mod go run main.go
+        - GOFLAGS=-mod=mod go run cmd/alex-server/main.go
 
     swagger.gen:
         desc: Generate Go code
         cmds:
-        - swagger generate server swagger.json -A addi
+        - swagger generate server swagger.json -A alex-api
 
     swagger.validate:
         desc: Validate swagger
