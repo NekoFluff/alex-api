@@ -1,7 +1,7 @@
 package customMiddleware
 
 import (
-	"addi/utils"
+	"alex-api/utils"
 	"context"
 	"fmt"
 	"log"

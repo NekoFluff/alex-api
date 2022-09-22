@@ -11,7 +11,7 @@
         "Value": 2, // Double the duration
       },
       "Spell Effect": {
-        "id": 0, // Additional direct damage spell effect
+        "id": 0, // alex-apitional direct damage spell effect
         "Math": "+",
         "Value": 1
       },
@@ -29,7 +29,7 @@
         "Value": 2, // Double the duration
       },
       "Spell Effect": {
-        "id": 0, // Additional direct damage spell effect
+        "id": 0, // alex-apitional direct damage spell effect
         "Math": "+",
         "Value": 1
       },

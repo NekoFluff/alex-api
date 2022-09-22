@@ -1,7 +1,7 @@
 package data
 
 import (
-	"addi/utils"
+	"alex-api/utils"
 	"context"
 	"log"
 

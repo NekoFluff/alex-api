@@ -1,23 +1,40 @@
 package handlers
 
 import (
-	"addi/dsp"
-	"addi/models"
-	"addi/restapi/operations"
+	"alex-api/models"
+	"alex-api/restapi/operations"
 	"encoding/json"
 	"fmt"
 
+	"github.com/NekoFluff/go-dsp/dsp"
 	"github.com/go-openapi/runtime/middleware"
 )
 
 func GetDSPRecipeHandler(params operations.GetDSPRecipeParams) middleware.Responder {
-
-	// log.Println("Starting DSP Optimizer Program")
-
 	recipe := []*models.DSPRecipeResponse{}
 
 	for _, v := range params.RecipeRequest {
-		recipe = append(recipe, dsp.GetRecipeForItem(*v.Name, float64(*v.Count), "")...)
+		itemName := dsp.ItemName(*v.Name)
+		computedRecipes := optimizer.GetOptimalRecipe(itemName, float32(*v.Count), "", map[dsp.ItemName]bool{})
+
+		for _, cr := range computedRecipes {
+			cps := float64(cr.CraftingPerSec)
+			usedFor := string(cr.UsedFor)
+			madeIn := string(cr.Facility)
+			numFacilities := float64(cr.NumFacilitiesNeeded)
+			product := string(cr.OutputItem)
+			sspc := float64(cr.SecondsSpentPerCraft)
+
+			recipe = append(recipe, &models.DSPRecipeResponse{
+				ConsumesPerSec:           cr.ItemsConsumedPerSec,
+				CraftingPerSecond:        &cps,
+				For:                      &usedFor,
+				MadeIn:                   &madeIn,
+				NumberOfFacilitiesNeeded: &numFacilities,
+				Produce:                  &product,
+				SecondsSpendPerCrafting:  &sspc,
+			})
+		}
 	}
 
 	jsonStr, _ := json.MarshalIndent(recipe, "", "\t")

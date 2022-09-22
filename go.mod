@@ -1,4 +1,4 @@
-module addi
+module alex-api
 
 // +heroku goVersion go1.17
 go 1.17
@@ -28,6 +28,7 @@ require (
 
 require (
 	cloud.google.com/go/compute v1.2.0 // indirect
+	github.com/NekoFluff/go-dsp v1.3.1 // indirect
 	github.com/PuerkitoBio/goquery v1.8.0 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
@@ -66,6 +67,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/saintfish/chardet v0.0.0-20120816061221-3af4cd4741ca // indirect
 	github.com/sirupsen/logrus v1.7.0 // indirect
+	github.com/stretchr/testify v1.8.0 // indirect
 	github.com/temoto/robotstxt v1.1.2 // indirect
 	github.com/urfave/negroni v1.0.0 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect

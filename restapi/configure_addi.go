@@ -18,11 +18,11 @@ import (
 	"github.com/gorilla/handlers"
 	negronilogrus "github.com/meatballhat/negroni-logrus"
 
-	"addi/restapi/customMiddleware"
-	"addi/restapi/operations"
+	"alex-api/restapi/customMiddleware"
+	"alex-api/restapi/operations"
 )
 
-//go:generate swagger generate server --target ../../src --name Addi --spec ../swagger.json --principal interface{}
+//go:generate swagger generate server --target ../../src --name alex-api --spec ../swagger.json --principal interface{}
 
 func configureFlags(api *operations.AddiAPI) {
 	// api.CommandLineOptionsGroups = []swag.CommandLineOptionsGroup{ ... }

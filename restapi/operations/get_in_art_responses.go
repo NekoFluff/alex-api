@@ -10,7 +10,7 @@ import (
 
 	"github.com/go-openapi/runtime"
 
-	"addi/models"
+	"alex-api/models"
 )
 
 // GetInArtOKCode is the HTTP code returned for type GetInArtOK

@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
 
-	"addi/models"
+	"alex-api/models"
 )
 
 // NewGetDSPRecipeParams creates a new GetDSPRecipeParams object

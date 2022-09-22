@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	"addi/data"
-	"addi/models"
-	"addi/restapi/operations"
+	"alex-api/data"
+	"alex-api/models"
+	"alex-api/restapi/operations"
 	"fmt"
 	"strconv"
 

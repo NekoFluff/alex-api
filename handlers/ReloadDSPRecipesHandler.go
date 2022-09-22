@@ -1,13 +1,17 @@
 package handlers
 
 import (
-	"addi/dsp"
-	"addi/restapi/operations"
+	"alex-api/internal/dsphelper"
+	"alex-api/restapi/operations"
 
+	"github.com/NekoFluff/go-dsp/dsp"
 	"github.com/go-openapi/runtime/middleware"
 )
 
 func ReloadDSPRecipesHandler(params operations.ReloadDSPRecipesParams) middleware.Responder {
-	dsp.ScrapeDSPItems()
+	dsphelper.Scrape()
+	optimizer = dsp.NewOptimizer(dsp.OptimizerConfig{
+		DataSource: "../data/items.json",
+	})
 	return operations.NewReloadDSPRecipesOK()
 }

@@ -1,8 +1,8 @@
 package cronjobs
 
 import (
-	"addi/data"
-	"addi/twitterapi"
+	"alex-api/data"
+	"alex-api/internal/twitterapi"
 
 	"log"
 

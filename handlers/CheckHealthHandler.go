@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"addi/restapi/operations"
+	"alex-api/restapi/operations"
 
 	"github.com/go-openapi/runtime/middleware"
 )

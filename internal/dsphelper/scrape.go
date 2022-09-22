@@ -1,7 +1,7 @@
-package dsp
+package dsphelper
 
 import (
-	"addi/models"
+	"alex-api/models"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -12,22 +12,21 @@ import (
 	"github.com/gocolly/colly"
 )
 
-func ScrapeDSPItems() {
-	urls := getDSPItemUrls()
+func Scrape() {
+	urls := getURLs()
 	fmt.Println(urls)
 
 	var dspItems []*models.DSPItem
 	for itemName, url := range urls {
-		dspItems = append(dspItems, handleDSPItemUrl(itemName, url)...)
+		dspItems = append(dspItems, scrapeURL(itemName, url)...)
 	}
 
 	file, _ := json.MarshalIndent(dspItems, "", "\t")
 
 	_ = ioutil.WriteFile("data/items.json", file, 0644)
-	ReloadItems()
 }
 
-func getDSPItemUrls() map[string]string {
+func getURLs() map[string]string {
 	url := "https://dsp-wiki.com/Items"
 	urls := make(map[string]string)
 
@@ -55,11 +54,14 @@ func getDSPItemUrls() map[string]string {
 		fmt.Println("Finished", r.Request.URL)
 	})
 
-	c.Visit(url)
+	err := c.Visit(url)
+	if err != nil {
+		fmt.Println(err)
+	}
 	return urls
 }
 
-func handleDSPItemUrl(itemName string, url string) []*models.DSPItem {
+func scrapeURL(itemName string, url string) []*models.DSPItem {
 	var dspItems []*models.DSPItem
 	c := colly.NewCollector()
 
@@ -134,6 +136,9 @@ func handleDSPItemUrl(itemName string, url string) []*models.DSPItem {
 		fmt.Println("Finished", r.Request.URL)
 	})
 
-	c.Visit(url)
+	err := c.Visit(url)
+	if err != nil {
+		fmt.Println(err)
+	}
 	return dspItems
 }

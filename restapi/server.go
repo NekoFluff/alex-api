@@ -25,7 +25,7 @@ import (
 	flags "github.com/jessevdk/go-flags"
 	"golang.org/x/net/netutil"
 
-	"addi/restapi/operations"
+	"alex-api/restapi/operations"
 )
 
 const (
@@ -42,7 +42,7 @@ func init() {
 	}
 }
 
-// NewServer creates a new api addi server but does not configure it
+// NewServer creates a new api alex-api server but does not configure it
 func NewServer(api *operations.AddiAPI) *Server {
 	s := new(Server)
 
@@ -59,21 +59,21 @@ func (s *Server) ConfigureAPI() {
 	}
 }
 
-// ConfigureFlags configures the additional flags defined by the handlers. Needs to be called before the parser.Parse
+// ConfigureFlags configures the alex-apitional flags defined by the handlers. Needs to be called before the parser.Parse
 func (s *Server) ConfigureFlags() {
 	if s.api != nil {
 		configureFlags(s.api)
 	}
 }
 
-// Server for the addi API
+// Server for the alex-api API
 type Server struct {
 	EnabledListeners []string         `long:"scheme" description:"the listeners to enable, this can be repeated and defaults to the schemes in the swagger spec"`
 	CleanupTimeout   time.Duration    `long:"cleanup-timeout" description:"grace period for which to wait before killing idle connections" default:"10s"`
 	GracefulTimeout  time.Duration    `long:"graceful-timeout" description:"grace period for which to wait before shutting down the server" default:"15s"`
 	MaxHeaderSize    flagext.ByteSize `long:"max-header-size" description:"controls the maximum number of bytes the server will read parsing the request header's keys and values, including the request line. It does not limit the size of the request body." default:"1MiB"`
 
-	SocketPath    flags.Filename `long:"socket-path" description:"the unix socket to listen on" default:"/var/run/addi.sock"`
+	SocketPath    flags.Filename `long:"socket-path" description:"the unix socket to listen on" default:"/var/run/alex-api.sock"`
 	domainSocketL net.Listener
 
 	Host         string        `long:"host" description:"the IP to listen on" default:"localhost" env:"HOST"`
@@ -186,13 +186,13 @@ func (s *Server) Serve() (err error) {
 
 		servers = append(servers, domainSocket)
 		wg.Add(1)
-		s.Logf("Serving addi at unix://%s", s.SocketPath)
+		s.Logf("Serving alex-api at unix://%s", s.SocketPath)
 		go func(l net.Listener) {
 			defer wg.Done()
 			if err := domainSocket.Serve(l); err != nil && err != http.ErrServerClosed {
 				s.Fatalf("%v", err)
 			}
-			s.Logf("Stopped serving addi at unix://%s", s.SocketPath)
+			s.Logf("Stopped serving alex-api at unix://%s", s.SocketPath)
 		}(s.domainSocketL)
 	}
 
@@ -216,13 +216,13 @@ func (s *Server) Serve() (err error) {
 
 		servers = append(servers, httpServer)
 		wg.Add(1)
-		s.Logf("Serving addi at http://%s", s.httpServerL.Addr())
+		s.Logf("Serving alex-api at http://%s", s.httpServerL.Addr())
 		go func(l net.Listener) {
 			defer wg.Done()
 			if err := httpServer.Serve(l); err != nil && err != http.ErrServerClosed {
 				s.Fatalf("%v", err)
 			}
-			s.Logf("Stopped serving addi at http://%s", l.Addr())
+			s.Logf("Stopped serving alex-api at http://%s", l.Addr())
 		}(s.httpServerL)
 	}
 
@@ -309,13 +309,13 @@ func (s *Server) Serve() (err error) {
 
 		servers = append(servers, httpsServer)
 		wg.Add(1)
-		s.Logf("Serving addi at https://%s", s.httpsServerL.Addr())
+		s.Logf("Serving alex-api at https://%s", s.httpsServerL.Addr())
 		go func(l net.Listener) {
 			defer wg.Done()
 			if err := httpsServer.Serve(l); err != nil && err != http.ErrServerClosed {
 				s.Fatalf("%v", err)
 			}
-			s.Logf("Stopped serving addi at https://%s", l.Addr())
+			s.Logf("Stopped serving alex-api at https://%s", l.Addr())
 		}(tls.NewListener(s.httpsServerL, httpsServer.TLSConfig))
 	}
 

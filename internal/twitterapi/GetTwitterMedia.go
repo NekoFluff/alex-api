@@ -1,8 +1,8 @@
 package twitterapi
 
 import (
-	"addi/data"
-	"addi/utils"
+	"alex-api/data"
+	"alex-api/utils"
 	"context"
 	"encoding/json"
 	"fmt"

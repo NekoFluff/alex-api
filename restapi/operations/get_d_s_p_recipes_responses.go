@@ -10,7 +10,7 @@ import (
 
 	"github.com/go-openapi/runtime"
 
-	"addi/models"
+	"alex-api/models"
 )
 
 // GetDSPRecipesOKCode is the HTTP code returned for type GetDSPRecipesOK

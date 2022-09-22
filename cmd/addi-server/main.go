@@ -6,11 +6,11 @@ import (
 
 	"github.com/go-openapi/loads"
 
-	"addi/cronjobs"
-	"addi/handlers"
-	"addi/restapi"
-	"addi/restapi/operations"
-	"addi/utils"
+	"alex-api/cronjobs"
+	"alex-api/handlers"
+	"alex-api/restapi"
+	"alex-api/restapi/operations"
+	"alex-api/utils"
 )
 
 func main() {
