@@ -1,7 +1,6 @@
 package dsphelper
 
 import (
-	"alex-api/models"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -9,19 +8,20 @@ import (
 	"regexp"
 	"strconv"
 
+	"github.com/NekoFluff/go-dsp/dsp"
 	"github.com/gocolly/colly"
 )
 
 func Scrape() {
 	urls := getURLs()
-	fmt.Println(urls)
+	// fmt.Println("URLS",urls)
 
-	var dspItems []*models.DSPItem
+	var dspRecipes []dsp.Recipe
 	for itemName, url := range urls {
-		dspItems = append(dspItems, scrapeURL(itemName, url)...)
+		dspRecipes = append(dspRecipes, scrapeURL(itemName, url)...)
 	}
 
-	file, _ := json.MarshalIndent(dspItems, "", "\t")
+	file, _ := json.MarshalIndent(dspRecipes, "", "\t")
 
 	_ = ioutil.WriteFile("data/items.json", file, 0644)
 }
@@ -61,8 +61,8 @@ func getURLs() map[string]string {
 	return urls
 }
 
-func scrapeURL(itemName string, url string) []*models.DSPItem {
-	var dspItems []*models.DSPItem
+func scrapeURL(itemName string, url string) []dsp.Recipe {
+	var dspRecipes []dsp.Recipe
 	c := colly.NewCollector()
 
 	// c.Limit(&colly.LimitRule{
@@ -83,46 +83,43 @@ func scrapeURL(itemName string, url string) []*models.DSPItem {
 
 	c.OnHTML("table.pc_table:nth-of-type(1)", func(e *colly.HTMLElement) {
 		e.ForEach("tr:nth-of-type(n+1)", func(_ int, e2 *colly.HTMLElement) {
-			i := models.DSPItem{}
+			i := dsp.Recipe{}
+			i.Materials = make(map[dsp.ItemName]float32)
 
 			// Materials
 			e2.ForEach("div.tt_recipe_item", func(_ int, e3 *colly.HTMLElement) {
-				m := models.DSPMaterial{}
-				count, _ := strconv.ParseFloat(e3.ChildText("div"), 64)
-				m.Count = &count
+				count, _ := strconv.ParseFloat(e3.ChildText("div"), 32)
 				name := e3.ChildAttr("a", "title")
-				i.Name = &name
-				i.Materials = append(i.Materials, &m)
-				fmt.Printf("%+v\n", m)
+				i.Materials[dsp.ItemName(name)] = float32(count)
 			})
 
 			// Time Taken
 			secondsStr := e2.ChildText("div.tt_rec_arrow")
 			r, _ := regexp.Compile(`(\d)+`)
 			secondsStr = r.FindString(secondsStr)
-			time, _ := strconv.ParseFloat(secondsStr, 64)
-			i.Time = &time
+			time, _ := strconv.ParseFloat(secondsStr, 32)
+			i.Time = float32(time)
 
 			// Output
 			e2.ForEach("div.tt_output_item", func(_ int, e3 *colly.HTMLElement) {
 				outputItemName := e3.ChildAttr("a", "title")
 				if itemName == outputItemName {
-					i.Name = &outputItemName
-					produce, _ := strconv.ParseFloat(e3.ChildText("div"), 64)
-					i.Produce = &produce
+					i.OutputItem = dsp.ItemName(outputItemName)
+					outputItemCount, _ := strconv.ParseFloat(e3.ChildText("div"), 64)
+					i.OutputItemCount = float32(outputItemCount)
 				}
 			})
 
 			// Made In
 			e2.ForEach("td:nth-of-type(2)", func(_ int, e3 *colly.HTMLElement) {
-				madeIn := e3.ChildAttr("a:nth-of-type(1)", "title")
-				i.MadeIn = &madeIn
+				facility := e3.ChildAttr("a:nth-of-type(1)", "title")
+				i.Facility = facility
 			})
 
-			fmt.Printf("%+v\n", i)
+			fmt.Printf("Item: %+v\n", i)
 
-			if *i.Name != "" {
-				dspItems = append(dspItems, &i)
+			if i.OutputItem != "" {
+				dspRecipes = append(dspRecipes, i)
 			}
 		})
 
@@ -140,5 +137,5 @@ func scrapeURL(itemName string, url string) []*models.DSPItem {
 	if err != nil {
 		fmt.Println(err)
 	}
-	return dspItems
+	return dspRecipes
 }
