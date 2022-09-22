@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "HTTP server in Go with Swagger endpoints definition.",
-    "title": "go-rest-api",
+    "description": "HTTP server in Go with Swagger endpoints definition. An API for all my hobbies.",
+    "title": "alex-api",
     "version": "0.1.0",
     "contact": {
       "name": "API Support",
