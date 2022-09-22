@@ -57,6 +57,8 @@ github.com/NekoFluff/go-dsp v1.3.0 h1:+myoT9OrRj1cBXVeut3klHqvHRf/yp0edca4sSEBfr
 github.com/NekoFluff/go-dsp v1.3.0/go.mod h1:pMwAVMVdEbn/hRGHmsYAuiuJG2jT00zsNMXMm9/AbTQ=
 github.com/NekoFluff/go-dsp v1.3.1 h1:QMKN1le4R+1qj9ttcZtoSQ1zKEqTXbFdD5kQ9NWSMNI=
 github.com/NekoFluff/go-dsp v1.3.1/go.mod h1:pMwAVMVdEbn/hRGHmsYAuiuJG2jT00zsNMXMm9/AbTQ=
+github.com/NekoFluff/go-dsp v1.4.0 h1:TXJ6BjK5pej5sJeUjRmU2ZkXSM19NISME24B3Mn3PRM=
+github.com/NekoFluff/go-dsp v1.4.0/go.mod h1:pMwAVMVdEbn/hRGHmsYAuiuJG2jT00zsNMXMm9/AbTQ=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/PuerkitoBio/goquery v1.8.0 h1:PJTF7AmFCFKk1N6V6jmKfrNH9tV5pNE6lZMkG0gta/U=
 github.com/PuerkitoBio/goquery v1.8.0/go.mod h1:ypIiRMtY7COPGk+I/YbZLbxsxn9g5ejnI2HSMtkjZvI=

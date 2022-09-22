@@ -8,20 +8,37 @@ import (
 )
 
 func GetDSPRecipesHandler(params operations.GetDSPRecipesParams) middleware.Responder {
-	madeIn := "test"
-	materials := []*models.DSPMaterial{}
-	name := "name"
-	produce := 1.0
-	time := 1.0
+	recipes := optimizer.GetRecipes()
 
-	recipe := models.DSPRecipe{
-		MadeIn:    &madeIn,
-		Materials: materials,
-		Name:      &name,
-		Produce:   &produce,
-		Time:      &time,
+	recipeModels := []*models.DSPRecipe{}
+
+	for _, recipe := range recipes {
+		madeIn := recipe.Facility
+		materials := []*models.DSPMaterial{}
+
+		for mat, count := range recipe.Materials {
+			c := float64(count)
+			m := string(mat)
+			materials = append(materials, &models.DSPMaterial{
+				Count: &c,
+				Name:  &m,
+			})
+		}
+
+		name := string(recipe.OutputItem)
+		produce := float64(recipe.OutputItemCount)
+		time := float64(recipe.Time)
+
+		r := &models.DSPRecipe{
+			MadeIn:    &madeIn,
+			Materials: materials,
+			Name:      &name,
+			Produce:   &produce,
+			Time:      &time,
+		}
+
+		recipeModels = append(recipeModels, r)
 	}
 
-	recipes := []*models.DSPRecipe{&recipe}
-	return operations.NewGetDSPRecipesOK().WithPayload(recipes)
+	return operations.NewGetDSPRecipesOK().WithPayload(recipeModels)
 }

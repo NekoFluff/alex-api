@@ -28,7 +28,7 @@ require (
 
 require (
 	cloud.google.com/go/compute v1.2.0 // indirect
-	github.com/NekoFluff/go-dsp v1.3.1 // indirect
+	github.com/NekoFluff/go-dsp v1.4.0 // indirect
 	github.com/PuerkitoBio/goquery v1.8.0 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
