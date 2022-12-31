@@ -19,7 +19,7 @@ func New(l *logrus.Logger) *DB {
 		log: l,
 	}
 
-	db.Connect()
+	db.client = db.Connect()
 	return db
 }
 
