@@ -10,11 +10,11 @@ import (
 )
 
 type DB struct {
-	log    *logrus.Logger
+	log    *logrus.Entry
 	client *mongo.Client
 }
 
-func New(l *logrus.Logger) *DB {
+func New(l *logrus.Entry) *DB {
 	db := &DB{
 		log: l,
 	}

@@ -15,12 +15,12 @@ type Server struct {
 	cfg config.Config
 	*http.Server
 	router    *mux.Router
-	logger    *logrus.Logger
+	logger    *logrus.Entry
 	service   Servicer
 	validator *validator.Validate
 }
 
-func New(cfg config.Config, log *logrus.Logger, service Servicer) *Server {
+func New(cfg config.Config, log *logrus.Entry, service Servicer) *Server {
 	timeout := 60 * time.Second
 	router := mux.NewRouter()
 	router.StrictSlash(true)

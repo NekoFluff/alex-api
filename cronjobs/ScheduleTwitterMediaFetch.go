@@ -3,6 +3,7 @@ package cronjobs
 import (
 	"alex-api/data"
 	"alex-api/internal/twitterapi"
+	"context"
 
 	"log"
 	"time"
@@ -36,7 +37,8 @@ func getInArtTwitterMedia() {
 	}
 
 	log := logrus.New()
-	db := data.New(log)
+	log.SetFormatter(&logrus.JSONFormatter{})
+	db := data.New(log.WithContext(context.TODO()))
 
 	twitterMedia, err := db.GetMostRecentTwitterMedia()
 	if err != nil {
@@ -45,11 +47,10 @@ func getInArtTwitterMedia() {
 	}
 
 	weekAgo := time.Now().Add(-7 * 24 * time.Hour)
-	opts.StartTime = weekAgo
-
 	if twitterMedia.CreatedAt.After(weekAgo) {
 		opts.SinceID = twitterMedia.TweetId
-
+	} else {
+		opts.StartTime = weekAgo
 	}
 	twitterapi.GetTwitterMedia(query, opts)
 

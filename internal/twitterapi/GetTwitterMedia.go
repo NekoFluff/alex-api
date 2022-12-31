@@ -31,6 +31,7 @@ func GetTwitterMedia(query string, opts twitter.TweetRecentSearchOpts) {
 	}
 
 	log := logrus.New()
+	log.SetFormatter(&logrus.JSONFormatter{})
 	log.Println("Callout to tweet recent search callout")
 	log.Printf("SinceId %v\n", opts.SinceID)
 
@@ -79,7 +80,8 @@ func GetTwitterMedia(query string, opts twitter.TweetRecentSearchOpts) {
 			}
 
 			log := logrus.New()
-			db := data.New(log)
+			log.SetFormatter(&logrus.JSONFormatter{})
+			db := data.New(log.WithContext(context.TODO()))
 			db.CreateTwitterMedia(*twitterMedia)
 		}
 	}

@@ -21,8 +21,7 @@ func (s *Server) InArt() http.HandlerFunc {
 		skip := (page - 1) * 50
 		var limit int64 = 50
 
-		log := logrus.New()
-		db := data.New(log)
+		db := data.New(l)
 		twitterMediaList, err := db.GetTwitterMedia(&skip, &limit)
 
 		if err != nil {

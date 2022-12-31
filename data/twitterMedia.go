@@ -2,9 +2,9 @@ package data
 
 import (
 	"context"
-	"log"
 	"time"
 
+	"github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -58,9 +58,14 @@ func (db *DB) CreateTwitterMedia(twitterMedia TwitterMedia) *mongo.UpdateResult 
 	result, err := collection.UpdateOne(ctx, filter, update, options)
 
 	if err != nil {
-		log.Fatal(err)
+		db.log.WithFields(logrus.Fields{
+			"update": update,
+		}).Error("Failed to upsert twitter media:", err)
+		return nil
 	}
 
-	db.log.Info("Update Result:", result)
+	db.log.WithFields(logrus.Fields{
+		"result": result,
+	}).Info("Created Twitter Media")
 	return result
 }
