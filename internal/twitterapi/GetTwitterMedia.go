@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/g8rswimmer/go-twitter/v2"
+	"github.com/sirupsen/logrus"
 )
 
 type authorize struct {
@@ -75,7 +76,9 @@ func GetTwitterMedia(query string, opts twitter.TweetRecentSearchOpts) {
 				Height:            int16(media.Height),
 			}
 
-			data.SaveTwitterMedia(*twitterMedia)
+			log := logrus.New()
+			db := data.New(log)
+			db.CreateTwitterMedia(*twitterMedia)
 		}
 	}
 

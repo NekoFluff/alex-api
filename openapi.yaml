@@ -1,0 +1,193 @@
+openapi: 3.0.1
+info:
+  title: alex-api
+  description: HTTP server in Go with Swagger endpoints definition. An API for all my hobbies.
+  contact:
+    name: API Support
+    email: alexnou@gmail.com
+  version: 1.0.0
+servers:
+- url: http://protected-sea-18092.herokuapp.com/
+paths:
+  /dsp:
+    post:
+      summary: Get the optimal recipe
+      description: Get the optimal recipe
+      operationId: getDSPRecipe
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DSPRecipeRequest'
+        required: false
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DSPRecipeResponse'
+        405:
+          description: Invalid input
+          content: {}
+      x-codegen-request-body-name: recipeRequest
+  /dsp/recipes:
+    get:
+      summary: Get all DSP recipes
+      description: Get all DSP recipes
+      operationId: getDSPRecipes
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DSPRecipe'
+  /dsp/recipes/reload:
+    post:
+      summary: Re-scrapes the DSP recipes
+      description: Re-scrapes the DSP recipes
+      operationId: reloadDSPRecipes
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+                enum:
+                - OK
+  /inArt:
+    get:
+      summary: Get inART
+      description: Get inART
+      operationId: getInArt
+      parameters:
+      - name: page
+        in: query
+        description: Numeric ID of the page to get
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InArt'
+  /healthz:
+    get:
+      summary: Check on the health of the server
+      operationId: checkHealth
+      responses:
+        200:
+          description: OK.
+          content:
+            text/plain:
+              schema:
+                type: string
+                enum:
+                - OK
+components:
+  schemas:
+    InArt:
+      required:
+      - author
+      - created_at
+      - height
+      - possiblySensitive
+      - tweetId
+      - url
+      - width
+      type: object
+      properties:
+        author:
+          type: string
+        tweetId:
+          type: string
+        url:
+          type: string
+        width:
+          type: integer
+        height:
+          type: integer
+        possiblySensitive:
+          type: boolean
+        created_at:
+          type: string
+    DSPRecipe:
+      required:
+      - madeIn
+      - materials
+      - name
+      - produce
+      - time
+      type: object
+      properties:
+        name:
+          type: string
+        produce:
+          type: number
+        madeIn:
+          type: string
+        time:
+          type: number
+        materials:
+          type: array
+          items:
+            $ref: '#/components/schemas/DSPMaterial'
+    DSPMaterial:
+      required:
+      - count
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+        count:
+          type: number
+    DSPRecipeRequest:
+      required:
+      - count
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+        count:
+          type: number
+    DSPRecipeResponse:
+      required:
+      - consumesPerSec
+      - craftingPerSecond
+      - for
+      - madeIn
+      - numberOfFacilitiesNeeded
+      - produce
+      - secondsSpendPerCrafting
+      type: object
+      properties:
+        produce:
+          type: string
+        madeIn:
+          type: string
+        numberOfFacilitiesNeeded:
+          type: number
+        consumesPerSec:
+          type: object
+          properties: {}
+        secondsSpendPerCrafting:
+          type: number
+        craftingPerSecond:
+          type: number
+        for:
+          type: string

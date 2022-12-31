@@ -8,6 +8,7 @@ import (
 
 	"github.com/g8rswimmer/go-twitter/v2"
 	"github.com/robfig/cron"
+	"github.com/sirupsen/logrus"
 )
 
 func ScheduleTwitterMediaFetch() *cron.Cron {
@@ -33,7 +34,10 @@ func getInArtTwitterMedia() {
 		TweetFields: []twitter.TweetField{twitter.TweetFieldCreatedAt, twitter.TweetFieldConversationID, twitter.TweetFieldAttachments, twitter.TweetFieldSource, twitter.TweetFieldAuthorID, twitter.TweetFieldPossiblySensitve},
 	}
 
-	twitterMedia, err := data.GetMostRecentTwitterMedia()
+	log := logrus.New()
+	db := data.New(log)
+
+	twitterMedia, err := db.GetMostRecentTwitterMedia()
 	if err != nil {
 		log.Println(err)
 	} else {

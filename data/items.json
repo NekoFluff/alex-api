@@ -1,9 +1,10 @@
+
 [
 	{
 		"OutputItem": "Magnet",
 		"OutputItemCount": 1,
 		"Facility": "Arc Smelter",
-		"Time": 1,
+		"Time": 1.5,
 		"Materials": {
 			"Iron Ore": 1
 		}
@@ -76,15 +77,6 @@
 		}
 	},
 	{
-		"OutputItem": "Diamond",
-		"OutputItemCount": 2,
-		"Facility": "Arc Smelter",
-		"Time": 1,
-		"Materials": {
-			"Kimberlite Ore": 1
-		}
-	},
-	{
 		"OutputItem": "Carbon Nanotube",
 		"OutputItemCount": 2,
 		"Facility": "Chemical Plant",
@@ -92,15 +84,6 @@
 		"Materials": {
 			"Graphene": 3,
 			"Titanium Ingot": 1
-		}
-	},
-	{
-		"OutputItem": "Carbon Nanotube",
-		"OutputItemCount": 2,
-		"Facility": "Chemical Plant",
-		"Time": 4,
-		"Materials": {
-			"Spiniform Stalagmite Crystal": 6
 		}
 	},
 	{
@@ -121,15 +104,6 @@
 		"Time": 2,
 		"Materials": {
 			"Stone Ore Vein": 1
-		}
-	},
-	{
-		"OutputItem": "Spiniform Stalagmite Crystal",
-		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
-		"Materials": {
-			"Spiniform Stalagmite Crystal Vein": 1
 		}
 	},
 	{
@@ -170,15 +144,6 @@
 		"Materials": {
 			"Electric Motor": 1,
 			"Sorter Mk.I": 2
-		}
-	},
-	{
-		"OutputItem": "Kimberlite Ore",
-		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
-		"Materials": {
-			"Kimberlite Ore Vein": 1
 		}
 	},
 	{
@@ -228,25 +193,6 @@
 		}
 	},
 	{
-		"OutputItem": "Energetic Graphite",
-		"OutputItemCount": 1,
-		"Facility": "Oil Refinery",
-		"Time": 4,
-		"Materials": {
-			"Hydrogen": 2,
-			"Refined Oil": 1
-		}
-	},
-	{
-		"OutputItem": "Fractal Silicon",
-		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
-		"Materials": {
-			"Fractal Silicon Vein": 1
-		}
-	},
-	{
 		"OutputItem": "Dyson Sphere Component",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
@@ -264,24 +210,6 @@
 		"Time": 1,
 		"Materials": {
 			"Hydrogen": 1
-		}
-	},
-	{
-		"OutputItem": "Deuterium",
-		"OutputItemCount": 5,
-		"Facility": "Miniature Particle Collider",
-		"Time": 2,
-		"Materials": {
-			"Hydrogen": 10
-		}
-	},
-	{
-		"OutputItem": "Deuterium",
-		"OutputItemCount": 1,
-		"Facility": "Orbital Collector",
-		"Time": 0,
-		"Materials": {
-			"Gas Giant": 0
 		}
 	},
 	{
@@ -328,7 +256,7 @@
 		"OutputItem": "Proliferator Mk.I",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
-		"Time": 0,
+		"Time": 0.5,
 		"Materials": {
 			"Coal": 1
 		}
@@ -375,15 +303,6 @@
 		}
 	},
 	{
-		"OutputItem": "Crystal Silicon",
-		"OutputItemCount": 2,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 1,
-		"Materials": {
-			"Fractal Silicon": 1
-		}
-	},
-	{
 		"OutputItem": "Super-Magnetic Ring",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
@@ -414,15 +333,6 @@
 		}
 	},
 	{
-		"OutputItem": "Fire Ice",
-		"OutputItemCount": 0,
-		"Facility": "Orbital Collector",
-		"Time": 1,
-		"Materials": {
-			"Ice Giant": 0
-		}
-	},
-	{
 		"OutputItem": "Organic Crystal",
 		"OutputItemCount": 1,
 		"Facility": "Chemical Plant",
@@ -431,26 +341,6 @@
 			"Plastic": 2,
 			"Refined Oil": 1,
 			"Water": 1
-		}
-	},
-	{
-		"OutputItem": "Organic Crystal",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 6,
-		"Materials": {
-			"Log": 20,
-			"Plant Fuel": 30,
-			"Water": 10
-		}
-	},
-	{
-		"OutputItem": "Organic Crystal",
-		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
-		"Materials": {
-			"Organic Crystal Vein": 1
 		}
 	},
 	{
@@ -837,48 +727,12 @@
 	},
 	{
 		"OutputItem": "Hydrogen",
-		"OutputItemCount": 1,
-		"Facility": "Chemical Plant",
-		"Time": 2,
-		"Materials": {
-			"Fire Ice": 2
-		}
-	},
-	{
-		"OutputItem": "Hydrogen",
 		"OutputItemCount": 3,
 		"Facility": "Oil Refinery",
 		"Time": 4,
 		"Materials": {
 			"Hydrogen": 2,
 			"Refined Oil": 1
-		}
-	},
-	{
-		"OutputItem": "Hydrogen",
-		"OutputItemCount": 2,
-		"Facility": "Miniature Particle Collider",
-		"Time": 2,
-		"Materials": {
-			"Critical Photon": 2
-		}
-	},
-	{
-		"OutputItem": "Hydrogen",
-		"OutputItemCount": 1,
-		"Facility": "Orbital Collector",
-		"Time": 0,
-		"Materials": {
-			"Gas Giant": 0
-		}
-	},
-	{
-		"OutputItem": "Hydrogen",
-		"OutputItemCount": 1,
-		"Facility": "Orbital Collector",
-		"Time": 0,
-		"Materials": {
-			"Ice Giant": 0
 		}
 	},
 	{
@@ -999,19 +853,6 @@
 		}
 	},
 	{
-		"OutputItem": "Advanced Mining Machine",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 20,
-		"Materials": {
-			"Frame Material": 10,
-			"Optical Grating Crystal": 40,
-			"Quantum Chip": 4,
-			"Super-Magnetic Ring": 10,
-			"Titanium Alloy": 20
-		}
-	},
-	{
 		"OutputItem": "Silicon Ore",
 		"OutputItemCount": 1,
 		"Facility": "Mining Machine",
@@ -1027,15 +868,6 @@
 		"Time": 10,
 		"Materials": {
 			"Stone": 10
-		}
-	},
-	{
-		"OutputItem": "Optical Grating Crystal",
-		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
-		"Materials": {
-			"Optical Grating Rock": 1
 		}
 	},
 	{
@@ -1077,17 +909,6 @@
 			"Graphene": 2,
 			"Hydrogen": 12,
 			"Titanium Crystal": 1
-		}
-	},
-	{
-		"OutputItem": "Casimir Crystal",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 4,
-		"Materials": {
-			"Graphene": 2,
-			"Hydrogen": 12,
-			"Optical Grating Crystal": 8
 		}
 	},
 	{
@@ -1231,16 +1052,6 @@
 		"Materials": {
 			"Circuit Board": 1,
 			"Prism": 2
-		}
-	},
-	{
-		"OutputItem": "Photon Combiner",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 3,
-		"Materials": {
-			"Circuit Board": 1,
-			"Optical Grating Crystal": 1
 		}
 	},
 	{

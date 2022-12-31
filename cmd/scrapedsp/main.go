@@ -1,9 +1,9 @@
 package main
 
 import (
-	"alex-api/internal/dsphelper"
+	"alex-api/internal/dspscraper"
 )
 
 func main() {
-	dsphelper.Scrape()
+	dspscraper.Scrape()
 }
