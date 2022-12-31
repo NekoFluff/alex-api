@@ -5,15 +5,15 @@ info:
   contact:
     name: API Support
     email: alexnou@gmail.com
-  version: 1.0.0
+  version: 0.1.0
 servers:
-- url: http://protected-sea-18092.herokuapp.com/
+- url: https://alex-api.herokuapp.com
 paths:
-  /dsp:
+  /dsp/computedRecipe:
     post:
-      summary: Get the optimal recipe
-      description: Get the optimal recipe
-      operationId: getDSPRecipe
+      summary: Get the computed recipe
+      description: Get the computed recipe
+      operationId: getComputedRecipe
       requestBody:
         content:
           application/json:
@@ -30,7 +30,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/DSPRecipeResponse'
+                  $ref: '#/components/schemas/ComputedRecipe'
         405:
           description: Invalid input
           content: {}
@@ -84,19 +84,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/InArt'
-  /healthz:
-    get:
-      summary: Check on the health of the server
-      operationId: checkHealth
-      responses:
-        200:
-          description: OK.
-          content:
-            text/plain:
-              schema:
-                type: string
-                enum:
-                - OK
 components:
   schemas:
     InArt:
@@ -145,27 +132,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DSPMaterial'
-    DSPMaterial:
+    ComputedRecipeRequest:
       required:
-      - count
+      - rate
       - name
       type: object
       properties:
         name:
           type: string
-        count:
+        rate:
           type: number
-    DSPRecipeRequest:
-      required:
-      - count
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-        count:
-          type: number
-    DSPRecipeResponse:
+    ComputedRecipe:
       required:
       - consumesPerSec
       - craftingPerSecond
