@@ -2,6 +2,7 @@ package server
 
 import (
 	"alex-api/internal/config"
+	"alex-api/utils"
 	"net/http"
 	"time"
 
@@ -28,7 +29,7 @@ func New(cfg config.Config, log *logrus.Logger, service Servicer) *Server {
 	server := &Server{
 		Server: &http.Server{
 			Handler:        router,
-			Addr:           ":80",
+			Addr:           ":" + utils.GetEnvVar("PORT"),
 			ReadTimeout:    timeout,
 			WriteTimeout:   timeout,
 			MaxHeaderBytes: 65536,
