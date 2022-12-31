@@ -5,7 +5,7 @@ go 1.17
 
 require (
 	github.com/NekoFluff/go-dsp v1.4.0
-	github.com/g8rswimmer/go-twitter/v2 v2.0.0-beta14
+	github.com/g8rswimmer/go-twitter/v2 v2.1.5
 	github.com/go-playground/validator/v10 v10.11.1
 	github.com/gocolly/colly v1.2.0
 	github.com/gorilla/mux v1.8.0

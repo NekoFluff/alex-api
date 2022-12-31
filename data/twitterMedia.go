@@ -2,7 +2,6 @@ package data
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"time"
 
@@ -62,6 +61,6 @@ func (db *DB) CreateTwitterMedia(twitterMedia TwitterMedia) *mongo.UpdateResult 
 		log.Fatal(err)
 	}
 
-	fmt.Printf("Update Result: %#v\n", result)
+	db.log.Info("Update Result:", result)
 	return result
 }

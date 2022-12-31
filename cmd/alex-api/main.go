@@ -1,6 +1,7 @@
 package main
 
 import (
+	"alex-api/cronjobs"
 	"alex-api/internal/config"
 	"alex-api/internal/server"
 	"context"
@@ -31,6 +32,8 @@ func main() {
 	service := server.NewService()
 	s := server.New(cfg, log, service)
 	go func() { log.Info(s.ListenAndServe()) }()
+
+	cronjobs.ScheduleTwitterMediaFetch()
 
 	<-ctx.Done()
 	_ = s.Shutdown(context.Background())

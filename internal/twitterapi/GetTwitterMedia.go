@@ -6,7 +6,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 	"time"
 
@@ -31,12 +30,15 @@ func GetTwitterMedia(query string, opts twitter.TweetRecentSearchOpts) {
 		Host:   "https://api.twitter.com",
 	}
 
-	fmt.Println("Callout to tweet recent search callout")
+	log := logrus.New()
+	log.Println("Callout to tweet recent search callout")
 	log.Printf("SinceId %v\n", opts.SinceID)
 
 	tweetResponse, err := client.TweetRecentSearch(context.Background(), query, opts)
 	if err != nil {
-		log.Panicf("tweet lookup error: %v", err)
+		log.WithFields(logrus.Fields{
+			"query": query,
+		}).Panicf("tweet lookup error: %v", err)
 	}
 
 	dictionaries := tweetResponse.Raw.TweetDictionaries()
@@ -70,7 +72,7 @@ func GetTwitterMedia(query string, opts twitter.TweetRecentSearchOpts) {
 				TweetId:           tweetDictionary.Tweet.ID,
 				Url:               media.URL,
 				CreatedAt:         createdAt,
-				PossiblySensitive: tweetDictionary.Tweet.PossibySensitive,
+				PossiblySensitive: tweetDictionary.Tweet.PossiblySensitive,
 				Updated:           time.Now(),
 				Width:             int16(media.Width),
 				Height:            int16(media.Height),

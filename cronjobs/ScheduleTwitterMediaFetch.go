@@ -5,6 +5,7 @@ import (
 	"alex-api/internal/twitterapi"
 
 	"log"
+	"time"
 
 	"github.com/g8rswimmer/go-twitter/v2"
 	"github.com/robfig/cron"
@@ -40,8 +41,16 @@ func getInArtTwitterMedia() {
 	twitterMedia, err := db.GetMostRecentTwitterMedia()
 	if err != nil {
 		log.Println(err)
-	} else {
-		opts.SinceID = twitterMedia.TweetId
-		twitterapi.GetTwitterMedia(query, opts)
+		return
 	}
+
+	weekAgo := time.Now().Add(-7 * 24 * time.Hour)
+	opts.StartTime = weekAgo
+
+	if twitterMedia.CreatedAt.After(weekAgo) {
+		opts.SinceID = twitterMedia.TweetId
+
+	}
+	twitterapi.GetTwitterMedia(query, opts)
+
 }
