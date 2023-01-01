@@ -82,6 +82,7 @@ func GetTwitterMedia(query string, opts twitter.TweetRecentSearchOpts) {
 			log := logrus.New()
 			log.SetFormatter(&logrus.JSONFormatter{})
 			db := data.New(log.WithContext(context.TODO()))
+			defer db.Disconnect()
 			db.CreateTwitterMedia(*twitterMedia)
 		}
 	}

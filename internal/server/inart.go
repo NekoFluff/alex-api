@@ -1,7 +1,6 @@
 package server
 
 import (
-	"alex-api/data"
 	"encoding/json"
 	"net/http"
 	"strconv"
@@ -21,8 +20,7 @@ func (s *Server) InArt() http.HandlerFunc {
 		skip := (page - 1) * 50
 		var limit int64 = 50
 
-		db := data.New(l)
-		twitterMediaList, err := db.GetTwitterMedia(&skip, &limit)
+		twitterMediaList, err := s.db.GetTwitterMedia(&skip, &limit)
 
 		if err != nil {
 			l.Errorf("%v", err)

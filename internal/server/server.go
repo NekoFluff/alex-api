@@ -18,9 +18,10 @@ type Server struct {
 	logger    *logrus.Entry
 	service   Servicer
 	validator *validator.Validate
+	db        DB
 }
 
-func New(cfg config.Config, log *logrus.Entry, service Servicer) *Server {
+func New(cfg config.Config, log *logrus.Entry, service Servicer, db DB) *Server {
 	timeout := 60 * time.Second
 	router := mux.NewRouter()
 	router.StrictSlash(true)
@@ -39,6 +40,7 @@ func New(cfg config.Config, log *logrus.Entry, service Servicer) *Server {
 		cfg:       cfg,
 		validator: v,
 		service:   service,
+		db:        db,
 	}
 
 	server.Route()

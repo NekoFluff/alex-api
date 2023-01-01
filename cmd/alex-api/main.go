@@ -2,6 +2,7 @@ package main
 
 import (
 	"alex-api/cronjobs"
+	"alex-api/data"
 	"alex-api/internal/config"
 	"alex-api/internal/server"
 	"context"
@@ -13,15 +14,17 @@ import (
 )
 
 func main() {
-	log := logrus.New()
-	log.SetFormatter(&logrus.JSONFormatter{})
+	ctx, cancel := context.WithCancel(context.Background())
+
+	logger := logrus.New()
+	logger.SetFormatter(&logrus.JSONFormatter{})
+	log := logger.WithContext(ctx)
 
 	cfg, err := config.New(".env")
 	if err != nil {
 		log.WithError(err).Fatal("failed to process config")
 	}
 
-	ctx, cancel := context.WithCancel(context.Background())
 	sig := make(chan os.Signal, 1)
 	signal.Notify(sig, syscall.SIGTERM, syscall.SIGINT)
 	go func() {
@@ -32,7 +35,9 @@ func main() {
 
 	log.Info("Starting up Alex API")
 	service := server.NewService()
-	s := server.New(cfg, log.WithContext(ctx), service)
+	db := data.New(log)
+	defer db.Disconnect()
+	s := server.New(cfg, log, service, db)
 	go func() { log.Info(s.ListenAndServe()) }()
 
 	cronjobs.ScheduleTwitterMediaFetch()

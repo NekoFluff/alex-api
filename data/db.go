@@ -39,7 +39,7 @@ func (db *DB) Connect() *mongo.Client {
 	return client
 }
 
-func (db *DB) Disconnect(client *mongo.Client) {
+func (db *DB) Disconnect() {
 	if err := db.client.Disconnect(context.TODO()); err != nil {
 		panic(err)
 	}

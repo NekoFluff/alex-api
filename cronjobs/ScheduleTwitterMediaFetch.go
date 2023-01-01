@@ -39,6 +39,7 @@ func getInArtTwitterMedia() {
 	log := logrus.New()
 	log.SetFormatter(&logrus.JSONFormatter{})
 	db := data.New(log.WithContext(context.TODO()))
+	defer db.Disconnect()
 
 	twitterMedia, err := db.GetMostRecentTwitterMedia()
 	if err != nil {
