@@ -10,7 +10,6 @@ import (
 
 func (s *Server) InArt() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
 		ctx := r.Context()
 		l := s.logger.WithContext(ctx).WithFields(logrus.Fields{
 			"method": r.Method,
