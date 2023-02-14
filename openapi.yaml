@@ -5,9 +5,9 @@ info:
   contact:
     name: API Support
     email: alexnou@gmail.com
-  version: 0.1.0
+  version: 0.2.0
 servers:
-- url: https://alex-api.herokuapp.com
+  - url: https://alex-api.herokuapp.com
 paths:
   /dsp/computedRecipe:
     post:
@@ -20,7 +20,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/DSPRecipeRequest'
+                $ref: "#/components/schemas/ComputedRecipeRequest"
         required: false
       responses:
         200:
@@ -30,7 +30,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ComputedRecipe'
+                  $ref: "#/components/schemas/ComputedRecipe"
         405:
           description: Invalid input
           content: {}
@@ -48,7 +48,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/DSPRecipe'
+                  $ref: "#/components/schemas/DSPRecipe"
   /dsp/recipes/reload:
     post:
       summary: Re-scrapes the DSP recipes
@@ -62,19 +62,19 @@ paths:
               schema:
                 type: string
                 enum:
-                - OK
+                  - OK
   /inArt:
     get:
       summary: Get inART
       description: Get inART
       operationId: getInArt
       parameters:
-      - name: page
-        in: query
-        description: Numeric ID of the page to get
-        required: true
-        schema:
-          type: integer
+        - name: page
+          in: query
+          description: Numeric ID of the page to get
+          required: true
+          schema:
+            type: integer
       responses:
         200:
           description: OK
@@ -83,18 +83,18 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/InArt'
+                  $ref: "#/components/schemas/InArt"
 components:
   schemas:
     InArt:
       required:
-      - author
-      - created_at
-      - height
-      - possiblySensitive
-      - tweetId
-      - url
-      - width
+        - author
+        - created_at
+        - height
+        - possiblySensitive
+        - tweetId
+        - url
+        - width
       type: object
       properties:
         author:
@@ -113,11 +113,11 @@ components:
           type: string
     DSPRecipe:
       required:
-      - madeIn
-      - materials
-      - name
-      - produce
-      - time
+        - madeIn
+        - materials
+        - name
+        - produce
+        - time
       type: object
       properties:
         name:
@@ -131,11 +131,13 @@ components:
         materials:
           type: array
           items:
-            $ref: '#/components/schemas/DSPMaterial'
+            $ref: "#/components/schemas/DSPMaterial"
+    DSPMaterial:
+      type: object
     ComputedRecipeRequest:
       required:
-      - rate
-      - name
+        - rate
+        - name
       type: object
       properties:
         name:
@@ -144,13 +146,13 @@ components:
           type: number
     ComputedRecipe:
       required:
-      - consumesPerSec
-      - craftingPerSecond
-      - for
-      - madeIn
-      - numberOfFacilitiesNeeded
-      - produce
-      - secondsSpendPerCrafting
+        - consumesPerSec
+        - craftingPerSecond
+        - for
+        - madeIn
+        - numberOfFacilitiesNeeded
+        - produce
+        - secondsSpendPerCrafting
       type: object
       properties:
         produce:

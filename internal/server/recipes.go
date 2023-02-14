@@ -18,7 +18,7 @@ func (s *Server) ComputedRecipe() http.HandlerFunc {
 			"path":   r.URL.EscapedPath(),
 		})
 
-		var body dspscraper.ComputedRecipeRequest
+		var body []dspscraper.ComputedRecipeRequest
 		err := utils.DecodeValidate(r.Body, s.validator, &body)
 		defer r.Body.Close()
 		if err != nil {
@@ -27,11 +27,16 @@ func (s *Server) ComputedRecipe() http.HandlerFunc {
 			return
 		}
 
-		itemName := dsp.ItemName(body.Name)
-		computedRecipes := optimizer.GetOptimalRecipe(itemName, body.Rate, "", map[dsp.ItemName]bool{})
+		var computedRecipes = []dsp.ComputedRecipe{}
+		for _, recipeRequest := range body {
+
+			itemName := dsp.ItemName(recipeRequest.Name)
+			optimalRecipe := optimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[dsp.ItemName]bool{})
+			computedRecipes = append(computedRecipes, optimalRecipe...)
+		}
 
 		jsonStr, _ := json.MarshalIndent(computedRecipes, "", "\t")
-		l.Info("COMPUTED RECIPE")
+		l.Info("COMPUTED RECIPES")
 		l.Info(string(jsonStr))
 
 		_, _ = w.Write(jsonStr)
