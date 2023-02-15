@@ -29,13 +29,20 @@ func (s *Server) ComputedRecipe() http.HandlerFunc {
 
 		var computedRecipes = []dsp.ComputedRecipe{}
 		for _, recipeRequest := range body {
-
+			l.Info(recipeRequest.Name, recipeRequest.Rate)
 			itemName := dsp.ItemName(recipeRequest.Name)
-			optimalRecipe := optimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[dsp.ItemName]bool{})
+			optimalRecipe := optimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[dsp.ItemName]bool{}, 0)
+			l.Info(optimalRecipe)
 			computedRecipes = append(computedRecipes, optimalRecipe...)
+			l.Info(computedRecipes)
 		}
 
-		jsonStr, _ := json.MarshalIndent(computedRecipes, "", "\t")
+		jsonStr, err := json.MarshalIndent(computedRecipes, "", "\t")
+		if err != nil {
+			l.WithError(err).Error("failed to marshal computed recipes")
+			w.Write([]byte(err.Error()))
+			return
+		}
 		l.Info("COMPUTED RECIPES")
 		l.Info(string(jsonStr))
 

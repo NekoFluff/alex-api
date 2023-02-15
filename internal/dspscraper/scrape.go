@@ -84,13 +84,13 @@ func scrapeURL(itemName string, url string) []dsp.Recipe {
 	c.OnHTML("table.pc_table:nth-of-type(1)", func(e *colly.HTMLElement) {
 		e.ForEach("tr:nth-of-type(n+1)", func(_ int, e2 *colly.HTMLElement) {
 			i := dsp.Recipe{}
-			i.Materials = make(map[dsp.ItemName]float32)
+			i.Materials = make(map[dsp.ItemName]float64)
 
 			// Materials
 			e2.ForEach("div.tt_recipe_item", func(_ int, e3 *colly.HTMLElement) {
 				count, _ := strconv.ParseFloat(e3.ChildText("div"), 32)
 				name := e3.ChildAttr("a", "title")
-				i.Materials[dsp.ItemName(name)] = float32(count)
+				i.Materials[dsp.ItemName(name)] = count
 			})
 
 			// Time Taken
@@ -98,7 +98,7 @@ func scrapeURL(itemName string, url string) []dsp.Recipe {
 			r, _ := regexp.Compile(`(\d)+`)
 			secondsStr = r.FindString(secondsStr)
 			time, _ := strconv.ParseFloat(secondsStr, 32)
-			i.Time = float32(time)
+			i.Time = time
 
 			// Output
 			e2.ForEach("div.tt_output_item", func(_ int, e3 *colly.HTMLElement) {
@@ -106,7 +106,7 @@ func scrapeURL(itemName string, url string) []dsp.Recipe {
 				if itemName == outputItemName {
 					i.OutputItem = dsp.ItemName(outputItemName)
 					outputItemCount, _ := strconv.ParseFloat(e3.ChildText("div"), 64)
-					i.OutputItemCount = float32(outputItemCount)
+					i.OutputItemCount = float64(outputItemCount)
 				}
 			})
 
