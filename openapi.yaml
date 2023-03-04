@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: alex-api
   description: HTTP server in Go with Swagger endpoints definition. An API for all my hobbies.
@@ -8,9 +8,16 @@ info:
   version: 0.2.0
 servers:
   - url: https://alex-api.herokuapp.com
+tags:
+  - name: DSP
+    description: DSP endpoints
+  - name: inART
+    description: inART endpoints
 paths:
   /dsp/computedRecipe:
     post:
+      tags:
+        - DSP
       summary: Get the computed recipe
       description: Get the computed recipe
       operationId: getComputedRecipe
@@ -37,6 +44,8 @@ paths:
       x-codegen-request-body-name: recipeRequest
   /dsp/recipes:
     get:
+      tags:
+        - DSP
       summary: Get all DSP recipes
       description: Get all DSP recipes
       operationId: getDSPRecipes
@@ -48,9 +57,13 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/DSPRecipe"
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/DSPRecipe"
   /dsp/recipes/reload:
     post:
+      tags:
+        - DSP
       summary: Re-scrapes the DSP recipes
       description: Re-scrapes the DSP recipes
       operationId: reloadDSPRecipes
@@ -65,6 +78,8 @@ paths:
                   - OK
   /inArt:
     get:
+      tags:
+        - inART
       summary: Get inART
       description: Get inART
       operationId: getInArt
@@ -144,6 +159,15 @@ components:
           type: string
         rate:
           type: number
+        requirements:
+          type: object
+          additionalProperties:
+            type: number
+      example:
+        name: "Proliferator Mk.III"
+        rate: 2.0
+        requirements:
+          "Carbon Nanotube": 1
     ComputedRecipe:
       required:
         - consumesPerSec
