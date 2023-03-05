@@ -95,7 +95,7 @@ func scrapeURL(itemName string, url string) []dsp.Recipe {
 
 			// Time Taken
 			secondsStr := e2.ChildText("div.tt_rec_arrow")
-			r, _ := regexp.Compile(`(\d)+`)
+			r, _ := regexp.Compile(`(\d+\.*\d*)`)
 			secondsStr = r.FindString(secondsStr)
 			time, _ := strconv.ParseFloat(secondsStr, 32)
 			i.Time = time
