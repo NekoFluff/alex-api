@@ -80,10 +80,9 @@ func (s *Server) Recipes() http.HandlerFunc {
 		})
 
 		recipes := optimizer.GetRecipes()
+		l.WithField("recipes", recipes).Info("recipes")
 
 		jsonStr, _ := json.MarshalIndent(recipes, "", "\t")
-		l.Info("RECIPES")
-		l.Info(string(jsonStr))
 		_, _ = w.Write(jsonStr)
 	}
 
