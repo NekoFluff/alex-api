@@ -1,7 +1,7 @@
 package cronjobs
 
 import (
-	"alex-api/data"
+	"alex-api/internal/data"
 	"alex-api/internal/twitterapi"
 	"context"
 

@@ -11,6 +11,23 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
+type TwitterAuthor struct {
+	Id       string `bson:"id"`
+	Name     string `bson:"name"`
+	UserName string `bson:"username"`
+}
+
+type TwitterMedia struct {
+	Author            TwitterAuthor `bson:"author"`
+	TweetId           string        `bson:"tweet_id"`
+	Url               string        `bson:"url"`
+	Updated           time.Time     `bson:"updated"`
+	CreatedAt         time.Time     `bson:"created_at"`
+	PossiblySensitive bool          `bson:"possibly_sensitive"`
+	Width             int16         `bson:"width"`
+	Height            int16         `bson:"height"`
+}
+
 func (db *DB) GetTwitterMedia(skip *int64, limit *int64) ([]TwitterMedia, error) {
 	collection := db.client.Database("takoland").Collection("twitter-media")
 	opts := &options.FindOptions{

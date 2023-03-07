@@ -5,7 +5,7 @@
 package server
 
 import (
-	data "alex-api/data"
+	data "alex-api/internal/data"
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"

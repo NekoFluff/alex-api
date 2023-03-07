@@ -2,8 +2,8 @@ package main
 
 import (
 	"alex-api/cronjobs"
-	"alex-api/data"
 	"alex-api/internal/config"
+	"alex-api/internal/data"
 	"alex-api/internal/server"
 	"context"
 	"os"

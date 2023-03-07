@@ -1,7 +1,7 @@
 package data
 
 import (
-	"alex-api/utils"
+	"alex-api/internal/utils"
 	"context"
 
 	"github.com/sirupsen/logrus"

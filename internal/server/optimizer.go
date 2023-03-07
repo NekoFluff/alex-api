@@ -6,6 +6,6 @@ var optimizer *dsp.Optimizer
 
 func init() {
 	optimizer = dsp.NewOptimizer(dsp.OptimizerConfig{
-		DataSource: "data/items.json",
+		DataSource: "internal/data/items.json",
 	})
 }

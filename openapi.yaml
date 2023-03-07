@@ -9,18 +9,20 @@ info:
 servers:
   - url: https://alex-api.herokuapp.com
 tags:
-  - name: DSP
-    description: DSP endpoints
-  - name: inART
-    description: inART endpoints
+  - name: Dyson Sphere Program
+    description: Endpoints related to Dyson Sphere Program
+  - name: Black Desert Online
+    description: Endpoints releated to Black Desert Online
+  - name: Twitter
+    description: Endpoints realted to using twitter's API
 paths:
-  /dsp/computedRecipe:
+  /dsp/computedRecipes:
     post:
       tags:
-        - DSP
+        - Dyson Sphere Program
       summary: Get the computed recipe
       description: Get the computed recipe
-      operationId: getComputedRecipe
+      operationId: getDSPComputedRecipe
       requestBody:
         content:
           application/json:
@@ -45,7 +47,7 @@ paths:
   /dsp/recipes:
     get:
       tags:
-        - DSP
+        - Dyson Sphere Program
       summary: Get all DSP recipes
       description: Get all DSP recipes
       operationId: getDSPRecipes
@@ -59,11 +61,11 @@ paths:
                 items:
                   type: array
                   items:
-                    $ref: "#/components/schemas/DSPRecipe"
+                    $ref: "#/components/schemas/Recipe"
   /dsp/recipes/reload:
     post:
       tags:
-        - DSP
+        - Dyson Sphere Program
       summary: Re-scrapes the DSP recipes
       description: Re-scrapes the DSP recipes
       operationId: reloadDSPRecipes
@@ -76,10 +78,10 @@ paths:
                 type: string
                 enum:
                   - OK
-  /inArt:
+  /twitter/inArt:
     get:
       tags:
-        - inART
+        - Twitter
       summary: Get inART
       description: Get inART
       operationId: getInArt
@@ -98,10 +100,56 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/InArt"
+                  $ref: "#/components/schemas/TwitterMedia"
+  /bdo/computedRecipes:
+    post:
+      tags:
+        - Black Desert Online
+      summary: Get the computed recipe
+      description: Get the computed recipe
+      operationId: getBDOComputedRecipe
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/ComputedRecipeRequest"
+        required: false
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ComputedRecipe"
+        405:
+          description: Invalid input
+          content: {}
+      x-codegen-request-body-name: recipeRequest
+  /bdo/recipes:
+    get:
+      tags:
+        - Black Desert Online
+      summary: Get all BDO recipes
+      description: Get all BDO recipes
+      operationId: getBDORecipes
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/Recipe"
 components:
   schemas:
-    InArt:
+    TwitterMedia:
       required:
         - author
         - created_at
@@ -126,29 +174,33 @@ components:
           type: boolean
         created_at:
           type: string
-    DSPRecipe:
+    Recipe:
       required:
-        - madeIn
+        - outputItem
+        - outputItemCount
+        - facility
         - materials
-        - name
-        - produce
         - time
       type: object
       properties:
-        name:
+        outputItem:
           type: string
-        produce:
+        outputItemCount:
           type: number
-        madeIn:
+        facility:
           type: string
         time:
           type: number
         materials:
-          type: array
-          items:
-            $ref: "#/components/schemas/DSPMaterial"
-    DSPMaterial:
+          $ref: "#/components/schemas/Materials"
+        image:
+          type: string
+    Materials:
       type: object
+      additionalProperties:
+        type: string
+      example:
+        Plank: 1
     ComputedRecipeRequest:
       required:
         - rate
@@ -170,27 +222,55 @@ components:
           "Carbon Nanotube": 1
     ComputedRecipe:
       required:
-        - consumesPerSec
-        - craftingPerSecond
-        - for
-        - madeIn
-        - numberOfFacilitiesNeeded
-        - produce
-        - secondsSpendPerCrafting
+        - outputItem
+        - facility
+        - numFacilitiesNeeded
+        - itemsConsumedPerSec
+        - secondsSpentPerCraft
+        - usedFor
       type: object
       properties:
-        produce:
+        outputItem:
           type: string
-        madeIn:
+        facility:
           type: string
-        numberOfFacilitiesNeeded:
+        numFacilitiesNeeded:
           type: number
-        consumesPerSec:
+        itemsConsumedPerSec:
           type: object
           properties: {}
-        secondsSpendPerCrafting:
+        secondsSpentPerCraft:
           type: number
         craftingPerSecond:
           type: number
-        for:
+        usedFor:
+          type: string
+        depth:
+          type: number
+        action:
+          type: string
+        quantityProduced:
+          type: number
+        timeToProduce:
+          type: number
+        marketData:
+          $ref: "#/components/schemas/MarketData"
+        image:
+          type: string
+    MarketData:
+      type: object
+      properties:
+        marketDataID:
+          type: string
+        lastUpdateAttempt:
+          type: number
+        lastUpdated:
+          type: number
+        price:
+          type: number
+        quantity:
+          type: number
+        totalTradeCount:
+          type: number
+        name:
           type: string

@@ -23,7 +23,7 @@ func Scrape() {
 
 	file, _ := json.MarshalIndent(dspRecipes, "", "\t")
 
-	_ = ioutil.WriteFile("data/items.json", file, 0644)
+	_ = ioutil.WriteFile("internal/data/items.json", file, 0644)
 }
 
 func getURLs() map[string]string {

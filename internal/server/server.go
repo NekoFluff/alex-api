@@ -2,7 +2,7 @@ package server
 
 import (
 	"alex-api/internal/config"
-	"alex-api/utils"
+	"alex-api/internal/utils"
 	"net/http"
 	"time"
 
