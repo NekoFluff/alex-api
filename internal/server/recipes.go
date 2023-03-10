@@ -225,6 +225,7 @@ func (s *Server) convertBDORecipeToRecipe(recipe data.Recipe) Recipe {
 		Facility:           recipe.Action,
 		Time:               recipe.TimeToProduce,
 		Materials:          m,
+		Image:              recipe.Image,
 	}
 
 	if recipe.MarketData != nil {
