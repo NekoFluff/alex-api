@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"regexp"
+	"sort"
 	"strconv"
 
 	"github.com/NekoFluff/go-dsp/dsp"
@@ -20,6 +21,18 @@ func Scrape() {
 	for itemName, url := range urls {
 		dspRecipes = append(dspRecipes, scrapeURL(itemName, url)...)
 	}
+
+	dspRecipes = append(dspRecipes, dsp.Recipe{
+		OutputItem:      "Critical Photon",
+		OutputItemCount: 0,
+		Facility:        "Ray Receiver",
+		Time:            0,
+		Image:           "https://dsp-wiki.com/images/9/92/Icon_Critical_Photon.png",
+	})
+
+	sort.SliceStable(dspRecipes, func(i, j int) bool {
+		return dspRecipes[i].OutputItem < dspRecipes[j].OutputItem
+	})
 
 	file, _ := json.MarshalIndent(dspRecipes, "", "\t")
 
