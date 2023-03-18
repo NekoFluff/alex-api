@@ -93,6 +93,7 @@ func (s *Server) convertDSPComputedRecipeToComputedRecipe(recipe dsp.ComputedRec
 		CraftingPerSec:       recipe.CraftingPerSec,
 		UsedFor:              recipe.UsedFor,
 		Depth:                int64(recipe.Depth),
+		Image:                recipe.Image,
 	}
 }
 
@@ -135,6 +136,7 @@ func (s *Server) convertDSPRecipeToRecipe(recipe dsp.Recipe) Recipe {
 		Facility:        recipe.Facility,
 		Time:            recipe.Time,
 		Materials:       m,
+		Image:           recipe.Image,
 	}
 }
 

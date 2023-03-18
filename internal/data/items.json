@@ -1,206 +1,25 @@
 [
 	{
-		"OutputItem": "Stone",
-		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
-		"Materials": {
-			"Stone Ore Vein": 1
-		}
-	},
-	{
-		"OutputItem": "Titanium Crystal",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 4,
-		"Materials": {
-			"Organic Crystal": 1,
-			"Titanium Ingot": 3
-		}
-	},
-	{
-		"OutputItem": "Electromagnetic Matrix",
-		"OutputItemCount": 1,
-		"Facility": "Matrix Lab",
-		"Time": 3,
-		"Materials": {
-			"Circuit Board": 1,
-			"Magnetic Coil": 1
-		}
-	},
-	{
-		"OutputItem": "Splitter",
+		"OutputItem": "Electromagnetic Turbine",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
 		"Time": 2,
 		"Materials": {
-			"Circuit Board": 1,
-			"Gear": 2,
-			"Iron Ingot": 3
-		}
+			"Electric Motor": 2,
+			"Magnetic Coil": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/53/Icon_Electromagnetic_Turbine.png/45px-Icon_Electromagnetic_Turbine.png"
 	},
 	{
-		"OutputItem": "Assembling Machine Mk.I",
+		"OutputItem": "Electromagnetic Turbine",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
 		"Time": 2,
 		"Materials": {
-			"Circuit Board": 4,
-			"Gear": 8,
-			"Iron Ingot": 4
-		}
-	},
-	{
-		"OutputItem": "Full Accumulator",
-		"OutputItemCount": 1,
-		"Facility": "Energy Exchanger",
-		"Time": 2,
-		"Materials": {
-			"Accumulator": 1
-		}
-	},
-	{
-		"OutputItem": "Crude Oil",
-		"OutputItemCount": 1,
-		"Facility": "Oil Extractor",
-		"Time": 0,
-		"Materials": {
-			"Crude Oil Vein": 0
-		}
-	},
-	{
-		"OutputItem": "Photon Combiner",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 3,
-		"Materials": {
-			"Circuit Board": 1,
-			"Prism": 2
-		}
-	},
-	{
-		"OutputItem": "Photon Combiner",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 3,
-		"Materials": {
-			"Circuit Board": 1,
-			"Optical Grating Crystal": 1
-		}
-	},
-	{
-		"OutputItem": "Frame Material",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 6,
-		"Materials": {
-			"Carbon Nanotube": 4,
-			"High-Purity Silicon": 1,
-			"Titanium Alloy": 1
-		}
-	},
-	{
-		"OutputItem": "Sorter Mk.I",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 1,
-		"Materials": {
-			"Circuit Board": 1,
-			"Iron Ingot": 1
-		}
-	},
-	{
-		"OutputItem": "Spiniform Stalagmite Crystal",
-		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
-		"Materials": {
-			"Spiniform Stalagmite Crystal Vein": 1
-		}
-	},
-	{
-		"OutputItem": "Plasma Exciter",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 2,
-		"Materials": {
-			"Magnetic Coil": 4,
-			"Prism": 2
-		}
-	},
-	{
-		"OutputItem": "Oil Refinery",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 6,
-		"Materials": {
-			"Circuit Board": 6,
-			"Plasma Exciter": 6,
-			"Steel": 10,
-			"Stone Brick": 10
-		}
-	},
-	{
-		"OutputItem": "Assembling Machine Mk.III",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 4,
-		"Materials": {
-			"Assembling Machine Mk.II": 1,
-			"Particle Broadband": 8,
-			"Quantum Chip": 2
-		}
-	},
-	{
-		"OutputItem": "Accumulator",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 5,
-		"Materials": {
-			"Crystal Silicon": 6,
-			"Iron Ingot": 6,
-			"Super-Magnetic Ring": 1
-		}
-	},
-	{
-		"OutputItem": "Steel",
-		"OutputItemCount": 1,
-		"Facility": "Arc Smelter",
-		"Time": 3,
-		"Materials": {
-			"Iron Ingot": 3
-		}
-	},
-	{
-		"OutputItem": "Automatic Piler",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 4,
-		"Materials": {
-			"Gear": 4,
-			"Processor": 2,
-			"Steel": 3,
-			"Super-Magnetic Ring": 1
-		}
-	},
-	{
-		"OutputItem": "Carbon Nanotube",
-		"OutputItemCount": 2,
-		"Facility": "Chemical Plant",
-		"Time": 4,
-		"Materials": {
-			"Graphene": 3,
-			"Titanium Ingot": 1
-		}
-	},
-	{
-		"OutputItem": "Carbon Nanotube",
-		"OutputItemCount": 2,
-		"Facility": "Chemical Plant",
-		"Time": 4,
-		"Materials": {
-			"Spiniform Stalagmite Crystal": 6
-		}
+			"Electric Motor": 2,
+			"Magnetic Coil": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/53/Icon_Electromagnetic_Turbine.png/45px-Icon_Electromagnetic_Turbine.png"
 	},
 	{
 		"OutputItem": "Graviton Lens",
@@ -210,49 +29,153 @@
 		"Materials": {
 			"Diamond": 4,
 			"Strange Matter": 1
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/df/Icon_Graviton_Lens.png/45px-Icon_Graviton_Lens.png"
 	},
 	{
-		"OutputItem": "Gravity Matrix",
-		"OutputItemCount": 2,
-		"Facility": "Matrix Lab",
-		"Time": 24,
-		"Materials": {
-			"Graviton Lens": 1,
-			"Quantum Chip": 1
-		}
-	},
-	{
-		"OutputItem": "Miniature Particle Collider",
+		"OutputItem": "Graviton Lens",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
-		"Time": 15,
+		"Time": 6,
 		"Materials": {
-			"Frame Material": 20,
-			"Graphene": 10,
-			"Processor": 8,
-			"Super-Magnetic Ring": 25,
-			"Titanium Alloy": 20
-		}
+			"Diamond": 4,
+			"Strange Matter": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/df/Icon_Graviton_Lens.png/45px-Icon_Graviton_Lens.png"
 	},
 	{
-		"OutputItem": "Coal",
+		"OutputItem": "Tesla Tower",
 		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
-		"Materials": {
-			"Coal Vein": 1
-		}
-	},
-	{
-		"OutputItem": "Circuit Board",
-		"OutputItemCount": 2,
 		"Facility": "Assembling Machine Mk.I",
 		"Time": 1,
 		"Materials": {
-			"Copper Ingot": 1,
-			"Iron Ingot": 2
-		}
+			"Iron Ingot": 2,
+			"Magnetic Coil": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f1/Icon_Tesla_Tower.png/45px-Icon_Tesla_Tower.png"
+	},
+	{
+		"OutputItem": "Tesla Tower",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Iron Ingot": 2,
+			"Magnetic Coil": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f1/Icon_Tesla_Tower.png/45px-Icon_Tesla_Tower.png"
+	},
+	{
+		"OutputItem": "Interstellar Logistics Station",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 30,
+		"Materials": {
+			"Particle Container": 20,
+			"Planetary Logistics Station": 1,
+			"Titanium Alloy": 50
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/6c/Icon_Interstellar_Logistics_Station.png/38px-Icon_Interstellar_Logistics_Station.png"
+	},
+	{
+		"OutputItem": "Interstellar Logistics Station",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 30,
+		"Materials": {
+			"Particle Container": 20,
+			"Planetary Logistics Station": 1,
+			"Titanium Alloy": 50
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/6c/Icon_Interstellar_Logistics_Station.png/38px-Icon_Interstellar_Logistics_Station.png"
+	},
+	{
+		"OutputItem": "Glass",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 2,
+		"Materials": {
+			"Stone Ore": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/76/Icon_Glass.png/45px-Icon_Glass.png"
+	},
+	{
+		"OutputItem": "Glass",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 2,
+		"Materials": {
+			"Stone Ore": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/76/Icon_Glass.png/45px-Icon_Glass.png"
+	},
+	{
+		"OutputItem": "Strange Matter",
+		"OutputItemCount": 1,
+		"Facility": "Miniature Particle Collider",
+		"Time": 8,
+		"Materials": {
+			"Deuterium": 10,
+			"Iron Ingot": 2,
+			"Particle Container": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/8f/Icon_Strange_Matter.png/45px-Icon_Strange_Matter.png"
+	},
+	{
+		"OutputItem": "Strange Matter",
+		"OutputItemCount": 1,
+		"Facility": "Miniature Particle Collider",
+		"Time": 8,
+		"Materials": {
+			"Deuterium": 10,
+			"Iron Ingot": 2,
+			"Particle Container": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/8f/Icon_Strange_Matter.png/45px-Icon_Strange_Matter.png"
+	},
+	{
+		"OutputItem": "Photon Combiner",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Circuit Board": 1,
+			"Prism": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/93/Icon_Photon_Combiner.png/45px-Icon_Photon_Combiner.png"
+	},
+	{
+		"OutputItem": "Photon Combiner",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Circuit Board": 1,
+			"Prism": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/93/Icon_Photon_Combiner.png/45px-Icon_Photon_Combiner.png"
+	},
+	{
+		"OutputItem": "Photon Combiner",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Circuit Board": 1,
+			"Optical Grating Crystal": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/93/Icon_Photon_Combiner.png/45px-Icon_Photon_Combiner.png"
+	},
+	{
+		"OutputItem": "Photon Combiner",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Circuit Board": 1,
+			"Optical Grating Crystal": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/93/Icon_Photon_Combiner.png/45px-Icon_Photon_Combiner.png"
 	},
 	{
 		"OutputItem": "Proliferator Mk.II",
@@ -262,16 +185,1027 @@
 		"Materials": {
 			"Diamond": 1,
 			"Proliferator Mk.I": 2
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b4/Icon_Proliferator_Mk.II.png/45px-Icon_Proliferator_Mk.II.png"
 	},
 	{
-		"OutputItem": "Unipolar Magnet",
+		"OutputItem": "Proliferator Mk.II",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Diamond": 1,
+			"Proliferator Mk.I": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b4/Icon_Proliferator_Mk.II.png/45px-Icon_Proliferator_Mk.II.png"
+	},
+	{
+		"OutputItem": "Gravity Matrix",
+		"OutputItemCount": 2,
+		"Facility": "Matrix Lab",
+		"Time": 24,
+		"Materials": {
+			"Graviton Lens": 1,
+			"Quantum Chip": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/47/Icon_Gravity_Matrix.png/45px-Icon_Gravity_Matrix.png"
+	},
+	{
+		"OutputItem": "Gravity Matrix",
+		"OutputItemCount": 2,
+		"Facility": "Matrix Lab",
+		"Time": 24,
+		"Materials": {
+			"Graviton Lens": 1,
+			"Quantum Chip": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/47/Icon_Gravity_Matrix.png/45px-Icon_Gravity_Matrix.png"
+	},
+	{
+		"OutputItem": "Arc Smelter",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Circuit Board": 4,
+			"Iron Ingot": 4,
+			"Magnetic Coil": 2,
+			"Stone Brick": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/60/Icon_Arc_Smelter.png/45px-Icon_Arc_Smelter.png"
+	},
+	{
+		"OutputItem": "Arc Smelter",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Circuit Board": 4,
+			"Iron Ingot": 4,
+			"Magnetic Coil": 2,
+			"Stone Brick": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/60/Icon_Arc_Smelter.png/45px-Icon_Arc_Smelter.png"
+	},
+	{
+		"OutputItem": "Fractionator",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Glass": 4,
+			"Processor": 1,
+			"Steel": 8,
+			"Stone Brick": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/28/Icon_Fractionator.png/35px-Icon_Fractionator.png"
+	},
+	{
+		"OutputItem": "Fractionator",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Glass": 4,
+			"Processor": 1,
+			"Steel": 8,
+			"Stone Brick": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/28/Icon_Fractionator.png/35px-Icon_Fractionator.png"
+	},
+	{
+		"OutputItem": "Proliferator Mk.III",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Carbon Nanotube": 1,
+			"Proliferator Mk.II": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/c4/Icon_Proliferator_Mk.III.png/45px-Icon_Proliferator_Mk.III.png"
+	},
+	{
+		"OutputItem": "Proliferator Mk.III",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Carbon Nanotube": 1,
+			"Proliferator Mk.II": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/c4/Icon_Proliferator_Mk.III.png/45px-Icon_Proliferator_Mk.III.png"
+	},
+	{
+		"OutputItem": "Space Warper",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 10,
+		"Materials": {
+			"Graviton Lens": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/cb/Icon_Space_Warper.png/45px-Icon_Space_Warper.png"
+	},
+	{
+		"OutputItem": "Space Warper",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 10,
+		"Materials": {
+			"Graviton Lens": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/cb/Icon_Space_Warper.png/45px-Icon_Space_Warper.png"
+	},
+	{
+		"OutputItem": "Space Warper",
+		"OutputItemCount": 8,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 10,
+		"Materials": {
+			"Gravity Matrix": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/cb/Icon_Space_Warper.png/45px-Icon_Space_Warper.png"
+	},
+	{
+		"OutputItem": "Space Warper",
+		"OutputItemCount": 8,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 10,
+		"Materials": {
+			"Gravity Matrix": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/cb/Icon_Space_Warper.png/45px-Icon_Space_Warper.png"
+	},
+	{
+		"OutputItem": "Solar Sail",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Graphene": 1,
+			"Photon Combiner": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/50/Icon_Solar_Sail.png/45px-Icon_Solar_Sail.png"
+	},
+	{
+		"OutputItem": "Solar Sail",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Graphene": 1,
+			"Photon Combiner": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/50/Icon_Solar_Sail.png/45px-Icon_Solar_Sail.png"
+	},
+	{
+		"OutputItem": "Planetary Logistics Station",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 20,
+		"Materials": {
+			"Particle Container": 20,
+			"Processor": 40,
+			"Steel": 40,
+			"Titanium Ingot": 40
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/e/e5/Icon_Planetary_Logistics_Station.png/31px-Icon_Planetary_Logistics_Station.png"
+	},
+	{
+		"OutputItem": "Planetary Logistics Station",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 20,
+		"Materials": {
+			"Particle Container": 20,
+			"Processor": 40,
+			"Steel": 40,
+			"Titanium Ingot": 40
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/e/e5/Icon_Planetary_Logistics_Station.png/31px-Icon_Planetary_Logistics_Station.png"
+	},
+	{
+		"OutputItem": "Oil Extractor",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 8,
+		"Materials": {
+			"Circuit Board": 6,
+			"Plasma Exciter": 4,
+			"Steel": 12,
+			"Stone Brick": 12
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/8f/Icon_Oil_Extractor.png/34px-Icon_Oil_Extractor.png"
+	},
+	{
+		"OutputItem": "Oil Extractor",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 8,
+		"Materials": {
+			"Circuit Board": 6,
+			"Plasma Exciter": 4,
+			"Steel": 12,
+			"Stone Brick": 12
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/8f/Icon_Oil_Extractor.png/34px-Icon_Oil_Extractor.png"
+	},
+	{
+		"OutputItem": "Sorter Mk.III",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Electromagnetic Turbine": 1,
+			"Sorter Mk.II": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b5/Icon_Sorter_Mk.III.png/45px-Icon_Sorter_Mk.III.png"
+	},
+	{
+		"OutputItem": "Sorter Mk.III",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Electromagnetic Turbine": 1,
+			"Sorter Mk.II": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b5/Icon_Sorter_Mk.III.png/45px-Icon_Sorter_Mk.III.png"
+	},
+	{
+		"OutputItem": "Coal",
 		"OutputItemCount": 1,
 		"Facility": "Mining Machine",
 		"Time": 2,
 		"Materials": {
-			"Unipolar Magnet Vein": 1
-		}
+			"Coal Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/a2/Icon_Coal.png/45px-Icon_Coal.png"
+	},
+	{
+		"OutputItem": "Coal",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Coal Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/a2/Icon_Coal.png/45px-Icon_Coal.png"
+	},
+	{
+		"OutputItem": "Titanium Ore",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Titanium Ore Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/91/Icon_Titanium_Ore.png/44px-Icon_Titanium_Ore.png"
+	},
+	{
+		"OutputItem": "Titanium Ore",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Titanium Ore Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/91/Icon_Titanium_Ore.png/44px-Icon_Titanium_Ore.png"
+	},
+	{
+		"OutputItem": "Fractal Silicon",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Fractal Silicon Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/3/35/Icon_Fractal_Silicon.png/44px-Icon_Fractal_Silicon.png"
+	},
+	{
+		"OutputItem": "Fractal Silicon",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Fractal Silicon Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/3/35/Icon_Fractal_Silicon.png/44px-Icon_Fractal_Silicon.png"
+	},
+	{
+		"OutputItem": "Plastic",
+		"OutputItemCount": 1,
+		"Facility": "Chemical Plant",
+		"Time": 3,
+		"Materials": {
+			"Energetic Graphite": 1,
+			"Refined Oil": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/c8/Icon_Plastic.png/45px-Icon_Plastic.png"
+	},
+	{
+		"OutputItem": "Plastic",
+		"OutputItemCount": 1,
+		"Facility": "Chemical Plant",
+		"Time": 3,
+		"Materials": {
+			"Energetic Graphite": 1,
+			"Refined Oil": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/c8/Icon_Plastic.png/45px-Icon_Plastic.png"
+	},
+	{
+		"OutputItem": "Logistics Bot",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Electromagnetic Turbine": 1,
+			"Iron Ingot": 2,
+			"Processor": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d4/Icon_Logistics_Bot.png/45px-Icon_Logistics_Bot.png"
+	},
+	{
+		"OutputItem": "Logistics Bot",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Electromagnetic Turbine": 1,
+			"Iron Ingot": 2,
+			"Processor": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d4/Icon_Logistics_Bot.png/45px-Icon_Logistics_Bot.png"
+	},
+	{
+		"OutputItem": "Logistics Vessel",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Processor": 10,
+			"Reinforced Thruster": 2,
+			"Titanium Alloy": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/7e/Icon_Logistics_Vessel.png/44px-Icon_Logistics_Vessel.png"
+	},
+	{
+		"OutputItem": "Logistics Vessel",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Processor": 10,
+			"Reinforced Thruster": 2,
+			"Titanium Alloy": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/7e/Icon_Logistics_Vessel.png/44px-Icon_Logistics_Vessel.png"
+	},
+	{
+		"OutputItem": "Energy Matrix",
+		"OutputItemCount": 1,
+		"Facility": "Matrix Lab",
+		"Time": 6,
+		"Materials": {
+			"Energetic Graphite": 2,
+			"Hydrogen": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/83/Icon_Energy_Matrix.png/45px-Icon_Energy_Matrix.png"
+	},
+	{
+		"OutputItem": "Energy Matrix",
+		"OutputItemCount": 1,
+		"Facility": "Matrix Lab",
+		"Time": 6,
+		"Materials": {
+			"Energetic Graphite": 2,
+			"Hydrogen": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/83/Icon_Energy_Matrix.png/45px-Icon_Energy_Matrix.png"
+	},
+	{
+		"OutputItem": "Plane Smelter",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 5,
+		"Materials": {
+			"Arc Smelter": 1,
+			"Frame Material": 5,
+			"Plane Filter": 4,
+			"Unipolar Magnet": 15
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/13/Icon_Plane_Smelter.png/45px-Icon_Plane_Smelter.png"
+	},
+	{
+		"OutputItem": "Plane Smelter",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 5,
+		"Materials": {
+			"Arc Smelter": 1,
+			"Frame Material": 5,
+			"Plane Filter": 4,
+			"Unipolar Magnet": 15
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/13/Icon_Plane_Smelter.png/45px-Icon_Plane_Smelter.png"
+	},
+	{
+		"OutputItem": "Graphene",
+		"OutputItemCount": 2,
+		"Facility": "Chemical Plant",
+		"Time": 3,
+		"Materials": {
+			"Energetic Graphite": 3,
+			"Sulfuric Acid": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/af/Icon_Graphene.png/45px-Icon_Graphene.png"
+	},
+	{
+		"OutputItem": "Graphene",
+		"OutputItemCount": 2,
+		"Facility": "Chemical Plant",
+		"Time": 3,
+		"Materials": {
+			"Energetic Graphite": 3,
+			"Sulfuric Acid": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/af/Icon_Graphene.png/45px-Icon_Graphene.png"
+	},
+	{
+		"OutputItem": "Graphene",
+		"OutputItemCount": 2,
+		"Facility": "Chemical Plant",
+		"Time": 2,
+		"Materials": {
+			"Fire Ice": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/af/Icon_Graphene.png/45px-Icon_Graphene.png"
+	},
+	{
+		"OutputItem": "Graphene",
+		"OutputItemCount": 2,
+		"Facility": "Chemical Plant",
+		"Time": 2,
+		"Materials": {
+			"Fire Ice": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/af/Icon_Graphene.png/45px-Icon_Graphene.png"
+	},
+	{
+		"OutputItem": "Titanium Crystal",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Organic Crystal": 1,
+			"Titanium Ingot": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/5b/Icon_Titanium_Crystal.png/38px-Icon_Titanium_Crystal.png"
+	},
+	{
+		"OutputItem": "Titanium Crystal",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Organic Crystal": 1,
+			"Titanium Ingot": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/5b/Icon_Titanium_Crystal.png/38px-Icon_Titanium_Crystal.png"
+	},
+	{
+		"OutputItem": "Processor",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Circuit Board": 2,
+			"Microcrystalline Component": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f1/Icon_Processor.png/45px-Icon_Processor.png"
+	},
+	{
+		"OutputItem": "Processor",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Circuit Board": 2,
+			"Microcrystalline Component": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f1/Icon_Processor.png/45px-Icon_Processor.png"
+	},
+	{
+		"OutputItem": "Sorter Mk.II",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Electric Motor": 1,
+			"Sorter Mk.I": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/25/Icon_Sorter_Mk.II.png/45px-Icon_Sorter_Mk.II.png"
+	},
+	{
+		"OutputItem": "Sorter Mk.II",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Electric Motor": 1,
+			"Sorter Mk.I": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/25/Icon_Sorter_Mk.II.png/45px-Icon_Sorter_Mk.II.png"
+	},
+	{
+		"OutputItem": "Hydrogen Fuel Rod",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Hydrogen": 10,
+			"Titanium Ingot": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/2d/Icon_Hydrogen_Fuel_Rod.png/44px-Icon_Hydrogen_Fuel_Rod.png"
+	},
+	{
+		"OutputItem": "Hydrogen Fuel Rod",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Hydrogen": 10,
+			"Titanium Ingot": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/2d/Icon_Hydrogen_Fuel_Rod.png/44px-Icon_Hydrogen_Fuel_Rod.png"
+	},
+	{
+		"OutputItem": "Titanium Glass",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 5,
+		"Materials": {
+			"Glass": 2,
+			"Titanium Ingot": 2,
+			"Water": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/56/Icon_Titanium_Glass.png/44px-Icon_Titanium_Glass.png"
+	},
+	{
+		"OutputItem": "Titanium Glass",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 5,
+		"Materials": {
+			"Glass": 2,
+			"Titanium Ingot": 2,
+			"Water": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/56/Icon_Titanium_Glass.png/44px-Icon_Titanium_Glass.png"
+	},
+	{
+		"OutputItem": "Full Accumulator",
+		"OutputItemCount": 1,
+		"Facility": "Energy Exchanger",
+		"Time": 2,
+		"Materials": {
+			"Accumulator": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/67/Icon_Full_Accumulator.png/45px-Icon_Full_Accumulator.png"
+	},
+	{
+		"OutputItem": "Full Accumulator",
+		"OutputItemCount": 1,
+		"Facility": "Energy Exchanger",
+		"Time": 2,
+		"Materials": {
+			"Accumulator": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/67/Icon_Full_Accumulator.png/45px-Icon_Full_Accumulator.png"
+	},
+	{
+		"OutputItem": "Advanced Mining Machine",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 20,
+		"Materials": {
+			"Frame Material": 10,
+			"Optical Grating Crystal": 40,
+			"Quantum Chip": 4,
+			"Super-Magnetic Ring": 10,
+			"Titanium Alloy": 20
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/55/Icon_Advanced_Mining_Machine.png/45px-Icon_Advanced_Mining_Machine.png"
+	},
+	{
+		"OutputItem": "Advanced Mining Machine",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 20,
+		"Materials": {
+			"Frame Material": 10,
+			"Optical Grating Crystal": 40,
+			"Quantum Chip": 4,
+			"Super-Magnetic Ring": 10,
+			"Titanium Alloy": 20
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/55/Icon_Advanced_Mining_Machine.png/45px-Icon_Advanced_Mining_Machine.png"
+	},
+	{
+		"OutputItem": "Refined Oil",
+		"OutputItemCount": 2,
+		"Facility": "Oil Refinery",
+		"Time": 4,
+		"Materials": {
+			"Crude Oil": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f9/Icon_Refined_Oil.png/25px-Icon_Refined_Oil.png"
+	},
+	{
+		"OutputItem": "Refined Oil",
+		"OutputItemCount": 2,
+		"Facility": "Oil Refinery",
+		"Time": 4,
+		"Materials": {
+			"Crude Oil": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f9/Icon_Refined_Oil.png/25px-Icon_Refined_Oil.png"
+	},
+	{
+		"OutputItem": "Refined Oil",
+		"OutputItemCount": 3,
+		"Facility": "Oil Refinery",
+		"Time": 4,
+		"Materials": {
+			"Coal": 1,
+			"Hydrogen": 1,
+			"Refined Oil": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f9/Icon_Refined_Oil.png/25px-Icon_Refined_Oil.png"
+	},
+	{
+		"OutputItem": "Refined Oil",
+		"OutputItemCount": 3,
+		"Facility": "Oil Refinery",
+		"Time": 4,
+		"Materials": {
+			"Coal": 1,
+			"Hydrogen": 1,
+			"Refined Oil": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f9/Icon_Refined_Oil.png/25px-Icon_Refined_Oil.png"
+	},
+	{
+		"OutputItem": "Magnetic Coil",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Copper Ingot": 1,
+			"Magnet": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/e/e5/Icon_Magnetic_Coil.png/45px-Icon_Magnetic_Coil.png"
+	},
+	{
+		"OutputItem": "Magnetic Coil",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Copper Ingot": 1,
+			"Magnet": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/e/e5/Icon_Magnetic_Coil.png/45px-Icon_Magnetic_Coil.png"
+	},
+	{
+		"OutputItem": "Crystal Silicon",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 2,
+		"Materials": {
+			"High-Purity Silicon": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/2a/Icon_Crystal_Silicon.png/45px-Icon_Crystal_Silicon.png"
+	},
+	{
+		"OutputItem": "Crystal Silicon",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 2,
+		"Materials": {
+			"High-Purity Silicon": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/2a/Icon_Crystal_Silicon.png/45px-Icon_Crystal_Silicon.png"
+	},
+	{
+		"OutputItem": "Crystal Silicon",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1.5,
+		"Materials": {
+			"Fractal Silicon": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/2a/Icon_Crystal_Silicon.png/45px-Icon_Crystal_Silicon.png"
+	},
+	{
+		"OutputItem": "Crystal Silicon",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1.5,
+		"Materials": {
+			"Fractal Silicon": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/2a/Icon_Crystal_Silicon.png/45px-Icon_Crystal_Silicon.png"
+	},
+	{
+		"OutputItem": "Organic Crystal",
+		"OutputItemCount": 1,
+		"Facility": "Chemical Plant",
+		"Time": 6,
+		"Materials": {
+			"Plastic": 2,
+			"Refined Oil": 1,
+			"Water": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/96/Icon_Organic_Crystal.png/30px-Icon_Organic_Crystal.png"
+	},
+	{
+		"OutputItem": "Organic Crystal",
+		"OutputItemCount": 1,
+		"Facility": "Chemical Plant",
+		"Time": 6,
+		"Materials": {
+			"Plastic": 2,
+			"Refined Oil": 1,
+			"Water": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/96/Icon_Organic_Crystal.png/30px-Icon_Organic_Crystal.png"
+	},
+	{
+		"OutputItem": "Organic Crystal",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Log": 20,
+			"Plant Fuel": 30,
+			"Water": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/96/Icon_Organic_Crystal.png/30px-Icon_Organic_Crystal.png"
+	},
+	{
+		"OutputItem": "Organic Crystal",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Log": 20,
+			"Plant Fuel": 30,
+			"Water": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/96/Icon_Organic_Crystal.png/30px-Icon_Organic_Crystal.png"
+	},
+	{
+		"OutputItem": "Organic Crystal",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Organic Crystal Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/96/Icon_Organic_Crystal.png/30px-Icon_Organic_Crystal.png"
+	},
+	{
+		"OutputItem": "Organic Crystal",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Organic Crystal Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/96/Icon_Organic_Crystal.png/30px-Icon_Organic_Crystal.png"
+	},
+	{
+		"OutputItem": "Logistics Drone",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Iron Ingot": 5,
+			"Processor": 2,
+			"Thruster": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/a2/Icon_Logistics_Drone.png/45px-Icon_Logistics_Drone.png"
+	},
+	{
+		"OutputItem": "Logistics Drone",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Iron Ingot": 5,
+			"Processor": 2,
+			"Thruster": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/a2/Icon_Logistics_Drone.png/45px-Icon_Logistics_Drone.png"
+	},
+	{
+		"OutputItem": "Orbital Collector",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 30,
+		"Materials": {
+			"Full Accumulator": 20,
+			"Interstellar Logistics Station": 1,
+			"Reinforced Thruster": 20,
+			"Super-Magnetic Ring": 50
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/64/Icon_Orbital_Collector.png/42px-Icon_Orbital_Collector.png"
+	},
+	{
+		"OutputItem": "Orbital Collector",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 30,
+		"Materials": {
+			"Full Accumulator": 20,
+			"Interstellar Logistics Station": 1,
+			"Reinforced Thruster": 20,
+			"Super-Magnetic Ring": 50
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/64/Icon_Orbital_Collector.png/42px-Icon_Orbital_Collector.png"
+	},
+	{
+		"OutputItem": "Sorter Mk.I",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Circuit Board": 1,
+			"Iron Ingot": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/4f/Icon_Sorter_Mk.I.png/45px-Icon_Sorter_Mk.I.png"
+	},
+	{
+		"OutputItem": "Sorter Mk.I",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Circuit Board": 1,
+			"Iron Ingot": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/4f/Icon_Sorter_Mk.I.png/45px-Icon_Sorter_Mk.I.png"
+	},
+	{
+		"OutputItem": "Geothermal Power Station",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Copper Ingot": 20,
+			"Photon Combiner": 4,
+			"Steel": 15,
+			"Super-Magnetic Ring": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/c3/Icon_Geothermal_Power_Station.png/45px-Icon_Geothermal_Power_Station.png"
+	},
+	{
+		"OutputItem": "Geothermal Power Station",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Copper Ingot": 20,
+			"Photon Combiner": 4,
+			"Steel": 15,
+			"Super-Magnetic Ring": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/c3/Icon_Geothermal_Power_Station.png/45px-Icon_Geothermal_Power_Station.png"
+	},
+	{
+		"OutputItem": "Silicon Ore",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Silicon Ore Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d4/Icon_Silicon_Ore.png/44px-Icon_Silicon_Ore.png"
+	},
+	{
+		"OutputItem": "Silicon Ore",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Silicon Ore Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d4/Icon_Silicon_Ore.png/44px-Icon_Silicon_Ore.png"
+	},
+	{
+		"OutputItem": "Silicon Ore",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 10,
+		"Materials": {
+			"Stone": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d4/Icon_Silicon_Ore.png/44px-Icon_Silicon_Ore.png"
+	},
+	{
+		"OutputItem": "Silicon Ore",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 10,
+		"Materials": {
+			"Stone": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d4/Icon_Silicon_Ore.png/44px-Icon_Silicon_Ore.png"
+	},
+	{
+		"OutputItem": "Water",
+		"OutputItemCount": 1,
+		"Facility": "Water Pump",
+		"Time": 1.2000000476837158,
+		"Materials": {},
+		"Image": "https://dsp-wiki.com//images/thumb/6/65/Icon_Water.png/25px-Icon_Water.png"
+	},
+	{
+		"OutputItem": "Water",
+		"OutputItemCount": 1,
+		"Facility": "Water Pump",
+		"Time": 1.2000000476837158,
+		"Materials": {},
+		"Image": "https://dsp-wiki.com//images/thumb/6/65/Icon_Water.png/25px-Icon_Water.png"
+	},
+	{
+		"OutputItem": "Carbon Nanotube",
+		"OutputItemCount": 2,
+		"Facility": "Chemical Plant",
+		"Time": 4,
+		"Materials": {
+			"Graphene": 3,
+			"Titanium Ingot": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/7c/Icon_Carbon_Nanotube.png/45px-Icon_Carbon_Nanotube.png"
+	},
+	{
+		"OutputItem": "Carbon Nanotube",
+		"OutputItemCount": 2,
+		"Facility": "Chemical Plant",
+		"Time": 4,
+		"Materials": {
+			"Graphene": 3,
+			"Titanium Ingot": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/7c/Icon_Carbon_Nanotube.png/45px-Icon_Carbon_Nanotube.png"
+	},
+	{
+		"OutputItem": "Carbon Nanotube",
+		"OutputItemCount": 2,
+		"Facility": "Chemical Plant",
+		"Time": 4,
+		"Materials": {
+			"Spiniform Stalagmite Crystal": 6
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/7c/Icon_Carbon_Nanotube.png/45px-Icon_Carbon_Nanotube.png"
+	},
+	{
+		"OutputItem": "Carbon Nanotube",
+		"OutputItemCount": 2,
+		"Facility": "Chemical Plant",
+		"Time": 4,
+		"Materials": {
+			"Spiniform Stalagmite Crystal": 6
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/7c/Icon_Carbon_Nanotube.png/45px-Icon_Carbon_Nanotube.png"
+	},
+	{
+		"OutputItem": "Traffic Monitor",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Circuit Board": 2,
+			"Gear": 2,
+			"Glass": 1,
+			"Iron Ingot": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/64/Icon_Traffic_Monitor.png/45px-Icon_Traffic_Monitor.png"
+	},
+	{
+		"OutputItem": "Traffic Monitor",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Circuit Board": 2,
+			"Gear": 2,
+			"Glass": 1,
+			"Iron Ingot": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/64/Icon_Traffic_Monitor.png/45px-Icon_Traffic_Monitor.png"
 	},
 	{
 		"OutputItem": "EM-Rail Ejector",
@@ -283,66 +1217,65 @@
 			"Processor": 5,
 			"Steel": 20,
 			"Super-Magnetic Ring": 10
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/a2/Icon_EM-Rail_Ejector.png/45px-Icon_EM-Rail_Ejector.png"
 	},
 	{
-		"OutputItem": "Silicon Ore",
-		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
-		"Materials": {
-			"Silicon Ore Vein": 1
-		}
-	},
-	{
-		"OutputItem": "Silicon Ore",
-		"OutputItemCount": 1,
-		"Facility": "Arc Smelter",
-		"Time": 10,
-		"Materials": {
-			"Stone": 10
-		}
-	},
-	{
-		"OutputItem": "Fire Ice",
-		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
-		"Materials": {
-			"Fire Ice Vein": 1
-		}
-	},
-	{
-		"OutputItem": "Fire Ice",
-		"OutputItemCount": 0,
-		"Facility": "Orbital Collector",
-		"Time": 1,
-		"Materials": {
-			"Ice Giant": 0
-		}
-	},
-	{
-		"OutputItem": "Logistics Vessel",
+		"OutputItem": "EM-Rail Ejector",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
 		"Time": 6,
 		"Materials": {
-			"Processor": 10,
-			"Reinforced Thruster": 2,
-			"Titanium Alloy": 10
-		}
+			"Gear": 20,
+			"Processor": 5,
+			"Steel": 20,
+			"Super-Magnetic Ring": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/a2/Icon_EM-Rail_Ejector.png/45px-Icon_EM-Rail_Ejector.png"
 	},
 	{
-		"OutputItem": "Water Pump",
+		"OutputItem": "Iron Ore",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Iron Ore Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/fc/Icon_Iron_Ore.png/42px-Icon_Iron_Ore.png"
+	},
+	{
+		"OutputItem": "Iron Ore",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Iron Ore Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/fc/Icon_Iron_Ore.png/42px-Icon_Iron_Ore.png"
+	},
+	{
+		"OutputItem": "Logistics Distributor",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
-		"Time": 4,
+		"Time": 8,
 		"Materials": {
-			"Circuit Board": 2,
-			"Electric Motor": 4,
-			"Iron Ingot": 8,
-			"Stone Brick": 4
-		}
+			"Iron Ingot": 6,
+			"Plasma Exciter": 4,
+			"Processor": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b3/Icon_Logistics_Distributor.png/45px-Icon_Logistics_Distributor.png"
+	},
+	{
+		"OutputItem": "Logistics Distributor",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 8,
+		"Materials": {
+			"Iron Ingot": 6,
+			"Plasma Exciter": 4,
+			"Processor": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b3/Icon_Logistics_Distributor.png/45px-Icon_Logistics_Distributor.png"
 	},
 	{
 		"OutputItem": "Assembling Machine Mk.II",
@@ -353,96 +1286,290 @@
 			"Assembling Machine Mk.I": 1,
 			"Graphene": 8,
 			"Processor": 4
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/93/Icon_Assembling_Machine_Mk.II.png/43px-Icon_Assembling_Machine_Mk.II.png"
 	},
 	{
-		"OutputItem": "Copper Ore",
+		"OutputItem": "Assembling Machine Mk.II",
 		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
 		"Materials": {
-			"Copper Vein": 1
-		}
+			"Assembling Machine Mk.I": 1,
+			"Graphene": 8,
+			"Processor": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/93/Icon_Assembling_Machine_Mk.II.png/43px-Icon_Assembling_Machine_Mk.II.png"
 	},
 	{
-		"OutputItem": "Antimatter",
-		"OutputItemCount": 2,
-		"Facility": "Miniature Particle Collider",
-		"Time": 2,
+		"OutputItem": "Matrix Lab",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
 		"Materials": {
-			"Critical Photon": 2
-		}
+			"Circuit Board": 4,
+			"Glass": 4,
+			"Iron Ingot": 8,
+			"Magnetic Coil": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b7/Icon_Matrix_Lab.png/45px-Icon_Matrix_Lab.png"
 	},
 	{
-		"OutputItem": "Sulfuric Acid",
-		"OutputItemCount": 4,
-		"Facility": "Chemical Plant",
+		"OutputItem": "Matrix Lab",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Circuit Board": 4,
+			"Glass": 4,
+			"Iron Ingot": 8,
+			"Magnetic Coil": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b7/Icon_Matrix_Lab.png/45px-Icon_Matrix_Lab.png"
+	},
+	{
+		"OutputItem": "Wireless Power Tower",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Plasma Exciter": 3,
+			"Tesla Tower": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/c7/Icon_Wireless_Power_Tower.png/45px-Icon_Wireless_Power_Tower.png"
+	},
+	{
+		"OutputItem": "Wireless Power Tower",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Plasma Exciter": 3,
+			"Tesla Tower": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/c7/Icon_Wireless_Power_Tower.png/45px-Icon_Wireless_Power_Tower.png"
+	},
+	{
+		"OutputItem": "Solar Panel",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
 		"Time": 6,
 		"Materials": {
-			"Refined Oil": 6,
-			"Stone": 8,
-			"Water": 4
-		}
+			"Circuit Board": 5,
+			"Copper Ingot": 10,
+			"High-Purity Silicon": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/77/Icon_Solar_Panel.png/45px-Icon_Solar_Panel.png"
 	},
 	{
-		"OutputItem": "Sulfuric Acid",
+		"OutputItem": "Solar Panel",
 		"OutputItemCount": 1,
-		"Facility": "Water Pump",
-		"Time": 1.2000000476837158,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
 		"Materials": {
-			"Sulfuric Acid Ocean": 0
-		}
+			"Circuit Board": 5,
+			"Copper Ingot": 10,
+			"High-Purity Silicon": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/77/Icon_Solar_Panel.png/45px-Icon_Solar_Panel.png"
 	},
 	{
-		"OutputItem": "Structure Matrix",
+		"OutputItem": "Storage Mk.I",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Iron Ingot": 4,
+			"Stone Brick": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/68/Icon_Storage_Mk.I.png/45px-Icon_Storage_Mk.I.png"
+	},
+	{
+		"OutputItem": "Storage Mk.I",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Iron Ingot": 4,
+			"Stone Brick": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/68/Icon_Storage_Mk.I.png/45px-Icon_Storage_Mk.I.png"
+	},
+	{
+		"OutputItem": "High-Purity Silicon",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 2,
+		"Materials": {
+			"Silicon Ore": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/8a/Icon_High-Purity_Silicon.png/45px-Icon_High-Purity_Silicon.png"
+	},
+	{
+		"OutputItem": "High-Purity Silicon",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 2,
+		"Materials": {
+			"Silicon Ore": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/8a/Icon_High-Purity_Silicon.png/45px-Icon_High-Purity_Silicon.png"
+	},
+	{
+		"OutputItem": "Deuteron Fuel Rod",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 12,
+		"Materials": {
+			"Deuterium": 20,
+			"Super-Magnetic Ring": 1,
+			"Titanium Alloy": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/58/Icon_Deuteron_Fuel_Rod.png/44px-Icon_Deuteron_Fuel_Rod.png"
+	},
+	{
+		"OutputItem": "Deuteron Fuel Rod",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 12,
+		"Materials": {
+			"Deuterium": 20,
+			"Super-Magnetic Ring": 1,
+			"Titanium Alloy": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/58/Icon_Deuteron_Fuel_Rod.png/44px-Icon_Deuteron_Fuel_Rod.png"
+	},
+	{
+		"OutputItem": "Assembling Machine Mk.III",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Assembling Machine Mk.II": 1,
+			"Particle Broadband": 8,
+			"Quantum Chip": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/8c/Icon_Assembling_Machine_Mk.III.png/45px-Icon_Assembling_Machine_Mk.III.png"
+	},
+	{
+		"OutputItem": "Assembling Machine Mk.III",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Assembling Machine Mk.II": 1,
+			"Particle Broadband": 8,
+			"Quantum Chip": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/8c/Icon_Assembling_Machine_Mk.III.png/45px-Icon_Assembling_Machine_Mk.III.png"
+	},
+	{
+		"OutputItem": "Energetic Graphite",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 2,
+		"Materials": {
+			"Coal": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/11/Icon_Energetic_Graphite.png/39px-Icon_Energetic_Graphite.png"
+	},
+	{
+		"OutputItem": "Energetic Graphite",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 2,
+		"Materials": {
+			"Coal": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/11/Icon_Energetic_Graphite.png/39px-Icon_Energetic_Graphite.png"
+	},
+	{
+		"OutputItem": "Energetic Graphite",
+		"OutputItemCount": 1,
+		"Facility": "Oil Refinery",
+		"Time": 4,
+		"Materials": {
+			"Hydrogen": 2,
+			"Refined Oil": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/11/Icon_Energetic_Graphite.png/39px-Icon_Energetic_Graphite.png"
+	},
+	{
+		"OutputItem": "Energetic Graphite",
+		"OutputItemCount": 1,
+		"Facility": "Oil Refinery",
+		"Time": 4,
+		"Materials": {
+			"Hydrogen": 2,
+			"Refined Oil": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/11/Icon_Energetic_Graphite.png/39px-Icon_Energetic_Graphite.png"
+	},
+	{
+		"OutputItem": "Circuit Board",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Copper Ingot": 1,
+			"Iron Ingot": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/2f/Icon_Circuit_Board.png/45px-Icon_Circuit_Board.png"
+	},
+	{
+		"OutputItem": "Circuit Board",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Copper Ingot": 1,
+			"Iron Ingot": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/2f/Icon_Circuit_Board.png/45px-Icon_Circuit_Board.png"
+	},
+	{
+		"OutputItem": "Foundation",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Steel": 1,
+			"Stone Brick": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/60/Icon_Foundation.png/45px-Icon_Foundation.png"
+	},
+	{
+		"OutputItem": "Foundation",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Steel": 1,
+			"Stone Brick": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/60/Icon_Foundation.png/45px-Icon_Foundation.png"
+	},
+	{
+		"OutputItem": "Information Matrix",
 		"OutputItemCount": 1,
 		"Facility": "Matrix Lab",
-		"Time": 8,
+		"Time": 10,
 		"Materials": {
-			"Diamond": 1,
-			"Titanium Crystal": 1
-		}
+			"Particle Broadband": 1,
+			"Processor": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/ca/Icon_Information_Matrix.png/45px-Icon_Information_Matrix.png"
 	},
 	{
-		"OutputItem": "Organic Crystal",
+		"OutputItem": "Information Matrix",
 		"OutputItemCount": 1,
-		"Facility": "Chemical Plant",
-		"Time": 6,
+		"Facility": "Matrix Lab",
+		"Time": 10,
 		"Materials": {
-			"Plastic": 2,
-			"Refined Oil": 1,
-			"Water": 1
-		}
-	},
-	{
-		"OutputItem": "Organic Crystal",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 6,
-		"Materials": {
-			"Log": 20,
-			"Plant Fuel": 30,
-			"Water": 10
-		}
-	},
-	{
-		"OutputItem": "Organic Crystal",
-		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
-		"Materials": {
-			"Organic Crystal Vein": 1
-		}
-	},
-	{
-		"OutputItem": "Annihilation Constraint Sphere",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 20,
-		"Materials": {
-			"Particle Container": 1,
-			"Processor": 1
-		}
+			"Particle Broadband": 1,
+			"Processor": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/ca/Icon_Information_Matrix.png/45px-Icon_Information_Matrix.png"
 	},
 	{
 		"OutputItem": "Universe Matrix",
@@ -456,135 +1583,23 @@
 			"Gravity Matrix": 1,
 			"Information Matrix": 1,
 			"Structure Matrix": 1
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/fc/Icon_Universe_Matrix.png/45px-Icon_Universe_Matrix.png"
 	},
 	{
-		"OutputItem": "Titanium Ore",
+		"OutputItem": "Universe Matrix",
 		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
+		"Facility": "Matrix Lab",
+		"Time": 15,
 		"Materials": {
-			"Titanium Ore Vein": 1
-		}
-	},
-	{
-		"OutputItem": "Glass",
-		"OutputItemCount": 1,
-		"Facility": "Arc Smelter",
-		"Time": 2,
-		"Materials": {
-			"Stone Ore": 2
-		}
-	},
-	{
-		"OutputItem": "Plastic",
-		"OutputItemCount": 1,
-		"Facility": "Chemical Plant",
-		"Time": 3,
-		"Materials": {
-			"Energetic Graphite": 1,
-			"Refined Oil": 2
-		}
-	},
-	{
-		"OutputItem": "Logistics Bot",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 2,
-		"Materials": {
-			"Electromagnetic Turbine": 1,
-			"Iron Ingot": 2,
-			"Processor": 1
-		}
-	},
-	{
-		"OutputItem": "Refined Oil",
-		"OutputItemCount": 2,
-		"Facility": "Oil Refinery",
-		"Time": 4,
-		"Materials": {
-			"Crude Oil": 2
-		}
-	},
-	{
-		"OutputItem": "Refined Oil",
-		"OutputItemCount": 3,
-		"Facility": "Oil Refinery",
-		"Time": 4,
-		"Materials": {
-			"Coal": 1,
-			"Hydrogen": 1,
-			"Refined Oil": 2
-		}
-	},
-	{
-		"OutputItem": "Sorter Mk.III",
-		"OutputItemCount": 2,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 1,
-		"Materials": {
-			"Electromagnetic Turbine": 1,
-			"Sorter Mk.II": 2
-		}
-	},
-	{
-		"OutputItem": "Electromagnetic Turbine",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 2,
-		"Materials": {
-			"Electric Motor": 2,
-			"Magnetic Coil": 2
-		}
-	},
-	{
-		"OutputItem": "Proliferator Mk.III",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 2,
-		"Materials": {
-			"Carbon Nanotube": 1,
-			"Proliferator Mk.II": 2
-		}
-	},
-	{
-		"OutputItem": "Wireless Power Tower",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 3,
-		"Materials": {
-			"Plasma Exciter": 3,
-			"Tesla Tower": 1
-		}
-	},
-	{
-		"OutputItem": "Conveyor Belt Mk.I",
-		"OutputItemCount": 3,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 1,
-		"Materials": {
-			"Gear": 1,
-			"Iron Ingot": 2
-		}
-	},
-	{
-		"OutputItem": "Energetic Graphite",
-		"OutputItemCount": 1,
-		"Facility": "Arc Smelter",
-		"Time": 2,
-		"Materials": {
-			"Coal": 2
-		}
-	},
-	{
-		"OutputItem": "Energetic Graphite",
-		"OutputItemCount": 1,
-		"Facility": "Oil Refinery",
-		"Time": 4,
-		"Materials": {
-			"Hydrogen": 2,
-			"Refined Oil": 1
-		}
+			"Antimatter": 1,
+			"Electromagnetic Matrix": 1,
+			"Energy Matrix": 1,
+			"Gravity Matrix": 1,
+			"Information Matrix": 1,
+			"Structure Matrix": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/fc/Icon_Universe_Matrix.png/45px-Icon_Universe_Matrix.png"
 	},
 	{
 		"OutputItem": "Wind Turbine",
@@ -595,185 +1610,186 @@
 			"Gear": 1,
 			"Iron Ingot": 6,
 			"Magnetic Coil": 3
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/14/Icon_Wind_Turbine.png/25px-Icon_Wind_Turbine.png"
 	},
 	{
-		"OutputItem": "Sorter Mk.II",
-		"OutputItemCount": 2,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 1,
-		"Materials": {
-			"Electric Motor": 1,
-			"Sorter Mk.I": 2
-		}
-	},
-	{
-		"OutputItem": "Hydrogen Fuel Rod",
-		"OutputItemCount": 2,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 6,
-		"Materials": {
-			"Hydrogen": 10,
-			"Titanium Ingot": 1
-		}
-	},
-	{
-		"OutputItem": "Graphene",
-		"OutputItemCount": 2,
-		"Facility": "Chemical Plant",
-		"Time": 3,
-		"Materials": {
-			"Energetic Graphite": 3,
-			"Sulfuric Acid": 1
-		}
-	},
-	{
-		"OutputItem": "Graphene",
-		"OutputItemCount": 2,
-		"Facility": "Chemical Plant",
-		"Time": 2,
-		"Materials": {
-			"Fire Ice": 2
-		}
-	},
-	{
-		"OutputItem": "Reinforced Thruster",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 6,
-		"Materials": {
-			"Electromagnetic Turbine": 5,
-			"Titanium Alloy": 5
-		}
-	},
-	{
-		"OutputItem": "Small Carrier Rocket",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 6,
-		"Materials": {
-			"Deuteron Fuel Rod": 4,
-			"Dyson Sphere Component": 2,
-			"Quantum Chip": 2
-		}
-	},
-	{
-		"OutputItem": "Antimatter Fuel Rod",
-		"OutputItemCount": 2,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 24,
-		"Materials": {
-			"Annihilation Constraint Sphere": 1,
-			"Antimatter": 12,
-			"Hydrogen": 12,
-			"Titanium Alloy": 1
-		}
-	},
-	{
-		"OutputItem": "Geothermal Power Station",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 6,
-		"Materials": {
-			"Copper Ingot": 20,
-			"Photon Combiner": 4,
-			"Steel": 15,
-			"Super-Magnetic Ring": 1
-		}
-	},
-	{
-		"OutputItem": "Storage Mk.II",
+		"OutputItem": "Wind Turbine",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
 		"Time": 4,
 		"Materials": {
-			"Steel": 8,
-			"Stone Brick": 8
-		}
+			"Gear": 1,
+			"Iron Ingot": 6,
+			"Magnetic Coil": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/14/Icon_Wind_Turbine.png/25px-Icon_Wind_Turbine.png"
 	},
 	{
-		"OutputItem": "Iron Ore",
+		"OutputItem": "Accumulator",
 		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 5,
+		"Materials": {
+			"Crystal Silicon": 6,
+			"Iron Ingot": 6,
+			"Super-Magnetic Ring": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/71/Icon_Accumulator.png/33px-Icon_Accumulator.png"
+	},
+	{
+		"OutputItem": "Accumulator",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 5,
+		"Materials": {
+			"Crystal Silicon": 6,
+			"Iron Ingot": 6,
+			"Super-Magnetic Ring": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/71/Icon_Accumulator.png/33px-Icon_Accumulator.png"
+	},
+	{
+		"OutputItem": "Hydrogen",
+		"OutputItemCount": 1,
+		"Facility": "Oil Refinery",
+		"Time": 4,
+		"Materials": {
+			"Crude Oil": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/42/Icon_Hydrogen.png/45px-Icon_Hydrogen.png"
+	},
+	{
+		"OutputItem": "Hydrogen",
+		"OutputItemCount": 1,
+		"Facility": "Oil Refinery",
+		"Time": 4,
+		"Materials": {
+			"Crude Oil": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/42/Icon_Hydrogen.png/45px-Icon_Hydrogen.png"
+	},
+	{
+		"OutputItem": "Hydrogen",
+		"OutputItemCount": 1,
+		"Facility": "Chemical Plant",
 		"Time": 2,
 		"Materials": {
-			"Iron Ore Vein": 1
-		}
+			"Fire Ice": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/42/Icon_Hydrogen.png/45px-Icon_Hydrogen.png"
 	},
 	{
-		"OutputItem": "Deuteron Fuel Rod",
-		"OutputItemCount": 2,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 12,
+		"OutputItem": "Hydrogen",
+		"OutputItemCount": 1,
+		"Facility": "Chemical Plant",
+		"Time": 2,
 		"Materials": {
-			"Deuterium": 20,
-			"Super-Magnetic Ring": 1,
-			"Titanium Alloy": 1
-		}
+			"Fire Ice": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/42/Icon_Hydrogen.png/45px-Icon_Hydrogen.png"
 	},
 	{
-		"OutputItem": "Crystal Silicon",
+		"OutputItem": "Hydrogen",
+		"OutputItemCount": 3,
+		"Facility": "Oil Refinery",
+		"Time": 4,
+		"Materials": {
+			"Hydrogen": 2,
+			"Refined Oil": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/42/Icon_Hydrogen.png/45px-Icon_Hydrogen.png"
+	},
+	{
+		"OutputItem": "Hydrogen",
+		"OutputItemCount": 3,
+		"Facility": "Oil Refinery",
+		"Time": 4,
+		"Materials": {
+			"Hydrogen": 2,
+			"Refined Oil": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/42/Icon_Hydrogen.png/45px-Icon_Hydrogen.png"
+	},
+	{
+		"OutputItem": "Hydrogen",
+		"OutputItemCount": 2,
+		"Facility": "Miniature Particle Collider",
+		"Time": 2,
+		"Materials": {
+			"Critical Photon": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/42/Icon_Hydrogen.png/45px-Icon_Hydrogen.png"
+	},
+	{
+		"OutputItem": "Hydrogen",
+		"OutputItemCount": 2,
+		"Facility": "Miniature Particle Collider",
+		"Time": 2,
+		"Materials": {
+			"Critical Photon": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/42/Icon_Hydrogen.png/45px-Icon_Hydrogen.png"
+	},
+	{
+		"OutputItem": "Hydrogen",
+		"OutputItemCount": 1,
+		"Facility": "Orbital Collector",
+		"Time": 0,
+		"Materials": {
+			"Gas Giant": 0
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/42/Icon_Hydrogen.png/45px-Icon_Hydrogen.png"
+	},
+	{
+		"OutputItem": "Hydrogen",
+		"OutputItemCount": 1,
+		"Facility": "Orbital Collector",
+		"Time": 0,
+		"Materials": {
+			"Gas Giant": 0
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/42/Icon_Hydrogen.png/45px-Icon_Hydrogen.png"
+	},
+	{
+		"OutputItem": "Hydrogen",
+		"OutputItemCount": 1,
+		"Facility": "Orbital Collector",
+		"Time": 0,
+		"Materials": {
+			"Ice Giant": 0
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/42/Icon_Hydrogen.png/45px-Icon_Hydrogen.png"
+	},
+	{
+		"OutputItem": "Hydrogen",
+		"OutputItemCount": 1,
+		"Facility": "Orbital Collector",
+		"Time": 0,
+		"Materials": {
+			"Ice Giant": 0
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/42/Icon_Hydrogen.png/45px-Icon_Hydrogen.png"
+	},
+	{
+		"OutputItem": "Titanium Ingot",
 		"OutputItemCount": 1,
 		"Facility": "Arc Smelter",
 		"Time": 2,
 		"Materials": {
-			"High-Purity Silicon": 1
-		}
+			"Titanium Ore": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f1/Icon_Titanium_Ingot.png/45px-Icon_Titanium_Ingot.png"
 	},
 	{
-		"OutputItem": "Crystal Silicon",
-		"OutputItemCount": 2,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 1.5,
-		"Materials": {
-			"Fractal Silicon": 1
-		}
-	},
-	{
-		"OutputItem": "Titanium Alloy",
-		"OutputItemCount": 4,
+		"OutputItem": "Titanium Ingot",
+		"OutputItemCount": 1,
 		"Facility": "Arc Smelter",
-		"Time": 12,
-		"Materials": {
-			"Steel": 4,
-			"Sulfuric Acid": 8,
-			"Titanium Ingot": 4
-		}
-	},
-	{
-		"OutputItem": "Particle Broadband",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 8,
-		"Materials": {
-			"Carbon Nanotube": 2,
-			"Crystal Silicon": 2,
-			"Plastic": 1
-		}
-	},
-	{
-		"OutputItem": "Traffic Monitor",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
 		"Time": 2,
 		"Materials": {
-			"Circuit Board": 2,
-			"Gear": 2,
-			"Glass": 1,
-			"Iron Ingot": 3
-		}
-	},
-	{
-		"OutputItem": "Fractionator",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 3,
-		"Materials": {
-			"Glass": 4,
-			"Processor": 1,
-			"Steel": 8,
-			"Stone Brick": 4
-		}
+			"Titanium Ore": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f1/Icon_Titanium_Ingot.png/45px-Icon_Titanium_Ingot.png"
 	},
 	{
 		"OutputItem": "Casimir Crystal",
@@ -784,7 +1800,20 @@
 			"Graphene": 2,
 			"Hydrogen": 12,
 			"Titanium Crystal": 1
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d7/Icon_Casimir_Crystal.png/45px-Icon_Casimir_Crystal.png"
+	},
+	{
+		"OutputItem": "Casimir Crystal",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Graphene": 2,
+			"Hydrogen": 12,
+			"Titanium Crystal": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d7/Icon_Casimir_Crystal.png/45px-Icon_Casimir_Crystal.png"
 	},
 	{
 		"OutputItem": "Casimir Crystal",
@@ -795,129 +1824,44 @@
 			"Graphene": 2,
 			"Hydrogen": 12,
 			"Optical Grating Crystal": 8
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d7/Icon_Casimir_Crystal.png/45px-Icon_Casimir_Crystal.png"
 	},
 	{
-		"OutputItem": "Titanium Glass",
-		"OutputItemCount": 2,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 5,
-		"Materials": {
-			"Glass": 2,
-			"Titanium Ingot": 2,
-			"Water": 2
-		}
-	},
-	{
-		"OutputItem": "Plane Filter",
+		"OutputItem": "Casimir Crystal",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
-		"Time": 12,
+		"Time": 4,
 		"Materials": {
-			"Casimir Crystal": 1,
-			"Titanium Glass": 2
-		}
+			"Graphene": 2,
+			"Hydrogen": 12,
+			"Optical Grating Crystal": 8
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d7/Icon_Casimir_Crystal.png/45px-Icon_Casimir_Crystal.png"
 	},
 	{
-		"OutputItem": "Quantum Chip",
+		"OutputItem": "Frame Material",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
 		"Time": 6,
 		"Materials": {
-			"Plane Filter": 2,
-			"Processor": 2
-		}
+			"Carbon Nanotube": 4,
+			"High-Purity Silicon": 1,
+			"Titanium Alloy": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/9d/Icon_Frame_Material.png/45px-Icon_Frame_Material.png"
 	},
 	{
-		"OutputItem": "High-Purity Silicon",
-		"OutputItemCount": 1,
-		"Facility": "Arc Smelter",
-		"Time": 2,
-		"Materials": {
-			"Silicon Ore": 2
-		}
-	},
-	{
-		"OutputItem": "Thruster",
+		"OutputItem": "Frame Material",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
-		"Time": 4,
+		"Time": 6,
 		"Materials": {
-			"Copper Ingot": 3,
-			"Steel": 2
-		}
-	},
-	{
-		"OutputItem": "Particle Container",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 4,
-		"Materials": {
-			"Copper Ingot": 2,
-			"Electromagnetic Turbine": 2,
-			"Graphene": 2
-		}
-	},
-	{
-		"OutputItem": "Particle Container",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 4,
-		"Materials": {
-			"Copper Ingot": 2,
-			"Unipolar Magnet": 10
-		}
-	},
-	{
-		"OutputItem": "Space Warper",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 10,
-		"Materials": {
-			"Graviton Lens": 1
-		}
-	},
-	{
-		"OutputItem": "Space Warper",
-		"OutputItemCount": 8,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 10,
-		"Materials": {
-			"Gravity Matrix": 1
-		}
-	},
-	{
-		"OutputItem": "Dyson Sphere Component",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 8,
-		"Materials": {
-			"Frame Material": 3,
-			"Processor": 3,
-			"Solar Sail": 3
-		}
-	},
-	{
-		"OutputItem": "Planetary Logistics Station",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 20,
-		"Materials": {
-			"Particle Container": 20,
-			"Processor": 40,
-			"Steel": 40,
-			"Titanium Ingot": 40
-		}
-	},
-	{
-		"OutputItem": "Microcrystalline Component",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 2,
-		"Materials": {
-			"Copper Ingot": 1,
-			"High-Purity Silicon": 2
-		}
+			"Carbon Nanotube": 4,
+			"High-Purity Silicon": 1,
+			"Titanium Alloy": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/9d/Icon_Frame_Material.png/45px-Icon_Frame_Material.png"
 	},
 	{
 		"OutputItem": "Satellite Substation",
@@ -928,46 +1872,88 @@
 			"Frame Material": 2,
 			"Super-Magnetic Ring": 10,
 			"Wireless Power Tower": 1
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d7/Icon_Satellite_Substation.png/45px-Icon_Satellite_Substation.png"
 	},
 	{
-		"OutputItem": "Solar Panel",
+		"OutputItem": "Satellite Substation",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
+		"Time": 5,
+		"Materials": {
+			"Frame Material": 2,
+			"Super-Magnetic Ring": 10,
+			"Wireless Power Tower": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d7/Icon_Satellite_Substation.png/45px-Icon_Satellite_Substation.png"
+	},
+	{
+		"OutputItem": "Conveyor Belt Mk.III",
+		"OutputItemCount": 3,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Conveyor Belt Mk.II": 3,
+			"Graphene": 1,
+			"Super-Magnetic Ring": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/18/Icon_Conveyor_Belt_Mk.III.png/45px-Icon_Conveyor_Belt_Mk.III.png"
+	},
+	{
+		"OutputItem": "Conveyor Belt Mk.III",
+		"OutputItemCount": 3,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Conveyor Belt Mk.II": 3,
+			"Graphene": 1,
+			"Super-Magnetic Ring": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/18/Icon_Conveyor_Belt_Mk.III.png/45px-Icon_Conveyor_Belt_Mk.III.png"
+	},
+	{
+		"OutputItem": "Sulfuric Acid",
+		"OutputItemCount": 4,
+		"Facility": "Chemical Plant",
 		"Time": 6,
 		"Materials": {
-			"Circuit Board": 5,
-			"Copper Ingot": 10,
-			"High-Purity Silicon": 10
-		}
+			"Refined Oil": 6,
+			"Stone": 8,
+			"Water": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/53/Icon_Sulfuric_Acid.png/25px-Icon_Sulfuric_Acid.png"
 	},
 	{
-		"OutputItem": "Stone Brick",
-		"OutputItemCount": 1,
-		"Facility": "Arc Smelter",
-		"Time": 1,
+		"OutputItem": "Sulfuric Acid",
+		"OutputItemCount": 4,
+		"Facility": "Chemical Plant",
+		"Time": 6,
 		"Materials": {
-			"Stone": 1
-		}
+			"Refined Oil": 6,
+			"Stone": 8,
+			"Water": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/53/Icon_Sulfuric_Acid.png/25px-Icon_Sulfuric_Acid.png"
 	},
 	{
-		"OutputItem": "Proliferator Mk.I",
+		"OutputItem": "Sulfuric Acid",
 		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 0.5,
+		"Facility": "Water Pump",
+		"Time": 1.2000000476837158,
 		"Materials": {
-			"Coal": 1
-		}
+			"Sulfuric Acid Ocean": 0
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/53/Icon_Sulfuric_Acid.png/25px-Icon_Sulfuric_Acid.png"
 	},
 	{
-		"OutputItem": "Tesla Tower",
+		"OutputItem": "Sulfuric Acid",
 		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 1,
+		"Facility": "Water Pump",
+		"Time": 1.2000000476837158,
 		"Materials": {
-			"Iron Ingot": 2,
-			"Magnetic Coil": 1
-		}
+			"Sulfuric Acid Ocean": 0
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/53/Icon_Sulfuric_Acid.png/25px-Icon_Sulfuric_Acid.png"
 	},
 	{
 		"OutputItem": "Artificial Star",
@@ -979,65 +1965,257 @@
 			"Frame Material": 20,
 			"Quantum Chip": 10,
 			"Titanium Alloy": 20
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b6/Icon_Artificial_Star.png/45px-Icon_Artificial_Star.png"
 	},
 	{
-		"OutputItem": "Storage Mk.I",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 2,
-		"Materials": {
-			"Iron Ingot": 4,
-			"Stone Brick": 4
-		}
-	},
-	{
-		"OutputItem": "Deuterium",
-		"OutputItemCount": 1,
-		"Facility": "Fractionator",
-		"Time": 1,
-		"Materials": {
-			"Hydrogen": 1
-		}
-	},
-	{
-		"OutputItem": "Deuterium",
-		"OutputItemCount": 5,
-		"Facility": "Miniature Particle Collider",
-		"Time": 2.5,
-		"Materials": {
-			"Hydrogen": 10
-		}
-	},
-	{
-		"OutputItem": "Deuterium",
-		"OutputItemCount": 1,
-		"Facility": "Orbital Collector",
-		"Time": 0,
-		"Materials": {
-			"Gas Giant": 0
-		}
-	},
-	{
-		"OutputItem": "Interstellar Logistics Station",
+		"OutputItem": "Artificial Star",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
 		"Time": 30,
 		"Materials": {
-			"Particle Container": 20,
-			"Planetary Logistics Station": 1,
-			"Titanium Alloy": 50
-		}
+			"Annihilation Constraint Sphere": 10,
+			"Frame Material": 20,
+			"Quantum Chip": 10,
+			"Titanium Alloy": 20
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b6/Icon_Artificial_Star.png/45px-Icon_Artificial_Star.png"
 	},
 	{
-		"OutputItem": "Magnetic Coil",
-		"OutputItemCount": 2,
+		"OutputItem": "Copper Ore",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Copper Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/90/Icon_Copper_Ore.png/45px-Icon_Copper_Ore.png"
+	},
+	{
+		"OutputItem": "Copper Ore",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Copper Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/9/90/Icon_Copper_Ore.png/45px-Icon_Copper_Ore.png"
+	},
+	{
+		"OutputItem": "Splitter",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Circuit Board": 1,
+			"Gear": 2,
+			"Iron Ingot": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d6/Icon_Splitter.png/42px-Icon_Splitter.png"
+	},
+	{
+		"OutputItem": "Splitter",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Circuit Board": 1,
+			"Gear": 2,
+			"Iron Ingot": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d6/Icon_Splitter.png/42px-Icon_Splitter.png"
+	},
+	{
+		"OutputItem": "Copper Ingot",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 1,
+		"Materials": {
+			"Copper Ore": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/e/ec/Icon_Copper_Ingot.png/45px-Icon_Copper_Ingot.png"
+	},
+	{
+		"OutputItem": "Copper Ingot",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 1,
+		"Materials": {
+			"Copper Ore": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/e/ec/Icon_Copper_Ingot.png/45px-Icon_Copper_Ingot.png"
+	},
+	{
+		"OutputItem": "Magnet",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 1.5,
+		"Materials": {
+			"Iron Ore": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/c6/Icon_Magnet.png/45px-Icon_Magnet.png"
+	},
+	{
+		"OutputItem": "Magnet",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 1.5,
+		"Materials": {
+			"Iron Ore": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/c6/Icon_Magnet.png/45px-Icon_Magnet.png"
+	},
+	{
+		"OutputItem": "Annihilation Constraint Sphere",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 20,
+		"Materials": {
+			"Particle Container": 1,
+			"Processor": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/3/37/Icon_Annihilation_Constraint_Sphere.png/45px-Icon_Annihilation_Constraint_Sphere.png"
+	},
+	{
+		"OutputItem": "Annihilation Constraint Sphere",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 20,
+		"Materials": {
+			"Particle Container": 1,
+			"Processor": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/3/37/Icon_Annihilation_Constraint_Sphere.png/45px-Icon_Annihilation_Constraint_Sphere.png"
+	},
+	{
+		"OutputItem": "Proliferator Mk.I",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 0.5,
+		"Materials": {
+			"Coal": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/e/ec/Icon_Proliferator_Mk.I.png/45px-Icon_Proliferator_Mk.I.png"
+	},
+	{
+		"OutputItem": "Proliferator Mk.I",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 0.5,
+		"Materials": {
+			"Coal": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/e/ec/Icon_Proliferator_Mk.I.png/45px-Icon_Proliferator_Mk.I.png"
+	},
+	{
+		"OutputItem": "Spiniform Stalagmite Crystal",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Spiniform Stalagmite Crystal Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/bd/Icon_Spiniform_Stalagmite_Crystal.png/45px-Icon_Spiniform_Stalagmite_Crystal.png"
+	},
+	{
+		"OutputItem": "Spiniform Stalagmite Crystal",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Spiniform Stalagmite Crystal Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/bd/Icon_Spiniform_Stalagmite_Crystal.png/45px-Icon_Spiniform_Stalagmite_Crystal.png"
+	},
+	{
+		"OutputItem": "Microcrystalline Component",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Copper Ingot": 1,
+			"High-Purity Silicon": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f5/Icon_Microcrystalline_Component.png/45px-Icon_Microcrystalline_Component.png"
+	},
+	{
+		"OutputItem": "Microcrystalline Component",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Copper Ingot": 1,
+			"High-Purity Silicon": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f5/Icon_Microcrystalline_Component.png/45px-Icon_Microcrystalline_Component.png"
+	},
+	{
+		"OutputItem": "Particle Broadband",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 8,
+		"Materials": {
+			"Carbon Nanotube": 2,
+			"Crystal Silicon": 2,
+			"Plastic": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b6/Icon_Particle_Broadband.png/45px-Icon_Particle_Broadband.png"
+	},
+	{
+		"OutputItem": "Particle Broadband",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 8,
+		"Materials": {
+			"Carbon Nanotube": 2,
+			"Crystal Silicon": 2,
+			"Plastic": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b6/Icon_Particle_Broadband.png/45px-Icon_Particle_Broadband.png"
+	},
+	{
+		"OutputItem": "Gear",
+		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
 		"Time": 1,
 		"Materials": {
-			"Copper Ingot": 1,
-			"Magnet": 2
-		}
+			"Iron Ingot": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/87/Icon_Gear.png/45px-Icon_Gear.png"
+	},
+	{
+		"OutputItem": "Gear",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Iron Ingot": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/87/Icon_Gear.png/45px-Icon_Gear.png"
+	},
+	{
+		"OutputItem": "Dyson Sphere Component",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 8,
+		"Materials": {
+			"Frame Material": 3,
+			"Processor": 3,
+			"Solar Sail": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/ce/Icon_Dyson_Sphere_Component.png/45px-Icon_Dyson_Sphere_Component.png"
+	},
+	{
+		"OutputItem": "Dyson Sphere Component",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 8,
+		"Materials": {
+			"Frame Material": 3,
+			"Processor": 3,
+			"Solar Sail": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/ce/Icon_Dyson_Sphere_Component.png/45px-Icon_Dyson_Sphere_Component.png"
 	},
 	{
 		"OutputItem": "Energy Exchanger",
@@ -1049,221 +2227,131 @@
 			"Processor": 40,
 			"Steel": 40,
 			"Titanium Alloy": 40
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/64/Icon_Energy_Exchanger.png/45px-Icon_Energy_Exchanger.png"
 	},
 	{
-		"OutputItem": "Arc Smelter",
+		"OutputItem": "Energy Exchanger",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
-		"Time": 3,
+		"Time": 15,
 		"Materials": {
-			"Circuit Board": 4,
-			"Iron Ingot": 4,
-			"Magnetic Coil": 2,
-			"Stone Brick": 2
-		}
+			"Particle Container": 8,
+			"Processor": 40,
+			"Steel": 40,
+			"Titanium Alloy": 40
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/64/Icon_Energy_Exchanger.png/45px-Icon_Energy_Exchanger.png"
 	},
 	{
-		"OutputItem": "Chemical Plant",
+		"OutputItem": "Prism",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Glass": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d3/Icon_Prism.png/45px-Icon_Prism.png"
+	},
+	{
+		"OutputItem": "Prism",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Glass": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/d/d3/Icon_Prism.png/45px-Icon_Prism.png"
+	},
+	{
+		"OutputItem": "Storage Mk.II",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
-		"Time": 5,
+		"Time": 4,
 		"Materials": {
-			"Circuit Board": 2,
-			"Glass": 8,
 			"Steel": 8,
 			"Stone Brick": 8
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/e/e2/Icon_Storage_Mk.II.png/45px-Icon_Storage_Mk.II.png"
 	},
 	{
-		"OutputItem": "Iron Ingot",
+		"OutputItem": "Storage Mk.II",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Steel": 8,
+			"Stone Brick": 8
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/e/e2/Icon_Storage_Mk.II.png/45px-Icon_Storage_Mk.II.png"
+	},
+	{
+		"OutputItem": "Stone Brick",
 		"OutputItemCount": 1,
 		"Facility": "Arc Smelter",
 		"Time": 1,
 		"Materials": {
-			"Iron Ore": 1
-		}
+			"Stone": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/61/Icon_Stone_Brick.png/45px-Icon_Stone_Brick.png"
 	},
 	{
-		"OutputItem": "Solar Sail",
-		"OutputItemCount": 2,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 4,
-		"Materials": {
-			"Graphene": 1,
-			"Photon Combiner": 1
-		}
-	},
-	{
-		"OutputItem": "Hydrogen",
+		"OutputItem": "Stone Brick",
 		"OutputItemCount": 1,
-		"Facility": "Oil Refinery",
-		"Time": 4,
+		"Facility": "Arc Smelter",
+		"Time": 1,
 		"Materials": {
-			"Crude Oil": 2
-		}
+			"Stone": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/61/Icon_Stone_Brick.png/45px-Icon_Stone_Brick.png"
 	},
 	{
-		"OutputItem": "Hydrogen",
-		"OutputItemCount": 1,
-		"Facility": "Chemical Plant",
-		"Time": 2,
-		"Materials": {
-			"Fire Ice": 2
-		}
-	},
-	{
-		"OutputItem": "Hydrogen",
+		"OutputItem": "Conveyor Belt Mk.I",
 		"OutputItemCount": 3,
-		"Facility": "Oil Refinery",
-		"Time": 4,
-		"Materials": {
-			"Hydrogen": 2,
-			"Refined Oil": 1
-		}
-	},
-	{
-		"OutputItem": "Hydrogen",
-		"OutputItemCount": 2,
-		"Facility": "Miniature Particle Collider",
-		"Time": 2,
-		"Materials": {
-			"Critical Photon": 2
-		}
-	},
-	{
-		"OutputItem": "Hydrogen",
-		"OutputItemCount": 1,
-		"Facility": "Orbital Collector",
-		"Time": 0,
-		"Materials": {
-			"Gas Giant": 0
-		}
-	},
-	{
-		"OutputItem": "Hydrogen",
-		"OutputItemCount": 1,
-		"Facility": "Orbital Collector",
-		"Time": 0,
-		"Materials": {
-			"Ice Giant": 0
-		}
-	},
-	{
-		"OutputItem": "Energy Matrix",
-		"OutputItemCount": 1,
-		"Facility": "Matrix Lab",
-		"Time": 6,
-		"Materials": {
-			"Energetic Graphite": 2,
-			"Hydrogen": 2
-		}
-	},
-	{
-		"OutputItem": "Orbital Collector",
-		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
-		"Time": 30,
-		"Materials": {
-			"Full Accumulator": 20,
-			"Interstellar Logistics Station": 1,
-			"Reinforced Thruster": 20,
-			"Super-Magnetic Ring": 50
-		}
-	},
-	{
-		"OutputItem": "Quantum Chemical Plant",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 10,
-		"Materials": {
-			"Chemical Plant": 1,
-			"Quantum Chip": 3,
-			"Strange Matter": 3,
-			"Titanium Glass": 10
-		}
-	},
-	{
-		"OutputItem": "Plane Smelter",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 5,
-		"Materials": {
-			"Arc Smelter": 1,
-			"Frame Material": 5,
-			"Plane Filter": 4,
-			"Unipolar Magnet": 15
-		}
-	},
-	{
-		"OutputItem": "Diamond",
-		"OutputItemCount": 1,
-		"Facility": "Arc Smelter",
-		"Time": 2,
-		"Materials": {
-			"Energetic Graphite": 1
-		}
-	},
-	{
-		"OutputItem": "Diamond",
-		"OutputItemCount": 2,
-		"Facility": "Arc Smelter",
-		"Time": 1.5,
-		"Materials": {
-			"Kimberlite Ore": 1
-		}
-	},
-	{
-		"OutputItem": "Optical Grating Crystal",
-		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
-		"Materials": {
-			"Optical Grating Rock": 1
-		}
-	},
-	{
-		"OutputItem": "Electric Motor",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 2,
+		"Time": 1,
 		"Materials": {
 			"Gear": 1,
-			"Iron Ingot": 2,
-			"Magnetic Coil": 1
-		}
+			"Iron Ingot": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/78/Icon_Conveyor_Belt_Mk.I.png/45px-Icon_Conveyor_Belt_Mk.I.png"
 	},
 	{
-		"OutputItem": "Logistics Drone",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 4,
-		"Materials": {
-			"Iron Ingot": 5,
-			"Processor": 2,
-			"Thruster": 2
-		}
-	},
-	{
-		"OutputItem": "Information Matrix",
-		"OutputItemCount": 1,
-		"Facility": "Matrix Lab",
-		"Time": 10,
-		"Materials": {
-			"Particle Broadband": 1,
-			"Processor": 2
-		}
-	},
-	{
-		"OutputItem": "Conveyor Belt Mk.III",
+		"OutputItem": "Conveyor Belt Mk.I",
 		"OutputItemCount": 3,
 		"Facility": "Assembling Machine Mk.I",
 		"Time": 1,
 		"Materials": {
-			"Conveyor Belt Mk.II": 3,
-			"Graphene": 1,
-			"Super-Magnetic Ring": 1
-		}
+			"Gear": 1,
+			"Iron Ingot": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/78/Icon_Conveyor_Belt_Mk.I.png/45px-Icon_Conveyor_Belt_Mk.I.png"
+	},
+	{
+		"OutputItem": "Water Pump",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Circuit Board": 2,
+			"Electric Motor": 4,
+			"Iron Ingot": 8,
+			"Stone Brick": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/69/Icon_Water_Pump.png/45px-Icon_Water_Pump.png"
+	},
+	{
+		"OutputItem": "Water Pump",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Circuit Board": 2,
+			"Electric Motor": 4,
+			"Iron Ingot": 8,
+			"Stone Brick": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/6/69/Icon_Water_Pump.png/45px-Icon_Water_Pump.png"
 	},
 	{
 		"OutputItem": "Vertical Launching Silo",
@@ -1275,74 +2363,345 @@
 			"Graviton Lens": 20,
 			"Quantum Chip": 10,
 			"Titanium Alloy": 80
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/0/05/Icon_Vertical_Launching_Silo.png/45px-Icon_Vertical_Launching_Silo.png"
 	},
 	{
-		"OutputItem": "Magnet",
-		"OutputItemCount": 1,
-		"Facility": "Arc Smelter",
-		"Time": 1.5,
-		"Materials": {
-			"Iron Ore": 1
-		}
-	},
-	{
-		"OutputItem": "Conveyor Belt Mk.II",
-		"OutputItemCount": 3,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 1,
-		"Materials": {
-			"Conveyor Belt Mk.I": 3,
-			"Electromagnetic Turbine": 1
-		}
-	},
-	{
-		"OutputItem": "Matrix Lab",
+		"OutputItem": "Vertical Launching Silo",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
-		"Time": 3,
+		"Time": 30,
 		"Materials": {
-			"Circuit Board": 4,
-			"Glass": 4,
-			"Iron Ingot": 8,
-			"Magnetic Coil": 4
-		}
+			"Frame Material": 30,
+			"Graviton Lens": 20,
+			"Quantum Chip": 10,
+			"Titanium Alloy": 80
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/0/05/Icon_Vertical_Launching_Silo.png/45px-Icon_Vertical_Launching_Silo.png"
 	},
 	{
-		"OutputItem": "Water",
+		"OutputItem": "Deuterium",
 		"OutputItemCount": 1,
-		"Facility": "Water Pump",
-		"Time": 1.2000000476837158,
-		"Materials": {}
-	},
-	{
-		"OutputItem": "Copper Ingot",
-		"OutputItemCount": 1,
-		"Facility": "Arc Smelter",
+		"Facility": "Fractionator",
 		"Time": 1,
 		"Materials": {
-			"Copper Ore": 1
-		}
+			"Hydrogen": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/4d/Icon_Deuterium.png/45px-Icon_Deuterium.png"
 	},
 	{
-		"OutputItem": "Fractal Silicon",
+		"OutputItem": "Deuterium",
+		"OutputItemCount": 1,
+		"Facility": "Fractionator",
+		"Time": 1,
+		"Materials": {
+			"Hydrogen": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/4d/Icon_Deuterium.png/45px-Icon_Deuterium.png"
+	},
+	{
+		"OutputItem": "Deuterium",
+		"OutputItemCount": 5,
+		"Facility": "Miniature Particle Collider",
+		"Time": 2.5,
+		"Materials": {
+			"Hydrogen": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/4d/Icon_Deuterium.png/45px-Icon_Deuterium.png"
+	},
+	{
+		"OutputItem": "Deuterium",
+		"OutputItemCount": 5,
+		"Facility": "Miniature Particle Collider",
+		"Time": 2.5,
+		"Materials": {
+			"Hydrogen": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/4d/Icon_Deuterium.png/45px-Icon_Deuterium.png"
+	},
+	{
+		"OutputItem": "Deuterium",
+		"OutputItemCount": 1,
+		"Facility": "Orbital Collector",
+		"Time": 0,
+		"Materials": {
+			"Gas Giant": 0
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/4d/Icon_Deuterium.png/45px-Icon_Deuterium.png"
+	},
+	{
+		"OutputItem": "Deuterium",
+		"OutputItemCount": 1,
+		"Facility": "Orbital Collector",
+		"Time": 0,
+		"Materials": {
+			"Gas Giant": 0
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/4d/Icon_Deuterium.png/45px-Icon_Deuterium.png"
+	},
+	{
+		"OutputItem": "Fire Ice",
 		"OutputItemCount": 1,
 		"Facility": "Mining Machine",
 		"Time": 2,
 		"Materials": {
-			"Fractal Silicon Vein": 1
-		}
+			"Fire Ice Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/ab/Icon_Fire_Ice.png/45px-Icon_Fire_Ice.png"
 	},
 	{
-		"OutputItem": "Super-Magnetic Ring",
+		"OutputItem": "Fire Ice",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Fire Ice Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/ab/Icon_Fire_Ice.png/45px-Icon_Fire_Ice.png"
+	},
+	{
+		"OutputItem": "Fire Ice",
+		"OutputItemCount": 0,
+		"Facility": "Orbital Collector",
+		"Time": 1,
+		"Materials": {
+			"Ice Giant": 0
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/ab/Icon_Fire_Ice.png/45px-Icon_Fire_Ice.png"
+	},
+	{
+		"OutputItem": "Fire Ice",
+		"OutputItemCount": 0,
+		"Facility": "Orbital Collector",
+		"Time": 1,
+		"Materials": {
+			"Ice Giant": 0
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/ab/Icon_Fire_Ice.png/45px-Icon_Fire_Ice.png"
+	},
+	{
+		"OutputItem": "Assembling Machine Mk.I",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
-		"Time": 3,
+		"Time": 2,
 		"Materials": {
+			"Circuit Board": 4,
+			"Gear": 8,
+			"Iron Ingot": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/8e/Icon_Assembling_Machine_Mk.I.png/43px-Icon_Assembling_Machine_Mk.I.png"
+	},
+	{
+		"OutputItem": "Assembling Machine Mk.I",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Circuit Board": 4,
+			"Gear": 8,
+			"Iron Ingot": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/8e/Icon_Assembling_Machine_Mk.I.png/43px-Icon_Assembling_Machine_Mk.I.png"
+	},
+	{
+		"OutputItem": "Crude Oil",
+		"OutputItemCount": 1,
+		"Facility": "Oil Extractor",
+		"Time": 0,
+		"Materials": {
+			"Crude Oil Vein": 0
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/8f/Icon_Crude_Oil.png/27px-Icon_Crude_Oil.png"
+	},
+	{
+		"OutputItem": "Crude Oil",
+		"OutputItemCount": 1,
+		"Facility": "Oil Extractor",
+		"Time": 0,
+		"Materials": {
+			"Crude Oil Vein": 0
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/8f/Icon_Crude_Oil.png/27px-Icon_Crude_Oil.png"
+	},
+	{
+		"OutputItem": "Plasma Exciter",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Magnetic Coil": 4,
+			"Prism": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/cc/Icon_Plasma_Exciter.png/45px-Icon_Plasma_Exciter.png"
+	},
+	{
+		"OutputItem": "Plasma Exciter",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Magnetic Coil": 4,
+			"Prism": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/cc/Icon_Plasma_Exciter.png/45px-Icon_Plasma_Exciter.png"
+	},
+	{
+		"OutputItem": "Particle Container",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Copper Ingot": 2,
 			"Electromagnetic Turbine": 2,
-			"Energetic Graphite": 1,
-			"Magnet": 3
-		}
+			"Graphene": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/fd/Icon_Particle_Container.png/45px-Icon_Particle_Container.png"
+	},
+	{
+		"OutputItem": "Particle Container",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Copper Ingot": 2,
+			"Electromagnetic Turbine": 2,
+			"Graphene": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/fd/Icon_Particle_Container.png/45px-Icon_Particle_Container.png"
+	},
+	{
+		"OutputItem": "Particle Container",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Copper Ingot": 2,
+			"Unipolar Magnet": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/fd/Icon_Particle_Container.png/45px-Icon_Particle_Container.png"
+	},
+	{
+		"OutputItem": "Particle Container",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Copper Ingot": 2,
+			"Unipolar Magnet": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/fd/Icon_Particle_Container.png/45px-Icon_Particle_Container.png"
+	},
+	{
+		"OutputItem": "Chemical Plant",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 5,
+		"Materials": {
+			"Circuit Board": 2,
+			"Glass": 8,
+			"Steel": 8,
+			"Stone Brick": 8
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f9/Icon_Chemical_Plant.png/45px-Icon_Chemical_Plant.png"
+	},
+	{
+		"OutputItem": "Chemical Plant",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 5,
+		"Materials": {
+			"Circuit Board": 2,
+			"Glass": 8,
+			"Steel": 8,
+			"Stone Brick": 8
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f9/Icon_Chemical_Plant.png/45px-Icon_Chemical_Plant.png"
+	},
+	{
+		"OutputItem": "Unipolar Magnet",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Unipolar Magnet Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/a9/Icon_Unipolar_Magnet.png/45px-Icon_Unipolar_Magnet.png"
+	},
+	{
+		"OutputItem": "Unipolar Magnet",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Unipolar Magnet Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/a9/Icon_Unipolar_Magnet.png/45px-Icon_Unipolar_Magnet.png"
+	},
+	{
+		"OutputItem": "Small Carrier Rocket",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Deuteron Fuel Rod": 4,
+			"Dyson Sphere Component": 2,
+			"Quantum Chip": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/1c/Icon_Small_Carrier_Rocket.png/45px-Icon_Small_Carrier_Rocket.png"
+	},
+	{
+		"OutputItem": "Small Carrier Rocket",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Deuteron Fuel Rod": 4,
+			"Dyson Sphere Component": 2,
+			"Quantum Chip": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/1c/Icon_Small_Carrier_Rocket.png/45px-Icon_Small_Carrier_Rocket.png"
+	},
+	{
+		"OutputItem": "Kimberlite Ore",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Kimberlite Ore Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/55/Icon_Kimberlite_Ore.png/44px-Icon_Kimberlite_Ore.png"
+	},
+	{
+		"OutputItem": "Kimberlite Ore",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Kimberlite Ore Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/55/Icon_Kimberlite_Ore.png/44px-Icon_Kimberlite_Ore.png"
+	},
+	{
+		"OutputItem": "Reinforced Thruster",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Electromagnetic Turbine": 5,
+			"Titanium Alloy": 5
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/3/3d/Icon_Reinforced_Thruster.png/45px-Icon_Reinforced_Thruster.png"
+	},
+	{
+		"OutputItem": "Reinforced Thruster",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Electromagnetic Turbine": 5,
+			"Titanium Alloy": 5
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/3/3d/Icon_Reinforced_Thruster.png/45px-Icon_Reinforced_Thruster.png"
 	},
 	{
 		"OutputItem": "Mining Machine",
@@ -1354,99 +2713,451 @@
 			"Gear": 2,
 			"Iron Ingot": 4,
 			"Magnetic Coil": 2
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/cf/Icon_Mining_Machine.png/45px-Icon_Mining_Machine.png"
 	},
 	{
-		"OutputItem": "Titanium Ingot",
-		"OutputItemCount": 1,
-		"Facility": "Arc Smelter",
-		"Time": 2,
-		"Materials": {
-			"Titanium Ore": 2
-		}
-	},
-	{
-		"OutputItem": "Kimberlite Ore",
-		"OutputItemCount": 1,
-		"Facility": "Mining Machine",
-		"Time": 2,
-		"Materials": {
-			"Kimberlite Ore Vein": 1
-		}
-	},
-	{
-		"OutputItem": "Foundation",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 1,
-		"Materials": {
-			"Steel": 1,
-			"Stone Brick": 3
-		}
-	},
-	{
-		"OutputItem": "Oil Extractor",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 8,
-		"Materials": {
-			"Circuit Board": 6,
-			"Plasma Exciter": 4,
-			"Steel": 12,
-			"Stone Brick": 12
-		}
-	},
-	{
-		"OutputItem": "Prism",
-		"OutputItemCount": 2,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 2,
-		"Materials": {
-			"Glass": 3
-		}
-	},
-	{
-		"OutputItem": "Gear",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 1,
-		"Materials": {
-			"Iron Ingot": 1
-		}
-	},
-	{
-		"OutputItem": "Processor",
+		"OutputItem": "Mining Machine",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
 		"Time": 3,
 		"Materials": {
 			"Circuit Board": 2,
-			"Microcrystalline Component": 2
-		}
+			"Gear": 2,
+			"Iron Ingot": 4,
+			"Magnetic Coil": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/c/cf/Icon_Mining_Machine.png/45px-Icon_Mining_Machine.png"
 	},
 	{
-		"OutputItem": "Advanced Mining Machine",
+		"OutputItem": "Stone",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Stone Ore Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/5a/Icon_Stone.png/45px-Icon_Stone.png"
+	},
+	{
+		"OutputItem": "Stone",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Stone Ore Vein": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/5/5a/Icon_Stone.png/45px-Icon_Stone.png"
+	},
+	{
+		"OutputItem": "Antimatter",
+		"OutputItemCount": 2,
+		"Facility": "Miniature Particle Collider",
+		"Time": 2,
+		"Materials": {
+			"Critical Photon": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/78/Icon_Antimatter.png/45px-Icon_Antimatter.png"
+	},
+	{
+		"OutputItem": "Antimatter",
+		"OutputItemCount": 2,
+		"Facility": "Miniature Particle Collider",
+		"Time": 2,
+		"Materials": {
+			"Critical Photon": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/78/Icon_Antimatter.png/45px-Icon_Antimatter.png"
+	},
+	{
+		"OutputItem": "Quantum Chip",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
-		"Time": 20,
+		"Time": 6,
 		"Materials": {
-			"Frame Material": 10,
-			"Optical Grating Crystal": 40,
-			"Quantum Chip": 4,
-			"Super-Magnetic Ring": 10,
-			"Titanium Alloy": 20
-		}
+			"Plane Filter": 2,
+			"Processor": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/2f/Icon_Quantum_Chip.png/45px-Icon_Quantum_Chip.png"
 	},
 	{
-		"OutputItem": "Strange Matter",
+		"OutputItem": "Quantum Chip",
 		"OutputItemCount": 1,
-		"Facility": "Miniature Particle Collider",
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Plane Filter": 2,
+			"Processor": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/2/2f/Icon_Quantum_Chip.png/45px-Icon_Quantum_Chip.png"
+	},
+	{
+		"OutputItem": "Automatic Piler",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Gear": 4,
+			"Processor": 2,
+			"Steel": 3,
+			"Super-Magnetic Ring": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/1c/Icon_Automatic_Piler.png/45px-Icon_Automatic_Piler.png"
+	},
+	{
+		"OutputItem": "Automatic Piler",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Gear": 4,
+			"Processor": 2,
+			"Steel": 3,
+			"Super-Magnetic Ring": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/1c/Icon_Automatic_Piler.png/45px-Icon_Automatic_Piler.png"
+	},
+	{
+		"OutputItem": "Miniature Particle Collider",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 15,
+		"Materials": {
+			"Frame Material": 20,
+			"Graphene": 10,
+			"Processor": 8,
+			"Super-Magnetic Ring": 25,
+			"Titanium Alloy": 20
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/aa/Icon_Miniature_Particle_Collider.png/45px-Icon_Miniature_Particle_Collider.png"
+	},
+	{
+		"OutputItem": "Miniature Particle Collider",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 15,
+		"Materials": {
+			"Frame Material": 20,
+			"Graphene": 10,
+			"Processor": 8,
+			"Super-Magnetic Ring": 25,
+			"Titanium Alloy": 20
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/aa/Icon_Miniature_Particle_Collider.png/45px-Icon_Miniature_Particle_Collider.png"
+	},
+	{
+		"OutputItem": "Iron Ingot",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 1,
+		"Materials": {
+			"Iron Ore": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f1/Icon_Iron_Ingot.png/45px-Icon_Iron_Ingot.png"
+	},
+	{
+		"OutputItem": "Iron Ingot",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 1,
+		"Materials": {
+			"Iron Ore": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/f/f1/Icon_Iron_Ingot.png/45px-Icon_Iron_Ingot.png"
+	},
+	{
+		"OutputItem": "Titanium Alloy",
+		"OutputItemCount": 4,
+		"Facility": "Arc Smelter",
+		"Time": 12,
+		"Materials": {
+			"Steel": 4,
+			"Sulfuric Acid": 8,
+			"Titanium Ingot": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/85/Icon_Titanium_Alloy.png/45px-Icon_Titanium_Alloy.png"
+	},
+	{
+		"OutputItem": "Titanium Alloy",
+		"OutputItemCount": 4,
+		"Facility": "Arc Smelter",
+		"Time": 12,
+		"Materials": {
+			"Steel": 4,
+			"Sulfuric Acid": 8,
+			"Titanium Ingot": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/85/Icon_Titanium_Alloy.png/45px-Icon_Titanium_Alloy.png"
+	},
+	{
+		"OutputItem": "Steel",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 3,
+		"Materials": {
+			"Iron Ingot": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/3/38/Icon_Steel.png/45px-Icon_Steel.png"
+	},
+	{
+		"OutputItem": "Steel",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 3,
+		"Materials": {
+			"Iron Ingot": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/3/38/Icon_Steel.png/45px-Icon_Steel.png"
+	},
+	{
+		"OutputItem": "Thruster",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Copper Ingot": 3,
+			"Steel": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/e/ea/Icon_Thruster.png/45px-Icon_Thruster.png"
+	},
+	{
+		"OutputItem": "Thruster",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 4,
+		"Materials": {
+			"Copper Ingot": 3,
+			"Steel": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/e/ea/Icon_Thruster.png/45px-Icon_Thruster.png"
+	},
+	{
+		"OutputItem": "Super-Magnetic Ring",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Electromagnetic Turbine": 2,
+			"Energetic Graphite": 1,
+			"Magnet": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b4/Icon_Super-Magnetic_Ring.png/45px-Icon_Super-Magnetic_Ring.png"
+	},
+	{
+		"OutputItem": "Super-Magnetic Ring",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 3,
+		"Materials": {
+			"Electromagnetic Turbine": 2,
+			"Energetic Graphite": 1,
+			"Magnet": 3
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/b/b4/Icon_Super-Magnetic_Ring.png/45px-Icon_Super-Magnetic_Ring.png"
+	},
+	{
+		"OutputItem": "Storage Tank",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Glass": 4,
+			"Iron Ingot": 8,
+			"Stone Brick": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/0/00/Icon_Storage_Tank.png/45px-Icon_Storage_Tank.png"
+	},
+	{
+		"OutputItem": "Storage Tank",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Glass": 4,
+			"Iron Ingot": 8,
+			"Stone Brick": 4
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/0/00/Icon_Storage_Tank.png/45px-Icon_Storage_Tank.png"
+	},
+	{
+		"OutputItem": "Optical Grating Crystal",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Optical Grating Rock": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/ac/Icon_Optical_Grating_Crystal.png/37px-Icon_Optical_Grating_Crystal.png"
+	},
+	{
+		"OutputItem": "Optical Grating Crystal",
+		"OutputItemCount": 1,
+		"Facility": "Mining Machine",
+		"Time": 2,
+		"Materials": {
+			"Optical Grating Rock": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/ac/Icon_Optical_Grating_Crystal.png/37px-Icon_Optical_Grating_Crystal.png"
+	},
+	{
+		"OutputItem": "Electromagnetic Matrix",
+		"OutputItemCount": 1,
+		"Facility": "Matrix Lab",
+		"Time": 3,
+		"Materials": {
+			"Circuit Board": 1,
+			"Magnetic Coil": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/0/0f/Icon_Electromagnetic_Matrix.png/45px-Icon_Electromagnetic_Matrix.png"
+	},
+	{
+		"OutputItem": "Electromagnetic Matrix",
+		"OutputItemCount": 1,
+		"Facility": "Matrix Lab",
+		"Time": 3,
+		"Materials": {
+			"Circuit Board": 1,
+			"Magnetic Coil": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/0/0f/Icon_Electromagnetic_Matrix.png/45px-Icon_Electromagnetic_Matrix.png"
+	},
+	{
+		"OutputItem": "Diamond",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 2,
+		"Materials": {
+			"Energetic Graphite": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/af/Icon_Diamond.png/45px-Icon_Diamond.png"
+	},
+	{
+		"OutputItem": "Diamond",
+		"OutputItemCount": 1,
+		"Facility": "Arc Smelter",
+		"Time": 2,
+		"Materials": {
+			"Energetic Graphite": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/af/Icon_Diamond.png/45px-Icon_Diamond.png"
+	},
+	{
+		"OutputItem": "Diamond",
+		"OutputItemCount": 2,
+		"Facility": "Arc Smelter",
+		"Time": 1.5,
+		"Materials": {
+			"Kimberlite Ore": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/af/Icon_Diamond.png/45px-Icon_Diamond.png"
+	},
+	{
+		"OutputItem": "Diamond",
+		"OutputItemCount": 2,
+		"Facility": "Arc Smelter",
+		"Time": 1.5,
+		"Materials": {
+			"Kimberlite Ore": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/af/Icon_Diamond.png/45px-Icon_Diamond.png"
+	},
+	{
+		"OutputItem": "Electric Motor",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Gear": 1,
+			"Iron Ingot": 2,
+			"Magnetic Coil": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/84/Icon_Electric_Motor.png/45px-Icon_Electric_Motor.png"
+	},
+	{
+		"OutputItem": "Electric Motor",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 2,
+		"Materials": {
+			"Gear": 1,
+			"Iron Ingot": 2,
+			"Magnetic Coil": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/8/84/Icon_Electric_Motor.png/45px-Icon_Electric_Motor.png"
+	},
+	{
+		"OutputItem": "Structure Matrix",
+		"OutputItemCount": 1,
+		"Facility": "Matrix Lab",
 		"Time": 8,
 		"Materials": {
-			"Deuterium": 10,
-			"Iron Ingot": 2,
-			"Particle Container": 2
-		}
+			"Diamond": 1,
+			"Titanium Crystal": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/44/Icon_Structure_Matrix.png/45px-Icon_Structure_Matrix.png"
+	},
+	{
+		"OutputItem": "Structure Matrix",
+		"OutputItemCount": 1,
+		"Facility": "Matrix Lab",
+		"Time": 8,
+		"Materials": {
+			"Diamond": 1,
+			"Titanium Crystal": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/4/44/Icon_Structure_Matrix.png/45px-Icon_Structure_Matrix.png"
+	},
+	{
+		"OutputItem": "Quantum Chemical Plant",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 10,
+		"Materials": {
+			"Chemical Plant": 1,
+			"Quantum Chip": 3,
+			"Strange Matter": 3,
+			"Titanium Glass": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/a9/Icon_Quantum_Chemical_Plant.png/44px-Icon_Quantum_Chemical_Plant.png"
+	},
+	{
+		"OutputItem": "Quantum Chemical Plant",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 10,
+		"Materials": {
+			"Chemical Plant": 1,
+			"Quantum Chip": 3,
+			"Strange Matter": 3,
+			"Titanium Glass": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/a/a9/Icon_Quantum_Chemical_Plant.png/44px-Icon_Quantum_Chemical_Plant.png"
+	},
+	{
+		"OutputItem": "Antimatter Fuel Rod",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 24,
+		"Materials": {
+			"Annihilation Constraint Sphere": 1,
+			"Antimatter": 12,
+			"Hydrogen": 12,
+			"Titanium Alloy": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/1c/Icon_Antimatter_Fuel_Rod.png/44px-Icon_Antimatter_Fuel_Rod.png"
+	},
+	{
+		"OutputItem": "Antimatter Fuel Rod",
+		"OutputItemCount": 2,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 24,
+		"Materials": {
+			"Annihilation Constraint Sphere": 1,
+			"Antimatter": 12,
+			"Hydrogen": 12,
+			"Titanium Alloy": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/1c/Icon_Antimatter_Fuel_Rod.png/44px-Icon_Antimatter_Fuel_Rod.png"
 	},
 	{
 		"OutputItem": "Ray Receiver",
@@ -1459,28 +3170,91 @@
 			"Processor": 5,
 			"Steel": 20,
 			"Super-Magnetic Ring": 20
-		}
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/7b/Icon_Ray_Receiver.png/45px-Icon_Ray_Receiver.png"
 	},
 	{
-		"OutputItem": "Storage Tank",
-		"OutputItemCount": 1,
-		"Facility": "Assembling Machine Mk.I",
-		"Time": 2,
-		"Materials": {
-			"Glass": 4,
-			"Iron Ingot": 8,
-			"Stone Brick": 4
-		}
-	},
-	{
-		"OutputItem": "Logistics Distributor",
+		"OutputItem": "Ray Receiver",
 		"OutputItemCount": 1,
 		"Facility": "Assembling Machine Mk.I",
 		"Time": 8,
 		"Materials": {
-			"Iron Ingot": 6,
-			"Plasma Exciter": 4,
-			"Processor": 4
-		}
+			"High-Purity Silicon": 20,
+			"Photon Combiner": 10,
+			"Processor": 5,
+			"Steel": 20,
+			"Super-Magnetic Ring": 20
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/7b/Icon_Ray_Receiver.png/45px-Icon_Ray_Receiver.png"
+	},
+	{
+		"OutputItem": "Conveyor Belt Mk.II",
+		"OutputItemCount": 3,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Conveyor Belt Mk.I": 3,
+			"Electromagnetic Turbine": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/3/38/Icon_Conveyor_Belt_Mk.II.png/45px-Icon_Conveyor_Belt_Mk.II.png"
+	},
+	{
+		"OutputItem": "Conveyor Belt Mk.II",
+		"OutputItemCount": 3,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 1,
+		"Materials": {
+			"Conveyor Belt Mk.I": 3,
+			"Electromagnetic Turbine": 1
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/3/38/Icon_Conveyor_Belt_Mk.II.png/45px-Icon_Conveyor_Belt_Mk.II.png"
+	},
+	{
+		"OutputItem": "Oil Refinery",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Circuit Board": 6,
+			"Plasma Exciter": 6,
+			"Steel": 10,
+			"Stone Brick": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/74/Icon_Oil_Refinery.png/44px-Icon_Oil_Refinery.png"
+	},
+	{
+		"OutputItem": "Oil Refinery",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 6,
+		"Materials": {
+			"Circuit Board": 6,
+			"Plasma Exciter": 6,
+			"Steel": 10,
+			"Stone Brick": 10
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/7/74/Icon_Oil_Refinery.png/44px-Icon_Oil_Refinery.png"
+	},
+	{
+		"OutputItem": "Plane Filter",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 12,
+		"Materials": {
+			"Casimir Crystal": 1,
+			"Titanium Glass": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/15/Icon_Plane_Filter.png/45px-Icon_Plane_Filter.png"
+	},
+	{
+		"OutputItem": "Plane Filter",
+		"OutputItemCount": 1,
+		"Facility": "Assembling Machine Mk.I",
+		"Time": 12,
+		"Materials": {
+			"Casimir Crystal": 1,
+			"Titanium Glass": 2
+		},
+		"Image": "https://dsp-wiki.com//images/thumb/1/15/Icon_Plane_Filter.png/45px-Icon_Plane_Filter.png"
 	}
 ]

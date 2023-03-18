@@ -1,11 +1,5 @@
-github.com/NekoFluff/go-dsp v1.7.3 h1:2OAQ58m5vVSkbhdIvajyFhmydMdhloo9XlSpwGwmots=
-github.com/NekoFluff/go-dsp v1.7.3/go.mod h1:pMwAVMVdEbn/hRGHmsYAuiuJG2jT00zsNMXMm9/AbTQ=
-github.com/NekoFluff/go-dsp v1.7.4 h1:sBylIZS+FTgP/dPd0yh/BidgMfcHU4Ka4+wzzp4qCnw=
-github.com/NekoFluff/go-dsp v1.7.4/go.mod h1:pMwAVMVdEbn/hRGHmsYAuiuJG2jT00zsNMXMm9/AbTQ=
-github.com/NekoFluff/go-dsp v1.7.5 h1:JYIcsXpqwiHMOT/6vZ6D3XFW60rWIqUF3ffaayarCRM=
-github.com/NekoFluff/go-dsp v1.7.5/go.mod h1:pMwAVMVdEbn/hRGHmsYAuiuJG2jT00zsNMXMm9/AbTQ=
-github.com/NekoFluff/go-dsp v1.7.6 h1:yjx6/jaDkObBqBQbspq0tQtOkFt6n7xvIgXv0hPMAfc=
-github.com/NekoFluff/go-dsp v1.7.6/go.mod h1:pMwAVMVdEbn/hRGHmsYAuiuJG2jT00zsNMXMm9/AbTQ=
+github.com/NekoFluff/go-dsp v1.8.0 h1:JOYrt+RH6Zy+4j4qIgOM+Xt+pom23KLrYhxq8Xeov+k=
+github.com/NekoFluff/go-dsp v1.8.0/go.mod h1:pMwAVMVdEbn/hRGHmsYAuiuJG2jT00zsNMXMm9/AbTQ=
 github.com/PuerkitoBio/goquery v1.8.0 h1:PJTF7AmFCFKk1N6V6jmKfrNH9tV5pNE6lZMkG0gta/U=
 github.com/PuerkitoBio/goquery v1.8.0/go.mod h1:ypIiRMtY7COPGk+I/YbZLbxsxn9g5ejnI2HSMtkjZvI=
 github.com/andybalholm/cascadia v1.3.1 h1:nhxRkql1kdYCc8Snf7D5/D3spOX+dBgjA6u8x004T2c=

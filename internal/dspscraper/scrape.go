@@ -103,10 +103,16 @@ func scrapeURL(itemName string, url string) []dsp.Recipe {
 			// Output
 			e2.ForEach("div.tt_output_item", func(_ int, e3 *colly.HTMLElement) {
 				outputItemName := e3.ChildAttr("a", "title")
+
 				if itemName == outputItemName {
 					i.OutputItem = dsp.ItemName(outputItemName)
 					outputItemCount, _ := strconv.ParseFloat(e3.ChildText("div"), 64)
 					i.OutputItemCount = float64(outputItemCount)
+					image := e3.ChildAttr("img", "src")
+					if image != "" {
+						image = "https://dsp-wiki.com" + image
+					}
+					i.Image = image
 				}
 			})
 
@@ -117,6 +123,10 @@ func scrapeURL(itemName string, url string) []dsp.Recipe {
 			})
 
 			fmt.Printf("Item: %+v\n", i)
+
+			if i.OutputItem != "" {
+				dspRecipes = append(dspRecipes, i)
+			}
 
 			if i.OutputItem != "" {
 				dspRecipes = append(dspRecipes, i)
