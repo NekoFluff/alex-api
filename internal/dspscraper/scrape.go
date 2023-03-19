@@ -140,10 +140,6 @@ func scrapeURL(itemName string, url string) []dsp.Recipe {
 			if i.OutputItem != "" {
 				dspRecipes = append(dspRecipes, i)
 			}
-
-			if i.OutputItem != "" {
-				dspRecipes = append(dspRecipes, i)
-			}
 		})
 
 	})
@@ -160,5 +156,6 @@ func scrapeURL(itemName string, url string) []dsp.Recipe {
 	if err != nil {
 		fmt.Println(err)
 	}
+
 	return dspRecipes
 }
