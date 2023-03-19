@@ -1,6 +1,7 @@
 package dspscraper
 
 import (
+	"alex-api/internal/recipecalc"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -9,7 +10,6 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/NekoFluff/go-dsp/dsp"
 	"github.com/gocolly/colly"
 )
 
@@ -17,12 +17,12 @@ func Scrape() {
 	urls := getURLs()
 	// fmt.Println("URLS",urls)
 
-	var dspRecipes []dsp.Recipe
+	var dspRecipes []recipecalc.Recipe
 	for itemName, url := range urls {
 		dspRecipes = append(dspRecipes, scrapeURL(itemName, url)...)
 	}
 
-	dspRecipes = append(dspRecipes, dsp.Recipe{
+	dspRecipes = append(dspRecipes, recipecalc.Recipe{
 		OutputItem:      "Critical Photon",
 		OutputItemCount: 0,
 		Facility:        "Ray Receiver",
@@ -74,8 +74,8 @@ func getURLs() map[string]string {
 	return urls
 }
 
-func scrapeURL(itemName string, url string) []dsp.Recipe {
-	var dspRecipes []dsp.Recipe
+func scrapeURL(itemName string, url string) []recipecalc.Recipe {
+	var dspRecipes []recipecalc.Recipe
 	c := colly.NewCollector()
 
 	// c.Limit(&colly.LimitRule{
@@ -96,14 +96,14 @@ func scrapeURL(itemName string, url string) []dsp.Recipe {
 
 	c.OnHTML("table.pc_table:nth-of-type(1)", func(e *colly.HTMLElement) {
 		e.ForEach("tr:nth-of-type(n+1)", func(_ int, e2 *colly.HTMLElement) {
-			i := dsp.Recipe{}
-			i.Materials = make(map[dsp.ItemName]float64)
+			i := recipecalc.Recipe{}
+			i.Materials = make(map[string]float64)
 
 			// Materials
 			e2.ForEach("div.tt_recipe_item", func(_ int, e3 *colly.HTMLElement) {
 				count, _ := strconv.ParseFloat(e3.ChildText("div"), 32)
 				name := e3.ChildAttr("a", "title")
-				i.Materials[dsp.ItemName(name)] = count
+				i.Materials[name] = count
 			})
 
 			// Time Taken
@@ -118,7 +118,7 @@ func scrapeURL(itemName string, url string) []dsp.Recipe {
 				outputItemName := e3.ChildAttr("a", "title")
 
 				if itemName == outputItemName {
-					i.OutputItem = dsp.ItemName(outputItemName)
+					i.OutputItem = outputItemName
 					outputItemCount, _ := strconv.ParseFloat(e3.ChildText("div"), 64)
 					i.OutputItemCount = float64(outputItemCount)
 					image := e3.ChildAttr("img", "src")

@@ -1,13 +1,12 @@
 package server
 
 import (
-	"alex-api/internal/data"
 	"alex-api/internal/dspscraper"
+	"alex-api/internal/recipecalc"
 	"alex-api/internal/utils"
 	"encoding/json"
 	"net/http"
 
-	"github.com/NekoFluff/go-dsp/dsp"
 	"github.com/sirupsen/logrus"
 )
 
@@ -19,7 +18,7 @@ func (s *Server) DSPComputedRecipes() http.HandlerFunc {
 			"path":   r.URL.EscapedPath(),
 		})
 
-		var body []ComputedRecipeRequest
+		var body []recipecalc.ComputedRecipeRequest
 		err := utils.DecodeValidate(r.Body, s.validator, &body)
 		defer r.Body.Close()
 		if err != nil {
@@ -29,24 +28,24 @@ func (s *Server) DSPComputedRecipes() http.HandlerFunc {
 		}
 		l = l.WithField("body", body)
 
-		var computedRecipes = []dsp.ComputedRecipe{}
+		var computedRecipes = []recipecalc.ComputedRecipe{}
 		for _, recipeRequest := range body {
-			itemName := dsp.ItemName(recipeRequest.Name)
-			optimalRecipe := optimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[dsp.ItemName]bool{}, 0, recipeRequest.Requirements)
+			itemName := recipeRequest.Name
+			optimalRecipe := dspOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipecalc.RecipeRequirements(recipeRequest.Requirements))
 			computedRecipes = append(computedRecipes, optimalRecipe...)
 		}
 
 		q := r.URL.Query()
 		if q.Get("group") == "1" {
-			optimizer.SortRecipes(computedRecipes)
-			computedRecipes = optimizer.CombineRecipes(computedRecipes)
+			dspOptimizer.SortRecipes(computedRecipes)
+			computedRecipes = dspOptimizer.CombineRecipes(computedRecipes)
 		}
-		optimizer.SortRecipes(computedRecipes)
+		dspOptimizer.SortRecipes(computedRecipes)
 		l.WithField("computedRecipes", computedRecipes).Info("Computed Recipes")
 
-		crList := []ComputedRecipe{}
+		crList := []recipecalc.ComputedRecipe{}
 		for _, cr := range computedRecipes {
-			crList = append(crList, s.convertDSPComputedRecipeToComputedRecipe(cr))
+			crList = append(crList, cr)
 		}
 
 		jsonStr, err := json.MarshalIndent(crList, "", "\t")
@@ -69,32 +68,12 @@ func (s *Server) DSPReloadRecipes() http.HandlerFunc {
 		})
 
 		dspscraper.Scrape()
-		optimizer.LoadRecipes()
+		dspOptimizer.SetRecipes(recipecalc.LoadDSPRecipes())
 
 		l.Info("Reloaded Recipes")
 		_, _ = w.Write([]byte("Successfully reloaded recipes"))
 	}
 
-}
-
-func (s *Server) convertDSPComputedRecipeToComputedRecipe(recipe dsp.ComputedRecipe) ComputedRecipe {
-	m := map[string]float64{}
-
-	for k, v := range recipe.ItemsConsumedPerSec {
-		m[string(k)] = v
-	}
-
-	return ComputedRecipe{
-		OutputItem:           string(recipe.OutputItem),
-		Facility:             recipe.Facility,
-		NumFacilitiesNeeded:  recipe.NumFacilitiesNeeded,
-		ItemsConsumedPerSec:  m,
-		SecondsSpentPerCraft: recipe.SecondsSpentPerCraft,
-		CraftingPerSec:       recipe.CraftingPerSec,
-		UsedFor:              recipe.UsedFor,
-		Depth:                int64(recipe.Depth),
-		Image:                recipe.Image,
-	}
 }
 
 func (s *Server) DSPRecipes() http.HandlerFunc {
@@ -105,38 +84,21 @@ func (s *Server) DSPRecipes() http.HandlerFunc {
 			"path":   r.URL.EscapedPath(),
 		})
 
-		recipes := optimizer.GetRecipes()
+		recipes := dspOptimizer.GetRecipes()
 		l.WithField("recipes", recipes).Info("recipes")
 
-		recipesResp := [][]Recipe{}
+		recipesResp := [][]recipecalc.Recipe{}
 
 		for _, recipeList := range recipes {
-			rList := []Recipe{}
+			rList := []recipecalc.Recipe{}
 			for _, recipe := range recipeList {
-				rList = append(rList, s.convertDSPRecipeToRecipe(recipe))
+				rList = append(rList, recipe)
 			}
 			recipesResp = append(recipesResp, rList)
 		}
 
 		jsonStr, _ := json.MarshalIndent(recipesResp, "", "\t")
 		_, _ = w.Write(jsonStr)
-	}
-}
-
-func (s *Server) convertDSPRecipeToRecipe(recipe dsp.Recipe) Recipe {
-	m := Materials{}
-
-	for k, v := range recipe.Materials {
-		m[string(k)] = v
-	}
-
-	return Recipe{
-		OutputItem:      string(recipe.OutputItem),
-		OutputItemCount: recipe.OutputItemCount,
-		Facility:        recipe.Facility,
-		Time:            recipe.Time,
-		Materials:       m,
-		Image:           recipe.Image,
 	}
 }
 
@@ -148,7 +110,7 @@ func (s *Server) BDOComputedRecipes() http.HandlerFunc {
 			"path":   r.URL.EscapedPath(),
 		})
 
-		var body []ComputedRecipeRequest
+		var body []recipecalc.ComputedRecipeRequest
 		err := utils.DecodeValidate(r.Body, s.validator, &body)
 		defer r.Body.Close()
 		if err != nil {
@@ -158,19 +120,19 @@ func (s *Server) BDOComputedRecipes() http.HandlerFunc {
 		}
 		l = l.WithField("body", body)
 
-		var computedRecipes = []dsp.ComputedRecipe{}
+		var computedRecipes = []recipecalc.ComputedRecipe{}
 		for _, recipeRequest := range body {
-			itemName := dsp.ItemName(recipeRequest.Name)
-			optimalRecipe := optimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[dsp.ItemName]bool{}, 0, recipeRequest.Requirements)
+			itemName := recipeRequest.Name
+			optimalRecipe := bdoOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipeRequest.Requirements)
 			computedRecipes = append(computedRecipes, optimalRecipe...)
 		}
 
 		q := r.URL.Query()
 		if q.Get("group") == "1" {
-			optimizer.SortRecipes(computedRecipes)
-			computedRecipes = optimizer.CombineRecipes(computedRecipes)
+			bdoOptimizer.SortRecipes(computedRecipes)
+			computedRecipes = bdoOptimizer.CombineRecipes(computedRecipes)
 		}
-		optimizer.SortRecipes(computedRecipes)
+		bdoOptimizer.SortRecipes(computedRecipes)
 		l.WithField("computedRecipes", computedRecipes).Info("Computed Recipes")
 
 		jsonStr, err := json.MarshalIndent(computedRecipes, "", "\t")
@@ -192,54 +154,20 @@ func (s *Server) BDORecipes() http.HandlerFunc {
 			"path":   r.URL.EscapedPath(),
 		})
 
-		db := data.New(l)
-		defer db.Disconnect()
-		recipes, err := db.GetRecipes(nil, nil)
-		if err != nil {
-			l.WithError(err).Error("failed to retrieve bdo recipes")
-			w.Write([]byte(err.Error()))
-			return
-		}
+		recipes := bdoOptimizer.GetRecipes()
 		l.WithField("recipes", recipes).Info("recipes")
 
-		rList := []Recipe{}
-		for _, recipe := range recipes {
-			rList = append(rList, s.convertBDORecipeToRecipe(recipe))
+		recipesResp := [][]recipecalc.Recipe{}
+
+		for _, recipeList := range recipes {
+			rList := []recipecalc.Recipe{}
+			for _, recipe := range recipeList {
+				rList = append(rList, recipe)
+			}
+			recipesResp = append(recipesResp, rList)
 		}
 
-		jsonStr, _ := json.MarshalIndent(rList, "", "\t")
+		jsonStr, _ := json.MarshalIndent(recipesResp, "", "\t")
 		_, _ = w.Write(jsonStr)
 	}
-}
-
-func (s *Server) convertBDORecipeToRecipe(recipe data.Recipe) Recipe {
-	m := Materials{}
-
-	for _, v := range recipe.Recipe {
-		m[v.ItemName] = v.Amount
-	}
-
-	r := Recipe{
-		OutputItem:         recipe.Name,
-		OutputItemCount:    recipe.QuantityProduced,
-		MinOutputItemCount: recipe.MinProduced,
-		MaxOutputItemCount: recipe.MaxProduced,
-		Facility:           recipe.Action,
-		Time:               recipe.TimeToProduce,
-		Materials:          m,
-		Image:              recipe.Image,
-	}
-
-	if recipe.MarketData != nil {
-		r.MarketData = &MarketData{
-			LastUpdateAttempt: recipe.MarketData.LastUpdateAttempt,
-			LastUpdated:       recipe.MarketData.LastUpdated,
-			Price:             recipe.MarketData.Price,
-			Quantity:          recipe.MarketData.Quantity,
-			TotalTradeCount:   recipe.MarketData.TotalTradeCount,
-			Name:              recipe.MarketData.Name,
-		}
-	}
-
-	return r
 }

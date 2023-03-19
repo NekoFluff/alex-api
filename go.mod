@@ -4,7 +4,6 @@ module alex-api
 go 1.17
 
 require (
-	github.com/NekoFluff/go-dsp v1.8.1
 	github.com/g8rswimmer/go-twitter/v2 v2.1.5
 	github.com/go-playground/validator/v10 v10.11.1
 	github.com/gocolly/colly v1.2.0

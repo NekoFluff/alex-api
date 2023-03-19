@@ -1,10 +1,6 @@
-package server
+package recipecalc
 
-import (
-	"time"
-
-	"github.com/NekoFluff/go-dsp/dsp"
-)
+import "time"
 
 type Recipe struct {
 	OutputItem         string      `json:"outputItem" validate:"required"`
@@ -20,11 +16,22 @@ type Recipe struct {
 
 type Materials map[string]float64
 
-type ComputedRecipeRequest struct {
-	Name         string                 `json:"name" validate:"required"`
-	Rate         float64                `json:"rate" validate:"required"`
-	Requirements dsp.RecipeRequirements `json:"requirements,omitempty"`
+type MarketData struct {
+	LastUpdateAttempt time.Time `json:"lastUpdateAttempt,omitempty"`
+	LastUpdated       time.Time `json:"lastUpdated,omitempty"`
+	Price             float64   `json:"price,omitempty"`
+	Quantity          float64   `json:"quantity,omitempty"`
+	TotalTradeCount   float64   `json:"totalTradeCount,omitempty"`
+	Name              string    `json:"name,omitempty"`
 }
+
+type ComputedRecipeRequest struct {
+	Name         string             `json:"name" validate:"required"`
+	Rate         float64            `json:"rate" validate:"required"`
+	Requirements RecipeRequirements `json:"requirements,omitempty"`
+}
+
+type RecipeRequirements map[string]int
 
 type ComputedRecipe struct {
 	OutputItem           string             `json:"outputItem" validate:"required"`
@@ -36,13 +43,4 @@ type ComputedRecipe struct {
 	UsedFor              string             `json:"usedFor" validate:"required"`
 	Depth                int64              `json:"depth,omitempty"`
 	Image                string             `json:"image,omitempty"`
-}
-
-type MarketData struct {
-	LastUpdateAttempt time.Time `json:"lastUpdateAttempt,omitempty"`
-	LastUpdated       time.Time `json:"lastUpdated,omitempty"`
-	Price             float64   `json:"price,omitempty"`
-	Quantity          float64   `json:"quantity,omitempty"`
-	TotalTradeCount   float64   `json:"totalTradeCount,omitempty"`
-	Name              string    `json:"name,omitempty"`
 }
