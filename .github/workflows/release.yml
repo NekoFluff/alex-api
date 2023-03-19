@@ -50,5 +50,5 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           repository: NekoFluff/alex-api-typescript-client
-          event-type: generate
+          event-type: generate-client
           client-payload: '{"release": "${{ needs.release.outputs.release_id }}"}'
