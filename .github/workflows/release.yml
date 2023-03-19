@@ -27,7 +27,7 @@ jobs:
         uses: go-semantic-release/action@v1.17.0
         with:
           github-token: ${{ secrets.TOKEN }}
-  generate_client:
+  generate-client:
     runs-on: ubuntu-latest
     needs: [build-test-release]
     steps:
@@ -42,7 +42,7 @@ jobs:
           files: |
             ./openapi.yaml
       - name: Repository Dispatch
-        if: steps.spec_changed.outputs.any_changed == 'true'
+        # if: steps.spec_changed.outputs.any_changed == 'true'
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.TOKEN }}
