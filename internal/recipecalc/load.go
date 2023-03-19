@@ -16,7 +16,7 @@ func LoadDSPRecipes() map[string][]Recipe {
 	recipeMap := map[string][]Recipe{}
 
 	// Open up the file
-	jsonFile, err := os.Open("internal/data/items.json")
+	jsonFile, err := os.Open("../data/items.json")
 	if err != nil {
 		log.Fatal(err, "failed to open recipes file")
 	}

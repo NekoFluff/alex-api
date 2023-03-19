@@ -25,6 +25,7 @@ func New(cfg config.Config, log *logrus.Entry, service Servicer, db DB) *Server 
 	timeout := 60 * time.Second
 	router := mux.NewRouter()
 	router.StrictSlash(true)
+	initializeOptimizers()
 
 	v := validator.New()
 	server := &Server{

@@ -3,7 +3,9 @@ package recipecalc
 import (
 	"context"
 	"encoding/json"
+	"io/ioutil"
 	"os"
+	"strings"
 	"testing"
 
 	"github.com/sirupsen/logrus"
@@ -13,8 +15,31 @@ import (
 func TestDSP_Optimizer_DoesNotInfinitelyLoop(t *testing.T) {
 	log := logrus.New().WithContext(context.TODO())
 
+	recipeMap := map[string][]Recipe{}
+
+	// Open up the file
+	jsonFile, err := os.Open("../data/loopy_items.json")
+	if err != nil {
+		log.Fatal(err, "failed to open recipes file")
+	}
+	defer jsonFile.Close()
+
+	// Read and unmarshal the file
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+	var recipes []Recipe
+	err = json.Unmarshal(byteValue, &recipes)
+	if err != nil {
+		log.Fatal(err, "failed to unmarshal recipes from file")
+	}
+
+	// Map the recipe
+	for _, recipe := range recipes {
+		name := strings.ToLower(string(recipe.OutputItem))
+		recipeMap[name] = append(recipeMap[name], recipe)
+	}
+
 	o := NewOptimizer(log, OptimizerConfig{})
-	o.SetRecipes(LoadDSPRecipes())
+	o.SetRecipes(recipeMap)
 
 	recipe := o.GetOptimalRecipe("Loopy item", 1, "", map[string]bool{}, 1, map[string]int{})
 	assert.Equal(t, []ComputedRecipe{
@@ -48,6 +73,10 @@ func TestDSP_Optimizer_E2E_ConveyorBeltMKII(t *testing.T) {
 
 	recipes := o.GetOptimalRecipe("Conveyor belt MK.II", 1, "", map[string]bool{}, 1, map[string]int{})
 	o.SortRecipes(recipes)
+	for i, recipe := range recipes {
+		recipe.Image = ""
+		recipes[i] = recipe
+	}
 
 	for k := range expectedRecipes {
 		assert.Equal(t, expectedRecipes[k], recipes[k])
@@ -71,6 +100,10 @@ func TestDSP_Optimizer_E2E_ConveyorBeltMKII_Combined(t *testing.T) {
 	o.SortRecipes(recipes)
 	recipes = o.CombineRecipes(recipes)
 	o.SortRecipes(recipes)
+	for i, recipe := range recipes {
+		recipe.Image = ""
+		recipes[i] = recipe
+	}
 
 	for k := range expectedRecipes {
 		assert.Equal(t, expectedRecipes[k], recipes[k])

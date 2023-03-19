@@ -10,7 +10,7 @@ import (
 var dspOptimizer *recipecalc.Optimizer
 var bdoOptimizer *recipecalc.Optimizer
 
-func init() {
+func initializeOptimizers() {
 	log := logrus.New().WithContext(context.TODO())
 
 	dspOptimizer = recipecalc.NewOptimizer(log, recipecalc.OptimizerConfig{})
