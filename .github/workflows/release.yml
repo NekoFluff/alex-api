@@ -31,7 +31,7 @@ jobs:
         with:
           github-token: ${{ secrets.TOKEN }}
       - name: Generate OpenAPI Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: openapi-spec
           path: openapi.yaml
