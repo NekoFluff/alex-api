@@ -12,11 +12,11 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-func LoadDSPRecipes() map[string][]Recipe {
+func LoadDSPRecipes(file string) map[string][]Recipe {
 	recipeMap := map[string][]Recipe{}
 
 	// Open up the file
-	jsonFile, err := os.Open("../data/items.json")
+	jsonFile, err := os.Open(file)
 	if err != nil {
 		log.Fatal(err, "failed to open recipes file")
 	}

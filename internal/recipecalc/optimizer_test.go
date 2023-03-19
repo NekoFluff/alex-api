@@ -62,7 +62,7 @@ func TestDSP_Optimizer_E2E_ConveyorBeltMKII(t *testing.T) {
 	log := logrus.New().WithContext(context.TODO())
 
 	o := NewOptimizer(log, OptimizerConfig{})
-	o.SetRecipes(LoadDSPRecipes())
+	o.SetRecipes(LoadDSPRecipes("../data/items.json"))
 
 	expectedRecipes := []ComputedRecipe{}
 	f, err := os.ReadFile("test_data/computed_recipe_conveyor_belt_mk_2.json")
@@ -87,7 +87,7 @@ func TestDSP_Optimizer_E2E_ConveyorBeltMKII_Combined(t *testing.T) {
 	log := logrus.New().WithContext(context.TODO())
 
 	o := NewOptimizer(log, OptimizerConfig{})
-	o.SetRecipes(LoadDSPRecipes())
+	o.SetRecipes(LoadDSPRecipes("../data/items.json"))
 
 	expectedRecipes := []ComputedRecipe{}
 	f, err := os.ReadFile("test_data/computed_recipe_conveyor_belt_mk_2 combined.json")

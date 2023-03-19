@@ -14,7 +14,7 @@ func initializeOptimizers() {
 	log := logrus.New().WithContext(context.TODO())
 
 	dspOptimizer = recipecalc.NewOptimizer(log, recipecalc.OptimizerConfig{})
-	dspOptimizer.SetRecipes(recipecalc.LoadDSPRecipes())
+	dspOptimizer.SetRecipes(recipecalc.LoadDSPRecipes("internal/data/items.json"))
 
 	bdoOptimizer = recipecalc.NewOptimizer(log, recipecalc.OptimizerConfig{})
 	bdoOptimizer.SetRecipes(recipecalc.LoadBDORecipes())
