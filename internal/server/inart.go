@@ -16,7 +16,7 @@ func (s *Server) InArt() http.HandlerFunc {
 			"path":   r.URL.EscapedPath(),
 		})
 
-		page, err := strconv.ParseInt(r.URL.Query().Get("page"), 10, 64)
+		page, _ := strconv.ParseInt(r.URL.Query().Get("page"), 10, 64)
 		skip := (page - 1) * 50
 		var limit int64 = 50
 
@@ -24,7 +24,7 @@ func (s *Server) InArt() http.HandlerFunc {
 
 		if err != nil {
 			l.Errorf("%v", err)
-			w.Write([]byte(err.Error()))
+			_, _ = w.Write([]byte(err.Error()))
 			return
 		}
 

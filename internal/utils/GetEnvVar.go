@@ -11,7 +11,7 @@ import (
 
 func init() {
 	// Load the .env file in the current directory
-	godotenv.Load()
+	_ = godotenv.Load()
 }
 
 func GetEnvVar(name string) string {

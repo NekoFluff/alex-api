@@ -18,7 +18,7 @@ func ScheduleTwitterMediaFetch() *cron.Cron {
 
 	c := cron.New()
 	spec := "0 */5 * * * *"
-	c.AddFunc(spec, func() {
+	_ = c.AddFunc(spec, func() {
 		getInArtTwitterMedia()
 	})
 	c.Start()

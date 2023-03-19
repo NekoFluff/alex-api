@@ -23,7 +23,7 @@ func (s *Server) DSPComputedRecipes() http.HandlerFunc {
 		defer r.Body.Close()
 		if err != nil {
 			l.WithError(err).Error("failed to decode request")
-			w.Write([]byte(err.Error()))
+			_, _ = w.Write([]byte(err.Error()))
 			return
 		}
 		l = l.WithField("body", body)
@@ -43,15 +43,10 @@ func (s *Server) DSPComputedRecipes() http.HandlerFunc {
 		dspOptimizer.SortRecipes(computedRecipes)
 		l.WithField("computedRecipes", computedRecipes).Info("Computed Recipes")
 
-		crList := []recipecalc.ComputedRecipe{}
-		for _, cr := range computedRecipes {
-			crList = append(crList, cr)
-		}
-
-		jsonStr, err := json.MarshalIndent(crList, "", "\t")
+		jsonStr, err := json.MarshalIndent(computedRecipes, "", "\t")
 		if err != nil {
 			l.WithError(err).Error("failed to marshal computed recipes")
-			w.Write([]byte(err.Error()))
+			_, _ = w.Write([]byte(err.Error()))
 			return
 		}
 
@@ -87,17 +82,7 @@ func (s *Server) DSPRecipes() http.HandlerFunc {
 		recipes := dspOptimizer.GetRecipes()
 		l.WithField("recipes", recipes).Info("recipes")
 
-		recipesResp := [][]recipecalc.Recipe{}
-
-		for _, recipeList := range recipes {
-			rList := []recipecalc.Recipe{}
-			for _, recipe := range recipeList {
-				rList = append(rList, recipe)
-			}
-			recipesResp = append(recipesResp, rList)
-		}
-
-		jsonStr, _ := json.MarshalIndent(recipesResp, "", "\t")
+		jsonStr, _ := json.MarshalIndent(recipes, "", "\t")
 		_, _ = w.Write(jsonStr)
 	}
 }
@@ -115,7 +100,7 @@ func (s *Server) BDOComputedRecipes() http.HandlerFunc {
 		defer r.Body.Close()
 		if err != nil {
 			l.WithError(err).Error("failed to decode request")
-			w.Write([]byte(err.Error()))
+			_, _ = w.Write([]byte(err.Error()))
 			return
 		}
 		l = l.WithField("body", body)
@@ -138,7 +123,7 @@ func (s *Server) BDOComputedRecipes() http.HandlerFunc {
 		jsonStr, err := json.MarshalIndent(computedRecipes, "", "\t")
 		if err != nil {
 			l.WithError(err).Error("failed to marshal computed recipes")
-			w.Write([]byte(err.Error()))
+			_, _ = w.Write([]byte(err.Error()))
 			return
 		}
 
@@ -157,17 +142,7 @@ func (s *Server) BDORecipes() http.HandlerFunc {
 		recipes := bdoOptimizer.GetRecipes()
 		l.WithField("recipes", recipes).Info("recipes")
 
-		recipesResp := [][]recipecalc.Recipe{}
-
-		for _, recipeList := range recipes {
-			rList := []recipecalc.Recipe{}
-			for _, recipe := range recipeList {
-				rList = append(rList, recipe)
-			}
-			recipesResp = append(recipesResp, rList)
-		}
-
-		jsonStr, _ := json.MarshalIndent(recipesResp, "", "\t")
+		jsonStr, _ := json.MarshalIndent(recipes, "", "\t")
 		_, _ = w.Write(jsonStr)
 	}
 }
