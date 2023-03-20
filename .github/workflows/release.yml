@@ -12,49 +12,49 @@ jobs:
     outputs:
       release_id: ${{ steps.semrel.outputs.version }}
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
+    - name: Set up Go
 
-      - name: Set up Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.18
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.18
 
-      - name: Build
-        run: go build -v ./...
+    - name: Build
+      run: go build -v ./...
 
-      - name: Test
-        run: go test -v ./...
+    - name: Test
+      run: go test -v ./...
 
-      - name: go-semantic-release
-        id: semrel
-        uses: go-semantic-release/action@v1.17.0
-        with:
-          github-token: ${{ secrets.TOKEN }}
-      - name: Generate OpenAPI Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: openapi-spec
-          path: openapi.yaml
+    - name: go-semantic-release
+      id: semrel
+      uses: go-semantic-release/action@v1.17.0
+      with:
+        github-token: ${{ secrets.TOKEN }}
+    - name: Generate OpenAPI Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: openapi-spec
+        path: openapi.yaml
 
   generate-client:
     runs-on: ubuntu-latest
     needs: [release]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Check spec
-        id: spec_changed
-        uses: tj-actions/changed-files@v34
-        with:
-          files: |
-            ./openapi.yaml
-      - name: Repository Dispatch
-        # if: steps.spec_changed.outputs.any_changed == 'true'
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.TOKEN }}
-          repository: NekoFluff/alex-api-typescript-client
-          event-type: generate-client
-          client-payload: '{"release": "${{ needs.release.outputs.release_id }}"}'
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Check spec
+      id: spec_changed
+      uses: tj-actions/changed-files@v34
+      with:
+        files: |
+          ./openapi.yaml
+    - name: Repository Dispatch
+      if: steps.spec_changed.outputs.any_changed == 'true'
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.TOKEN }}
+        repository: NekoFluff/alex-api-typescript-client
+        event-type: generate-client
+        client-payload: '{"release": "${{ needs.release.outputs.release_id }}"}'
