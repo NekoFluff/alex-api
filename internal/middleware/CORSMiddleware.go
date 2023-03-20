@@ -1,6 +1,9 @@
 package middleware
 
-import "net/http"
+import (
+	"net/http"
+	"strings"
+)
 
 func CORSMiddleware(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -8,7 +11,7 @@ func CORSMiddleware(next http.HandlerFunc) http.HandlerFunc {
 		allowedOrigins := []string{"http://localhost:3000", "https://nekofluff.github.io", "https://bdo-craft-profit.herokuapp.com/"}
 
 		for _, allowedOrigin := range allowedOrigins {
-			if origin == allowedOrigin {
+			if strings.Contains(origin, allowedOrigin) {
 				w.Header().Set("Access-Control-Allow-Origin", origin)
 				w.Header().Set("Access-Control-Allow-Methods", "OPTIONS, POST, GET, DELETE")
 			}
