@@ -8,6 +8,7 @@ import (
 
 	"github.com/go-playground/validator/v10"
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 	"github.com/sirupsen/logrus"
 )
 
@@ -27,10 +28,17 @@ func New(cfg config.Config, log *logrus.Entry, service Servicer, db DB) *Server 
 	router.StrictSlash(true)
 	initializeOptimizers()
 
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://localhost:3000", "https://nekofluff.github.io", "https://bdo-craft-profit.herokuapp.com/"},
+		AllowCredentials: true,
+		// Enable Debugging for testing, consider disabling in production
+		Debug: true,
+	})
+
 	v := validator.New()
 	server := &Server{
 		Server: &http.Server{
-			Handler:        router,
+			Handler:        c.Handler(router),
 			Addr:           ":" + utils.GetEnvVar("PORT"),
 			ReadTimeout:    timeout,
 			WriteTimeout:   timeout,
