@@ -36,7 +36,7 @@ func (s *Server) DSPComputedRecipes() http.HandlerFunc {
 		}
 
 		q := r.URL.Query()
-		if q.Get("group") == "1" {
+		if q.Get("group") == "true" {
 			dspOptimizer.SortRecipes(computedRecipes)
 			computedRecipes = dspOptimizer.CombineRecipes(computedRecipes)
 		}
@@ -113,7 +113,7 @@ func (s *Server) BDOComputedRecipes() http.HandlerFunc {
 		}
 
 		q := r.URL.Query()
-		if q.Get("group") == "1" {
+		if q.Get("group") == "true" {
 			bdoOptimizer.SortRecipes(computedRecipes)
 			computedRecipes = bdoOptimizer.CombineRecipes(computedRecipes)
 		}
