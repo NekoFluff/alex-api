@@ -5,24 +5,30 @@ info:
   contact:
     name: API Support
     email: alexnou@gmail.com
-  version: 0.2.1
+  version: 0.2.2
 servers:
-  - url: https://alex-api.herokuapp.com
+- url: https://alex-api.herokuapp.com
 tags:
-  - name: Dyson Sphere Program
-    description: Endpoints related to Dyson Sphere Program
-  - name: Black Desert Online
-    description: Endpoints releated to Black Desert Online
-  - name: Twitter
-    description: Endpoints realted to using twitter's API
+- name: Dyson Sphere Program
+  description: Endpoints related to Dyson Sphere Program
+- name: Black Desert Online
+  description: Endpoints releated to Black Desert Online
+- name: Twitter
+  description: Endpoints realted to using twitter's API
 paths:
   /dsp/computedRecipes:
     post:
       tags:
-        - Dyson Sphere Program
+      - Dyson Sphere Program
       summary: Get the computed recipe
       description: Get the computed recipe
       operationId: getDSPComputedRecipe
+      parameters:
+      - in: query
+        name: group
+        schema:
+          type: boolean
+        description: Whether or not to group the recipes in the computed recipe up by name
       requestBody:
         content:
           application/json:
@@ -47,7 +53,7 @@ paths:
   /dsp/recipes:
     get:
       tags:
-        - Dyson Sphere Program
+      - Dyson Sphere Program
       summary: Get all DSP recipes
       description: Get all DSP recipes
       operationId: getDSPRecipes
@@ -65,7 +71,7 @@ paths:
   /dsp/recipes/reload:
     post:
       tags:
-        - Dyson Sphere Program
+      - Dyson Sphere Program
       summary: Re-scrapes the DSP recipes
       description: Re-scrapes the DSP recipes
       operationId: reloadDSPRecipes
@@ -77,21 +83,21 @@ paths:
               schema:
                 type: string
                 enum:
-                  - OK
+                - OK
   /twitter/inArt:
     get:
       tags:
-        - Twitter
+      - Twitter
       summary: Get inART
       description: Get inART
       operationId: getInArt
       parameters:
-        - name: page
-          in: query
-          description: Numeric ID of the page to get
-          required: true
-          schema:
-            type: integer
+      - name: page
+        in: query
+        description: Numeric ID of the page to get
+        required: true
+        schema:
+          type: integer
       responses:
         200:
           description: OK
@@ -104,10 +110,16 @@ paths:
   /bdo/computedRecipes:
     post:
       tags:
-        - Black Desert Online
+      - Black Desert Online
       summary: Get the computed recipe
       description: Get the computed recipe
       operationId: getBDOComputedRecipe
+      parameters:
+      - in: query
+        name: group
+        schema:
+          type: boolean
+        description: Whether or not to group the recipes in the computed recipe up by name
       requestBody:
         content:
           application/json:
@@ -132,7 +144,7 @@ paths:
   /bdo/recipes:
     get:
       tags:
-        - Black Desert Online
+      - Black Desert Online
       summary: Get all BDO recipes
       description: Get all BDO recipes
       operationId: getBDORecipes
@@ -151,13 +163,13 @@ components:
   schemas:
     TwitterMedia:
       required:
-        - author
-        - created_at
-        - height
-        - possiblySensitive
-        - tweetId
-        - url
-        - width
+      - author
+      - created_at
+      - height
+      - possiblySensitive
+      - tweetId
+      - url
+      - width
       type: object
       properties:
         author:
@@ -176,11 +188,11 @@ components:
           type: string
     Recipe:
       required:
-        - outputItem
-        - outputItemCount
-        - facility
-        - materials
-        - time
+      - outputItem
+      - outputItemCount
+      - facility
+      - materials
+      - time
       type: object
       properties:
         outputItem:
@@ -203,8 +215,8 @@ components:
         Plank: 1
     ComputedRecipeRequest:
       required:
-        - rate
-        - name
+      - rate
+      - name
       type: object
       properties:
         name:
@@ -222,12 +234,12 @@ components:
           "Carbon Nanotube": 1
     ComputedRecipe:
       required:
-        - outputItem
-        - facility
-        - numFacilitiesNeeded
-        - itemsConsumedPerSec
-        - secondsSpentPerCraft
-        - usedFor
+      - outputItem
+      - facility
+      - numFacilitiesNeeded
+      - itemsConsumedPerSec
+      - secondsSpentPerCraft
+      - usedFor
       type: object
       properties:
         outputItem:
