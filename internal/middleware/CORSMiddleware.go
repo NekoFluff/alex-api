@@ -10,7 +10,7 @@ func CORSMiddleware(next http.HandlerFunc) http.HandlerFunc {
 		for _, allowedOrigin := range allowedOrigins {
 			if origin == allowedOrigin {
 				w.Header().Set("Access-Control-Allow-Origin", origin)
-				w.Header().Set("Access-Control-Allow-Methods", "POST, GET, DELETE, OPTIONS,")
+				w.Header().Set("Access-Control-Allow-Methods", "OPTIONS, POST, GET, DELETE")
 			}
 		}
 
