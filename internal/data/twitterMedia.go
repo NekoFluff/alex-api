@@ -14,7 +14,7 @@ import (
 type TwitterAuthor struct {
 	Id       string `json:"id" bson:"id"`
 	Name     string `json:"name" bson:"name"`
-	UserName string `json:"username" bson:"username"`
+	Username string `json:"username" bson:"username"`
 }
 
 type TwitterMedia struct {

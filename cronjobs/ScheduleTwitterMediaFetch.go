@@ -32,7 +32,7 @@ func getInArtTwitterMedia() {
 
 	opts := twitter.TweetRecentSearchOpts{
 		MediaFields: []twitter.MediaField{twitter.MediaFieldURL, twitter.MediaFieldType, twitter.MediaFieldPublicMetrics, twitter.MediaFieldMediaKey, twitter.MediaFieldHeight, twitter.MediaFieldWidth},
-		Expansions:  []twitter.Expansion{twitter.ExpansionEntitiesMentionsUserName, twitter.ExpansionAuthorID, twitter.ExpansionAttachmentsMediaKeys},
+		Expansions:  []twitter.Expansion{twitter.ExpansionEntitiesMentionsUsername, twitter.ExpansionAuthorID, twitter.ExpansionAttachmentsMediaKeys},
 		TweetFields: []twitter.TweetField{twitter.TweetFieldCreatedAt, twitter.TweetFieldConversationID, twitter.TweetFieldAttachments, twitter.TweetFieldSource, twitter.TweetFieldAuthorID, twitter.TweetFieldPossiblySensitve},
 	}
 
