@@ -12,20 +12,20 @@ import (
 )
 
 type TwitterAuthor struct {
-	Id       string `bson:"id"`
-	Name     string `bson:"name"`
-	UserName string `bson:"username"`
+	Id       string `json:"id" bson:"id"`
+	Name     string `json:"name" bson:"name"`
+	UserName string `json:"username" bson:"username"`
 }
 
 type TwitterMedia struct {
-	Author            TwitterAuthor `bson:"author"`
-	TweetId           string        `bson:"tweet_id"`
-	Url               string        `bson:"url"`
-	Updated           time.Time     `bson:"updated"`
-	CreatedAt         time.Time     `bson:"created_at"`
-	PossiblySensitive bool          `bson:"possibly_sensitive"`
-	Width             int16         `bson:"width"`
-	Height            int16         `bson:"height"`
+	Author            TwitterAuthor `json:"author" bson:"author"`
+	TweetId           string        `json:"tweetId" bson:"tweet_id"`
+	Url               string        `json:"url" bson:"url"`
+	Updated           time.Time     `json:"updated" bson:"updated"`
+	CreatedAt         time.Time     `json:"createdAt" bson:"created_at"`
+	PossiblySensitive bool          `json:"possiblySensitive" bson:"possibly_sensitive"`
+	Width             int16         `json:"width" bson:"width"`
+	Height            int16         `json:"height" bson:"height"`
 }
 
 func (db *DB) GetTwitterMedia(skip *int64, limit *int64) ([]TwitterMedia, error) {

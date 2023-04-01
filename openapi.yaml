@@ -164,7 +164,7 @@ components:
     TwitterMedia:
       required:
       - author
-      - created_at
+      - createdAt
       - height
       - possiblySensitive
       - tweetId
@@ -184,7 +184,7 @@ components:
           type: integer
         possiblySensitive:
           type: boolean
-        created_at:
+        createdAt:
           type: string
     Recipe:
       required:
