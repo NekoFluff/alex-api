@@ -29,7 +29,16 @@ func New(cfg config.Config, log *logrus.Entry, service Servicer, db DB) *Server 
 	initializeOptimizers()
 
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000", "https://nekofluff.github.io", "https://bdo-craft-profit.herokuapp.com", "https://wahtako.herokuapp.com", "https://wahtako.com", "https://alexnou.com", "https://alexnou.com", "https://alexnou.herokuapp.com", "https://stg-alexnou.herokuapp.com"},
+		AllowedOrigins: []string{
+			"http://localhost:3000",
+			"https://nekofluff.github.io",
+			"https://bdo-craft-profit.herokuapp.com",
+			"https://wahtako.herokuapp.com",
+			"https://wahtako.com",
+			"https://alexnou.com",
+			"https://alexnou.herokuapp.com",
+			"https://stg-alexnou.herokuapp.com",
+		},
 		AllowCredentials: true,
 		// Enable Debugging for testing, consider disabling in production
 		Debug: true,
