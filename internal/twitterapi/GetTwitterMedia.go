@@ -68,7 +68,7 @@ func GetTwitterMedia(query string, opts twitter.TweetRecentSearchOpts) {
 				Author: data.TwitterAuthor{
 					Id:       tweetDictionary.Author.ID,
 					Name:     tweetDictionary.Author.Name,
-					Username: tweetDictionary.Author.Username,
+					Username: tweetDictionary.Author.UserName,
 				},
 				TweetId:           tweetDictionary.Tweet.ID,
 				Url:               media.URL,
