@@ -20,6 +20,6 @@ func (s *Server) Route() {
 		Methods(http.MethodGet).Name("getBDORecipes")
 
 	// Twitter Endpoints
-	s.router.Handle("/inArt", (s.InArt())).
+	s.router.Handle("/twitter/inArt", (s.InArt())).
 		Methods(http.MethodGet).Name("getInArt")
 }
