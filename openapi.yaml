@@ -5,7 +5,7 @@ info:
   contact:
     name: API Support
     email: alexnou@gmail.com
-  version: 0.2.3
+  version: 0.3.0
 servers:
 - url: https://alex-api.herokuapp.com
 tags:
@@ -164,7 +164,7 @@ components:
     TwitterMedia:
       required:
       - author
-      - created_at
+      - createdAt
       - height
       - possiblySensitive
       - tweetId
@@ -173,7 +173,7 @@ components:
       type: object
       properties:
         author:
-          type: string
+          $ref: "#/components/schemas/TwitterAuthor"
         tweetId:
           type: string
         url:
@@ -184,7 +184,20 @@ components:
           type: integer
         possiblySensitive:
           type: boolean
-        created_at:
+        createdAt:
+          type: string
+    TwitterAuthor:
+      required:
+      - id
+      - name
+      - username
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        username:
           type: string
     Recipe:
       required:
