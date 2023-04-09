@@ -40,7 +40,6 @@ func New(cfg config.Config, log *logrus.Entry, service Servicer, db DB) *Server 
 			"https://stg-alexnou.herokuapp.com",
 		},
 		AllowCredentials: true,
-		AllowedHeaders:   []string{"*"},
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		// Enable Debugging for testing, consider disabling in production
 		Debug: true,
