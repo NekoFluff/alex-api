@@ -22,4 +22,8 @@ func (s *Server) Route() {
 	// Twitter Endpoints
 	s.router.Handle("/twitter/inArt", (s.InArt())).
 		Methods(http.MethodGet).Name("getInArt")
+
+	// Analytics Endpoints
+	s.router.Handle("/pageview", (s.PageViewed())).
+		Methods(http.MethodPut).Name("pageViewed")
 }

@@ -9,6 +9,7 @@ import (
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"
+	mongo "go.mongodb.org/mongo-driver/mongo"
 )
 
 // MockDB is a mock of DB interface.
@@ -32,6 +33,35 @@ func NewMockDB(ctrl *gomock.Controller) *MockDB {
 // EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockDB) EXPECT() *MockDBMockRecorder {
 	return m.recorder
+}
+
+// DeletePageView mocks base method.
+func (m *MockDB) DeletePageView(domain, path string) *mongo.DeleteResult {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "DeletePageView", domain, path)
+	ret0, _ := ret[0].(*mongo.DeleteResult)
+	return ret0
+}
+
+// DeletePageView indicates an expected call of DeletePageView.
+func (mr *MockDBMockRecorder) DeletePageView(domain, path interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeletePageView", reflect.TypeOf((*MockDB)(nil).DeletePageView), domain, path)
+}
+
+// GetPageView mocks base method.
+func (m *MockDB) GetPageView(domain, path string) (data.PageView, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetPageView", domain, path)
+	ret0, _ := ret[0].(data.PageView)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// GetPageView indicates an expected call of GetPageView.
+func (mr *MockDBMockRecorder) GetPageView(domain, path interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetPageView", reflect.TypeOf((*MockDB)(nil).GetPageView), domain, path)
 }
 
 // GetRecipes mocks base method.
@@ -62,4 +92,18 @@ func (m *MockDB) GetTwitterMedia(skip, limit *int64) ([]data.TwitterMedia, error
 func (mr *MockDBMockRecorder) GetTwitterMedia(skip, limit interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetTwitterMedia", reflect.TypeOf((*MockDB)(nil).GetTwitterMedia), skip, limit)
+}
+
+// UpdatePageView mocks base method.
+func (m *MockDB) UpdatePageView(pageView data.PageView) *mongo.UpdateResult {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UpdatePageView", pageView)
+	ret0, _ := ret[0].(*mongo.UpdateResult)
+	return ret0
+}
+
+// UpdatePageView indicates an expected call of UpdatePageView.
+func (mr *MockDBMockRecorder) UpdatePageView(pageView interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdatePageView", reflect.TypeOf((*MockDB)(nil).UpdatePageView), pageView)
 }

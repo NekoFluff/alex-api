@@ -5,16 +5,18 @@ info:
   contact:
     name: API Support
     email: alexnou@gmail.com
-  version: 0.3.1
+  version: 0.4.0
 servers:
 - url: https://alex-api.herokuapp.com
 tags:
 - name: Dyson Sphere Program
   description: Endpoints related to Dyson Sphere Program
 - name: Black Desert Online
-  description: Endpoints releated to Black Desert Online
+  description: Endpoints related to Black Desert Online
 - name: Twitter
-  description: Endpoints realted to using twitter's API
+  description: Endpoints related to using twitter's API
+- name: Analytics
+  description: Keeping track of things
 paths:
   /dsp/computedRecipes:
     post:
@@ -159,6 +161,20 @@ paths:
                   type: array
                   items:
                     $ref: "#/components/schemas/Recipe"
+  /pageview:
+    put:
+      tags:
+      - Analytics
+      summary: Track Page View
+      description: Track Page View
+      operationId: pageViewed
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PageView"
 components:
   schemas:
     TwitterMedia:
@@ -301,3 +317,14 @@ components:
           type: number
         name:
           type: string
+    PageView:
+      type: object
+      properties:
+        domain:
+          type: string
+        path:
+          type: string
+        timesTracked:
+          type: number
+        lastTracked:
+          type: number
