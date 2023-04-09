@@ -30,14 +30,14 @@ func New(cfg config.Config, log *logrus.Entry, service Servicer, db DB) *Server 
 
 	c := cors.New(cors.Options{
 		AllowedOrigins: []string{
-			"http://localhost:3000/*",
-			"https://nekofluff.github.io/*",
-			"https://bdo-craft-profit.herokuapp.com/*",
-			"https://wahtako.herokuapp.com/*",
-			"https://www.wahtako.com/*",
-			"https://www.alexnou.com/*",
-			"https://alexnou.herokuapp.com/*",
-			"https://stg-alexnou.herokuapp.com/*",
+			"http://localhost:3000",
+			"https://nekofluff.github.io",
+			"https://bdo-craft-profit.herokuapp.com",
+			"https://wahtako.herokuapp.com",
+			"https://www.wahtako.com",
+			"https://www.alexnou.com",
+			"https://alexnou.herokuapp.com",
+			"https://stg-alexnou.herokuapp.com",
 		},
 		AllowCredentials: true,
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
