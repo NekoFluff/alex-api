@@ -166,8 +166,15 @@ paths:
       tags:
       - Analytics
       summary: Track Page View
-      description: Track Page View
+      description: Track a page view using referrer url. The path in the request body will override the referrer path.
       operationId: pageViewed
+      requestBody:
+        description:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PageView"
+        required: false
       responses:
         200:
           description: OK

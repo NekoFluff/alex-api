@@ -2,7 +2,9 @@ package server
 
 import (
 	"alex-api/internal/data"
+	"alex-api/internal/utils"
 	"encoding/json"
+	"io"
 	"net/http"
 	"net/url"
 
@@ -26,11 +28,29 @@ func (s *Server) PageViewed() http.HandlerFunc {
 			return
 		}
 
-		pageView, err := s.db.GetPageView(url.Host, url.Path)
+		path := url.Path
+
+		if r.Body != http.NoBody {
+			var body data.PageView
+			err = utils.DecodeValidate(r.Body, s.validator, &body)
+			defer r.Body.Close()
+			if err != nil && err != io.EOF {
+				l.WithError(err).Error("failed to decode request")
+				_, _ = w.Write([]byte(err.Error()))
+				return
+			}
+			l = l.WithField("body", body)
+
+			if body.Path != "" {
+				path = body.Path
+			}
+		}
+
+		pageView, err := s.db.GetPageView(url.Host, path)
 		if err != nil {
 			pageView = data.PageView{
 				Domain: url.Host,
-				Path:   url.Path,
+				Path:   path,
 			}
 
 			pageView.Increment()
