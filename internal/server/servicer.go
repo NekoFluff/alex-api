@@ -1,4 +1,4 @@
-//go:generate mockgen -source=servicer.go -destination=servicer_test.go -package=server
+//go:generate mockgen -source=servicer.go -destination=servicer_mock_test.go -package=server
 package server
 
 type Servicer interface {

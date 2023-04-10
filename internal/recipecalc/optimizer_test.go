@@ -3,7 +3,7 @@ package recipecalc
 import (
 	"context"
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"os"
 	"strings"
 	"testing"
@@ -25,7 +25,7 @@ func TestDSP_Optimizer_DoesNotInfinitelyLoop(t *testing.T) {
 	defer jsonFile.Close()
 
 	// Read and unmarshal the file
-	byteValue, _ := ioutil.ReadAll(jsonFile)
+	byteValue, _ := io.ReadAll(jsonFile)
 	var recipes []Recipe
 	err = json.Unmarshal(byteValue, &recipes)
 	if err != nil {

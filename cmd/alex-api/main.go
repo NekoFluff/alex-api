@@ -4,6 +4,7 @@ import (
 	"alex-api/cronjobs"
 	"alex-api/internal/config"
 	"alex-api/internal/data"
+	"alex-api/internal/recipecalc"
 	"alex-api/internal/server"
 	"context"
 	"os"
@@ -34,10 +35,17 @@ func main() {
 	}()
 
 	log.Info("Starting up Alex API")
+
+	dspOptimizer := recipecalc.NewOptimizer(log, recipecalc.OptimizerConfig{})
+	dspOptimizer.SetRecipes(recipecalc.LoadDSPRecipes("internal/data/items.json"))
+
+	bdoOptimizer := recipecalc.NewOptimizer(log, recipecalc.OptimizerConfig{})
+	bdoOptimizer.SetRecipes(recipecalc.LoadBDORecipes())
+
 	service := server.NewService()
 	db := data.New(log)
 	defer db.Disconnect()
-	s := server.New(cfg, log, service, db)
+	s := server.New(cfg, log, service, db, dspOptimizer, bdoOptimizer)
 	go func() { log.Info(s.ListenAndServe()) }()
 
 	cronjobs.ScheduleTwitterMediaFetch()

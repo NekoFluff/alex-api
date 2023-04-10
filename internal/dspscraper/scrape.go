@@ -4,8 +4,8 @@ import (
 	"alex-api/internal/recipecalc"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
+	"os"
 	"regexp"
 	"sort"
 	"strconv"
@@ -36,7 +36,7 @@ func Scrape() {
 
 	file, _ := json.MarshalIndent(dspRecipes, "", "\t")
 
-	_ = ioutil.WriteFile("internal/data/items.json", file, 0644)
+	_ = os.WriteFile("internal/data/items.json", file, 0644)
 }
 
 func getURLs() map[string]string {

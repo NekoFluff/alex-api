@@ -31,16 +31,16 @@ func (s *Server) DSPComputedRecipes() http.HandlerFunc {
 		var computedRecipes = []recipecalc.ComputedRecipe{}
 		for _, recipeRequest := range body {
 			itemName := recipeRequest.Name
-			optimalRecipe := dspOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipecalc.RecipeRequirements(recipeRequest.Requirements))
+			optimalRecipe := s.dspOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipecalc.RecipeRequirements(recipeRequest.Requirements))
 			computedRecipes = append(computedRecipes, optimalRecipe...)
 		}
 
 		q := r.URL.Query()
 		if q.Get("group") == "true" {
-			dspOptimizer.SortRecipes(computedRecipes)
-			computedRecipes = dspOptimizer.CombineRecipes(computedRecipes)
+			s.dspOptimizer.SortRecipes(computedRecipes)
+			computedRecipes = s.dspOptimizer.CombineRecipes(computedRecipes)
 		}
-		dspOptimizer.SortRecipes(computedRecipes)
+		s.dspOptimizer.SortRecipes(computedRecipes)
 		l.WithField("computedRecipes", computedRecipes).Info("Computed Recipes")
 
 		jsonStr, err := json.MarshalIndent(computedRecipes, "", "\t")
@@ -63,7 +63,7 @@ func (s *Server) DSPReloadRecipes() http.HandlerFunc {
 		})
 
 		dspscraper.Scrape()
-		dspOptimizer.SetRecipes(recipecalc.LoadDSPRecipes("internal/data/items.json"))
+		s.dspOptimizer.SetRecipes(recipecalc.LoadDSPRecipes("internal/data/items.json"))
 
 		l.Info("Reloaded Recipes")
 		_, _ = w.Write([]byte("Successfully reloaded recipes"))
@@ -79,7 +79,7 @@ func (s *Server) DSPRecipes() http.HandlerFunc {
 			"path":   r.URL.EscapedPath(),
 		})
 
-		recipes := dspOptimizer.GetRecipes()
+		recipes := s.dspOptimizer.GetRecipes()
 		l.WithField("recipes", recipes).Info("recipes")
 
 		jsonStr, _ := json.MarshalIndent(recipes, "", "\t")
@@ -108,16 +108,16 @@ func (s *Server) BDOComputedRecipes() http.HandlerFunc {
 		var computedRecipes = []recipecalc.ComputedRecipe{}
 		for _, recipeRequest := range body {
 			itemName := recipeRequest.Name
-			optimalRecipe := bdoOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipeRequest.Requirements)
+			optimalRecipe := s.bdoOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipeRequest.Requirements)
 			computedRecipes = append(computedRecipes, optimalRecipe...)
 		}
 
 		q := r.URL.Query()
 		if q.Get("group") == "true" {
-			bdoOptimizer.SortRecipes(computedRecipes)
-			computedRecipes = bdoOptimizer.CombineRecipes(computedRecipes)
+			s.bdoOptimizer.SortRecipes(computedRecipes)
+			computedRecipes = s.bdoOptimizer.CombineRecipes(computedRecipes)
 		}
-		bdoOptimizer.SortRecipes(computedRecipes)
+		s.bdoOptimizer.SortRecipes(computedRecipes)
 		l.WithField("computedRecipes", computedRecipes).Info("Computed Recipes")
 
 		jsonStr, err := json.MarshalIndent(computedRecipes, "", "\t")
@@ -139,7 +139,7 @@ func (s *Server) BDORecipes() http.HandlerFunc {
 			"path":   r.URL.EscapedPath(),
 		})
 
-		recipes := bdoOptimizer.GetRecipes()
+		recipes := s.bdoOptimizer.GetRecipes()
 		l.WithField("recipes", recipes).Info("recipes")
 
 		jsonStr, _ := json.MarshalIndent(recipes, "", "\t")

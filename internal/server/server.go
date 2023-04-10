@@ -15,18 +15,19 @@ import (
 type Server struct {
 	cfg config.Config
 	*http.Server
-	router    *mux.Router
-	logger    *logrus.Entry
-	service   Servicer
-	validator *validator.Validate
-	db        DB
+	router       *mux.Router
+	logger       *logrus.Entry
+	service      Servicer
+	validator    *validator.Validate
+	db           DB
+	dspOptimizer Optimizer
+	bdoOptimizer Optimizer
 }
 
-func New(cfg config.Config, log *logrus.Entry, service Servicer, db DB) *Server {
+func New(cfg config.Config, log *logrus.Entry, service Servicer, db DB, dspOptimizer Optimizer, bdoOptimizer Optimizer) *Server {
 	timeout := 60 * time.Second
 	router := mux.NewRouter()
 	router.StrictSlash(true)
-	initializeOptimizers()
 
 	c := cors.New(cors.Options{
 		AllowedOrigins: []string{
@@ -54,12 +55,14 @@ func New(cfg config.Config, log *logrus.Entry, service Servicer, db DB) *Server 
 			WriteTimeout:   timeout,
 			MaxHeaderBytes: 65536,
 		},
-		router:    router,
-		logger:    log,
-		cfg:       cfg,
-		validator: v,
-		service:   service,
-		db:        db,
+		router:       router,
+		logger:       log,
+		cfg:          cfg,
+		validator:    v,
+		service:      service,
+		db:           db,
+		dspOptimizer: dspOptimizer,
+		bdoOptimizer: bdoOptimizer,
 	}
 
 	server.Route()

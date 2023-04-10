@@ -1,21 +1,14 @@
+//go:generate mockgen -source=optimizer.go -destination=optimizer_mock_test.go -package=server
 package server
 
 import (
 	"alex-api/internal/recipecalc"
-	"context"
-
-	"github.com/sirupsen/logrus"
 )
 
-var dspOptimizer *recipecalc.Optimizer
-var bdoOptimizer *recipecalc.Optimizer
-
-func initializeOptimizers() {
-	log := logrus.New().WithContext(context.TODO())
-
-	dspOptimizer = recipecalc.NewOptimizer(log, recipecalc.OptimizerConfig{})
-	dspOptimizer.SetRecipes(recipecalc.LoadDSPRecipes("internal/data/items.json"))
-
-	bdoOptimizer = recipecalc.NewOptimizer(log, recipecalc.OptimizerConfig{})
-	bdoOptimizer.SetRecipes(recipecalc.LoadBDORecipes())
+type Optimizer interface {
+	GetOptimalRecipe(itemName string, rate float64, recipeName string, ignore map[string]bool, depth int64, requirements recipecalc.RecipeRequirements) []recipecalc.ComputedRecipe
+	SortRecipes(recipes []recipecalc.ComputedRecipe)
+	CombineRecipes(recipes []recipecalc.ComputedRecipe) []recipecalc.ComputedRecipe
+	SetRecipes(recipes map[string][]recipecalc.Recipe)
+	GetRecipes() [][]recipecalc.Recipe
 }
