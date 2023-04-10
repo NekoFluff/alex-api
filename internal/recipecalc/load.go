@@ -4,7 +4,7 @@ import (
 	"alex-api/internal/data"
 	"context"
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"log"
 	"os"
 	"strings"
@@ -23,7 +23,7 @@ func LoadDSPRecipes(file string) map[string][]Recipe {
 	defer jsonFile.Close()
 
 	// Read and unmarshal the file
-	byteValue, _ := ioutil.ReadAll(jsonFile)
+	byteValue, _ := io.ReadAll(jsonFile)
 	var recipes []Recipe
 	err = json.Unmarshal(byteValue, &recipes)
 	if err != nil {
