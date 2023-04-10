@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestDSP_Optimizer_DoesNotInfinitelyLoop(t *testing.T) {
+func TestOptimizer_DoesNotInfinitelyLoop(t *testing.T) {
 	log := logrus.New().WithContext(context.TODO())
 
 	recipeMap := map[string][]Recipe{}
@@ -58,7 +58,7 @@ func TestDSP_Optimizer_DoesNotInfinitelyLoop(t *testing.T) {
 	}, recipe)
 }
 
-func TestDSP_Optimizer_E2E_ConveyorBeltMKII(t *testing.T) {
+func TestOptimizer_E2E_ConveyorBeltMKII(t *testing.T) {
 	log := logrus.New().WithContext(context.TODO())
 
 	o := NewOptimizer(log, OptimizerConfig{})
@@ -83,7 +83,7 @@ func TestDSP_Optimizer_E2E_ConveyorBeltMKII(t *testing.T) {
 	}
 }
 
-func TestDSP_Optimizer_E2E_ConveyorBeltMKII_Combined(t *testing.T) {
+func TestOptimizer_E2E_ConveyorBeltMKII_Combined(t *testing.T) {
 	log := logrus.New().WithContext(context.TODO())
 
 	o := NewOptimizer(log, OptimizerConfig{})

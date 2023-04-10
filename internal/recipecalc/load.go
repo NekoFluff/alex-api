@@ -1,8 +1,6 @@
 package recipecalc
 
 import (
-	"alex-api/internal/data"
-	"context"
 	"encoding/json"
 	"io"
 	"log"
@@ -39,13 +37,10 @@ func LoadDSPRecipes(file string) map[string][]Recipe {
 	return recipeMap
 }
 
-func LoadBDORecipes() map[string][]Recipe {
-	log := logrus.New().WithContext(context.TODO())
+func LoadBDORecipes(log *logrus.Entry, db DB) map[string][]Recipe {
 	recipeMap := map[string][]Recipe{}
 
 	// TEMP BDO Section
-	db := data.New(log)
-	defer db.Disconnect()
 	dbRecipes, err := db.GetRecipes(nil, nil)
 	if err != nil {
 		log.Fatal("failed to load recipes", err)

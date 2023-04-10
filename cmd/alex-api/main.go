@@ -36,15 +36,16 @@ func main() {
 
 	log.Info("Starting up Alex API")
 
+	service := server.NewService()
+	db := data.New(log)
+	defer db.Disconnect()
+
 	dspOptimizer := recipecalc.NewOptimizer(log, recipecalc.OptimizerConfig{})
 	dspOptimizer.SetRecipes(recipecalc.LoadDSPRecipes("internal/data/items.json"))
 
 	bdoOptimizer := recipecalc.NewOptimizer(log, recipecalc.OptimizerConfig{})
-	bdoOptimizer.SetRecipes(recipecalc.LoadBDORecipes())
+	bdoOptimizer.SetRecipes(recipecalc.LoadBDORecipes(log, db))
 
-	service := server.NewService()
-	db := data.New(log)
-	defer db.Disconnect()
 	s := server.New(cfg, log, service, db, dspOptimizer, bdoOptimizer)
 	go func() { log.Info(s.ListenAndServe()) }()
 

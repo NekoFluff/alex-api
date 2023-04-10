@@ -9,7 +9,6 @@ import (
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"
-	mongo "go.mongodb.org/mongo-driver/mongo"
 )
 
 // MockDB is a mock of DB interface.
@@ -35,18 +34,18 @@ func (m *MockDB) EXPECT() *MockDBMockRecorder {
 	return m.recorder
 }
 
-// DeletePageView mocks base method.
-func (m *MockDB) DeletePageView(domain, path string) *mongo.DeleteResult {
+// CreatePageView mocks base method.
+func (m *MockDB) CreatePageView(pageView data.PageView) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "DeletePageView", domain, path)
-	ret0, _ := ret[0].(*mongo.DeleteResult)
+	ret := m.ctrl.Call(m, "CreatePageView", pageView)
+	ret0, _ := ret[0].(error)
 	return ret0
 }
 
-// DeletePageView indicates an expected call of DeletePageView.
-func (mr *MockDBMockRecorder) DeletePageView(domain, path interface{}) *gomock.Call {
+// CreatePageView indicates an expected call of CreatePageView.
+func (mr *MockDBMockRecorder) CreatePageView(pageView interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeletePageView", reflect.TypeOf((*MockDB)(nil).DeletePageView), domain, path)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreatePageView", reflect.TypeOf((*MockDB)(nil).CreatePageView), pageView)
 }
 
 // GetPageView mocks base method.
@@ -95,10 +94,10 @@ func (mr *MockDBMockRecorder) GetTwitterMedia(skip, limit interface{}) *gomock.C
 }
 
 // UpdatePageView mocks base method.
-func (m *MockDB) UpdatePageView(pageView data.PageView) *mongo.UpdateResult {
+func (m *MockDB) UpdatePageView(pageView data.PageView) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "UpdatePageView", pageView)
-	ret0, _ := ret[0].(*mongo.UpdateResult)
+	ret0, _ := ret[0].(error)
 	return ret0
 }
 
