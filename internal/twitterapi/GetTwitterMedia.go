@@ -39,7 +39,7 @@ func GetTwitterMedia(query string, opts twitter.TweetRecentSearchOpts) {
 	if err != nil {
 		log.WithFields(logrus.Fields{
 			"query": query,
-		}).Panicf("tweet lookup error: %v", err)
+		}).Errorf("tweet lookup error: %v", err)
 	}
 
 	dictionaries := tweetResponse.Raw.TweetDictionaries()
