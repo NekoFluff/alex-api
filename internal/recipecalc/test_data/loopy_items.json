@@ -1,10 +1,10 @@
 [
     {
-        "OutputItem": "Loopy item",
-        "OutputItemCount": 1,
-        "Facility": "Smelting facility",
-        "Time": 1,
-        "Materials": {
+        "name": "Loopy item",
+        "facility": "Smelting facility",
+        "quantityProduced": 1,
+        "timeToProduce": 1,
+        "ingredients": {
             "Loopy item": 1
         }
     }

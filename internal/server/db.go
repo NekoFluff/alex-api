@@ -7,7 +7,8 @@ import (
 
 type DB interface {
 	GetTwitterMedia(skip *int64, limit *int64) ([]data.TwitterMedia, error)
-	GetRecipes(skip *int64, limit *int64) ([]data.Recipe, error)
+	GetBDORecipes(skip *int64, limit *int64) ([]data.Recipe, error)
+	GetDSPRecipes(skip *int64, limit *int64) ([]data.Recipe, error)
 	GetPageView(domain string, path string) (data.PageView, error)
 	CreatePageView(pageView data.PageView) error
 	UpdatePageView(pageView data.PageView) error

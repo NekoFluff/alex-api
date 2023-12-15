@@ -12,7 +12,7 @@ import (
 
 func TestRoute(t *testing.T) {
 	os.Setenv("PORT", "8080")
-	server := New(config.Config{}, logrus.NewEntry(logrus.New()), nil, nil, nil, nil)
+	server := New(config.Config{}, logrus.NewEntry(logrus.New()), nil, nil, nil)
 
 	expected := []string{
 		"getDSPComputedRecipe",

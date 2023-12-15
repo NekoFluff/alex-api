@@ -32,13 +32,7 @@ paths:
           type: boolean
         description: Whether or not to group the recipes in the computed recipe up by name
       requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: "#/components/schemas/ComputedRecipeRequest"
-        required: false
+        $ref: "#/components/requestBodies/ComputedRecipesRequestBody"
       responses:
         200:
           description: OK
@@ -123,13 +117,7 @@ paths:
           type: boolean
         description: Whether or not to group the recipes in the computed recipe up by name
       requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: "#/components/schemas/ComputedRecipeRequest"
-        required: false
+        $ref: "#/components/requestBodies/ComputedRecipesRequestBody"
       responses:
         200:
           description: OK
@@ -183,6 +171,33 @@ paths:
               schema:
                 $ref: "#/components/schemas/PageView"
 components:
+  requestBodies:
+    ComputedRecipesRequestBody:
+      description: A JSON object containing your recipe requirements
+      required: false
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              required:
+              - name
+              - rate
+              properties:
+                name:
+                  type: string
+                rate:
+                  type: number
+                requirements:
+                  type: object
+                  additionalProperties:
+                    type: number
+              example:
+                name: "Proliferator Mk.III"
+                rate: 2.0
+                requirements:
+                  "Carbon Nanotube": 1
   schemas:
     TwitterMedia:
       required:
@@ -225,62 +240,42 @@ components:
         username:
           type: string
     Recipe:
-      required:
-      - outputItem
-      - outputItemCount
-      - facility
-      - materials
-      - time
       type: object
+      required:
+        - name
       properties:
-        outputItem:
+        name:
           type: string
-        outputItemCount:
-          type: number
+        action:
+          type: string
         facility:
           type: string
-        time:
-          type: number
-        materials:
-          $ref: "#/components/schemas/Materials"
         image:
           type: string
-    Materials:
+        ingredients:
+          $ref: "#/components/schemas/Ingredients"
+        quantityProduced:
+          type: number
+        minProduced:
+          type: number
+        maxProduced:
+          type: number
+        timeToProduce:
+          type: number
+        marketData:
+          $ref: "#/components/schemas/MarketData"
+    Ingredients:
       type: object
       additionalProperties:
         type: string
       example:
         Plank: 1
-    ComputedRecipeRequest:
+    ComputedRecipe:
       required:
-      - rate
       - name
       type: object
       properties:
         name:
-          type: string
-        rate:
-          type: number
-        requirements:
-          type: object
-          additionalProperties:
-            type: number
-      example:
-        name: "Proliferator Mk.III"
-        rate: 2.0
-        requirements:
-          "Carbon Nanotube": 1
-    ComputedRecipe:
-      required:
-      - outputItem
-      - facility
-      - numFacilitiesNeeded
-      - itemsConsumedPerSec
-      - secondsSpentPerCraft
-      - usedFor
-      type: object
-      properties:
-        outputItem:
           type: string
         facility:
           type: string
@@ -297,14 +292,6 @@ components:
           type: string
         depth:
           type: number
-        action:
-          type: string
-        quantityProduced:
-          type: number
-        timeToProduce:
-          type: number
-        marketData:
-          $ref: "#/components/schemas/MarketData"
         image:
           type: string
     MarketData:

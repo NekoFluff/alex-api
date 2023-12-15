@@ -1,7 +1,7 @@
 package dspscraper
 
 import (
-	"alex-api/internal/recipecalc"
+	"alex-api/internal/data"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -13,30 +13,31 @@ import (
 	"github.com/gocolly/colly"
 )
 
-func Scrape() {
+func Scrape() []data.Recipe {
 	urls := getURLs()
-	// fmt.Println("URLS",urls)
 
-	var dspRecipes []recipecalc.Recipe
+	var dspRecipes []data.Recipe
 	for itemName, url := range urls {
 		dspRecipes = append(dspRecipes, scrapeURL(itemName, url)...)
 	}
 
-	dspRecipes = append(dspRecipes, recipecalc.Recipe{
-		OutputItem:      "Critical Photon",
-		OutputItemCount: 0,
-		Facility:        "Ray Receiver",
-		Time:            0,
-		Image:           "https://dsp-wiki.com/images/9/92/Icon_Critical_Photon.png",
+	dspRecipes = append(dspRecipes, data.Recipe{
+		Name:             "Critical Photon",
+		QuantityProduced: 0,
+		Facility:         "Ray Receiver",
+		TimeToProduce:    0,
+		Image:            "https://dsp-wiki.com/images/9/92/Icon_Critical_Photon.png",
 	})
 
 	sort.SliceStable(dspRecipes, func(i, j int) bool {
-		return dspRecipes[i].OutputItem < dspRecipes[j].OutputItem
+		return dspRecipes[i].Name < dspRecipes[j].Name
 	})
 
 	file, _ := json.MarshalIndent(dspRecipes, "", "\t")
 
 	_ = os.WriteFile("internal/data/items.json", file, 0644)
+
+	return dspRecipes
 }
 
 func getURLs() map[string]string {
@@ -74,8 +75,8 @@ func getURLs() map[string]string {
 	return urls
 }
 
-func scrapeURL(itemName string, url string) []recipecalc.Recipe {
-	var dspRecipes []recipecalc.Recipe
+func scrapeURL(itemName string, url string) []data.Recipe {
+	var dspRecipes []data.Recipe
 	c := colly.NewCollector()
 
 	// c.Limit(&colly.LimitRule{
@@ -96,14 +97,14 @@ func scrapeURL(itemName string, url string) []recipecalc.Recipe {
 
 	c.OnHTML("table.pc_table:nth-of-type(1)", func(e *colly.HTMLElement) {
 		e.ForEach("tr:nth-of-type(n+1)", func(_ int, e2 *colly.HTMLElement) {
-			i := recipecalc.Recipe{}
-			i.Materials = make(map[string]float64)
+			i := data.Recipe{}
+			i.Ingredients = make(map[string]float64)
 
-			// Materials
+			// Ingredients
 			e2.ForEach("div.tt_recipe_item", func(_ int, e3 *colly.HTMLElement) {
 				count, _ := strconv.ParseFloat(e3.ChildText("div"), 32)
 				name := e3.ChildAttr("a", "title")
-				i.Materials[name] = count
+				i.Ingredients[name] = count
 			})
 
 			// Time Taken
@@ -111,16 +112,16 @@ func scrapeURL(itemName string, url string) []recipecalc.Recipe {
 			r, _ := regexp.Compile(`(\d+\.*\d*)`)
 			secondsStr = r.FindString(secondsStr)
 			time, _ := strconv.ParseFloat(secondsStr, 32)
-			i.Time = time
+			i.TimeToProduce = time
 
 			// Output
 			e2.ForEach("div.tt_output_item", func(_ int, e3 *colly.HTMLElement) {
 				outputItemName := e3.ChildAttr("a", "title")
 
 				if itemName == outputItemName {
-					i.OutputItem = outputItemName
-					outputItemCount, _ := strconv.ParseFloat(e3.ChildText("div"), 64)
-					i.OutputItemCount = float64(outputItemCount)
+					i.Name = outputItemName
+					quantityProduced, _ := strconv.ParseFloat(e3.ChildText("div"), 64)
+					i.QuantityProduced = float64(quantityProduced)
 					image := e3.ChildAttr("img", "src")
 					if image != "" {
 						image = "https://dsp-wiki.com" + image
@@ -137,7 +138,7 @@ func scrapeURL(itemName string, url string) []recipecalc.Recipe {
 
 			fmt.Printf("Item: %+v\n", i)
 
-			if i.OutputItem != "" {
+			if i.Name != "" {
 				dspRecipes = append(dspRecipes, i)
 			}
 		})

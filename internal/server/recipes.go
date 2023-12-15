@@ -63,7 +63,7 @@ func (s *Server) DSPReloadRecipes() http.HandlerFunc {
 		})
 
 		dspscraper.Scrape()
-		s.dspOptimizer.SetRecipes(recipecalc.LoadDSPRecipes("internal/data/items.json"))
+		s.dspOptimizer.SetRecipes(recipecalc.LoadDSPRecipes(l, s.db))
 
 		l.Info("Reloaded Recipes")
 		_, _ = w.Write([]byte("Successfully reloaded recipes"))

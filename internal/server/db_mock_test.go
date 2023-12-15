@@ -48,6 +48,36 @@ func (mr *MockDBMockRecorder) CreatePageView(pageView interface{}) *gomock.Call 
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreatePageView", reflect.TypeOf((*MockDB)(nil).CreatePageView), pageView)
 }
 
+// GetBDORecipes mocks base method.
+func (m *MockDB) GetBDORecipes(skip, limit *int64) ([]data.Recipe, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetBDORecipes", skip, limit)
+	ret0, _ := ret[0].([]data.Recipe)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// GetBDORecipes indicates an expected call of GetBDORecipes.
+func (mr *MockDBMockRecorder) GetBDORecipes(skip, limit interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetBDORecipes", reflect.TypeOf((*MockDB)(nil).GetBDORecipes), skip, limit)
+}
+
+// GetDSPRecipes mocks base method.
+func (m *MockDB) GetDSPRecipes(skip, limit *int64) ([]data.Recipe, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetDSPRecipes", skip, limit)
+	ret0, _ := ret[0].([]data.Recipe)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// GetDSPRecipes indicates an expected call of GetDSPRecipes.
+func (mr *MockDBMockRecorder) GetDSPRecipes(skip, limit interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetDSPRecipes", reflect.TypeOf((*MockDB)(nil).GetDSPRecipes), skip, limit)
+}
+
 // GetPageView mocks base method.
 func (m *MockDB) GetPageView(domain, path string) (data.PageView, error) {
 	m.ctrl.T.Helper()
@@ -61,21 +91,6 @@ func (m *MockDB) GetPageView(domain, path string) (data.PageView, error) {
 func (mr *MockDBMockRecorder) GetPageView(domain, path interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetPageView", reflect.TypeOf((*MockDB)(nil).GetPageView), domain, path)
-}
-
-// GetRecipes mocks base method.
-func (m *MockDB) GetRecipes(skip, limit *int64) ([]data.Recipe, error) {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "GetRecipes", skip, limit)
-	ret0, _ := ret[0].([]data.Recipe)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
-}
-
-// GetRecipes indicates an expected call of GetRecipes.
-func (mr *MockDBMockRecorder) GetRecipes(skip, limit interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetRecipes", reflect.TypeOf((*MockDB)(nil).GetRecipes), skip, limit)
 }
 
 // GetTwitterMedia mocks base method.

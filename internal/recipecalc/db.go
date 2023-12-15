@@ -6,5 +6,6 @@ import (
 )
 
 type DB interface {
-	GetRecipes(skip *int64, limit *int64) ([]data.Recipe, error)
+	GetDSPRecipes(skip *int64, limit *int64) ([]data.Recipe, error)
+	GetBDORecipes(skip *int64, limit *int64) ([]data.Recipe, error)
 }

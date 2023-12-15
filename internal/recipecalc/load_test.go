@@ -17,7 +17,7 @@ func TestLoadBDORecipes(t *testing.T) {
 
 	ctrl := gomock.NewController(t)
 	dbMock := NewMockDB(ctrl)
-	dbMock.EXPECT().GetRecipes(nil, nil).Return([]data.Recipe{
+	dbMock.EXPECT().GetBDORecipes(nil, nil).Return([]data.Recipe{
 		{
 			Name: "recipe1",
 			MarketData: &data.MarketData{

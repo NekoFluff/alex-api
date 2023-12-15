@@ -1,47 +1,16 @@
 package recipecalc
 
 import (
-	"encoding/json"
-	"io"
-	"log"
-	"os"
+	"alex-api/internal/data"
 	"strings"
 
 	"github.com/sirupsen/logrus"
 )
 
-func LoadDSPRecipes(file string) map[string][]Recipe {
-	recipeMap := map[string][]Recipe{}
+func LoadDSPRecipes(log *logrus.Entry, db DB) map[string][]data.Recipe {
+	recipeMap := map[string][]data.Recipe{}
 
-	// Open up the file
-	jsonFile, err := os.Open(file)
-	if err != nil {
-		log.Fatal(err, "failed to open recipes file")
-	}
-	defer jsonFile.Close()
-
-	// Read and unmarshal the file
-	byteValue, _ := io.ReadAll(jsonFile)
-	var recipes []Recipe
-	err = json.Unmarshal(byteValue, &recipes)
-	if err != nil {
-		log.Fatal(err, "failed to unmarshal recipes from file")
-	}
-
-	// Map the recipe
-	for _, recipe := range recipes {
-		name := strings.ToLower(string(recipe.OutputItem))
-		recipeMap[name] = append(recipeMap[name], recipe)
-	}
-
-	return recipeMap
-}
-
-func LoadBDORecipes(log *logrus.Entry, db DB) map[string][]Recipe {
-	recipeMap := map[string][]Recipe{}
-
-	// TEMP BDO Section
-	dbRecipes, err := db.GetRecipes(nil, nil)
+	dbRecipes, err := db.GetDSPRecipes(nil, nil)
 	if err != nil {
 		log.Fatal("failed to load recipes", err)
 	}
@@ -50,35 +19,25 @@ func LoadBDORecipes(log *logrus.Entry, db DB) map[string][]Recipe {
 	// Map the recipe
 	for _, recipe := range dbRecipes {
 		name := strings.ToLower(string(recipe.Name))
+		recipeMap[name] = append(recipeMap[name], recipe)
+	}
 
-		mats := Materials{}
-		for _, ingredient := range recipe.Recipe {
-			mats[ingredient.ItemName] = ingredient.Amount
-		}
+	return recipeMap
+}
 
-		marketData := &MarketData{}
-		if recipe.MarketData != nil {
-			marketData = &MarketData{
-				LastUpdateAttempt: recipe.MarketData.LastUpdateAttempt,
-				LastUpdated:       recipe.MarketData.LastUpdated,
-				Price:             recipe.MarketData.Price,
-				Quantity:          recipe.MarketData.Quantity,
-				TotalTradeCount:   recipe.MarketData.TotalTradeCount,
-				Name:              recipe.MarketData.Name,
-			}
-		}
+func LoadBDORecipes(log *logrus.Entry, db DB) map[string][]data.Recipe {
+	recipeMap := map[string][]data.Recipe{}
 
-		recipeMap[name] = append(recipeMap[name], Recipe{
-			OutputItem:         recipe.Name,
-			OutputItemCount:    recipe.QuantityProduced,
-			MinOutputItemCount: recipe.MinProduced,
-			MaxOutputItemCount: recipe.MaxProduced,
-			Facility:           recipe.Action,
-			Time:               recipe.TimeToProduce,
-			Materials:          mats,
-			Image:              recipe.Image,
-			MarketData:         marketData,
-		})
+	dbRecipes, err := db.GetBDORecipes(nil, nil)
+	if err != nil {
+		log.Fatal("failed to load recipes", err)
+	}
+	log.Print("recipes", dbRecipes)
+
+	// Map the recipe
+	for _, recipe := range dbRecipes {
+		name := strings.ToLower(string(recipe.Name))
+		recipeMap[name] = append(recipeMap[name], recipe)
 	}
 
 	return recipeMap

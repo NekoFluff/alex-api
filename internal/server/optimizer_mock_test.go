@@ -5,6 +5,7 @@
 package server
 
 import (
+	data "alex-api/internal/data"
 	recipecalc "alex-api/internal/recipecalc"
 	reflect "reflect"
 
@@ -63,10 +64,10 @@ func (mr *MockOptimizerMockRecorder) GetOptimalRecipe(itemName, rate, recipeName
 }
 
 // GetRecipes mocks base method.
-func (m *MockOptimizer) GetRecipes() [][]recipecalc.Recipe {
+func (m *MockOptimizer) GetRecipes() [][]data.Recipe {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetRecipes")
-	ret0, _ := ret[0].([][]recipecalc.Recipe)
+	ret0, _ := ret[0].([][]data.Recipe)
 	return ret0
 }
 
@@ -77,7 +78,7 @@ func (mr *MockOptimizerMockRecorder) GetRecipes() *gomock.Call {
 }
 
 // SetRecipes mocks base method.
-func (m *MockOptimizer) SetRecipes(recipes map[string][]recipecalc.Recipe) {
+func (m *MockOptimizer) SetRecipes(recipes map[string][]data.Recipe) {
 	m.ctrl.T.Helper()
 	m.ctrl.Call(m, "SetRecipes", recipes)
 }

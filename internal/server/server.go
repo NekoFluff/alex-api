@@ -17,14 +17,13 @@ type Server struct {
 	*http.Server
 	router       *mux.Router
 	logger       *logrus.Entry
-	service      Servicer
 	validator    *validator.Validate
 	db           DB
 	dspOptimizer Optimizer
 	bdoOptimizer Optimizer
 }
 
-func New(cfg config.Config, log *logrus.Entry, service Servicer, db DB, dspOptimizer Optimizer, bdoOptimizer Optimizer) *Server {
+func New(cfg config.Config, log *logrus.Entry, db DB, dspOptimizer Optimizer, bdoOptimizer Optimizer) *Server {
 	timeout := 60 * time.Second
 	router := mux.NewRouter()
 	router.StrictSlash(true)
@@ -59,7 +58,6 @@ func New(cfg config.Config, log *logrus.Entry, service Servicer, db DB, dspOptim
 		logger:       log,
 		cfg:          cfg,
 		validator:    v,
-		service:      service,
 		db:           db,
 		dspOptimizer: dspOptimizer,
 		bdoOptimizer: bdoOptimizer,

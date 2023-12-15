@@ -1,6 +1,7 @@
 package recipecalc
 
 import (
+	"alex-api/internal/data"
 	"fmt"
 	"math"
 	"sort"
@@ -10,7 +11,7 @@ import (
 )
 
 type Optimizer struct {
-	recipeMap map[string][]Recipe
+	recipeMap map[string][]data.Recipe
 	config    OptimizerConfig
 	log       *logrus.Entry
 }
@@ -19,23 +20,23 @@ type OptimizerConfig struct{}
 
 func NewOptimizer(log *logrus.Entry, config OptimizerConfig) *Optimizer {
 	o := &Optimizer{
-		recipeMap: make(map[string][]Recipe),
+		recipeMap: make(map[string][]data.Recipe),
 		config:    config,
 		log:       log,
 	}
 	return o
 }
 
-func (o *Optimizer) SetRecipes(recipes map[string][]Recipe) {
+func (o *Optimizer) SetRecipes(recipes map[string][]data.Recipe) {
 	o.recipeMap = recipes
 }
 
-func (o *Optimizer) GetRecipe(itemName string, recipeIdx int) (Recipe, bool) {
+func (o *Optimizer) GetRecipe(itemName string, recipeIdx int) (data.Recipe, bool) {
 	name := strings.ToLower(string(itemName))
 	recipes, ok := o.recipeMap[name]
 
 	if !ok {
-		return Recipe{}, ok
+		return data.Recipe{}, ok
 	}
 
 	if len(recipes) > recipeIdx {
@@ -46,8 +47,8 @@ func (o *Optimizer) GetRecipe(itemName string, recipeIdx int) (Recipe, bool) {
 	return recipes[0], true
 }
 
-func (o *Optimizer) GetRecipes() [][]Recipe {
-	recipes := [][]Recipe{}
+func (o *Optimizer) GetRecipes() [][]data.Recipe {
+	recipes := [][]data.Recipe{}
 	for _, recipe := range o.recipeMap {
 		recipes = append(recipes, recipe)
 	}
@@ -74,18 +75,18 @@ func (o *Optimizer) GetOptimalRecipe(itemName string, craftingSpeed float64, par
 	}
 
 	consumedMats := make(map[string]float64)
-	numberOfFacilitiesNeeded := guardInf(float64(recipe.Time * craftingSpeed / recipe.OutputItemCount))
+	numberOfFacilitiesNeeded := guardInf(float64(recipe.TimeToProduce * craftingSpeed / recipe.QuantityProduced))
 
-	for materialName, materialCount := range recipe.Materials {
-		consumedMats[materialName] = guardInf(float64(materialCount * numberOfFacilitiesNeeded / recipe.Time))
+	for materialName, materialCount := range recipe.Ingredients {
+		consumedMats[materialName] = guardInf(float64(materialCount * numberOfFacilitiesNeeded / recipe.TimeToProduce))
 	}
 
 	computedRecipe := ComputedRecipe{
-		OutputItem:           recipe.OutputItem,
+		Name:                 recipe.Name,
 		Facility:             recipe.Facility,
 		NumFacilitiesNeeded:  numberOfFacilitiesNeeded,
 		ItemsConsumedPerSec:  consumedMats,
-		SecondsSpentPerCraft: recipe.Time,
+		SecondsSpentPerCraft: recipe.TimeToProduce,
 		CraftingPerSec:       craftingSpeed,
 		UsedFor:              string(parentItemName),
 		Depth:                depth,
@@ -99,7 +100,7 @@ func (o *Optimizer) GetOptimalRecipe(itemName string, craftingSpeed float64, par
 		for k, v := range seenRecipes {
 			seenRecipesCopy[k] = v
 		}
-		cr := o.GetOptimalRecipe(materialName, targetCraftingSpeed, recipe.OutputItem, seenRecipesCopy, depth+1, recipeRequirements)
+		cr := o.GetOptimalRecipe(materialName, targetCraftingSpeed, recipe.Name, seenRecipesCopy, depth+1, recipeRequirements)
 		computedRecipes = append(computedRecipes, cr...)
 	}
 
@@ -110,8 +111,8 @@ func (o *Optimizer) SortRecipes(recipes []ComputedRecipe) {
 	sort.SliceStable(recipes, func(i, j int) bool {
 		if recipes[i].Depth != recipes[j].Depth {
 			return recipes[i].Depth < recipes[j].Depth
-		} else if recipes[i].OutputItem != recipes[j].OutputItem {
-			return recipes[i].OutputItem < recipes[j].OutputItem
+		} else if recipes[i].Name != recipes[j].Name {
+			return recipes[i].Name < recipes[j].Name
 		} else if recipes[i].UsedFor != recipes[j].UsedFor {
 			return recipes[i].UsedFor < recipes[j].UsedFor
 		} else {
@@ -124,7 +125,7 @@ func (o *Optimizer) CombineRecipes(recipes []ComputedRecipe) []ComputedRecipe {
 	uniqueRecipes := make(map[string]ComputedRecipe)
 
 	for _, recipe := range recipes {
-		if uRecipe, ok := uniqueRecipes[recipe.OutputItem]; ok { // combine recipe objects
+		if uRecipe, ok := uniqueRecipes[recipe.Name]; ok { // combine recipe objects
 
 			old_num := uRecipe.NumFacilitiesNeeded
 			new_num := recipe.NumFacilitiesNeeded
@@ -138,13 +139,13 @@ func (o *Optimizer) CombineRecipes(recipes []ComputedRecipe) []ComputedRecipe {
 			uRecipe.UsedFor = fmt.Sprintf("%s | %s (Uses %0.2f/s)", uRecipe.UsedFor, recipe.UsedFor, recipe.CraftingPerSec)
 			uRecipe.NumFacilitiesNeeded += recipe.NumFacilitiesNeeded
 			uRecipe.Depth = max(uRecipe.Depth, recipe.Depth)
-			uniqueRecipes[recipe.OutputItem] = uRecipe
+			uniqueRecipes[recipe.Name] = uRecipe
 
 		} else { // add recipe object
 			if recipe.UsedFor != "" {
 				recipe.UsedFor = fmt.Sprintf("%s (Uses %0.2f/s)", recipe.UsedFor, recipe.CraftingPerSec)
 			}
-			uniqueRecipes[recipe.OutputItem] = recipe
+			uniqueRecipes[recipe.Name] = recipe
 		}
 	}
 
