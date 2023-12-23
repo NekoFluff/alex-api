@@ -5,7 +5,7 @@ info:
   contact:
     name: API Support
     email: alexnou@gmail.com
-  version: 0.5.2
+  version: 0.5.3
 servers:
 - url: https://alex-api.herokuapp.com
 tags:
@@ -31,6 +31,13 @@ paths:
         schema:
           type: boolean
         description: Whether or not to group the recipes in the computed recipe up by name
+      - in: query
+        name: assemblerLevel
+        schema:
+          type: number
+          example: 2
+          default: 2
+          enum: [1, 2, 3]
       requestBody:
         $ref: "#/components/requestBodies/ComputedRecipesRequestBody"
       responses:
@@ -189,11 +196,6 @@ components:
                   type: string
                 rate:
                   type: number
-                assemblerLevel:
-                  type: number
-                  example: 2
-                  default: 2
-                  enum: [1, 2, 3]
                 requirements:
                   type: object
                   additionalProperties:
@@ -202,7 +204,6 @@ components:
               example:
                 name: "Proliferator Mk.III"
                 rate: 2.0
-                assemblerLevel: 3
                 requirements:
                   "Carbon Nanotube": 1
   schemas:

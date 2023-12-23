@@ -1,18 +1,9 @@
 package recipecalc
 
-import "encoding/json"
-
 type ComputedRecipeRequest struct {
-	Name          string             `json:"name" validate:"required"`
-	Rate          float64            `json:"rate" validate:"required"`
-	AssemberLevel int                `json:"assemblerLevel" validate:"gte=1,lte=3"`
-	Requirements  RecipeRequirements `json:"requirements,omitempty"`
-}
-
-func (crr *ComputedRecipeRequest) UnmarshalJSON(b []byte) error {
-	crr.AssemberLevel = 2
-	type alias ComputedRecipeRequest
-	return json.Unmarshal(b, (*alias)(crr))
+	Name         string             `json:"name" validate:"required"`
+	Rate         float64            `json:"rate" validate:"required"`
+	Requirements RecipeRequirements `json:"requirements,omitempty"`
 }
 
 type RecipeRequirements map[string]int

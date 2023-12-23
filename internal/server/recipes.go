@@ -6,6 +6,7 @@ import (
 	"alex-api/internal/utils"
 	"encoding/json"
 	"net/http"
+	"strconv"
 
 	"github.com/sirupsen/logrus"
 )
@@ -27,15 +28,20 @@ func (s *Server) DSPComputedRecipes() http.HandlerFunc {
 			return
 		}
 		l = l.WithField("body", body)
+		q := r.URL.Query()
+		assemblerLevelStr := q.Get("assemblerLevel")
+		assemblerLevel, err := strconv.Atoi(assemblerLevelStr)
+		if err != nil || (assemblerLevel != 1 && assemblerLevel != 2 && assemblerLevel != 3) {
+			assemblerLevel = 2
+		}
 
 		var computedRecipes = []recipecalc.ComputedRecipe{}
 		for _, recipeRequest := range body {
 			itemName := recipeRequest.Name
-			optimalRecipe := s.dspOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipecalc.RecipeRequirements(recipeRequest.Requirements), recipeRequest.AssemberLevel)
+			optimalRecipe := s.dspOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipecalc.RecipeRequirements(recipeRequest.Requirements), assemblerLevel)
 			computedRecipes = append(computedRecipes, optimalRecipe...)
 		}
 
-		q := r.URL.Query()
 		if q.Get("group") == "true" {
 			s.dspOptimizer.SortRecipes(computedRecipes)
 			computedRecipes = s.dspOptimizer.CombineRecipes(computedRecipes)
