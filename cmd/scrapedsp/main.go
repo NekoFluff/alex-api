@@ -17,7 +17,13 @@ func main() {
 	log := logger.WithContext(ctx)
 
 	db := data.New(log)
-	_ = db.DeleteDSPRecipes()
-	_ = db.CreateDSPRecipes(dspRecipes)
+	err := db.DeleteDSPRecipes()
+	if err != nil {
+		log.WithError(err).Error("Failed to delete DSP recipes")
+	}
+	err = db.CreateDSPRecipes(dspRecipes)
+	if err != nil {
+		log.WithError(err).Error("Failed to create DSP recipes")
+	}
 	cancel()
 }

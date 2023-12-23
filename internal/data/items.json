@@ -780,7 +780,7 @@
 		"facility": "Assembling Machine Mk.I",
 		"image": "https://dsp-wiki.com/images/thumb/d/d4/Icon_Logistics_Bot.png/45px-Icon_Logistics_Bot.png",
 		"ingredients": {
-			"Electromagnetic Turbine": 1,
+			"Engine": 1,
 			"Iron Ingot": 2,
 			"Processor": 1
 		},

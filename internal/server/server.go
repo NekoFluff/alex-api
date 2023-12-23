@@ -42,7 +42,7 @@ func New(cfg config.Config, log *logrus.Entry, db DB, dspOptimizer Optimizer, bd
 		AllowCredentials: true,
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		// Enable Debugging for testing, consider disabling in production
-		Debug: true,
+		Debug: false,
 	})
 
 	v := validator.New()

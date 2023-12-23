@@ -1,0 +1,48 @@
+version: "3.8"
+services:
+  #######################################################
+  # Alex API
+  #######################################################
+  alex-api:
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile
+      args:
+        BASE_IMAGE: gcr.io/distroless/base:debug
+    restart: always
+    depends_on:
+      mongo:
+        condition: service_healthy
+    volumes:
+      - ./build/auth/:/auth
+    environment:
+      APP_NAME: alex-api
+      ENVIRONMENT: local
+      LOG_LEVEL: debug
+      PORT: 8080
+      MONGO_CONNECTION_URI: mongodb://root:password@mongo:27017
+    ports:
+      - "8080:8080"
+      - "9999:9999"
+    healthcheck:
+      test: [ "CMD", "nc", "-z", "localhost", "9999" ]
+
+  #######################################################
+  # MongoDB
+  #######################################################
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - "27017:27017"
+    volumes:
+      - mg_data:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+
+
+volumes:
+  mg_data: {}

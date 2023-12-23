@@ -13,6 +13,17 @@ run:
 scrape:
 	go run cmd/scrapedsp/main.go
 
+up:
+	go mod vendor
+	docker compose --file ./build/docker-compose.yml --project-directory . up --build -d
+	rm -rf vendor
+
+down:
+	docker compose --file ./build/docker-compose.yml --project-directory . down
+
+down-volumes:
+	docker compose --file ./build/docker-compose.yml --project-directory . down --volumes
+
 #################################################################################
 # TEST
 #################################################################################
