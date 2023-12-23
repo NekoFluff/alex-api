@@ -1,7 +1,7 @@
 [
     {
         "name": "Conveyor Belt Mk.II",
-        "facility": "Assembling Machine Mk.I",
+        "facility": "Assembling Machine Mk.II",
         "numFacilitiesNeeded": 0.3333333333333333,
         "itemsConsumedPerSec": {
             "Conveyor Belt Mk.I": 1,
@@ -14,7 +14,7 @@
     },
     {
         "name": "Conveyor Belt Mk.I",
-        "facility": "Assembling Machine Mk.I",
+        "facility": "Assembling Machine Mk.II",
         "numFacilitiesNeeded": 0.3333333333333333,
         "itemsConsumedPerSec": {
             "Gear": 0.3333333333333333,
@@ -27,7 +27,7 @@
     },
     {
         "name": "Electromagnetic Turbine",
-        "facility": "Assembling Machine Mk.I",
+        "facility": "Assembling Machine Mk.II",
         "numFacilitiesNeeded": 0.6666666666666666,
         "itemsConsumedPerSec": {
             "Electric Motor": 0.6666666666666666,
@@ -40,7 +40,7 @@
     },
     {
         "name": "Electric Motor",
-        "facility": "Assembling Machine Mk.I",
+        "facility": "Assembling Machine Mk.II",
         "numFacilitiesNeeded": 1.3333333333333333,
         "itemsConsumedPerSec": {
             "Gear": 0.6666666666666666,
@@ -54,7 +54,7 @@
     },
     {
         "name": "Gear",
-        "facility": "Assembling Machine Mk.I",
+        "facility": "Assembling Machine Mk.II",
         "numFacilitiesNeeded": 0.3333333333333333,
         "itemsConsumedPerSec": {
             "Iron Ingot": 0.3333333333333333
@@ -78,7 +78,7 @@
     },
     {
         "name": "Magnetic Coil",
-        "facility": "Assembling Machine Mk.I",
+        "facility": "Assembling Machine Mk.II",
         "numFacilitiesNeeded": 0.3333333333333333,
         "itemsConsumedPerSec": {
             "Copper Ingot": 0.3333333333333333,
@@ -103,7 +103,7 @@
     },
     {
         "name": "Gear",
-        "facility": "Assembling Machine Mk.I",
+        "facility": "Assembling Machine Mk.II",
         "numFacilitiesNeeded": 0.6666666666666666,
         "itemsConsumedPerSec": {
             "Iron Ingot": 0.6666666666666666
@@ -163,7 +163,7 @@
     },
     {
         "name": "Magnetic Coil",
-        "facility": "Assembling Machine Mk.I",
+        "facility": "Assembling Machine Mk.II",
         "numFacilitiesNeeded": 0.3333333333333333,
         "itemsConsumedPerSec": {
             "Copper Ingot": 0.3333333333333333,

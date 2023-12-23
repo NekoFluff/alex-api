@@ -50,17 +50,17 @@ func (mr *MockOptimizerMockRecorder) CombineRecipes(recipes interface{}) *gomock
 }
 
 // GetOptimalRecipe mocks base method.
-func (m *MockOptimizer) GetOptimalRecipe(itemName string, rate float64, recipeName string, ignore map[string]bool, depth int64, requirements recipecalc.RecipeRequirements) []recipecalc.ComputedRecipe {
+func (m *MockOptimizer) GetOptimalRecipe(itemName string, rate float64, recipeName string, ignore map[string]bool, depth int64, requirements recipecalc.RecipeRequirements, assemblerLevel int) []recipecalc.ComputedRecipe {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "GetOptimalRecipe", itemName, rate, recipeName, ignore, depth, requirements)
+	ret := m.ctrl.Call(m, "GetOptimalRecipe", itemName, rate, recipeName, ignore, depth, requirements, assemblerLevel)
 	ret0, _ := ret[0].([]recipecalc.ComputedRecipe)
 	return ret0
 }
 
 // GetOptimalRecipe indicates an expected call of GetOptimalRecipe.
-func (mr *MockOptimizerMockRecorder) GetOptimalRecipe(itemName, rate, recipeName, ignore, depth, requirements interface{}) *gomock.Call {
+func (mr *MockOptimizerMockRecorder) GetOptimalRecipe(itemName, rate, recipeName, ignore, depth, requirements, assemblerLevel interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetOptimalRecipe", reflect.TypeOf((*MockOptimizer)(nil).GetOptimalRecipe), itemName, rate, recipeName, ignore, depth, requirements)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetOptimalRecipe", reflect.TypeOf((*MockOptimizer)(nil).GetOptimalRecipe), itemName, rate, recipeName, ignore, depth, requirements, assemblerLevel)
 }
 
 // GetRecipes mocks base method.

@@ -55,7 +55,7 @@ func (o *Optimizer) GetRecipes() [][]data.Recipe {
 	return recipes
 }
 
-func (o *Optimizer) GetOptimalRecipe(itemName string, craftingSpeed float64, parentItemName string, seenRecipes map[string]bool, depth int64, recipeRequirements RecipeRequirements) []ComputedRecipe {
+func (o *Optimizer) GetOptimalRecipe(itemName string, craftingSpeed float64, parentItemName string, seenRecipes map[string]bool, depth int64, recipeRequirements RecipeRequirements, assemblerLevel int) []ComputedRecipe {
 	computedRecipes := []ComputedRecipe{}
 
 	if seenRecipes[itemName] {
@@ -75,6 +75,27 @@ func (o *Optimizer) GetOptimalRecipe(itemName string, craftingSpeed float64, par
 	}
 
 	consumedMats := make(map[string]float64)
+	assemblerSpeedModifier := 1.0
+	if (recipe.Facility != "") && (strings.Contains(strings.ToLower(recipe.Facility), "assembling machine")) {
+		var err error
+		assemblerSpeedModifier, err = getAssemblerSpeedModifier(assemblerLevel)
+		if err != nil {
+			o.log.WithError(err).Error("failed to get assembler speed modifier")
+			return computedRecipes
+		}
+
+		switch assemblerLevel {
+		case 1:
+			recipe.Facility = "Assembling Machine Mk.I"
+		case 2:
+			recipe.Facility = "Assembling Machine Mk.II"
+		case 3:
+			recipe.Facility = "Assembling Machine Mk.III"
+		default:
+			recipe.Facility = "Assembling Machine Mk.II"
+		}
+	}
+
 	numberOfFacilitiesNeeded := guardInf(float64(recipe.TimeToProduce * craftingSpeed / recipe.QuantityProduced))
 
 	for materialName, materialCount := range recipe.Ingredients {
@@ -84,7 +105,7 @@ func (o *Optimizer) GetOptimalRecipe(itemName string, craftingSpeed float64, par
 	computedRecipe := ComputedRecipe{
 		Name:                 recipe.Name,
 		Facility:             recipe.Facility,
-		NumFacilitiesNeeded:  numberOfFacilitiesNeeded,
+		NumFacilitiesNeeded:  numberOfFacilitiesNeeded / assemblerSpeedModifier,
 		ItemsConsumedPerSec:  consumedMats,
 		SecondsSpentPerCraft: recipe.TimeToProduce,
 		CraftingPerSec:       craftingSpeed,
@@ -100,11 +121,24 @@ func (o *Optimizer) GetOptimalRecipe(itemName string, craftingSpeed float64, par
 		for k, v := range seenRecipes {
 			seenRecipesCopy[k] = v
 		}
-		cr := o.GetOptimalRecipe(materialName, targetCraftingSpeed, recipe.Name, seenRecipesCopy, depth+1, recipeRequirements)
+		cr := o.GetOptimalRecipe(materialName, targetCraftingSpeed, recipe.Name, seenRecipesCopy, depth+1, recipeRequirements, assemblerLevel)
 		computedRecipes = append(computedRecipes, cr...)
 	}
 
 	return computedRecipes
+}
+
+func getAssemblerSpeedModifier(assemblerLevel int) (float64, error) {
+	switch assemblerLevel {
+	case 1:
+		return 0.75, nil
+	case 2:
+		return 1.0, nil
+	case 3:
+		return 1.5, nil
+	default:
+		return 0.0, fmt.Errorf("invalid assembler level: %d. only 1, 2, and 3 are valid", assemblerLevel)
+	}
 }
 
 func (o *Optimizer) SortRecipes(recipes []ComputedRecipe) {

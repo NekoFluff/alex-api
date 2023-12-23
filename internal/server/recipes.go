@@ -31,7 +31,7 @@ func (s *Server) DSPComputedRecipes() http.HandlerFunc {
 		var computedRecipes = []recipecalc.ComputedRecipe{}
 		for _, recipeRequest := range body {
 			itemName := recipeRequest.Name
-			optimalRecipe := s.dspOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipecalc.RecipeRequirements(recipeRequest.Requirements))
+			optimalRecipe := s.dspOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipecalc.RecipeRequirements(recipeRequest.Requirements), recipeRequest.AssemberLevel)
 			computedRecipes = append(computedRecipes, optimalRecipe...)
 		}
 
@@ -108,7 +108,7 @@ func (s *Server) BDOComputedRecipes() http.HandlerFunc {
 		var computedRecipes = []recipecalc.ComputedRecipe{}
 		for _, recipeRequest := range body {
 			itemName := recipeRequest.Name
-			optimalRecipe := s.bdoOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipeRequest.Requirements)
+			optimalRecipe := s.bdoOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipeRequest.Requirements, 2)
 			computedRecipes = append(computedRecipes, optimalRecipe...)
 		}
 

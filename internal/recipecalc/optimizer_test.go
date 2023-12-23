@@ -43,7 +43,7 @@ func TestOptimizer_DoesNotInfinitelyLoop(t *testing.T) {
 	o := NewOptimizer(log, OptimizerConfig{})
 	o.SetRecipes(recipeMap)
 
-	recipe := o.GetOptimalRecipe("Loopy item", 1, "", map[string]bool{}, 1, map[string]int{})
+	recipe := o.GetOptimalRecipe("Loopy item", 1, "", map[string]bool{}, 1, map[string]int{}, 2)
 	assert.Equal(t, []ComputedRecipe{
 		{
 			Name:                "Loopy item",
@@ -83,7 +83,7 @@ func TestOptimizer_E2E_ConveyorBeltMKII(t *testing.T) {
 	o.SetRecipes(LoadDSPRecipes(log, dbMock))
 	o.SortRecipes(expectedRecipes)
 
-	optimalRecipes := o.GetOptimalRecipe("Conveyor belt MK.II", 1, "", map[string]bool{}, 1, map[string]int{})
+	optimalRecipes := o.GetOptimalRecipe("Conveyor belt MK.II", 1, "", map[string]bool{}, 1, map[string]int{}, 2)
 	o.SortRecipes(optimalRecipes)
 	for i, recipe := range optimalRecipes {
 		recipe.Image = ""
@@ -105,7 +105,7 @@ func TestOptimizer_E2E_ConveyorBeltMKII_Combined(t *testing.T) {
 	assert.Equal(t, nil, err)
 
 	expectedRecipes := []ComputedRecipe{}
-	f, err = os.ReadFile("test_data/computed_recipe_conveyor_belt_mk_2 combined.json")
+	f, err = os.ReadFile("test_data/computed_recipe_conveyor_belt_mk_2_combined.json")
 	assert.Equal(t, nil, err)
 	err = json.Unmarshal(f, &expectedRecipes)
 	assert.Equal(t, nil, err)
@@ -118,7 +118,44 @@ func TestOptimizer_E2E_ConveyorBeltMKII_Combined(t *testing.T) {
 	o.SetRecipes(LoadDSPRecipes(log, dbMock))
 	o.SortRecipes(expectedRecipes)
 
-	optimalRecipes := o.GetOptimalRecipe("Conveyor belt MK.II", 1, "", map[string]bool{}, 1, map[string]int{})
+	optimalRecipes := o.GetOptimalRecipe("Conveyor belt MK.II", 1, "", map[string]bool{}, 1, map[string]int{}, 2)
+	o.SortRecipes(optimalRecipes)
+	optimalRecipes = o.CombineRecipes(optimalRecipes)
+	o.SortRecipes(optimalRecipes)
+	for i, recipe := range optimalRecipes {
+		recipe.Image = ""
+		optimalRecipes[i] = recipe
+	}
+
+	for k := range expectedRecipes {
+		assert.Equal(t, expectedRecipes[k], optimalRecipes[k])
+	}
+}
+
+func TestOptimizer_E2E_ConveyorBeltMKII_Combined_WithLevel3Assembler(t *testing.T) {
+	log := logrus.New().WithContext(context.TODO())
+
+	recipes := []data.Recipe{}
+	f, err := os.ReadFile("../data/items.json")
+	assert.Equal(t, nil, err)
+	err = json.Unmarshal(f, &recipes)
+	assert.Equal(t, nil, err)
+
+	expectedRecipes := []ComputedRecipe{}
+	f, err = os.ReadFile("test_data/computed_recipe_conveyor_belt_mk_2_combined_level_3_assembler.json")
+	assert.Equal(t, nil, err)
+	err = json.Unmarshal(f, &expectedRecipes)
+	assert.Equal(t, nil, err)
+
+	ctrl := gomock.NewController(t)
+	dbMock := NewMockDB(ctrl)
+	dbMock.EXPECT().GetDSPRecipes(nil, nil).Return(recipes, nil)
+
+	o := NewOptimizer(log, OptimizerConfig{})
+	o.SetRecipes(LoadDSPRecipes(log, dbMock))
+	o.SortRecipes(expectedRecipes)
+
+	optimalRecipes := o.GetOptimalRecipe("Conveyor belt MK.II", 1, "", map[string]bool{}, 1, map[string]int{}, 3)
 	o.SortRecipes(optimalRecipes)
 	optimalRecipes = o.CombineRecipes(optimalRecipes)
 	o.SortRecipes(optimalRecipes)
