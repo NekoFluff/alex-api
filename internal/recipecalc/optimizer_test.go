@@ -43,7 +43,7 @@ func TestOptimizer_DoesNotInfinitelyLoop(t *testing.T) {
 	o := NewOptimizer(log, OptimizerConfig{})
 	o.SetRecipes(recipeMap)
 
-	recipe := o.GetOptimalRecipe("Loopy item", 1, "", map[string]bool{}, 1, map[string]int{}, 2)
+	recipe := o.GetOptimalRecipe("Loopy item", 1, "", map[string]bool{}, 1, map[string]int{}, 2, 1, 1)
 	assert.Equal(t, []ComputedRecipe{
 		{
 			Name:                "Loopy item",
@@ -83,7 +83,7 @@ func TestOptimizer_E2E_ConveyorBeltMKII(t *testing.T) {
 	o.SetRecipes(LoadDSPRecipes(log, dbMock))
 	o.SortRecipes(expectedRecipes)
 
-	optimalRecipes := o.GetOptimalRecipe("Conveyor belt MK.II", 1, "", map[string]bool{}, 1, map[string]int{}, 2)
+	optimalRecipes := o.GetOptimalRecipe("Conveyor belt MK.II", 1, "", map[string]bool{}, 1, map[string]int{}, 2, 1, 1)
 	o.SortRecipes(optimalRecipes)
 	for i, recipe := range optimalRecipes {
 		recipe.Image = ""
@@ -118,7 +118,7 @@ func TestOptimizer_E2E_ConveyorBeltMKII_Combined(t *testing.T) {
 	o.SetRecipes(LoadDSPRecipes(log, dbMock))
 	o.SortRecipes(expectedRecipes)
 
-	optimalRecipes := o.GetOptimalRecipe("Conveyor belt MK.II", 1, "", map[string]bool{}, 1, map[string]int{}, 2)
+	optimalRecipes := o.GetOptimalRecipe("Conveyor belt MK.II", 1, "", map[string]bool{}, 1, map[string]int{}, 2, 1, 1)
 	o.SortRecipes(optimalRecipes)
 	optimalRecipes = o.CombineRecipes(optimalRecipes)
 	o.SortRecipes(optimalRecipes)
@@ -155,7 +155,7 @@ func TestOptimizer_E2E_ConveyorBeltMKII_Combined_WithLevel3Assembler(t *testing.
 	o.SetRecipes(LoadDSPRecipes(log, dbMock))
 	o.SortRecipes(expectedRecipes)
 
-	optimalRecipes := o.GetOptimalRecipe("Conveyor belt MK.II", 1, "", map[string]bool{}, 1, map[string]int{}, 3)
+	optimalRecipes := o.GetOptimalRecipe("Conveyor belt MK.II", 1, "", map[string]bool{}, 1, map[string]int{}, 3, 1, 1)
 	o.SortRecipes(optimalRecipes)
 	optimalRecipes = o.CombineRecipes(optimalRecipes)
 	o.SortRecipes(optimalRecipes)

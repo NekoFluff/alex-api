@@ -7,7 +7,7 @@ import (
 )
 
 type Optimizer interface {
-	GetOptimalRecipe(itemName string, rate float64, recipeName string, ignore map[string]bool, depth int64, requirements recipecalc.RecipeRequirements, assemblerLevel int) []recipecalc.ComputedRecipe
+	GetOptimalRecipe(itemName string, rate float64, recipeName string, ignore map[string]bool, depth int64, requirements recipecalc.RecipeRequirements, assemblerLevel, smelterLevel, chemicalPlantLevel int) []recipecalc.ComputedRecipe
 	SortRecipes(recipes []recipecalc.ComputedRecipe)
 	CombineRecipes(recipes []recipecalc.ComputedRecipe) []recipecalc.ComputedRecipe
 	SetRecipes(recipes map[string][]data.Recipe)

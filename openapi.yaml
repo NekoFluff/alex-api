@@ -5,7 +5,7 @@ info:
   contact:
     name: API Support
     email: alexnou@gmail.com
-  version: 0.5.3
+  version: 0.5.4
 servers:
 - url: https://alex-api.herokuapp.com
 tags:
@@ -38,6 +38,20 @@ paths:
           example: 2
           default: 2
           enum: [1, 2, 3]
+      - in: query
+        name: chemicalPlantLevel
+        schema:
+          type: number
+          example: 1
+          default: 1
+          enum: [1, 2]
+      - in: query
+        name: smelterLevel
+        schema:
+          type: number
+          example: 1
+          default: 1
+          enum: [1, 2]
       requestBody:
         $ref: "#/components/requestBodies/ComputedRecipesRequestBody"
       responses:

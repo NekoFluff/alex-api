@@ -35,10 +35,22 @@ func (s *Server) DSPComputedRecipes() http.HandlerFunc {
 			assemblerLevel = 2
 		}
 
+		smelterLevelStr := q.Get("smelterLevel")
+		smelterLevel, err := strconv.Atoi(smelterLevelStr)
+		if err != nil || (smelterLevel != 1 && smelterLevel != 2) {
+			smelterLevel = 1
+		}
+
+		chemicalPlantLevelStr := q.Get("chemicalPlantLevel")
+		chemicalPlantLevel, err := strconv.Atoi(chemicalPlantLevelStr)
+		if err != nil || (chemicalPlantLevel != 1 && chemicalPlantLevel != 2) {
+			chemicalPlantLevel = 1
+		}
+
 		var computedRecipes = []recipecalc.ComputedRecipe{}
 		for _, recipeRequest := range body {
 			itemName := recipeRequest.Name
-			optimalRecipe := s.dspOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipecalc.RecipeRequirements(recipeRequest.Requirements), assemblerLevel)
+			optimalRecipe := s.dspOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipecalc.RecipeRequirements(recipeRequest.Requirements), assemblerLevel, smelterLevel, chemicalPlantLevel)
 			computedRecipes = append(computedRecipes, optimalRecipe...)
 		}
 
@@ -114,7 +126,7 @@ func (s *Server) BDOComputedRecipes() http.HandlerFunc {
 		var computedRecipes = []recipecalc.ComputedRecipe{}
 		for _, recipeRequest := range body {
 			itemName := recipeRequest.Name
-			optimalRecipe := s.bdoOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipeRequest.Requirements, 2)
+			optimalRecipe := s.bdoOptimizer.GetOptimalRecipe(itemName, recipeRequest.Rate, "", map[string]bool{}, 0, recipeRequest.Requirements, 2, 1, 1)
 			computedRecipes = append(computedRecipes, optimalRecipe...)
 		}
 
